@@ -1,0 +1,1 @@
+E:\Workspaces\UWP\NavDemo\NavDemo\NavDemo.csproj;arm
