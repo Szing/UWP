@@ -15,7 +15,7 @@
         <x:String x:Key="AppName">My Application</x:String>
         <vm:HomePage_Model x:Key="DesignVM"/>
     </Page.Resources>
-    
+
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"  DataContext="{StaticResource DesignVM}">
         <Grid.ChildrenTransitions>
             <TransitionCollection>
@@ -23,9 +23,11 @@
             </TransitionCollection>
         </Grid.ChildrenTransitions>
 
-            <TextBlock x:ConnectionId='2' x:Name="pageTitle" Text="{Binding Title}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
+        <TextBlock x:ConnectionId='2' x:Name="pageTitle" Text="{Binding Title}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
                         IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40"/>
-  
+        <Button x:ConnectionId='3' x:Name="Button" Content="Button" HorizontalAlignment="Left" Margin="944,593,0,0" VerticalAlignment="Top" Height="57" Width="107"                     />
+        <Image x:ConnectionId='4' x:Name="Img" HorizontalAlignment="Left" Height="446" Margin="217,432,0,0" VerticalAlignment="Top" Width="568"/>
+
     </Grid>
 </mvvm:MVVMPage>
 

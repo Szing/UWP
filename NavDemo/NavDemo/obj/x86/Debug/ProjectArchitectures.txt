@@ -1,1 +1,1 @@
-E:\Workspaces\UWP\NavDemo\NavDemo\NavDemo.csproj;x86
+D:\UWP-master\NavDemo\NavDemo\NavDemo.csproj;x86
