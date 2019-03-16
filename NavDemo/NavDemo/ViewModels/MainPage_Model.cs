@@ -120,7 +120,7 @@ namespace NavDemo.ViewModels
                 this.isLoaded = true;
             }
             await base.OnBindedViewLoad(view);
-            await StageManager["frameMain"].Show(new HomePage_Model());
+            //await StageManager["frameMain"].Show(new HomePage_Model());
         }
 
         ///// <summary>

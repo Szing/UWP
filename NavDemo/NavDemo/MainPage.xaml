@@ -7,6 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:mvvm="using:MVVMSidekick.Views"
     xmlns:vm="using:NavDemo.ViewModels"
+    xmlns:nm="using:NavDemo.Models"
     mc:Ignorable="d">
     <Page.Resources>
         <!-- TODO: Delete this line if the key AppName is declared in App.xaml -->
@@ -65,11 +66,29 @@
                  OnNavigatedToPage we move keyboard focus to the first item on the page after it's loaded and update the Back button. -->
             <SplitView.Content>
                 <Frame x:Name="mainFrame" mvvm:StageManager.Beacon="frameMain" x:FieldModifier="public">
-                    
+                    <AutoSuggestBox HorizontalAlignment="Left" Margin="428,548,0,0" VerticalAlignment="Top" Height="68" Width="407"  TextMemberPath="Label" ItemsSource="{Binding NavMenuItemList}"
+                                    ItemTemplate="SuggestBoxTemplate">
+                        <AutoSuggestBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition  Width="Auto" />
+
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock x:Name="Text" Grid.Column="0" Text="{Binding  Label }" VerticalAlignment="Center" />
+                                </Grid>
+                            </DataTemplate>
+                        </AutoSuggestBox.ItemTemplate>
+                        <AutoSuggestBox.QueryIcon>
+                            <FontIcon FontFamily="{StaticResource FontAwesomeFontFamily}" FontSize="16" Margin="0" Glyph="&#xf002;" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                        </AutoSuggestBox.QueryIcon>
+                    </AutoSuggestBox>
+
                 </Frame>
             </SplitView.Content>
             <!--<Frame x:Name="mainFrame">-->
-                <!--<Frame.ContentTransitions>
+            <!--<Frame.ContentTransitions>
                     <TransitionCollection>
                         <NavigationThemeTransition>
                             <NavigationThemeTransition.DefaultNavigationTransitionInfo>

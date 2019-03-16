@@ -20,5 +20,16 @@
             <TextBlock x:Name="Text" Grid.Column="1" Text="{Binding Label}" VerticalAlignment="Center" />
         </Grid>
     </DataTemplate>
+
+    <DataTemplate x:Key="SuggestBoxTemplate">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition  Width="Auto" />
+
+            </Grid.ColumnDefinitions>
+
+            <TextBlock x:Name="Text" Grid.Column="0" Text="{Binding  Label }" VerticalAlignment="Center" />
+        </Grid>
+    </DataTemplate>
 </ResourceDictionary>
 
