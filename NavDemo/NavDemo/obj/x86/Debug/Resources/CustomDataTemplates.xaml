@@ -25,10 +25,18 @@
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition  Width="Auto" />
-
+                
             </Grid.ColumnDefinitions>
 
-            <TextBlock x:Name="Text" Grid.Column="0" Text="{Binding  Label }" VerticalAlignment="Center" />
+            <Image Width="50" Source="{Binding iconFriend}" />
+            <StackPanel Grid.Column="1" Margin="7,3,4,3">
+                <TextBlock FontSize="15" FontWeight="Bold" Text="{Binding nameFriend}"/>
+                <TextBlock>
+                                    <Run>昵称：</Run>
+                                    <Run Text="{Binding nickNameFriend}" />
+                </TextBlock>
+            </StackPanel>
+
         </Grid>
     </DataTemplate>
 </ResourceDictionary>

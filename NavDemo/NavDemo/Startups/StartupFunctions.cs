@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Reflection ;
+using NavDemo.Services;
+
 namespace MVVMSidekick.Startups
 {
     internal static partial class StartupFunctions
@@ -28,8 +30,9 @@ namespace MVVMSidekick.Startups
 			{
 				item();
 			}
-
-		}
+            Services.ServiceLocator.Instance.Register<DataService>(new DataService());
+            Services.ServiceLocator.Instance.Register<SuggestService>(new SuggestService());
+        }
 
 
     }

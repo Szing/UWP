@@ -16,34 +16,14 @@
         
     </Page.Resources>
     <Grid x:Name="LayoutRoot" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"  DataContext="{StaticResource DesignVM}">
-        <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup>
-                <VisualState>
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="720" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <Setter Target="RootSplitView.DisplayMode" Value="CompactInline"/>
-                        <Setter Target="RootSplitView.IsPaneOpen" Value="True"/>
-                        <Setter Target="RootSplitView.CompactPaneLength" Value="48" />
-                    </VisualState.Setters>
-                </VisualState>
-                <VisualState>
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="0" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <Setter Target="RootSplitView.DisplayMode" Value="Overlay"/>
-                    </VisualState.Setters>
-                </VisualState>
-            </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>
+        
 
         <!-- Top-level navigation menu + app content -->
         <SplitView x:Name="RootSplitView" IsPaneOpen="{Binding IsPaneOpen,Mode=TwoWay}"
-                   DisplayMode="Inline"
+                   DisplayMode="CompactInline"
                    OpenPaneLength="256"
-                   IsTabStop="False">
+                   IsTabStop="False"
+                   CompactPaneLength="48">
             <SplitView.Pane>
                 <!-- A custom ListView to display the items in the pane.  The automation Name is set in the ContainerContentChanging event. -->
                 <!--<controls:NavMenuListView x:Name="NavMenuList"
@@ -53,9 +33,10 @@
                                           ItemContainerStyle="{StaticResource NavMenuItemContainerStyle}"
                                           ItemTemplate="{StaticResource NavMenuItemTemplate}"
                                           ItemInvoked="NavMenuList_ItemInvoked" />-->
-                <ListView Margin="0,48,0,0" ItemsSource="{Binding NavMenuItemList}"
+                <ListView  Margin="0,48,0,0" ItemsSource="{Binding NavMenuItemList}"
                           ItemTemplate="{StaticResource NavMenuItemTemplate}"
                           ItemContainerStyle="{StaticResource NavMenuItemContainerStyle}"
+                           
                           >
 
                 </ListView>
@@ -66,24 +47,7 @@
                  OnNavigatedToPage we move keyboard focus to the first item on the page after it's loaded and update the Back button. -->
             <SplitView.Content>
                 <Frame x:Name="mainFrame" mvvm:StageManager.Beacon="frameMain" x:FieldModifier="public">
-                    <AutoSuggestBox HorizontalAlignment="Left" Margin="428,548,0,0" VerticalAlignment="Top" Height="68" Width="407"  TextMemberPath="Label" ItemsSource="{Binding NavMenuItemList}"
-                                    ItemTemplate="SuggestBoxTemplate">
-                        <AutoSuggestBox.ItemTemplate>
-                            <DataTemplate>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition  Width="Auto" />
-
-                                    </Grid.ColumnDefinitions>
-
-                                    <TextBlock x:Name="Text" Grid.Column="0" Text="{Binding  Label }" VerticalAlignment="Center" />
-                                </Grid>
-                            </DataTemplate>
-                        </AutoSuggestBox.ItemTemplate>
-                        <AutoSuggestBox.QueryIcon>
-                            <FontIcon FontFamily="{StaticResource FontAwesomeFontFamily}" FontSize="16" Margin="0" Glyph="&#xf002;" VerticalAlignment="Center" HorizontalAlignment="Center" />
-                        </AutoSuggestBox.QueryIcon>
-                    </AutoSuggestBox>
+                   
 
                 </Frame>
             </SplitView.Content>

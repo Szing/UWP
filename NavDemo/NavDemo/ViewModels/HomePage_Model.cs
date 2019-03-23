@@ -12,6 +12,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
+using NavDemo.Services;
+using NavDemo.Models;
 
 namespace NavDemo.ViewModels
 {
@@ -33,6 +35,8 @@ namespace NavDemo.ViewModels
         static Func<BindableBase, String> _TitleDefaultValueFactory = m => m.GetType().Name;
         #endregion
 
+
+       
 
 
         #region Life Time Event Handling

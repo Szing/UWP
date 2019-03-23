@@ -8,6 +8,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="using:NavDemo.ViewModels"
+    xmlns:rs="using:NavDemo.Resources"
     mc:Ignorable="d">
 
     <Page.Resources>
@@ -15,16 +16,23 @@
         <x:String x:Key="AppName">My Application</x:String>
         <vm:SearchPage_Model x:Key="DesignVM"/>
     </Page.Resources>
-    
+
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"  DataContext="{StaticResource DesignVM}">
         <Grid.ChildrenTransitions>
             <TransitionCollection>
                 <EntranceThemeTransition/>
             </TransitionCollection>
         </Grid.ChildrenTransitions>
+        <Button Content="write" HorizontalAlignment="Left" Margin="217,79,0,0" VerticalAlignment="Top" Command="{Binding CommandAddFriend}"/>
+        <Button Content="read" HorizontalAlignment="Left" Margin="282,79,0,0" VerticalAlignment="Top" Command="{Binding CommandGetFriends}"/>
+        <Button Content="init" HorizontalAlignment="Left" Margin="347,79,0,0" VerticalAlignment="Top" Command="{Binding CommandTableInit}"/>
+        
+        <TextBlock x:Name="pageTitle" Text="{Binding Title}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
+                        IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40"/> 
+        <AutoSuggestBox Name="MyASBox" HorizontalAlignment="Left" Margin="547,500,0,0" VerticalAlignment="Top" Height="46" Width="355" 
+                        QueryIcon="Find" ItemsSource="{Binding friendItemList, Mode=TwoWay}" ItemTemplate="{StaticResource SuggestBoxTemplate}" TextChanged="MyASBox_TextChanged" TextMemberPath="nameFriend">
+            
+        </AutoSuggestBox>
 
-            <TextBlock x:Name="pageTitle" Text="{Binding Title}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
-                        IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40"/>
-  
     </Grid>
 </mvvm:MVVMPage>

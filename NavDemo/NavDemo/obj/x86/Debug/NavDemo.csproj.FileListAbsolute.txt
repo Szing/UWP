@@ -480,3 +480,5 @@ D:\UWP-master\NavDemo\NavDemo\obj\x86\Debug\Microsoft.Xaml.Interactivity.pri.xml
 D:\UWP-master\NavDemo\NavDemo\obj\x86\Debug\MVVMSidekick_UAP10.pri.xml
 D:\UWP-master\NavDemo\NavDemo\obj\x86\Debug\Microsoft.Practices.Unity.RegistrationByConvention.pri.xml
 D:\UWP-master\NavDemo\NavDemo\obj\x86\Debug\ProjectArchitectures.txt
+D:\UWP-master\NavDemo\NavDemo\bin\x86\Debug\SQLite.Net.Platform.WinRT.dll
+D:\UWP-master\NavDemo\NavDemo\bin\x86\Debug\SQLite.Net.dll

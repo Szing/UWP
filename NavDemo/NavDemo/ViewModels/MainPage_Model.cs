@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using NavDemo.Models;
+using MVVMSidekick.EventRouting;
 
 namespace NavDemo.ViewModels
 {
