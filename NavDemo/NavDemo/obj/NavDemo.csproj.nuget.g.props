@@ -13,6 +13,6 @@
     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <PkgMVVM-Sidekick Condition=" '$(PkgMVVM-Sidekick)' == '' ">C:\Users\hasee\.nuget\packages\mvvm-sidekick\1.6.11</PkgMVVM-Sidekick>
+    <PkgMVVM-Sidekick Condition=" '$(PkgMVVM-Sidekick)' == '' ">C:\Users\hasee\.nuget\packages\mvvm-sidekick\1.6.12</PkgMVVM-Sidekick>
   </PropertyGroup>
 </Project>

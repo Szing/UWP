@@ -88,7 +88,7 @@
     <AppxPackagedFile Include="C:\Users\hasee\.nuget\packages\microsoft.xaml.behaviors.uwp.managed\1.0.3\lib\uap10.0\Microsoft.Xaml.Interactivity.dll">
       <PackagePath>Microsoft.Xaml.Interactivity.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hasee\.nuget\packages\mvvm-sidekick\1.6.11\lib\uap10.0\MVVMSidekick_UAP10.dll">
+    <AppxPackagedFile Include="C:\Users\hasee\.nuget\packages\mvvm-sidekick\1.6.12\lib\uap10.0\MVVMSidekick_UAP10.dll">
       <PackagePath>MVVMSidekick_UAP10.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\hasee\.nuget\packages\rx-core\2.2.5\lib\windows8\System.Reactive.Core.dll">

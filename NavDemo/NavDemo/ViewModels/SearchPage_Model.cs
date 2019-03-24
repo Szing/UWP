@@ -35,7 +35,31 @@ namespace NavDemo.ViewModels
         static Func<BindableBase, String> _TitleDefaultValueFactory = m => m.GetType().Name;
         #endregion
 
-        
+
+        public SuggestService suggest { get => _suggestLocator(this).Value; set => _suggestLocator(this).SetValueAndTryNotify(value); }
+        #region Property SuggestService suggest Setup        
+        protected Property<SuggestService> _suggest = new Property<SuggestService> { LocatorFunc = _suggestLocator };
+        static Func<BindableBase, ValueContainer<SuggestService>> _suggestLocator = RegisterContainerLocator(nameof(suggest), m => m.Initialize(nameof(suggest), ref m._suggest, ref _suggestLocator, () => default(SuggestService)));
+        #endregion
+
+
+
+        public Friend friend { get => _friendLocator(this).Value; set => _friendLocator(this).SetValueAndTryNotify(value); }
+        #region Property Friend friend Setup        
+        protected Property<Friend> _friend = new Property<Friend> { LocatorFunc = _friendLocator };
+        static Func<BindableBase, ValueContainer<Friend>> _friendLocator = RegisterContainerLocator(nameof(friend), m => m.Initialize(nameof(friend), ref m._friend, ref _friendLocator, () => default(Friend)));
+        #endregion
+
+
+        public Friend chosenFriend { get => _chosenFriendLocator(this).Value; set => _chosenFriendLocator(this).SetValueAndTryNotify(value); }
+        #region Property Friend chosenFriend Setup        
+        protected Property<Friend> _chosenFriend = new Property<Friend> { LocatorFunc = _chosenFriendLocator };
+        static Func<BindableBase, ValueContainer<Friend>> _chosenFriendLocator = RegisterContainerLocator(nameof(chosenFriend), m => m.Initialize(nameof(chosenFriend), ref m._chosenFriend, ref _chosenFriendLocator, () => default(Friend)));
+        #endregion
+
+        /// <summary>
+        /// 用于AutoSuggestion的suggest项目
+        /// </summary>
         public  List<Friend> friendItemList { get => _friendItemListLocator(this).Value; set => _friendItemListLocator(this).SetValueAndTryNotify(value); }
         #region Property List<Friend> friendItemList Setup        
         protected Property<List<Friend>> _friendItemList = new Property<List<Friend>> { LocatorFunc = _friendItemListLocator };
@@ -67,6 +91,7 @@ namespace NavDemo.ViewModels
                               await MVVMSidekick.Utilities.TaskExHelper.Yield();
                               ServiceLocator.Instance.Resolve<DataService>()
                                  .InsertFriend();
+                              
                           })
                       .DoNotifyDefaultEventRouter(vm, commandId)
                       .Subscribe()
@@ -151,7 +176,7 @@ namespace NavDemo.ViewModels
                          {
                              //Todo: Add SomeCommand logic here, or
                              await MVVMSidekick.Utilities.TaskExHelper.Yield();
-                             DbContext.GetInstance().Init();
+                             DbContext.GetInstance().initTableFriend();
                              
                          })
                      .DoNotifyDefaultEventRouter(vm, commandId)
@@ -169,11 +194,91 @@ namespace NavDemo.ViewModels
               }));
         #endregion
 
-        private void MyASBox_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
+
+        public CommandModel<ReactiveCommand, String> CommandFriendSubmit
         {
-            //MyASBox.ItemsSource = ServiceLocator.Instance.Resolve<SuggestService>().Suggest(MyASBox.Text);]
-            friendItemList =  ServiceLocator.Instance.Resolve<SuggestService>().Suggest(sender.Text);
+            get { return _CommandFriendSubmitLocator(this).Value; }
+            set { _CommandFriendSubmitLocator(this).SetValueAndTryNotify(value); }
         }
+        #region Property CommandModel<ReactiveCommand, String> CommandFriendSubmit Setup               
+        protected Property<CommandModel<ReactiveCommand, String>> _CommandFriendSubmit = new Property<CommandModel<ReactiveCommand, String>> { LocatorFunc = _CommandFriendSubmitLocator };
+        static Func<BindableBase, ValueContainer<CommandModel<ReactiveCommand, String>>> _CommandFriendSubmitLocator = RegisterContainerLocator("CommandFriendSubmit", m => m.Initialize("CommandFriendSubmit", ref m._CommandFriendSubmit, ref _CommandFriendSubmitLocator,
+              model =>
+              {
+                  var state = "CommandFriendSubmit";
+                  var commandId = "CommandFriendSubmit";
+                  var vm = CastToCurrentType(model);
+                  var cmd = new ReactiveCommand(canExecute: true) { ViewModel = model };
+
+                  cmd.DoExecuteUIBusyTask(
+                          vm,
+                          async e =>
+                          {
+                            //Todo: Add FriendSubmit logic here, or
+                            await MVVMSidekick.Utilities.TaskExHelper.Yield();
+
+                              ServiceLocator.Instance.Resolve<DataService>()
+                                  .InsertFriend(vm.friend);
+                              vm.suggest.insert(vm.friend);
+                          })
+                      .DoNotifyDefaultEventRouter(vm, commandId)
+                      .Subscribe()
+                      .DisposeWith(vm);
+
+                  var cmdmdl = cmd.CreateCommandModel(state);
+
+                  cmdmdl.ListenToIsUIBusy(
+                      model: vm,
+                      canExecuteWhenBusy: false);
+                  return cmdmdl;
+              }));
+        #endregion
+
+        /// <summary>
+        /// 将被选中的项放到chosenFriend中
+        /// </summary>
+        public CommandModel<ReactiveCommand, String> CommandChoseFriend
+        {
+            get { return _CommandCommandChoseFriendLocator(this).Value; }
+            set { _CommandCommandChoseFriendLocator(this).SetValueAndTryNotify(value); }
+        }
+        #region Property CommandModel<ReactiveCommand, String> CommandCommandChoseFriend Setup               
+        protected Property<CommandModel<ReactiveCommand, String>> _CommandCommandChoseFriend = new Property<CommandModel<ReactiveCommand, String>> { LocatorFunc = _CommandCommandChoseFriendLocator };
+        static Func<BindableBase, ValueContainer<CommandModel<ReactiveCommand, String>>> _CommandCommandChoseFriendLocator = RegisterContainerLocator("CommandCommandChoseFriend", m => m.Initialize("CommandCommandChoseFriend", ref m._CommandCommandChoseFriend, ref _CommandCommandChoseFriendLocator,
+              model =>
+              {
+                  var state = "CommandCommandChoseFriend";
+                  var commandId = "CommandCommandChoseFriend";
+                  var vm = CastToCurrentType(model);
+                  var cmd = new ReactiveCommand(canExecute: true) { ViewModel = model };
+                 
+                  cmd.DoExecuteUIBusyTask(
+                          vm,
+                          async e =>
+                          {
+                            //Todo: Add CommandChoseFriend logic here, or
+                            await MVVMSidekick.Utilities.TaskExHelper.Yield();
+
+
+                              AutoSuggestBoxSuggestionChosenEventArgs args= (AutoSuggestBoxSuggestionChosenEventArgs) e.EventArgs.Parameter;
+                              vm.chosenFriend = (Friend)args.SelectedItem;
+                             
+                              
+                             //await new Windows.UI.Popups.MessageDialog(vm.chosenFriend.nameFriend).ShowAsync();
+                          })
+                      .DoNotifyDefaultEventRouter(vm, commandId)
+                      .Subscribe()
+                      .DisposeWith(vm);
+
+                  var cmdmdl = cmd.CreateCommandModel(state);
+
+                  cmdmdl.ListenToIsUIBusy(
+                      model: vm,
+                      canExecuteWhenBusy: false);
+                  return cmdmdl;
+              }));
+        #endregion
+
         #region Life Time Event Handling
 
         ///// <summary>
@@ -198,7 +303,7 @@ namespace NavDemo.ViewModels
         //{
         //    return base.OnUnbindedFromView(view, newValue);
         //}
-
+        bool flag = false;
         ///// <summary>
         ///// This will be invoked by view when the view fires Load event and this viewmodel instance is already in view's ViewModel property
         ///// </summary>
@@ -206,17 +311,27 @@ namespace NavDemo.ViewModels
         ///// <returns>Task awaiter</returns>
         protected override Task OnBindedViewLoad(MVVMSidekick.Views.IView view)
         {
-            DbContext.GetInstance().Init();
-            StringBuilder sb = new StringBuilder();
+            //在第一次初始化时启动全局事件监听
+            if(!flag)
+            {
+                TChangedCommand();
+                flag = true;
+            }
+            friend = new Friend() { nameFriend = "unknow" ,nickNameFriend = "unknow" };
+            chosenFriend = new Friend();
+
+            //建立Friend的数据表单
+            DbContext.GetInstance().initTableFriend();
+            //获取数据库服务
             DataService dataService = ServiceLocator.Instance.Resolve<DataService>();
+            //获取suggest服务
+            suggest = ServiceLocator.Instance.Resolve<SuggestService>();
+            //初始化suggst项目总体
+            suggest.init(dataService.GetAllFriends());
+            //初始化suggest下拉表单
             friendItemList = dataService.GetAllFriends();
 
-            foreach (Friend item in friendItemList)
-            {
-                sb.AppendLine($"{item.idFriend} {item.nameFriend} {item.nickNameFriend} ");
-            }
-            ServiceLocator.Instance.Resolve<SuggestService>().init(friendItemList);
-            new Windows.UI.Popups.MessageDialog(sb.ToString()).ShowAsync();
+            
 
             return base.OnBindedViewLoad(view);
         }
@@ -244,10 +359,25 @@ namespace NavDemo.ViewModels
         //}
 
         #endregion
+        
+        
 
-
-
-
+        //TChangedEventRouter
+        private void TChangedCommand()
+        {
+            //一般列表项点击事件
+            MVVMSidekick.EventRouting.EventRouter.Instance.GetEventChannel<Object>()
+                .Where(x => x.EventName == "TChangedEventRouter")
+                     .Subscribe(
+                          e =>
+                         {
+                             var i = (AutoSuggestBox)e.Sender;
+                           
+                             friendItemList =  ServiceLocator.Instance.Resolve<SuggestService>().Suggest(i.Text); 
+                         }
+                     ).DisposeWith(this);
+        }
+       
     }
 
 }

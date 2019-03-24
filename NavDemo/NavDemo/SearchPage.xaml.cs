@@ -72,6 +72,10 @@ namespace NavDemo
             base.OnNavigatedFrom(e);
         }
 
-        
+        private void MyASBox_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
+        {
+            MyASBox.ItemsSource = ServiceLocator.Instance.Resolve<SuggestService>().Suggest(MyASBox.Text);
+            
+        }
     }
 }

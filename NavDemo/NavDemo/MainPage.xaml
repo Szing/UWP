@@ -13,10 +13,10 @@
         <!-- TODO: Delete this line if the key AppName is declared in App.xaml -->
         <x:String x:Key="AppName">My Application</x:String>
         <vm:MainPage_Model x:Key="DesignVM"/>
-        
+
     </Page.Resources>
     <Grid x:Name="LayoutRoot" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"  DataContext="{StaticResource DesignVM}">
-        
+
 
         <!-- Top-level navigation menu + app content -->
         <SplitView x:Name="RootSplitView" IsPaneOpen="{Binding IsPaneOpen,Mode=TwoWay}"
@@ -48,6 +48,8 @@
             <SplitView.Content>
                 <Frame x:Name="mainFrame" mvvm:StageManager.Beacon="frameMain" x:FieldModifier="public">
                    
+
+
 
                 </Frame>
             </SplitView.Content>

@@ -308,7 +308,7 @@
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
         }
       },
-      "Microsoft.Xaml.Behaviors.Uwp.Managed/2.0.0": {
+      "Microsoft.Xaml.Behaviors.Uwp.Managed/1.0.3": {
         "type": "package",
         "compile": {
           "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
@@ -319,7 +319,7 @@
           "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
         }
       },
-      "MVVM-Sidekick/1.6.11": {
+      "MVVM-Sidekick/1.6.12": {
         "type": "package",
         "dependencies": {
           "CommonServiceLocator": "[1.3.0, 100.0.0)",
@@ -2351,7 +2351,7 @@
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
         }
       },
-      "Microsoft.Xaml.Behaviors.Uwp.Managed/2.0.0": {
+      "Microsoft.Xaml.Behaviors.Uwp.Managed/1.0.3": {
         "type": "package",
         "compile": {
           "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
@@ -2362,7 +2362,7 @@
           "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
         }
       },
-      "MVVM-Sidekick/1.6.11": {
+      "MVVM-Sidekick/1.6.12": {
         "type": "package",
         "dependencies": {
           "CommonServiceLocator": "[1.3.0, 100.0.0)",
@@ -4244,7 +4244,7 @@
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
         }
       },
-      "Microsoft.Xaml.Behaviors.Uwp.Managed/2.0.0": {
+      "Microsoft.Xaml.Behaviors.Uwp.Managed/1.0.3": {
         "type": "package",
         "compile": {
           "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
@@ -4255,7 +4255,7 @@
           "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
         }
       },
-      "MVVM-Sidekick/1.6.11": {
+      "MVVM-Sidekick/1.6.12": {
         "type": "package",
         "dependencies": {
           "CommonServiceLocator": "[1.3.0, 100.0.0)",
@@ -6135,7 +6135,7 @@
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
         }
       },
-      "Microsoft.Xaml.Behaviors.Uwp.Managed/2.0.0": {
+      "Microsoft.Xaml.Behaviors.Uwp.Managed/1.0.3": {
         "type": "package",
         "compile": {
           "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
@@ -6146,7 +6146,7 @@
           "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
         }
       },
-      "MVVM-Sidekick/1.6.11": {
+      "MVVM-Sidekick/1.6.12": {
         "type": "package",
         "dependencies": {
           "CommonServiceLocator": "[1.3.0, 100.0.0)",
@@ -8028,7 +8028,7 @@
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
         }
       },
-      "Microsoft.Xaml.Behaviors.Uwp.Managed/2.0.0": {
+      "Microsoft.Xaml.Behaviors.Uwp.Managed/1.0.3": {
         "type": "package",
         "compile": {
           "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
@@ -8039,7 +8039,7 @@
           "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
         }
       },
-      "MVVM-Sidekick/1.6.11": {
+      "MVVM-Sidekick/1.6.12": {
         "type": "package",
         "dependencies": {
           "CommonServiceLocator": "[1.3.0, 100.0.0)",
@@ -9919,7 +9919,7 @@
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
         }
       },
-      "Microsoft.Xaml.Behaviors.Uwp.Managed/2.0.0": {
+      "Microsoft.Xaml.Behaviors.Uwp.Managed/1.0.3": {
         "type": "package",
         "compile": {
           "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
@@ -9930,7 +9930,7 @@
           "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
         }
       },
-      "MVVM-Sidekick/1.6.11": {
+      "MVVM-Sidekick/1.6.12": {
         "type": "package",
         "dependencies": {
           "CommonServiceLocator": "[1.3.0, 100.0.0)",
@@ -11812,7 +11812,7 @@
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
         }
       },
-      "Microsoft.Xaml.Behaviors.Uwp.Managed/2.0.0": {
+      "Microsoft.Xaml.Behaviors.Uwp.Managed/1.0.3": {
         "type": "package",
         "compile": {
           "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
@@ -11823,7 +11823,7 @@
           "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
         }
       },
-      "MVVM-Sidekick/1.6.11": {
+      "MVVM-Sidekick/1.6.12": {
         "type": "package",
         "dependencies": {
           "CommonServiceLocator": "[1.3.0, 100.0.0)",
@@ -14227,10 +14227,10 @@
         "ref/xamarinmac20/_._"
       ]
     },
-    "Microsoft.Xaml.Behaviors.Uwp.Managed/2.0.0": {
-      "sha512": "FHAMa5uwPgkMfy9u3g5sH8o3C8zZOQoLfKUznn95ejNhmNBz3Yj7Diy9pKWabYgkSiyjKzc+E5T4ZsZkwVAJkQ==",
+    "Microsoft.Xaml.Behaviors.Uwp.Managed/1.0.3": {
+      "sha512": "N/HJa+ld/kKIKQaTTBY/ytLukfujKkBMww59p9qmPkEpyHZRMYB8FNalghu1rFMCXoSx9cWD8U4nt/r7qLQmVg==",
       "type": "package",
-      "path": "microsoft.xaml.behaviors.uwp.managed/2.0.0",
+      "path": "microsoft.xaml.behaviors.uwp.managed/1.0.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -14239,17 +14239,19 @@
         "lib/uap10.0/Microsoft.Xaml.Interactions.dll",
         "lib/uap10.0/Microsoft.Xaml.Interactions.pri",
         "lib/uap10.0/Microsoft.Xaml.Interactions.xml",
+        "lib/uap10.0/Microsoft.Xaml.Interactions/Properties/Microsoft.Xaml.Interactions.rd.xml",
         "lib/uap10.0/Microsoft.Xaml.Interactivity.dll",
         "lib/uap10.0/Microsoft.Xaml.Interactivity.pri",
         "lib/uap10.0/Microsoft.Xaml.Interactivity.xml",
-        "microsoft.xaml.behaviors.uwp.managed.2.0.0.nupkg.sha512",
+        "lib/uap10.0/Microsoft.Xaml.Interactivity/Properties/Microsoft.Xaml.Interactivity.rd.xml",
+        "microsoft.xaml.behaviors.uwp.managed.1.0.3.nupkg.sha512",
         "microsoft.xaml.behaviors.uwp.managed.nuspec"
       ]
     },
-    "MVVM-Sidekick/1.6.11": {
-      "sha512": "KwoBPBqtQhp2Bh6OaE9JznDsFcykX/s3/ZFMukH4cCXIVfe/X3kos7gCWZ2JzZZ6xSsvi2GjJVkXZeTEK5ec9Q==",
+    "MVVM-Sidekick/1.6.12": {
+      "sha512": "f24FUBw8ol8PJzePzm0UBUmvEN3wMdU60oi8DwN8onQ9hiT/krEVsW3Xzvcuag0Oi/zf4cxBS+q+Z2oSUDo1ag==",
       "type": "package",
-      "path": "mvvm-sidekick/1.6.11",
+      "path": "mvvm-sidekick/1.6.12",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
@@ -14267,19 +14269,27 @@
         "lib/uap10.0/MVVMSidekick_UAP10.dll",
         "lib/uap10.0/MVVMSidekick_UAP10.pdb",
         "lib/uap10.0/MVVMSidekick_UAP10.pri",
+        "lib/uap10.0/x86/Debug/MVVMSidekick_UAP10.dll",
+        "lib/uap10.0/x86/Debug/MVVMSidekick_UAP10.pdb",
+        "lib/uap10.0/x86/Debug/MVVMSidekick_UAP10.pri",
         "lib/win81/MVVMSidekick_Metro.XML",
         "lib/win81/MVVMSidekick_Metro.dll",
+        "lib/win81/MVVMSidekick_Metro.dll.CodeAnalysisLog.xml",
+        "lib/win81/MVVMSidekick_Metro.dll.lastcodeanalysissucceeded",
         "lib/win81/MVVMSidekick_Metro.pdb",
         "lib/win81/MVVMSidekick_Metro.pri",
         "lib/wp8/MVVMSidekick_Wp8.XML",
         "lib/wp8/MVVMSidekick_Wp8.dll",
+        "lib/wp8/MVVMSidekick_Wp8.dll.CodeAnalysisLog.xml",
         "lib/wp8/MVVMSidekick_Wp8.dll.config",
+        "lib/wp8/MVVMSidekick_Wp8.dll.lastcodeanalysissucceeded",
         "lib/wp8/MVVMSidekick_Wp8.pdb",
         "lib/wpa81/MVVMSidekick_Wpa81.dll",
         "lib/wpa81/MVVMSidekick_Wpa81.dll.config",
         "lib/wpa81/MVVMSidekick_Wpa81.pdb",
         "lib/wpa81/MVVMSidekick_Wpa81.pri",
-        "mvvm-sidekick.1.6.11.nupkg.sha512",
+        "lib/wpa81/Microsoft.Practices.Unity.dll",
+        "mvvm-sidekick.1.6.12.nupkg.sha512",
         "mvvm-sidekick.nuspec",
         "tools/MVVM-Sidekick.snippet",
         "tools/install.ps1"
@@ -17181,12 +17191,11 @@
   "projectFileDependencyGroups": {
     "UAP,Version=v10.0.10586": [
       "CommonServiceLocator >= 1.3.0",
-      "MVVM-Sidekick >= 1.6.11",
+      "MVVM-Sidekick >= 1.6.12",
       "Microsoft.Bcl >= 1.1.10",
       "Microsoft.Bcl.Async >= 1.0.168",
       "Microsoft.Bcl.Build >= 1.0.21",
       "Microsoft.NETCore.UniversalWindowsPlatform >= 5.0.0",
-      "Microsoft.Xaml.Behaviors.Uwp.Managed >= 2.0.0",
       "Rx-Core >= 2.2.5",
       "Rx-Interfaces >= 2.2.5",
       "Rx-Linq >= 2.2.5",
@@ -17238,7 +17247,7 @@
           },
           "MVVM-Sidekick": {
             "target": "Package",
-            "version": "[1.6.11, )"
+            "version": "[1.6.12, )"
           },
           "Microsoft.Bcl": {
             "target": "Package",
@@ -17255,10 +17264,6 @@
           "Microsoft.NETCore.UniversalWindowsPlatform": {
             "target": "Package",
             "version": "[5.0.0, )"
-          },
-          "Microsoft.Xaml.Behaviors.Uwp.Managed": {
-            "target": "Package",
-            "version": "[2.0.0, )"
           },
           "Rx-Core": {
             "target": "Package",
