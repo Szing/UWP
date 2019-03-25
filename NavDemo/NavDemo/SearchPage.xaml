@@ -33,19 +33,19 @@
 
         <AutoSuggestBox  x:Name="MyASBox" HorizontalAlignment="Left" Margin="529,373,0,0" VerticalAlignment="Top" Height="46" Width="355" 
                         QueryIcon="Find" ItemsSource="{Binding friendItemList, Mode=TwoWay}" ItemTemplate="{StaticResource SuggestBoxTemplate}"  TextMemberPath="nameFriend">
-            
+
             <Custom:Interaction.Behaviors>
                 <Custom1:EventTriggerBehavior EventName="TextChanged">
                     <Custom2:SendToEventRouterAction EventRoutingName="TChangedEventRouter" IsEventFiringToAllBaseClassesChannels="True" EventData="{Binding}"/>
                 </Custom1:EventTriggerBehavior>
                 <Custom1:EventTriggerBehavior EventName="SuggestionChosen">
-                 <Custom1:InvokeCommandAction Command="{Binding CommandChoseFriend}"/>
+                    <Custom1:InvokeCommandAction Command="{Binding CommandChoseFriend}"/>
                 </Custom1:EventTriggerBehavior>
             </Custom:Interaction.Behaviors>
-            
+
 
         </AutoSuggestBox>
-        <StackPanel  HorizontalAlignment="Left" Height="140" Margin="381,233,0,0" VerticalAlignment="Top" Width="641">
+        <StackPanel  HorizontalAlignment="Left" Height="140" Margin="386,158,0,0" VerticalAlignment="Top" Width="641">
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Name:" VerticalAlignment="Center"/>
                 <TextBox  PlaceholderText="Name" HorizontalAlignment="Left" Text="{Binding friend.nameFriend, Mode=TwoWay}" VerticalAlignment="Center" Width="179" Margin="0,0,0,0"/>
@@ -57,9 +57,14 @@
                 <Button Content="Image" HorizontalAlignment="Center" Height="50" VerticalAlignment="Center" Width="82" Margin="0,0,0,0"/>
             </StackPanel>
 
-            <Button Content="submit"  Command="{Binding CommandFriendSubmit}" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center"/>
+            <Button Content="insert"  Command="{Binding CommandInsertFriend}" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center"/>
         </StackPanel>
-        <Button Content="GET" HorizontalAlignment="Left" Margin="929,374,0,0" VerticalAlignment="Top"/>
+        <Button Content="GET" HorizontalAlignment="Left" Margin="929,374,0,0" VerticalAlignment="Top" Command="{Binding CommandSubmitFriend}"/>
+        <ListView HorizontalAlignment="Left" Height="414" Margin="633,482,0,0" VerticalAlignment="Top" Width="208"
+                  ItemsSource="{Binding listDialog}"
+                          ItemTemplate="{StaticResource DialogItemTemplate}"
+                          ItemContainerStyle="{StaticResource NavMenuItemContainerStyle}"
+                  />
 
     </Grid>
 </mvvm:MVVMPage>

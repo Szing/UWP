@@ -39,4 +39,28 @@
 
         </Grid>
     </DataTemplate>
+    <DataTemplate x:Key="DialogItemTemplate" >
+        <Grid >
+            <Interactivity:Interaction.Behaviors>
+                <Core:EventTriggerBehavior EventName="Tapped">
+                    <Behaviors:SendToEventRouterAction IsEventFiringToAllBaseClassesChannels="True" EventRoutingName="DialogChosenEventRouter" EventData="{Binding}" />
+                </Core:EventTriggerBehavior>
+            </Interactivity:Interaction.Behaviors>
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition  Width="Auto" />
+
+            </Grid.ColumnDefinitions>
+
+            <Image Width="50" Source="{Binding imageDialog}" />
+            <StackPanel Grid.Column="1" Margin="7,3,4,3">
+                <TextBlock FontSize="15" FontWeight="Bold" Text="{Binding describeDialog}"/>
+                <TextBlock>
+                                    <Run>时间：</Run>
+                                    <Run Text="{Binding timeDialog}" />
+                </TextBlock>
+            </StackPanel>
+
+        </Grid>
+    </DataTemplate>
 </ResourceDictionary>

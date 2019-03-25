@@ -4,12 +4,17 @@
     <RootPropertyPathName Name="Title" />
     <RootPropertyPathName Name="IsPaneOpen" />
     <RootPropertyPathName Name="NavMenuItemList" />
+    <RootPropertyPathName Name="timeDialog" />
+    <RootPropertyPathName Name="describeDialog" />
+    <RootPropertyPathName Name="imageDialog" />
     <RootPropertyPathName Name="nickNameFriend" />
     <RootPropertyPathName Name="nameFriend" />
     <RootPropertyPathName Name="iconFriend" />
     <RootPropertyPathName Name="Label" />
     <RootPropertyPathName Name="Glyph" />
-    <RootPropertyPathName Name="CommandFriendSubmit" />
+    <RootPropertyPathName Name="listDialog" />
+    <RootPropertyPathName Name="CommandSubmitFriend" />
+    <RootPropertyPathName Name="CommandInsertFriend" />
     <RootPropertyPathName Name="friend" />
     <RootPropertyPathName Name="friendItemList" />
     <RootPropertyPathName Name="CommandChoseFriend" />
@@ -112,6 +117,10 @@
       <RootProperty Name="ItemsSource" />
       <RootProperty Name="ItemTemplate" />
       <RootProperty Name="ItemContainerStyle" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Width" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Frame" />
     <RootType FullName="MVVMSidekick.Views.StageManager">
@@ -121,6 +130,19 @@
     <RootType FullName="NavDemo.MainPage" />
     <RootType FullName="Windows.UI.Xaml.DataTemplate">
       <RootProperty Name="Template" />
+    </RootType>
+    <RootType FullName="Microsoft.Xaml.Interactivity.Interaction">
+      <RootMethod Name="GetBehaviors" />
+      <RootMethod Name="SetBehaviors" />
+    </RootType>
+    <RootType FullName="Microsoft.Xaml.Interactions.Core.EventTriggerBehavior">
+      <RootProperty Name="EventName" />
+      <RootProperty Name="Actions" />
+    </RootType>
+    <RootType FullName="MVVMSidekick.Behaviors.SendToEventRouterAction">
+      <RootProperty Name="IsEventFiringToAllBaseClassesChannels" />
+      <RootProperty Name="EventRoutingName" />
+      <RootProperty Name="EventData" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ColumnDefinition">
       <RootProperty Name="Width" />
@@ -137,19 +159,6 @@
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Documents.Run">
       <RootProperty Name="Text" />
-    </RootType>
-    <RootType FullName="Microsoft.Xaml.Interactivity.Interaction">
-      <RootMethod Name="GetBehaviors" />
-      <RootMethod Name="SetBehaviors" />
-    </RootType>
-    <RootType FullName="Microsoft.Xaml.Interactions.Core.EventTriggerBehavior">
-      <RootProperty Name="EventName" />
-      <RootProperty Name="Actions" />
-    </RootType>
-    <RootType FullName="MVVMSidekick.Behaviors.SendToEventRouterAction">
-      <RootProperty Name="IsEventFiringToAllBaseClassesChannels" />
-      <RootProperty Name="EventRoutingName" />
-      <RootProperty Name="EventData" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.FontIcon">
       <RootProperty Name="FontFamily" />

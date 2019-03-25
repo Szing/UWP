@@ -23,7 +23,14 @@ namespace NavDemo.ViewModels
     {
         // If you have install the code sniplets, use "propvm + [tab] +[tab]" create a property。
         // 如果您已经安装了 MVVMSidekick 代码片段，请用 propvm +tab +tab 输入属性
-
+        public SearchPage_Model()
+        {
+            if (IsInDesignMode)
+            {
+                Title = "Title is a little different in Design mode";
+            }
+            
+        }
         public String Title
         {
             get { return _TitleLocator(this).Value; }
@@ -33,6 +40,13 @@ namespace NavDemo.ViewModels
         protected Property<String> _Title = new Property<String> { LocatorFunc = _TitleLocator };
         static Func<BindableBase, ValueContainer<String>> _TitleLocator = RegisterContainerLocator<String>("Title", model => model.Initialize("Title", ref model._Title, ref _TitleLocator, _TitleDefaultValueFactory));
         static Func<BindableBase, String> _TitleDefaultValueFactory = m => m.GetType().Name;
+        #endregion
+
+
+        public List<Dialog> listDialog { get => _listDialogLocator(this).Value; set => _listDialogLocator(this).SetValueAndTryNotify(value); }
+        #region Property List<Dialog> listDialog Setup        
+        protected Property<List<Dialog>> _listDialog = new Property<List<Dialog>> { LocatorFunc = _listDialogLocator };
+        static Func<BindableBase, ValueContainer<List<Dialog>>> _listDialogLocator = RegisterContainerLocator(nameof(listDialog), m => m.Initialize(nameof(listDialog), ref m._listDialog, ref _listDialogLocator, () => default(List<Dialog>)));
         #endregion
 
 
@@ -195,18 +209,18 @@ namespace NavDemo.ViewModels
         #endregion
 
 
-        public CommandModel<ReactiveCommand, String> CommandFriendSubmit
+        public CommandModel<ReactiveCommand, String> CommandSubmitFriend
         {
-            get { return _CommandFriendSubmitLocator(this).Value; }
-            set { _CommandFriendSubmitLocator(this).SetValueAndTryNotify(value); }
+            get { return _CommandSubmitFriendLocator(this).Value; }
+            set { _CommandSubmitFriendLocator(this).SetValueAndTryNotify(value); }
         }
-        #region Property CommandModel<ReactiveCommand, String> CommandFriendSubmit Setup               
-        protected Property<CommandModel<ReactiveCommand, String>> _CommandFriendSubmit = new Property<CommandModel<ReactiveCommand, String>> { LocatorFunc = _CommandFriendSubmitLocator };
-        static Func<BindableBase, ValueContainer<CommandModel<ReactiveCommand, String>>> _CommandFriendSubmitLocator = RegisterContainerLocator("CommandFriendSubmit", m => m.Initialize("CommandFriendSubmit", ref m._CommandFriendSubmit, ref _CommandFriendSubmitLocator,
+        #region Property CommandModel<ReactiveCommand, String> CommandSubmitFriend Setup               
+        protected Property<CommandModel<ReactiveCommand, String>> _CommandSubmitFriend = new Property<CommandModel<ReactiveCommand, String>> { LocatorFunc = _CommandSubmitFriendLocator };
+        static Func<BindableBase, ValueContainer<CommandModel<ReactiveCommand, String>>> _CommandSubmitFriendLocator = RegisterContainerLocator("CommandSubmitFriend", m => m.Initialize("CommandSubmitFriend", ref m._CommandSubmitFriend, ref _CommandSubmitFriendLocator,
               model =>
               {
-                  var state = "CommandFriendSubmit";
-                  var commandId = "CommandFriendSubmit";
+                  var state = "CommandSubmitFriend";
+                  var commandId = "CommandSubmitFriend";
                   var vm = CastToCurrentType(model);
                   var cmd = new ReactiveCommand(canExecute: true) { ViewModel = model };
 
@@ -216,9 +230,51 @@ namespace NavDemo.ViewModels
                           {
                             //Todo: Add FriendSubmit logic here, or
                             await MVVMSidekick.Utilities.TaskExHelper.Yield();
+                              StringBuilder sb = new StringBuilder();
+                              DataService dataService = ServiceLocator.Instance.Resolve<DataService>();
 
+                              List<Dialog> list = dataService.GetDialogs(vm.chosenFriend.idFriend);
+                              vm.listDialog = list;
+                              
+
+                          })
+                      .DoNotifyDefaultEventRouter(vm, commandId)
+                      .Subscribe()
+                      .DisposeWith(vm);
+
+                  var cmdmdl = cmd.CreateCommandModel(state);
+
+                  cmdmdl.ListenToIsUIBusy(
+                      model: vm,
+                      canExecuteWhenBusy: false);
+                  return cmdmdl;
+              }));
+        #endregion
+
+
+        public CommandModel<ReactiveCommand, String> CommandInsertFriend
+        {
+            get { return _CommandInsertFriendLocator(this).Value; }
+            set { _CommandInsertFriendLocator(this).SetValueAndTryNotify(value); }
+        }
+        #region Property CommandModel<ReactiveCommand, String> CommandInsertFriend Setup               
+        protected Property<CommandModel<ReactiveCommand, String>> _CommandInsertFriend = new Property<CommandModel<ReactiveCommand, String>> { LocatorFunc = _CommandInsertFriendLocator };
+        static Func<BindableBase, ValueContainer<CommandModel<ReactiveCommand, String>>> _CommandInsertFriendLocator = RegisterContainerLocator("CommandInsertFriend", m => m.Initialize("CommandInsertFriend", ref m._CommandInsertFriend, ref _CommandInsertFriendLocator,
+              model =>
+              {
+                  var state = "CommandInsertFriend";
+                  var commandId = "CommandInsertFriend";
+                  var vm = CastToCurrentType(model);
+                  var cmd = new ReactiveCommand(canExecute: true) { ViewModel = model };
+
+                  cmd.DoExecuteUIBusyTask(
+                          vm,
+                          async e =>
+                          {
+                            //Todo: Add InsertFriend logic here, or
+                            await MVVMSidekick.Utilities.TaskExHelper.Yield();
                               ServiceLocator.Instance.Resolve<DataService>()
-                                  .InsertFriend(vm.friend);
+                                 .InsertFriend(vm.friend);
                               vm.suggest.insert(vm.friend);
                           })
                       .DoNotifyDefaultEventRouter(vm, commandId)
