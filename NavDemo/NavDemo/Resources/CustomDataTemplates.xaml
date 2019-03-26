@@ -41,11 +41,7 @@
     </DataTemplate>
     <DataTemplate x:Key="DialogItemTemplate" >
         <Grid >
-            <Interactivity:Interaction.Behaviors>
-                <Core:EventTriggerBehavior EventName="Tapped">
-                    <Behaviors:SendToEventRouterAction IsEventFiringToAllBaseClassesChannels="True" EventRoutingName="DialogChosenEventRouter" EventData="{Binding}" />
-                </Core:EventTriggerBehavior>
-            </Interactivity:Interaction.Behaviors>
+           
             
             <Grid.ColumnDefinitions>
                 <ColumnDefinition  Width="Auto" />

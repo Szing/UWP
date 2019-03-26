@@ -1,6 +1,4 @@
-﻿<mvvm:MVVMPage x:ConnectionId='1' 
-    x:Name="pageRoot"
-    x:Class="NavDemo.HomePage"
+﻿<mvvm:MVVMPage x:ConnectionId='1'
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:NavDemo"
@@ -8,13 +6,16 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="using:NavDemo.ViewModels"
+    xmlns:Custom="using:Microsoft.Xaml.Interactivity" xmlns:Custom1="using:Microsoft.Xaml.Interactions.Core" xmlns:Custom2="using:MVVMSidekick.Behaviors" 
+    x:Name="pageRoot"
+    x:Class="NavDemo.HomePage"
     mc:Ignorable="d">
 
-    <Page.Resources>
+    <mvvm:MVVMPage.Resources>
         <!-- TODO: Delete this line if the key AppName is declared in App.xaml -->
         <x:String x:Key="AppName">My Application</x:String>
         <vm:HomePage_Model x:Key="DesignVM"/>
-    </Page.Resources>
+    </mvvm:MVVMPage.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"  DataContext="{StaticResource DesignVM}">
         <Grid.ChildrenTransitions>
@@ -25,9 +26,26 @@
 
         <TextBlock x:ConnectionId='2' x:Name="pageTitle" Text="{Binding Title}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
                         IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40"/>
-        <Button x:ConnectionId='3' x:Name="Button" Content="Button" HorizontalAlignment="Left" Margin="944,593,0,0" VerticalAlignment="Top" Height="57" Width="107"                     />
-        <Image x:ConnectionId='4' x:Name="Img" HorizontalAlignment="Left" Height="446" Margin="217,432,0,0" VerticalAlignment="Top" Width="568"/>
-       
+        <TextBox Width="523" HorizontalAlignment="Left" Margin="480,287,0,0" Text="{Binding currentDialog.textDialog, Mode=TwoWay}" TextWrapping="Wrap" VerticalAlignment="Top" Height="154"/>
+        <TextBox HorizontalAlignment="Left" Margin="480,165,0,0" Text="{Binding currentDialog.describeDialog, Mode=TwoWay}" TextWrapping="Wrap" VerticalAlignment="Top" Height="61" Width="358"/>
+        <TextBox HorizontalAlignment="Left" Margin="480,93,0,0" Text="{Binding currentDialog.timeDialog, Mode=TwoWay}" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="129"/>
+        <AutoSuggestBox x:ConnectionId='3'  x:Name="MyASBox" HorizontalAlignment="Left" Margin="1083,93,0,0" VerticalAlignment="Top" Height="46" Width="355" 
+                        QueryIcon="Find" ItemsSource="{Binding friendItemList, Mode=TwoWay}" ItemTemplate="{StaticResource SuggestBoxTemplate}"  TextMemberPath="nameFriend">
+
+            <Custom:Interaction.Behaviors>
+                <Custom1:EventTriggerBehavior EventName="TextChanged">
+                    <Custom2:SendToEventRouterAction EventData="{Binding}" IsEventFiringToAllBaseClassesChannels="True" EventRoutingName="TextChangedEventRouter"/>
+                </Custom1:EventTriggerBehavior>
+                <Custom1:EventTriggerBehavior EventName="SuggestionChosen">
+                    <Custom1:InvokeCommandAction Command="{Binding CommandChoseFriend}"/>
+                </Custom1:EventTriggerBehavior>
+            </Custom:Interaction.Behaviors>
+
+        </AutoSuggestBox>
+        <Button x:ConnectionId='4' x:Name="Button" Content="Button" HorizontalAlignment="Left" Margin="944,593,0,0" VerticalAlignment="Top" Height="57" Width="107"                     />
+        <Image x:ConnectionId='5' x:Name="Img" HorizontalAlignment="Left" Height="446" Margin="217,432,0,0" VerticalAlignment="Top" Width="568"/>
+        <Button Content="insert" HorizontalAlignment="Left" Margin="1228,180,0,0" VerticalAlignment="Top" Command="{Binding CommandInsertDialog}" Height="74" Width="128"/>
+
 
     </Grid>
 </mvvm:MVVMPage>

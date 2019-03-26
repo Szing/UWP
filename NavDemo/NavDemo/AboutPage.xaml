@@ -15,7 +15,7 @@
         <x:String x:Key="AppName">My Application</x:String>
         <vm:AboutPage_Model x:Key="DesignVM"/>
     </Page.Resources>
-    
+
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"  DataContext="{StaticResource DesignVM}">
         <Grid.ChildrenTransitions>
             <TransitionCollection>
@@ -23,8 +23,12 @@
             </TransitionCollection>
         </Grid.ChildrenTransitions>
 
-            <TextBlock x:Name="pageTitle" Text="{Binding Title}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
+        <TextBlock x:Name="pageTitle" Text="{Binding Title}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
                         IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40"/>
-  
+        <TextBlock Width="523" HorizontalAlignment="Left" Margin="480,287,0,0" Text="{Binding currentDialog.textDialog}" TextWrapping="Wrap" VerticalAlignment="Top" Height="154"/>
+        <TextBlock HorizontalAlignment="Left" Margin="480,165,0,0" Text="{Binding currentDialog.describeDialog}" TextWrapping="Wrap" VerticalAlignment="Top" Height="61" Width="358"/>
+        <TextBlock HorizontalAlignment="Left" Margin="480,93,0,0" Text="{Binding currentDialog.timeDialog}" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="129"/>
+
+
     </Grid>
 </mvvm:MVVMPage>

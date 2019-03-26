@@ -50,6 +50,13 @@ namespace NavDemo.ViewModels
         #endregion
 
 
+        public Dialog chosenDialog { get => _chosenDialogLocator(this).Value; set => _chosenDialogLocator(this).SetValueAndTryNotify(value); }
+        #region Property Dialog chosenDialog Setup        
+        protected Property<Dialog> _chosenDialog = new Property<Dialog> { LocatorFunc = _chosenDialogLocator };
+        static Func<BindableBase, ValueContainer<Dialog>> _chosenDialogLocator = RegisterContainerLocator(nameof(chosenDialog), m => m.Initialize(nameof(chosenDialog), ref m._chosenDialog, ref _chosenDialogLocator, () => default(Dialog)));
+        #endregion
+
+
         public SuggestService suggest { get => _suggestLocator(this).Value; set => _suggestLocator(this).SetValueAndTryNotify(value); }
         #region Property SuggestService suggest Setup        
         protected Property<SuggestService> _suggest = new Property<SuggestService> { LocatorFunc = _suggestLocator };
@@ -80,7 +87,9 @@ namespace NavDemo.ViewModels
         static Func<BindableBase, ValueContainer<List<Friend>>> _friendItemListLocator = RegisterContainerLocator(nameof(friendItemList), m => m.Initialize(nameof(friendItemList), ref m._friendItemList, ref _friendItemListLocator, () => default(List<Friend>)));
         #endregion
 
-
+        /// <summary>
+        /// 通过默认的添加函数添加默认的好友，用于测试
+        /// </summary>
         public CommandModel<ReactiveCommand, String> CommandAddFriend
         {
             get { return _CommandAddFriendLocator(this).Value; }
@@ -251,7 +260,9 @@ namespace NavDemo.ViewModels
               }));
         #endregion
 
-
+        /// <summary>
+        /// 带参添加朋友，通过新建好友ID卡添加
+        /// </summary>
         public CommandModel<ReactiveCommand, String> CommandInsertFriend
         {
             get { return _CommandInsertFriendLocator(this).Value; }
@@ -371,6 +382,7 @@ namespace NavDemo.ViewModels
             if(!flag)
             {
                 TChangedCommand();
+                DialogChosenCommand();
                 flag = true;
             }
             friend = new Friend() { nameFriend = "unknow" ,nickNameFriend = "unknow" };
@@ -378,6 +390,8 @@ namespace NavDemo.ViewModels
 
             //建立Friend的数据表单
             DbContext.GetInstance().initTableFriend();
+            //建立Dialog的数据表单
+            DbContext.GetInstance().initTableDialog();
             //获取数据库服务
             DataService dataService = ServiceLocator.Instance.Resolve<DataService>();
             //获取suggest服务
@@ -433,7 +447,32 @@ namespace NavDemo.ViewModels
                          }
                      ).DisposeWith(this);
         }
-       
+        //DialogChosenEventRouter
+        private void DialogChosenCommand()
+        {
+            //一般列表项点击事件
+            MVVMSidekick.EventRouting.EventRouter.Instance.GetEventChannel<Object>()
+                .Where(x => x.EventName == "DialogChosenEventRouter")
+                     .Subscribe(
+                         async e =>
+                         {
+                             var i = (ListView)e.Sender;
+                             chosenDialog = (Dialog)i.SelectedItem;
+                             if(chosenDialog != null)
+                             {
+                                 AboutPage_Model vms = new AboutPage_Model();
+                                 vms.currentDialog = chosenDialog;
+                                 vms.listDialog = listDialog;
+                                 await
+                               CastToCurrentType(this)
+                               .StageManager
+                               .DefaultStage
+                               .Show<AboutPage_Model>(vms);
+                             }
+                             
+                         }
+                     ).DisposeWith(this);
+        }
     }
 
 }

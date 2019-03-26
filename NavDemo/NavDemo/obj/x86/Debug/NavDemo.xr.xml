@@ -1,14 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Roots >
   <Roots.PropertyPathNames>
-    <RootPropertyPathName Name="Title" />
-    <RootPropertyPathName Name="IsPaneOpen" />
-    <RootPropertyPathName Name="NavMenuItemList" />
+    <RootPropertyPathName Name="currentDialog" />
     <RootPropertyPathName Name="timeDialog" />
     <RootPropertyPathName Name="describeDialog" />
+    <RootPropertyPathName Name="textDialog" />
+    <RootPropertyPathName Name="Title" />
+    <RootPropertyPathName Name="nameFriend" />
+    <RootPropertyPathName Name="CommandInsertDialog" />
+    <RootPropertyPathName Name="friendItemList" />
+    <RootPropertyPathName Name="CommandChoseFriend" />
+    <RootPropertyPathName Name="IsPaneOpen" />
+    <RootPropertyPathName Name="NavMenuItemList" />
     <RootPropertyPathName Name="imageDialog" />
     <RootPropertyPathName Name="nickNameFriend" />
-    <RootPropertyPathName Name="nameFriend" />
     <RootPropertyPathName Name="iconFriend" />
     <RootPropertyPathName Name="Label" />
     <RootPropertyPathName Name="Glyph" />
@@ -16,8 +21,6 @@
     <RootPropertyPathName Name="CommandSubmitFriend" />
     <RootPropertyPathName Name="CommandInsertFriend" />
     <RootPropertyPathName Name="friend" />
-    <RootPropertyPathName Name="friendItemList" />
-    <RootPropertyPathName Name="CommandChoseFriend" />
     <RootPropertyPathName Name="CommandTableInit" />
     <RootPropertyPathName Name="CommandGetFriends" />
     <RootPropertyPathName Name="CommandAddFriend" />
@@ -57,17 +60,45 @@
       <RootProperty Name="TextWrapping" />
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Margin" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Height" />
       <RootProperty Name="FontSize" />
       <RootProperty Name="FontWeight" />
       <RootProperty Name="Inlines" />
       <RootProperty Name="CharacterSpacing" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Data.Binding">
-      <RootProperty Name="ElementName" />
       <RootProperty Name="Mode" />
+      <RootProperty Name="ElementName" />
     </RootType>
     <RootType FullName="NavDemo.AboutPage" />
     <RootType FullName="NavDemo.ViewModels.HomePage_Model" />
+    <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
+      <RootProperty Name="Width" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Text" />
+      <RootProperty Name="TextWrapping" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="PlaceholderText" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.AutoSuggestBox">
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="QueryIcon" />
+      <RootProperty Name="ItemsSource" />
+      <RootProperty Name="ItemTemplate" />
+      <RootProperty Name="TextMemberPath" />
+    </RootType>
+    <RootType FullName="Microsoft.Xaml.Interactivity.Interaction">
+      <RootMethod Name="GetBehaviors" />
+      <RootMethod Name="SetBehaviors" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Button">
       <RootProperty Name="Content" />
       <RootProperty Name="HorizontalAlignment" />
@@ -85,6 +116,18 @@
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Width" />
       <RootProperty Name="Source" />
+    </RootType>
+    <RootType FullName="Microsoft.Xaml.Interactions.Core.EventTriggerBehavior">
+      <RootProperty Name="EventName" />
+      <RootProperty Name="Actions" />
+    </RootType>
+    <RootType FullName="Microsoft.Xaml.Interactions.Core.InvokeCommandAction">
+      <RootProperty Name="Command" />
+    </RootType>
+    <RootType FullName="MVVMSidekick.Behaviors.SendToEventRouterAction">
+      <RootProperty Name="EventData" />
+      <RootProperty Name="IsEventFiringToAllBaseClassesChannels" />
+      <RootProperty Name="EventRoutingName" />
     </RootType>
     <RootType FullName="NavDemo.HomePage" />
     <RootType FullName="NavDemo.ViewModels.MainPage_Model" />
@@ -131,19 +174,6 @@
     <RootType FullName="Windows.UI.Xaml.DataTemplate">
       <RootProperty Name="Template" />
     </RootType>
-    <RootType FullName="Microsoft.Xaml.Interactivity.Interaction">
-      <RootMethod Name="GetBehaviors" />
-      <RootMethod Name="SetBehaviors" />
-    </RootType>
-    <RootType FullName="Microsoft.Xaml.Interactions.Core.EventTriggerBehavior">
-      <RootProperty Name="EventName" />
-      <RootProperty Name="Actions" />
-    </RootType>
-    <RootType FullName="MVVMSidekick.Behaviors.SendToEventRouterAction">
-      <RootProperty Name="IsEventFiringToAllBaseClassesChannels" />
-      <RootProperty Name="EventRoutingName" />
-      <RootProperty Name="EventData" />
-    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ColumnDefinition">
       <RootProperty Name="Width" />
       <RootProperty Name="MinWidth" />
@@ -169,28 +199,6 @@
       <RootProperty Name="HorizontalAlignment" />
     </RootType>
     <RootType FullName="NavDemo.ViewModels.SearchPage_Model" />
-    <RootType FullName="Windows.UI.Xaml.Controls.AutoSuggestBox">
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="Margin" />
-      <RootProperty Name="VerticalAlignment" />
-      <RootProperty Name="Height" />
-      <RootProperty Name="Width" />
-      <RootProperty Name="QueryIcon" />
-      <RootProperty Name="ItemsSource" />
-      <RootProperty Name="ItemTemplate" />
-      <RootProperty Name="TextMemberPath" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
-      <RootProperty Name="PlaceholderText" />
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="Text" />
-      <RootProperty Name="VerticalAlignment" />
-      <RootProperty Name="Width" />
-      <RootProperty Name="Margin" />
-    </RootType>
-    <RootType FullName="Microsoft.Xaml.Interactions.Core.InvokeCommandAction">
-      <RootProperty Name="Command" />
-    </RootType>
     <RootType FullName="NavDemo.SearchPage" />
     <RootType FullName="Windows.UI.Xaml.Media.FontFamily" />
     <RootType FullName="Windows.UI.Xaml.Controls.Control">
