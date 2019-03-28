@@ -93,9 +93,10 @@ namespace NavDemo.ViewModels
 
                               AutoSuggestBoxSuggestionChosenEventArgs args = (AutoSuggestBoxSuggestionChosenEventArgs)e.EventArgs.Parameter;
                               vm.chosenFriend = (Friend)args.SelectedItem;
-
-
-                              //await new Windows.UI.Popups.MessageDialog(vm.chosenFriend.nameFriend).ShowAsync();
+                              vm.currentDialog.idFriend = vm.chosenFriend.idFriend;
+                              vm.currentDialog.nickNameFriend = vm.chosenFriend.nickNameFriend;
+                              vm.currentDialog.nameFriend = vm.chosenFriend.nameFriend;
+                              await new Windows.UI.Popups.MessageDialog(vm.chosenFriend.idFriend.ToString()).ShowAsync();
                           })
                       .DoNotifyDefaultEventRouter(vm, commandId)
                       .Subscribe()
@@ -135,7 +136,15 @@ namespace NavDemo.ViewModels
                               
                               ServiceLocator.Instance.Resolve<DataService>()
                                  .InsertDialog(vm.currentDialog);
-                             
+                              StringBuilder sb = new StringBuilder();
+                              DataService dataService = ServiceLocator.Instance.Resolve<DataService>();
+
+                              List<Dialog> list = dataService.GetAllDialogs();
+                              foreach (Dialog item in list)
+                              {
+                                  sb.AppendLine($"{item.idFriend} {item.timeDialog} {item.describeDialog} {item.textDialog} ");
+                              }
+                              await new Windows.UI.Popups.MessageDialog(sb.ToString()).ShowAsync();
                           })
                       .DoNotifyDefaultEventRouter(vm, commandId)
                       .Subscribe()

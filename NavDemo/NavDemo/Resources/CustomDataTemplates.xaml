@@ -45,18 +45,23 @@
             
             <Grid.ColumnDefinitions>
                 <ColumnDefinition  Width="Auto" />
-
+                
             </Grid.ColumnDefinitions>
 
             <Image Width="50" Source="{Binding imageDialog}" />
             <StackPanel Grid.Column="1" Margin="7,3,4,3">
                 <TextBlock FontSize="15" FontWeight="Bold" Text="{Binding describeDialog}"/>
                 <TextBlock>
+                                    <Run Text="{Binding nameFriend}" />
+                                    <Run>：</Run>
+                                    <Run Text="{Binding nickNameFriend}" />
+                </TextBlock>
+                <TextBlock>
                                     <Run>时间：</Run>
                                     <Run Text="{Binding timeDialog}" />
                 </TextBlock>
             </StackPanel>
-
+            
         </Grid>
     </DataTemplate>
 </ResourceDictionary>

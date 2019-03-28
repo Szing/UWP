@@ -60,10 +60,10 @@
             <Button Content="insert"  Command="{Binding CommandInsertFriend}" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center"/>
         </StackPanel>
         <Button Content="GET" HorizontalAlignment="Left" Margin="929,374,0,0" VerticalAlignment="Top" Command="{Binding CommandSubmitFriend}"/>
-        <ListView  HorizontalAlignment="Left" Height="414" Margin="633,482,0,0" VerticalAlignment="Top" Width="208"
+        <ListView  HorizontalAlignment="Left" Height="321" Margin="599,478,0,0" VerticalAlignment="Top" Width="171"
                   ItemsSource="{Binding listDialog}"
                           ItemTemplate="{StaticResource DialogItemTemplate}"
-                          ItemContainerStyle="{StaticResource NavMenuItemContainerStyle}"
+                          
                   >
             <Custom:Interaction.Behaviors>
                 <Custom1:EventTriggerBehavior EventName="Tapped">
@@ -71,6 +71,18 @@
                 </Custom1:EventTriggerBehavior>
             </Custom:Interaction.Behaviors>
         </ListView>
-
+        <CalendarDatePicker x:Name="MemoryCalenderDatePicker"
+                            PlaceholderText="Mark your day"
+                            Header="Memory Date" 
+                           
+                            DateFormat="{}{dayofweek.full},{month.full} {day.integer}, {year.full}" HorizontalAlignment="Left" Margin="1254,390,0,0" VerticalAlignment="Top">
+            <Custom:Interaction.Behaviors>
+                <Custom1:EventTriggerBehavior EventName="DateChanged">
+                    <Custom1:InvokeCommandAction Command="{Binding CommandChangeDate}"/>
+                </Custom1:EventTriggerBehavior>
+            </Custom:Interaction.Behaviors>
+        </CalendarDatePicker>
+        <TextBlock Name="ShowSelection" Margin="1142,177,80,657" Text="{Binding dateText}"/>
+        <Button Content="SubmitDate" HorizontalAlignment="Left" Margin="1292,478,0,0" VerticalAlignment="Top" Command="{Binding CommandSubmitDate}"/>
     </Grid>
 </mvvm:MVVMPage>

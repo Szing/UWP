@@ -14,6 +14,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using NavDemo.Services;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml;
 
 namespace NavDemo.ViewModels
 {
@@ -42,6 +43,12 @@ namespace NavDemo.ViewModels
         static Func<BindableBase, String> _TitleDefaultValueFactory = m => m.GetType().Name;
         #endregion
 
+
+        public string dateText { get => _dateTextLocator(this).Value; set => _dateTextLocator(this).SetValueAndTryNotify(value); }
+        #region Property string dateText Setup        
+        protected Property<string> _dateText = new Property<string> { LocatorFunc = _dateTextLocator };
+        static Func<BindableBase, ValueContainer<string>> _dateTextLocator = RegisterContainerLocator(nameof(dateText), m => m.Initialize(nameof(dateText), ref m._dateText, ref _dateTextLocator, () => default(string)));
+        #endregion
 
         public List<Dialog> listDialog { get => _listDialogLocator(this).Value; set => _listDialogLocator(this).SetValueAndTryNotify(value); }
         #region Property List<Dialog> listDialog Setup        
@@ -217,7 +224,9 @@ namespace NavDemo.ViewModels
               }));
         #endregion
 
-
+        /// <summary>
+        /// 选中Friend后查看他的Dialogs
+        /// </summary>
         public CommandModel<ReactiveCommand, String> CommandSubmitFriend
         {
             get { return _CommandSubmitFriendLocator(this).Value; }
@@ -239,9 +248,7 @@ namespace NavDemo.ViewModels
                           {
                             //Todo: Add FriendSubmit logic here, or
                             await MVVMSidekick.Utilities.TaskExHelper.Yield();
-                              StringBuilder sb = new StringBuilder();
                               DataService dataService = ServiceLocator.Instance.Resolve<DataService>();
-
                               List<Dialog> list = dataService.GetDialogs(vm.chosenFriend.idFriend);
                               vm.listDialog = list;
                               
@@ -259,6 +266,48 @@ namespace NavDemo.ViewModels
                   return cmdmdl;
               }));
         #endregion
+
+        /// <summary>
+        /// 选中Date后，查看当天的Dialogs
+        /// </summary>
+        public CommandModel<ReactiveCommand, String> CommandSubmitDate
+        {
+            get { return _CommandSubmitDateLocator(this).Value; }
+            set { _CommandSubmitDateLocator(this).SetValueAndTryNotify(value); }
+        }
+        #region Property CommandModel<ReactiveCommand, String> CommandSubmitDate Setup               
+        protected Property<CommandModel<ReactiveCommand, String>> _CommandSubmitDate = new Property<CommandModel<ReactiveCommand, String>> { LocatorFunc = _CommandSubmitDateLocator };
+        static Func<BindableBase, ValueContainer<CommandModel<ReactiveCommand, String>>> _CommandSubmitDateLocator = RegisterContainerLocator("CommandSubmitDate", m => m.Initialize("CommandSubmitDate", ref m._CommandSubmitDate, ref _CommandSubmitDateLocator,
+              model =>
+              {
+                  var state = "CommandSubmitDate";
+                  var commandId = "CommandSubmitDate";
+                  var vm = CastToCurrentType(model);
+                  var cmd = new ReactiveCommand(canExecute: true) { ViewModel = model };
+
+                  cmd.DoExecuteUIBusyTask(
+                          vm,
+                          async e =>
+                          {
+                            //Todo: Add SubmitDate logic here, or
+                            await MVVMSidekick.Utilities.TaskExHelper.Yield();
+                              DataService dataService = ServiceLocator.Instance.Resolve<DataService>();
+                              List<Dialog> list = dataService.GetDialogs(vm.dateText);
+                              vm.listDialog = list;
+                          })
+                      .DoNotifyDefaultEventRouter(vm, commandId)
+                      .Subscribe()
+                      .DisposeWith(vm);
+
+                  var cmdmdl = cmd.CreateCommandModel(state);
+
+                  cmdmdl.ListenToIsUIBusy(
+                      model: vm,
+                      canExecuteWhenBusy: false);
+                  return cmdmdl;
+              }));
+        #endregion
+
 
         /// <summary>
         /// 带参添加朋友，通过新建好友ID卡添加
@@ -346,6 +395,56 @@ namespace NavDemo.ViewModels
               }));
         #endregion
 
+    
+        /// <summary>
+        /// 通过点击日历获取日期
+        /// </summary>
+        public CommandModel<ReactiveCommand, String> CommandChangeDate
+        {
+            get { return _CommandChangeDateLocator(this).Value; }
+            set { _CommandChangeDateLocator(this).SetValueAndTryNotify(value); }
+        }
+        #region Property CommandModel<ReactiveCommand, String> CommandChangeDate Setup               
+        protected Property<CommandModel<ReactiveCommand, String>> _CommandChangeDate = new Property<CommandModel<ReactiveCommand, String>> { LocatorFunc = _CommandChangeDateLocator };
+        static Func<BindableBase, ValueContainer<CommandModel<ReactiveCommand, String>>> _CommandChangeDateLocator = RegisterContainerLocator("CommandChangeDate", m => m.Initialize("CommandChangeDate", ref m._CommandChangeDate, ref _CommandChangeDateLocator,
+              model =>
+              {
+                  var state = "CommandChangeDate";
+                  var commandId = "CommandChangeDate";
+                  var vm = CastToCurrentType(model);
+                  var cmd = new ReactiveCommand(canExecute: true) { ViewModel = model };
+
+                  cmd.DoExecuteUIBusyTask(
+                          vm,
+                          async e =>
+                          {
+                            //Todo: Add ChangeDate logic here, or
+                            await MVVMSidekick.Utilities.TaskExHelper.Yield();
+                              CalendarDatePickerDateChangedEventArgs arg = (CalendarDatePickerDateChangedEventArgs)e.EventArgs.Parameter;
+                              var date = arg.NewDate.Value;
+                              StringBuilder sb = new StringBuilder();
+                              vm.dateText = "";
+                              vm.dateText += date.Year.ToString() + '/' + date.Month.ToString() + '/' + date.Day.ToString();
+
+                             
+                              
+                              
+
+                          })
+                      .DoNotifyDefaultEventRouter(vm, commandId)
+                      .Subscribe()
+                      .DisposeWith(vm);
+
+                  var cmdmdl = cmd.CreateCommandModel(state);
+
+                  cmdmdl.ListenToIsUIBusy(
+                      model: vm,
+                      canExecuteWhenBusy: false);
+                  return cmdmdl;
+              }));
+        #endregion
+
+
         #region Life Time Event Handling
 
         ///// <summary>
@@ -430,6 +529,7 @@ namespace NavDemo.ViewModels
 
         #endregion
         
+          
         
 
         //TChangedEventRouter
