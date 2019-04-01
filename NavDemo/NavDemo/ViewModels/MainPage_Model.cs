@@ -14,6 +14,8 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using NavDemo.Models;
 using MVVMSidekick.EventRouting;
+using NavDemo.Services;
+using Windows.UI.Xaml.Media;
 
 namespace NavDemo.ViewModels
 {
@@ -37,6 +39,15 @@ namespace NavDemo.ViewModels
             NavMenuItemList.Add(new NavMenuItem { Glyph = "\uf002", Label = "搜索" });
             //NavMenuItemList.Add(new NavMenuItem { Glyph = "\uf007", Label = "用户中心" });
             NavMenuItemList.Add(new NavMenuItem { Glyph = "\uf05a", Label = "关于" });
+            /*
+              listFontItem = new ObservableCollection<FontItem>();
+            listFontItem.Add(new FontItem { fontFamily = new FontFamily("YouYuan"), fontName = "幼圆" });
+            listFontItem.Add(new FontItem { fontFamily = new FontFamily("KaiTi"), fontName = "楷体" });
+            listFontItem.Add(new FontItem { fontFamily = new FontFamily("FZYaoti"), fontName = "姚体" });
+            listFontItem.Add(new FontItem { fontFamily = new FontFamily("FZShuTi"), fontName = "舒体" });
+            listFontItem.Add(new FontItem { fontFamily = new FontFamily("STLiti"), fontName = "隶书" });
+             */
+            
         }
 
         //propvm tab tab string tab Title
@@ -50,6 +61,14 @@ namespace NavDemo.ViewModels
         static Func<BindableBase, ValueContainer<String>> _TitleLocator = RegisterContainerLocator<String>("Title", model => model.Initialize("Title", ref model._Title, ref _TitleLocator, _TitleDefaultValueFactory));
         static Func<String> _TitleDefaultValueFactory = ()=>"Title is Here";
         #endregion
+
+        /*
+         * public ObservableCollection<FontItem> listFontItem { get => _listFontItemLocator(this).Value; set => _listFontItemLocator(this).SetValueAndTryNotify(value); }
+        #region Property ObservableCollection<FontItem> listFontItem Setup        
+        protected Property<ObservableCollection<FontItem>> _listFontItem = new Property<ObservableCollection<FontItem>> { LocatorFunc = _listFontItemLocator };
+        static Func<BindableBase, ValueContainer<ObservableCollection<FontItem>>> _listFontItemLocator = RegisterContainerLocator(nameof(listFontItem), m => m.Initialize(nameof(listFontItem), ref m._listFontItem, ref _listFontItemLocator, () => default(ObservableCollection<FontItem>)));
+        #endregion
+         */
 
 
 
@@ -81,6 +100,9 @@ namespace NavDemo.ViewModels
         static Func<BindableBase, ValueContainer<bool>> _IsPaneOpenLocator = RegisterContainerLocator<bool>("IsPaneOpen", model => model.Initialize("IsPaneOpen", ref model._IsPaneOpen, ref _IsPaneOpenLocator, _IsPaneOpenDefaultValueFactory));
         static Func<bool> _IsPaneOpenDefaultValueFactory = () => default(bool);
         #endregion
+
+
+       
 
 
         #region Life Time Event Handling
@@ -120,6 +142,10 @@ namespace NavDemo.ViewModels
                 this.RegisterCommand();
                 this.isLoaded = true;
             }
+            //建立Friend的数据表单
+            DbContext.GetInstance().initTableFriend();
+            //建立Dialog的数据表单
+            DbContext.GetInstance().initTableDialog();
             await base.OnBindedViewLoad(view);
             //await StageManager["frameMain"].Show(new HomePage_Model());
         }
@@ -157,6 +183,7 @@ namespace NavDemo.ViewModels
                      .Subscribe(
                          async e =>
                          {
+                             var i = e;
                              NavMenuItem item = e.EventData as NavMenuItem;
                              if (item != null)
                              {

@@ -487,10 +487,7 @@ namespace NavDemo.ViewModels
             friend = new Friend() { nameFriend = "unknow" ,nickNameFriend = "unknow" };
             chosenFriend = new Friend();
 
-            //建立Friend的数据表单
-            DbContext.GetInstance().initTableFriend();
-            //建立Dialog的数据表单
-            DbContext.GetInstance().initTableDialog();
+           
             //获取数据库服务
             DataService dataService = ServiceLocator.Instance.Resolve<DataService>();
             //获取suggest服务

@@ -17,7 +17,7 @@
     </Page.Resources>
     <Grid x:Name="LayoutRoot" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"  DataContext="{StaticResource DesignVM}">
 
-
+        
         <!-- Top-level navigation menu + app content -->
         <SplitView x:Name="RootSplitView" IsPaneOpen="{Binding IsPaneOpen,Mode=TwoWay}"
                    DisplayMode="CompactInline"
@@ -47,10 +47,7 @@
                  OnNavigatedToPage we move keyboard focus to the first item on the page after it's loaded and update the Back button. -->
             <SplitView.Content>
                 <Frame x:Name="mainFrame" mvvm:StageManager.Beacon="frameMain" x:FieldModifier="public">
-                   
-
-
-
+                    
                 </Frame>
             </SplitView.Content>
             <!--<Frame x:Name="mainFrame">-->

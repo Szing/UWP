@@ -26,7 +26,226 @@
 
         <TextBlock x:Name="pageTitle" Text="{Binding Title}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
                         IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40"/>
-        <TextBox Width="523" HorizontalAlignment="Left" Margin="480,287,0,0" Text="{Binding currentDialog.textDialog, Mode=TwoWay}" TextWrapping="Wrap" VerticalAlignment="Top" Height="154"/>
+        <RelativePanel Margin="288,288,391,232"   HorizontalAlignment="Stretch">
+            <RelativePanel.Resources>
+                <Style TargetType="AppBarButton">
+                    <Setter Property="IsCompact" Value="True"/>
+                </Style>
+            </RelativePanel.Resources>
+            <AppBarButton x:Name="openFileButton" Icon="OpenFile"
+                  Command="{Binding CommandImportDialog}" CommandParameter="{Binding ElementName=editor}" ToolTipService.ToolTip="Open file"/>
+            <AppBarButton Icon="Save" Command="{Binding CommandExportDialog}"
+                          CommandParameter="{Binding ElementName=editor}"
+                          ToolTipService.ToolTip="Save file"
+                          RelativePanel.RightOf="openFileButton" Margin="8,0,0,0"/>
+            <AppBarButton x:Name="imageButton" Icon="Pictures"  Command="{Binding CommandInsertImage}"
+                 RelativePanel.LeftOf="Font" ToolTipService.ToolTip="Image" CommandParameter="{Binding ElementName=editor}"/>
+            <AppBarButton x:Name="Font" Icon="Font" RelativePanel.LeftOf="fontColorButton" ToolTipService.ToolTip="Font">
+                <AppBarButton.Flyout >
+                    <MenuFlyout >
+                        <MenuFlyoutItem Text="幼圆" Tag="幼圆" FontFamily="YouYuan"  >
+                            <Custom:Interaction.Behaviors>
+                                <Custom1:EventTriggerBehavior EventName="Tapped">
+                                    <Custom1:InvokeCommandAction Command="{Binding CommandChoseFontFamily}"/>
+                                </Custom1:EventTriggerBehavior>
+                            </Custom:Interaction.Behaviors>
+                        </MenuFlyoutItem>
+                        <MenuFlyoutItem Text="楷体" Tag="楷体" FontFamily="KaiTi" >
+                            <Custom:Interaction.Behaviors>
+                                <Custom1:EventTriggerBehavior EventName="Tapped" >
+                                    <Custom1:InvokeCommandAction Command="{Binding CommandChoseFontFamily}"/>
+                                </Custom1:EventTriggerBehavior>
+                            </Custom:Interaction.Behaviors>
+                        </MenuFlyoutItem>
+                        <MenuFlyoutItem Text="姚体" Tag="姚体" FontFamily="FZYaoti" >
+                            <Custom:Interaction.Behaviors>
+                                <Custom1:EventTriggerBehavior EventName="Tapped"  >
+                                    <Custom1:InvokeCommandAction Command="{Binding CommandChoseFontFamily}"/>
+                                </Custom1:EventTriggerBehavior>
+                            </Custom:Interaction.Behaviors>
+                        </MenuFlyoutItem>
+                        <MenuFlyoutItem Text="舒体" Tag="舒体" FontFamily="FZShuTi" >
+                            <Custom:Interaction.Behaviors>
+                                <Custom1:EventTriggerBehavior EventName="Tapped" >
+                                    <Custom1:InvokeCommandAction Command="{Binding CommandChoseFontFamily}"/>
+                                </Custom1:EventTriggerBehavior>
+                            </Custom:Interaction.Behaviors>
+                        </MenuFlyoutItem>
+                        <MenuFlyoutItem Text="隶书" Tag="隶书" FontFamily="STLiti" >
+                            <Custom:Interaction.Behaviors>
+                                <Custom1:EventTriggerBehavior EventName="Tapped" >
+                                    <Custom1:InvokeCommandAction Command="{Binding CommandChoseFontFamily}"/>
+                                </Custom1:EventTriggerBehavior>
+                            </Custom:Interaction.Behaviors>
+                        </MenuFlyoutItem>
+                    </MenuFlyout>
+                </AppBarButton.Flyout>
+            </AppBarButton>
+            <AppBarButton x:Name="fontColorButton" AutomationProperties.Name="Font color"
+                                BorderThickness="0" ToolTipService.ToolTip="Font color"
+                                Background="Transparent" 
+                                RelativePanel.LeftOf="FontSize" Tag="{Binding ElementName=editor}">
+                <Custom:Interaction.Behaviors>
+                    <Custom1:EventTriggerBehavior EventName="Click">
+                        <Custom1:InvokeCommandAction Command="{Binding CommandGetRichEditBox}"/>
+                    </Custom1:EventTriggerBehavior>
+                </Custom:Interaction.Behaviors>
+                <AppBarButton.Flyout>
+                    <Flyout Placement="Bottom">
+                        <VariableSizedWrapGrid Orientation="Horizontal" MaximumRowsOrColumns="3">
+                            <VariableSizedWrapGrid.Resources>
+                                <Style TargetType="Rectangle">
+                                    <Setter Property="Width" Value="32"/>
+                                    <Setter Property="Height" Value="32"/>
+                                </Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="Padding" Value="0"/>
+                                    <Setter Property="MinWidth" Value="0"/>
+                                    <Setter Property="MinHeight" Value="0"/>
+                                    <Setter Property="Margin" Value="6"/>
+                                </Style>
+                            </VariableSizedWrapGrid.Resources>
+                            <Button   AutomationProperties.Name="Red" >
+                                <Custom:Interaction.Behaviors>
+                                    <Custom1:EventTriggerBehavior EventName="Click">
+                                        <Custom1:InvokeCommandAction Command="{Binding CommandChoseFontColor}"/>
+                                    </Custom1:EventTriggerBehavior>
+                                </Custom:Interaction.Behaviors>
+                                <Rectangle Fill="Red"/>
+                            </Button>
+                            <Button  AutomationProperties.Name="Orange">
+                                <Custom:Interaction.Behaviors>
+                                    <Custom1:EventTriggerBehavior EventName="Click">
+                                        <Custom1:InvokeCommandAction Command="{Binding CommandChoseFontColor}"/>
+                                    </Custom1:EventTriggerBehavior>
+                                </Custom:Interaction.Behaviors>
+                                <Rectangle Fill="Orange"/>
+                            </Button>
+                            <Button   AutomationProperties.Name="Yellow">
+                                <Custom:Interaction.Behaviors>
+                                    <Custom1:EventTriggerBehavior EventName="Click">
+                                        <Custom1:InvokeCommandAction Command="{Binding CommandChoseFontColor}"/>
+                                    </Custom1:EventTriggerBehavior>
+                                </Custom:Interaction.Behaviors>
+                                <Rectangle Fill="Yellow"/>
+                            </Button>
+                            <Button   AutomationProperties.Name="Green">
+                                <Custom:Interaction.Behaviors>
+                                    <Custom1:EventTriggerBehavior EventName="Click">
+                                        <Custom1:InvokeCommandAction Command="{Binding CommandChoseFontColor}"/>
+                                    </Custom1:EventTriggerBehavior>
+                                </Custom:Interaction.Behaviors>
+                                <Rectangle Fill="Green"/>
+                            </Button>
+                            <Button   AutomationProperties.Name="Blue">
+                                <Custom:Interaction.Behaviors>
+                                    <Custom1:EventTriggerBehavior EventName="Click">
+                                        <Custom1:InvokeCommandAction Command="{Binding CommandChoseFontColor}"/>
+                                    </Custom1:EventTriggerBehavior>
+                                </Custom:Interaction.Behaviors>
+                                <Rectangle Fill="Blue"/>
+                            </Button>
+                            <Button    AutomationProperties.Name="Indigo">
+                                <Custom:Interaction.Behaviors>
+                                    <Custom1:EventTriggerBehavior EventName="Click">
+                                        <Custom1:InvokeCommandAction Command="{Binding CommandChoseFontColor}"/>
+                                    </Custom1:EventTriggerBehavior>
+                                </Custom:Interaction.Behaviors>
+                                <Rectangle Fill="Indigo"/>
+                            </Button>
+                            <Button  AutomationProperties.Name="Violet">
+                                <Custom:Interaction.Behaviors>
+                                    <Custom1:EventTriggerBehavior EventName="Click">
+                                        <Custom1:InvokeCommandAction Command="{Binding CommandChoseFontColor}"/>
+                                    </Custom1:EventTriggerBehavior>
+                                </Custom:Interaction.Behaviors>
+                                <Rectangle Fill="Violet"/>
+                            </Button>
+                            <Button   AutomationProperties.Name="Gray">
+                                <Custom:Interaction.Behaviors>
+                                    <Custom1:EventTriggerBehavior EventName="Click">
+                                        <Custom1:InvokeCommandAction Command="{Binding CommandChoseFontColor}"/>
+                                    </Custom1:EventTriggerBehavior>
+                                </Custom:Interaction.Behaviors>
+                                <Rectangle Fill="Gray"/>
+                            </Button>
+                            <Button  AutomationProperties.Name="Black">
+                                <Custom:Interaction.Behaviors>
+                                    <Custom1:EventTriggerBehavior EventName="Click">
+                                        <Custom1:InvokeCommandAction Command="{Binding CommandChoseFontColor}"/>
+                                    </Custom1:EventTriggerBehavior>
+                                </Custom:Interaction.Behaviors>
+                                <Rectangle Fill="Black"/>
+                            </Button>
+                        </VariableSizedWrapGrid>
+                    </Flyout>
+                </AppBarButton.Flyout>
+                <SymbolIcon Symbol="FontColor" HorizontalAlignment="Stretch" Height="20" Margin="0,0,0,0" VerticalAlignment="Top"/>
+            </AppBarButton>
+
+            <AppBarButton x:Name="FontSize" Icon="FontSize"  ToolTipService.ToolTip="FontSize"
+                      RelativePanel.LeftOf="boldbutton" Margin="0,0,8,0" Tag="{Binding ElementName=editor}">
+                <AppBarButton.Flyout>
+                    <MenuFlyout>
+                        <MenuFlyoutItem Text="16" Tag="16" FontSize="16">
+                            <Custom:Interaction.Behaviors>
+                                <Custom1:EventTriggerBehavior EventName="Tapped">
+                                    <Custom1:InvokeCommandAction Command="{Binding CommandChoseFontSize}"/>
+                                </Custom1:EventTriggerBehavior>
+                            </Custom:Interaction.Behaviors>
+                        </MenuFlyoutItem>
+                        <MenuFlyoutItem Text="20" Tag="20" FontSize="20">
+                            <Custom:Interaction.Behaviors>
+                                <Custom1:EventTriggerBehavior EventName="Tapped">
+                                    <Custom1:InvokeCommandAction Command="{Binding CommandChoseFontSize}"/>
+                                </Custom1:EventTriggerBehavior>
+                            </Custom:Interaction.Behaviors>
+                        </MenuFlyoutItem>
+                        <MenuFlyoutItem Text="24" Tag="24" FontSize="24">
+                            <Custom:Interaction.Behaviors>
+                                <Custom1:EventTriggerBehavior EventName="Tapped">
+                                    <Custom1:InvokeCommandAction Command="{Binding CommandChoseFontSize}"/>
+                                </Custom1:EventTriggerBehavior>
+                            </Custom:Interaction.Behaviors>
+                        </MenuFlyoutItem>
+                        <MenuFlyoutItem Text="36" Tag="36" FontSize="36">
+                            <Custom:Interaction.Behaviors>
+                                <Custom1:EventTriggerBehavior EventName="Tapped">
+                                    <Custom1:InvokeCommandAction Command="{Binding CommandChoseFontSize}"/>
+                                </Custom1:EventTriggerBehavior>
+                            </Custom:Interaction.Behaviors>
+                        </MenuFlyoutItem>
+                        <MenuFlyoutItem Text="48" Tag="48" FontSize="48">
+                            <Custom:Interaction.Behaviors>
+                                <Custom1:EventTriggerBehavior EventName="Tapped">
+                                    <Custom1:InvokeCommandAction Command="{Binding CommandChoseFontSize}"/>
+                                </Custom1:EventTriggerBehavior>
+                            </Custom:Interaction.Behaviors>
+                        </MenuFlyoutItem>
+                    </MenuFlyout>
+                </AppBarButton.Flyout>
+                <Custom:Interaction.Behaviors>
+                    <Custom1:EventTriggerBehavior EventName="Click">
+                        <Custom1:InvokeCommandAction Command="{Binding CommandGetRichEditBox}"/>
+                    </Custom1:EventTriggerBehavior>
+                </Custom:Interaction.Behaviors>
+            </AppBarButton>
+            <AppBarButton x:Name="boldbutton" Icon="Bold" Command="{Binding CommandChoseFontBold}" CommandParameter="{Binding ElementName=editor}" ToolTipService.ToolTip="Bold"
+                  RelativePanel.LeftOf="italicButton" Margin="0,0,8,0" Tag="{Binding ElementName=editor}"/>
+            <AppBarButton x:Name="italicButton" Icon="Italic"  Command="{Binding CommandChoseFontItalic}" CommandParameter="{Binding ElementName=editor}"
+                  ToolTipService.ToolTip="Italic" RelativePanel.LeftOf="underlineButton" Margin="0,0,8,0" Tag="{Binding ElementName=editor}"/>
+            <AppBarButton x:Name="underlineButton" Icon="Underline"  Command="{Binding CommandChoseFontUnderline}"
+                  ToolTipService.ToolTip="Underline" RelativePanel.AlignRightWithPanel="True" CommandParameter="{Binding ElementName=editor}"/>
+
+            <RichEditBox x:Name="editor"  RelativePanel.Below="openFileButton"
+                 RelativePanel.AlignLeftWithPanel="True" 
+                     FontFamily="{Binding fontFamily}"
+                       
+                     RelativePanel.AlignRightWithPanel="True" 
+                     RelativePanel.AlignBottomWithPanel="True"/>
+           
+        </RelativePanel>
+
         <TextBox HorizontalAlignment="Left" Margin="480,165,0,0" Text="{Binding currentDialog.describeDialog, Mode=TwoWay}" TextWrapping="Wrap" VerticalAlignment="Top" Height="61" Width="358"/>
         <TextBox HorizontalAlignment="Left" Margin="480,93,0,0" Text="{Binding currentDialog.timeDialog, Mode=TwoWay}" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="129"/>
         <AutoSuggestBox  x:Name="MyASBox" HorizontalAlignment="Left" Margin="1083,93,0,0" VerticalAlignment="Top" Height="46" Width="355" 
@@ -42,9 +261,9 @@
             </Custom:Interaction.Behaviors>
 
         </AutoSuggestBox>
-        <Button x:Name="Button" Content="Button" HorizontalAlignment="Left" Margin="944,593,0,0" VerticalAlignment="Top" Height="57" Width="107" Click="Button_Click"/>
-        <Image x:Name="Img" HorizontalAlignment="Left" Height="446" Margin="217,432,0,0" VerticalAlignment="Top" Width="568"/>
-        <Button Content="insert" HorizontalAlignment="Left" Margin="1228,180,0,0" VerticalAlignment="Top" Command="{Binding CommandInsertDialog}" Height="74" Width="128"/>
+        <Button x:Name="ImageButton" Content="Button1" HorizontalAlignment="Left" Margin="1331,598,0,0" VerticalAlignment="Top" Height="57" Width="107" Click="Button_Click"/>
+        <Image x:Name="Img" HorizontalAlignment="Left" Height="198" Margin="1114,429,0,0" VerticalAlignment="Top" Width="212"/>
+        <Button Content="InsertDialog" HorizontalAlignment="Left" Margin="1228,180,0,0" VerticalAlignment="Top" Command="{Binding CommandInsertDialog}" Height="74" Width="128" CommandParameter="{Binding ElementName=editor}"/>
 
 
     </Grid>

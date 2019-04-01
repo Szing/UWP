@@ -71,5 +71,6 @@ namespace NavDemo
             base.OnNavigatedFrom(e);
         }
 
+        
     }
 }

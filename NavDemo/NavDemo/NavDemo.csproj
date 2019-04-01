@@ -97,10 +97,14 @@
     <Compile Include="AboutPage.xaml.cs">
       <DependentUpon>AboutPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="BlankPage1.xaml.cs">
+      <DependentUpon>BlankPage1.xaml</DependentUpon>
+    </Compile>
     <Compile Include="HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\Dialog.cs" />
+    <Compile Include="Models\FontItem.cs" />
     <Compile Include="Models\Friend.cs" />
     <Compile Include="Models\NavMenuItem.cs" />
     <Compile Include="Models\Singleton.cs" />
@@ -111,9 +115,11 @@
     <Compile Include="Services\DBContent.cs" />
     <Compile Include="Services\SuggestService.cs" />
     <Compile Include="Startups\AboutPage.cs" />
+    <Compile Include="Startups\BlankPage1.cs" />
     <Compile Include="Startups\HomePage.cs" />
     <Compile Include="Startups\SearchPage.cs" />
     <Compile Include="ViewModels\AboutPage_Model.cs" />
+    <Compile Include="ViewModels\BlankPage1_Model.cs" />
     <Compile Include="ViewModels\HomePage_Model.cs" />
     <Compile Include="ViewModels\MainPage_Model.cs" />
     <Compile Include="Startups\StartupFunctions.cs" />
@@ -148,6 +154,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="AboutPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BlankPage1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

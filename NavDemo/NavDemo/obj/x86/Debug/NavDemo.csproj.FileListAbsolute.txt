@@ -482,3 +482,8 @@ D:\UWP-master\NavDemo\NavDemo\obj\x86\Debug\Microsoft.Practices.Unity.Registrati
 D:\UWP-master\NavDemo\NavDemo\obj\x86\Debug\ProjectArchitectures.txt
 D:\UWP-master\NavDemo\NavDemo\bin\x86\Debug\SQLite.Net.Platform.WinRT.dll
 D:\UWP-master\NavDemo\NavDemo\bin\x86\Debug\SQLite.Net.dll
+D:\UWP-master\NavDemo\NavDemo\obj\x86\Debug\BlankPage1.g.i.cs
+D:\UWP-master\NavDemo\NavDemo\obj\x86\Debug\BlankPage1.g.cs
+D:\UWP-master\NavDemo\NavDemo\obj\x86\Debug\BlankPage1.xaml
+D:\UWP-master\NavDemo\NavDemo\obj\x86\Debug\BlankPage1.xbf
+D:\UWP-master\NavDemo\NavDemo\bin\x86\Debug\BlankPage1.xbf

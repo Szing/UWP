@@ -20,7 +20,19 @@
             <TextBlock x:Name="Text" Grid.Column="1" Text="{Binding Label}" VerticalAlignment="Center" />
         </Grid>
     </DataTemplate>
-
+    <DataTemplate x:Key="FontItemTemplate" >
+        <Grid >
+            <Interactivity:Interaction.Behaviors>
+                <Core:EventTriggerBehavior EventName="Tapped">
+                    <Core:InvokeCommandAction Command="{Binding CommandChoseFont}" ></Core:InvokeCommandAction>
+                </Core:EventTriggerBehavior>
+            </Interactivity:Interaction.Behaviors>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition MinWidth="48" Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <TextBlock x:Name="Text" Grid.Column="0" Text="{Binding fontName}" FontFamily="{Binding fontFamily}" VerticalAlignment="Center" />
+        </Grid>
+    </DataTemplate>
     <DataTemplate x:Key="SuggestBoxTemplate">
         <Grid>
             <Grid.ColumnDefinitions>
