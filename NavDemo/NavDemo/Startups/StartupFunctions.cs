@@ -30,6 +30,7 @@ namespace MVVMSidekick.Startups
 			{
 				item();
 			}
+            Services.ServiceLocator.Instance.Register<DbContext>(DbContext.GetInstance());
             Services.ServiceLocator.Instance.Register<DataService>(DataService.GetInstance());
             Services.ServiceLocator.Instance.Register<SuggestService>(SuggestService.GetInstance());
             Services.ServiceLocator.Instance.Register<FileService>(FileService.GetInstance());
