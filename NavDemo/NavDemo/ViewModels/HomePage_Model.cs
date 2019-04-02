@@ -237,8 +237,8 @@ namespace NavDemo.ViewModels
               }));
         #endregion
 
-
-        public CommandModel<ReactiveCommand, String> CommandImportDialog
+        /*
+         public CommandModel<ReactiveCommand, String> CommandImportDialog
         {
             get { return _CommandImportDialogLocator(this).Value; }
             set { _CommandImportDialogLocator(this).SetValueAndTryNotify(value); }
@@ -312,9 +312,11 @@ namespace NavDemo.ViewModels
                   return cmdmdl;
               }));
         #endregion
+             */
 
 
-        public CommandModel<ReactiveCommand, String> CommandExportDialog
+        /*
+         * public CommandModel<ReactiveCommand, String> CommandExportDialog
         {
             get { return _CommandExportDialogLocator(this).Value; }
             set { _CommandExportDialogLocator(this).SetValueAndTryNotify(value); }
@@ -382,9 +384,11 @@ namespace NavDemo.ViewModels
                   return cmdmdl;
               }));
         #endregion
+         */
 
 
-        public CommandModel<ReactiveCommand, String> CommandChoseFontFamily
+        /*
+          public CommandModel<ReactiveCommand, String> CommandChoseFontFamily
         {
             get { return _CommandChoseFontFamilyLocator(this).Value; }
             set { _CommandChoseFontFamilyLocator(this).SetValueAndTryNotify(value); }
@@ -421,99 +425,106 @@ namespace NavDemo.ViewModels
                   return cmdmdl;
               }));
         #endregion
+             */
 
 
-        public CommandModel<ReactiveCommand, String> CommandChoseFontSize
-        {
-            get { return _CommandChoseFontSizeLocator(this).Value; }
-            set { _CommandChoseFontSizeLocator(this).SetValueAndTryNotify(value); }
-        }
-        #region Property CommandModel<ReactiveCommand, String> CommandChoseFontSize Setup               
-        protected Property<CommandModel<ReactiveCommand, String>> _CommandChoseFontSize = new Property<CommandModel<ReactiveCommand, String>> { LocatorFunc = _CommandChoseFontSizeLocator };
-        static Func<BindableBase, ValueContainer<CommandModel<ReactiveCommand, String>>> _CommandChoseFontSizeLocator = RegisterContainerLocator("CommandChoseFontSize", m => m.Initialize("CommandChoseFontSize", ref m._CommandChoseFontSize, ref _CommandChoseFontSizeLocator,
-              model =>
-              {
-                  var state = "CommandChoseFontSize";
-                  var commandId = "CommandChoseFontSize";
-                  var vm = CastToCurrentType(model);
-                  var cmd = new ReactiveCommand(canExecute: true) { ViewModel = model };
+        /*
+         * public CommandModel<ReactiveCommand, String> CommandChoseFontSize
+    {
+        get { return _CommandChoseFontSizeLocator(this).Value; }
+        set { _CommandChoseFontSizeLocator(this).SetValueAndTryNotify(value); }
+    }
+    #region Property CommandModel<ReactiveCommand, String> CommandChoseFontSize Setup               
+    protected Property<CommandModel<ReactiveCommand, String>> _CommandChoseFontSize = new Property<CommandModel<ReactiveCommand, String>> { LocatorFunc = _CommandChoseFontSizeLocator };
+    static Func<BindableBase, ValueContainer<CommandModel<ReactiveCommand, String>>> _CommandChoseFontSizeLocator = RegisterContainerLocator("CommandChoseFontSize", m => m.Initialize("CommandChoseFontSize", ref m._CommandChoseFontSize, ref _CommandChoseFontSizeLocator,
+          model =>
+          {
+              var state = "CommandChoseFontSize";
+              var commandId = "CommandChoseFontSize";
+              var vm = CastToCurrentType(model);
+              var cmd = new ReactiveCommand(canExecute: true) { ViewModel = model };
 
-                  cmd.DoExecuteUIBusyTask(
-                          vm,
-                          async e =>
-                          {
-                            //Todo: Add ChoseFontSize logic here, or
-                            await MVVMSidekick.Utilities.TaskExHelper.Yield();
-                              var i = e;
-                              var parameter = e.EventArgs.Parameter as  Windows.UI.Xaml.Input.TappedRoutedEventArgs;
-                              var textBlock = parameter.OriginalSource as TextBlock;
-                              // 获取字号
-                              float size = Convert.ToSingle(textBlock.FontSize);
+              cmd.DoExecuteUIBusyTask(
+                      vm,
+                      async e =>
+                      {
+                        //Todo: Add ChoseFontSize logic here, or
+                        await MVVMSidekick.Utilities.TaskExHelper.Yield();
+                          var i = e;
+                          var parameter = e.EventArgs.Parameter as  Windows.UI.Xaml.Input.TappedRoutedEventArgs;
+                          var textBlock = parameter.OriginalSource as TextBlock;
+                          // 获取字号
+                          float size = Convert.ToSingle(textBlock.FontSize);
 
-                              vm.currentRichEditBox.Document.Selection.CharacterFormat.Size = size;
-                          })
-                      .DoNotifyDefaultEventRouter(vm, commandId)
-                      .Subscribe()
-                      .DisposeWith(vm);
+                          vm.currentRichEditBox.Document.Selection.CharacterFormat.Size = size;
+                      })
+                  .DoNotifyDefaultEventRouter(vm, commandId)
+                  .Subscribe()
+                  .DisposeWith(vm);
 
-                  var cmdmdl = cmd.CreateCommandModel(state);
+              var cmdmdl = cmd.CreateCommandModel(state);
 
-                  cmdmdl.ListenToIsUIBusy(
-                      model: vm,
-                      canExecuteWhenBusy: false);
-                  return cmdmdl;
-              }));
-        #endregion
-
-
-        public CommandModel<ReactiveCommand, String> CommandChoseFontColor
-        {
-            get { return _CommandChoseFontColorLocator(this).Value; }
-            set { _CommandChoseFontColorLocator(this).SetValueAndTryNotify(value); }
-        }
-        #region Property CommandModel<ReactiveCommand, String> CommandChoseFontColor Setup               
-        protected Property<CommandModel<ReactiveCommand, String>> _CommandChoseFontColor = new Property<CommandModel<ReactiveCommand, String>> { LocatorFunc = _CommandChoseFontColorLocator };
-        static Func<BindableBase, ValueContainer<CommandModel<ReactiveCommand, String>>> _CommandChoseFontColorLocator = RegisterContainerLocator("CommandChoseFontColor", m => m.Initialize("CommandChoseFontColor", ref m._CommandChoseFontColor, ref _CommandChoseFontColorLocator,
-              model =>
-              {
-                  var state = "CommandChoseFontColor";
-                  var commandId = "CommandChoseFontColor";
-                  var vm = CastToCurrentType(model);
-                  var cmd = new ReactiveCommand(canExecute: true) { ViewModel = model };
-
-                  cmd.DoExecuteUIBusyTask(
-                          vm,
-                          async e =>
-                          {
-                            //Todo: Add ChoseFontColor logic here, or
-                            await MVVMSidekick.Utilities.TaskExHelper.Yield();
-                              //var i = e;
-                              var parameter = e.EventArgs.Parameter as Windows.UI.Xaml.RoutedEventArgs;
-                              var clickedColor = parameter.OriginalSource as Windows.UI.Xaml.Controls.Button;
-                              var rectangle = (Windows.UI.Xaml.Shapes.Rectangle)clickedColor.Content;
-                              var color = ((Windows.UI.Xaml.Media.SolidColorBrush)rectangle.Fill).Color;
-
-                              vm.currentRichEditBox.Document.Selection.CharacterFormat.ForegroundColor = color;
-
-                              //fontColorButton.Flyout.Hide();
-                              vm.currentRichEditBox.Focus(Windows.UI.Xaml.FocusState.Keyboard);
-                          })
-                      .DoNotifyDefaultEventRouter(vm, commandId)
-                      .Subscribe()
-                      .DisposeWith(vm);
-
-                  var cmdmdl = cmd.CreateCommandModel(state);
-
-                  cmdmdl.ListenToIsUIBusy(
-                      model: vm,
-                      canExecuteWhenBusy: false);
-                  return cmdmdl;
-              }));
-        #endregion
+              cmdmdl.ListenToIsUIBusy(
+                  model: vm,
+                  canExecuteWhenBusy: false);
+              return cmdmdl;
+          }));
+    #endregion
 
 
+         */
 
-        public CommandModel<ReactiveCommand, String> CommandGetRichEditBox
+        /*
+         *  public CommandModel<ReactiveCommand, String> CommandChoseFontColor
+    {
+        get { return _CommandChoseFontColorLocator(this).Value; }
+        set { _CommandChoseFontColorLocator(this).SetValueAndTryNotify(value); }
+    }
+    #region Property CommandModel<ReactiveCommand, String> CommandChoseFontColor Setup               
+    protected Property<CommandModel<ReactiveCommand, String>> _CommandChoseFontColor = new Property<CommandModel<ReactiveCommand, String>> { LocatorFunc = _CommandChoseFontColorLocator };
+    static Func<BindableBase, ValueContainer<CommandModel<ReactiveCommand, String>>> _CommandChoseFontColorLocator = RegisterContainerLocator("CommandChoseFontColor", m => m.Initialize("CommandChoseFontColor", ref m._CommandChoseFontColor, ref _CommandChoseFontColorLocator,
+          model =>
+          {
+              var state = "CommandChoseFontColor";
+              var commandId = "CommandChoseFontColor";
+              var vm = CastToCurrentType(model);
+              var cmd = new ReactiveCommand(canExecute: true) { ViewModel = model };
+
+              cmd.DoExecuteUIBusyTask(
+                      vm,
+                      async e =>
+                      {
+                        //Todo: Add ChoseFontColor logic here, or
+                        await MVVMSidekick.Utilities.TaskExHelper.Yield();
+                          //var i = e;
+                          var parameter = e.EventArgs.Parameter as Windows.UI.Xaml.RoutedEventArgs;
+                          var clickedColor = parameter.OriginalSource as Windows.UI.Xaml.Controls.Button;
+                          var rectangle = (Windows.UI.Xaml.Shapes.Rectangle)clickedColor.Content;
+                          var color = ((Windows.UI.Xaml.Media.SolidColorBrush)rectangle.Fill).Color;
+
+                          vm.currentRichEditBox.Document.Selection.CharacterFormat.ForegroundColor = color;
+
+                          //fontColorButton.Flyout.Hide();
+                          vm.currentRichEditBox.Focus(Windows.UI.Xaml.FocusState.Keyboard);
+                      })
+                  .DoNotifyDefaultEventRouter(vm, commandId)
+                  .Subscribe()
+                  .DisposeWith(vm);
+
+              var cmdmdl = cmd.CreateCommandModel(state);
+
+              cmdmdl.ListenToIsUIBusy(
+                  model: vm,
+                  canExecuteWhenBusy: false);
+              return cmdmdl;
+          }));
+    #endregion
+         */
+
+
+
+        /* 
+         * public CommandModel<ReactiveCommand, String> CommandGetRichEditBox
         {
             get { return _CommandGetRichEditBoxLocator(this).Value; }
             set { _CommandGetRichEditBoxLocator(this).SetValueAndTryNotify(value); }
@@ -550,12 +561,13 @@ namespace NavDemo.ViewModels
                       canExecuteWhenBusy: false);
                   return cmdmdl;
               }));
-        #endregion
+        #endregion*/
 
 
 
 
-        public CommandModel<ReactiveCommand, String> CommandChoseFontBold
+        /*
+         * public CommandModel<ReactiveCommand, String> CommandChoseFontBold
         {
             get { return _CommandChoseFontBoldLocator(this).Value; }
             set { _CommandChoseFontBoldLocator(this).SetValueAndTryNotify(value); }
@@ -598,11 +610,13 @@ namespace NavDemo.ViewModels
                   return cmdmdl;
               }));
         #endregion
+         */
 
 
 
 
-        public CommandModel<ReactiveCommand, String> CommandChoseFontItalic
+        /*
+         * public CommandModel<ReactiveCommand, String> CommandChoseFontItalic
         {
             get { return _CommandChoseFontItalicLocator(this).Value; }
             set { _CommandChoseFontItalicLocator(this).SetValueAndTryNotify(value); }
@@ -645,8 +659,10 @@ namespace NavDemo.ViewModels
               }));
         #endregion
 
+         */
 
-        public CommandModel<ReactiveCommand, String> CommandChoseFontUnderline
+        /*
+         *  public CommandModel<ReactiveCommand, String> CommandChoseFontUnderline
         {
             get { return _CommandChoseFontUnderlineLocator(this).Value; }
             set { _CommandChoseFontUnderlineLocator(this).SetValueAndTryNotify(value); }
@@ -695,10 +711,12 @@ namespace NavDemo.ViewModels
                   return cmdmdl;
               }));
         #endregion
+         */
 
 
 
-        public CommandModel<ReactiveCommand, String> CommandInsertImage
+        /*
+         *  public CommandModel<ReactiveCommand, String> CommandInsertImage
         {
             get { return _CommandInsertImageLocator(this).Value; }
             set { _CommandInsertImageLocator(this).SetValueAndTryNotify(value); }
@@ -844,6 +862,8 @@ namespace NavDemo.ViewModels
                   return cmdmdl;
               }));
         #endregion
+         */
+
 
 
         #region Life Time Event Handling

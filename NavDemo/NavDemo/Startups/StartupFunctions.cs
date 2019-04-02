@@ -30,8 +30,10 @@ namespace MVVMSidekick.Startups
 			{
 				item();
 			}
-            Services.ServiceLocator.Instance.Register<DataService>(new DataService());
-            Services.ServiceLocator.Instance.Register<SuggestService>(new SuggestService());
+            Services.ServiceLocator.Instance.Register<DataService>(DataService.GetInstance());
+            Services.ServiceLocator.Instance.Register<SuggestService>(SuggestService.GetInstance());
+            Services.ServiceLocator.Instance.Register<FileService>(FileService.GetInstance());
+            Services.ServiceLocator.Instance.Register<ImageService>(ImageService.GetInstance());
         }
 
 

@@ -12,17 +12,6 @@
     <RootPropertyPathName Name="CommandInsertDialog" />
     <RootPropertyPathName Name="friendItemList" />
     <RootPropertyPathName Name="CommandChoseFriend" />
-    <RootPropertyPathName Name="fontFamily" />
-    <RootPropertyPathName Name="CommandChoseFontUnderline" />
-    <RootPropertyPathName Name="CommandChoseFontItalic" />
-    <RootPropertyPathName Name="CommandChoseFontBold" />
-    <RootPropertyPathName Name="CommandChoseFontSize" />
-    <RootPropertyPathName Name="CommandGetRichEditBox" />
-    <RootPropertyPathName Name="CommandChoseFontColor" />
-    <RootPropertyPathName Name="CommandChoseFontFamily" />
-    <RootPropertyPathName Name="CommandInsertImage" />
-    <RootPropertyPathName Name="CommandExportDialog" />
-    <RootPropertyPathName Name="CommandImportDialog" />
     <RootPropertyPathName Name="IsPaneOpen" />
     <RootPropertyPathName Name="NavMenuItemList" />
     <RootPropertyPathName Name="nickNameFriend" />
@@ -30,6 +19,7 @@
     <RootPropertyPathName Name="iconFriend" />
     <RootPropertyPathName Name="CommandChoseFont" />
     <RootPropertyPathName Name="fontName" />
+    <RootPropertyPathName Name="fontFamily" />
     <RootPropertyPathName Name="Label" />
     <RootPropertyPathName Name="Glyph" />
     <RootPropertyPathName Name="CommandSubmitDate" />
@@ -113,7 +103,6 @@
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Height" />
       <RootProperty Name="Width" />
-      <RootProperty Name="FontFamily" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Data.Binding">
       <RootProperty Name="ElementName" />
@@ -179,14 +168,12 @@
     <RootType FullName="Windows.UI.Xaml.Controls.AppBarButton">
       <RootProperty Name="IsCompact" />
       <RootProperty Name="Icon" />
-      <RootProperty Name="Command" />
-      <RootProperty Name="CommandParameter" />
       <RootProperty Name="Margin" />
       <RootProperty Name="Flyout" />
       <RootProperty Name="BorderThickness" />
       <RootProperty Name="Background" />
-      <RootProperty Name="Tag" />
       <RootProperty Name="Content" />
+      <RootEvent Name="Click" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Setter">
       <RootProperty Name="Property" />
@@ -208,8 +195,15 @@
     <RootType FullName="Windows.UI.Xaml.Controls.MenuFlyoutItem">
       <RootProperty Name="Text" />
       <RootProperty Name="Tag" />
-      <RootProperty Name="FontSize" />
       <RootProperty Name="FontFamily" />
+      <RootEvent Name="Click" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.SymbolIcon">
+      <RootProperty Name="Symbol" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="VerticalAlignment" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Flyout">
       <RootProperty Name="Placement" />
@@ -243,13 +237,6 @@
       <RootProperty Name="Foreground" />
       <RootProperty Name="UseSystemFocusVisuals" />
       <RootProperty Name="Template" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.SymbolIcon">
-      <RootProperty Name="Symbol" />
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="Height" />
-      <RootProperty Name="Margin" />
-      <RootProperty Name="VerticalAlignment" />
     </RootType>
     <RootType FullName="NavDemo.HomePage" />
     <RootType FullName="NavDemo.ViewModels.MainPage_Model" />

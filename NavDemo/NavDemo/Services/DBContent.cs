@@ -17,9 +17,9 @@ namespace NavDemo.Services
 {
     public class DbContext : Singleton<DbContext>
     {
-        public string DbFileName = "test1.db";
-        public string DbFilePath;
-
+        private string DbFileName = "test1.db";
+        private string DbFilePath;
+        
         public SQLiteConnection GetSqLiteConnection()
         {
             ISQLitePlatform platform = new SQLitePlatformWinRT();
@@ -56,6 +56,8 @@ namespace NavDemo.Services
 
 
         }
+
+        
 
     }
 }

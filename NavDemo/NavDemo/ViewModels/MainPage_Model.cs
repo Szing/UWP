@@ -142,10 +142,11 @@ namespace NavDemo.ViewModels
                 this.RegisterCommand();
                 this.isLoaded = true;
             }
+
             //建立Friend的数据表单
-            DbContext.GetInstance().initTableFriend();
+            ServiceLocator.Instance.Resolve<DbContext>().initTableFriend();
             //建立Dialog的数据表单
-            DbContext.GetInstance().initTableDialog();
+            ServiceLocator.Instance.Resolve<DbContext>().initTableDialog();
             await base.OnBindedViewLoad(view);
             //await StageManager["frameMain"].Show(new HomePage_Model());
         }

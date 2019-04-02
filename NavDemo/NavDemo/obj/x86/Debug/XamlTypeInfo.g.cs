@@ -132,7 +132,7 @@ namespace NavDemo.NavDemo_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[72];
+            _typeNameTable = new string[73];
             _typeNameTable[0] = "MVVMSidekick.Views.MVVMPage";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
@@ -176,37 +176,38 @@ namespace NavDemo.NavDemo_XamlTypeInfo
             _typeNameTable[40] = "NavDemo.Friend";
             _typeNameTable[41] = "System.Collections.Generic.List`1<NavDemo.Friend>";
             _typeNameTable[42] = "NavDemo.Services.SuggestService";
-            _typeNameTable[43] = "Windows.UI.Xaml.Media.FontFamily";
-            _typeNameTable[44] = "Windows.UI.Xaml.Controls.RichEditBox";
-            _typeNameTable[45] = "Microsoft.Xaml.Interactivity.Interaction";
-            _typeNameTable[46] = "Microsoft.Xaml.Interactivity.BehaviorCollection";
-            _typeNameTable[47] = "Windows.UI.Xaml.DependencyObjectCollection";
-            _typeNameTable[48] = "Windows.UI.Xaml.DependencyObject";
-            _typeNameTable[49] = "Microsoft.Xaml.Interactions.Core.EventTriggerBehavior";
-            _typeNameTable[50] = "Microsoft.Xaml.Interactivity.ActionCollection";
-            _typeNameTable[51] = "Microsoft.Xaml.Interactions.Core.InvokeCommandAction";
-            _typeNameTable[52] = "System.Windows.Input.ICommand";
-            _typeNameTable[53] = "Windows.UI.Xaml.Data.IValueConverter";
-            _typeNameTable[54] = "MVVMSidekick.Behaviors.SendToEventRouterAction";
-            _typeNameTable[55] = "System.Type";
-            _typeNameTable[56] = "NavDemo.HomePage";
-            _typeNameTable[57] = "NavDemo.ViewModels.MainPage_Model";
-            _typeNameTable[58] = "MVVMSidekick.ViewModels.ViewModelBase`1<NavDemo.ViewModels.MainPage_Model>";
-            _typeNameTable[59] = "MVVMSidekick.ViewModels.BindableBase`1<NavDemo.ViewModels.MainPage_Model>";
-            _typeNameTable[60] = "System.Collections.ObjectModel.ObservableCollection`1<NavDemo.Models.NavMenuItem>";
-            _typeNameTable[61] = "System.Collections.ObjectModel.Collection`1<NavDemo.Models.NavMenuItem>";
-            _typeNameTable[62] = "NavDemo.Models.NavMenuItem";
-            _typeNameTable[63] = "MVVMSidekick.ViewModels.BindableBase`1<NavDemo.Models.NavMenuItem>";
-            _typeNameTable[64] = "MVVMSidekick.Views.StageManager";
-            _typeNameTable[65] = "MVVMSidekick.Views.IView";
-            _typeNameTable[66] = "MVVMSidekick.Views.IStage";
-            _typeNameTable[67] = "NavDemo.MainPage";
-            _typeNameTable[68] = "NavDemo.ViewModels.SearchPage_Model";
-            _typeNameTable[69] = "MVVMSidekick.ViewModels.ViewModelBase`1<NavDemo.ViewModels.SearchPage_Model>";
-            _typeNameTable[70] = "MVVMSidekick.ViewModels.BindableBase`1<NavDemo.ViewModels.SearchPage_Model>";
-            _typeNameTable[71] = "NavDemo.SearchPage";
+            _typeNameTable[43] = "NavDemo.Models.Singleton`1<NavDemo.Services.SuggestService>";
+            _typeNameTable[44] = "Windows.UI.Xaml.Media.FontFamily";
+            _typeNameTable[45] = "Windows.UI.Xaml.Controls.RichEditBox";
+            _typeNameTable[46] = "Microsoft.Xaml.Interactivity.Interaction";
+            _typeNameTable[47] = "Microsoft.Xaml.Interactivity.BehaviorCollection";
+            _typeNameTable[48] = "Windows.UI.Xaml.DependencyObjectCollection";
+            _typeNameTable[49] = "Windows.UI.Xaml.DependencyObject";
+            _typeNameTable[50] = "Microsoft.Xaml.Interactions.Core.EventTriggerBehavior";
+            _typeNameTable[51] = "Microsoft.Xaml.Interactivity.ActionCollection";
+            _typeNameTable[52] = "Microsoft.Xaml.Interactions.Core.InvokeCommandAction";
+            _typeNameTable[53] = "System.Windows.Input.ICommand";
+            _typeNameTable[54] = "Windows.UI.Xaml.Data.IValueConverter";
+            _typeNameTable[55] = "MVVMSidekick.Behaviors.SendToEventRouterAction";
+            _typeNameTable[56] = "System.Type";
+            _typeNameTable[57] = "NavDemo.HomePage";
+            _typeNameTable[58] = "NavDemo.ViewModels.MainPage_Model";
+            _typeNameTable[59] = "MVVMSidekick.ViewModels.ViewModelBase`1<NavDemo.ViewModels.MainPage_Model>";
+            _typeNameTable[60] = "MVVMSidekick.ViewModels.BindableBase`1<NavDemo.ViewModels.MainPage_Model>";
+            _typeNameTable[61] = "System.Collections.ObjectModel.ObservableCollection`1<NavDemo.Models.NavMenuItem>";
+            _typeNameTable[62] = "System.Collections.ObjectModel.Collection`1<NavDemo.Models.NavMenuItem>";
+            _typeNameTable[63] = "NavDemo.Models.NavMenuItem";
+            _typeNameTable[64] = "MVVMSidekick.ViewModels.BindableBase`1<NavDemo.Models.NavMenuItem>";
+            _typeNameTable[65] = "MVVMSidekick.Views.StageManager";
+            _typeNameTable[66] = "MVVMSidekick.Views.IView";
+            _typeNameTable[67] = "MVVMSidekick.Views.IStage";
+            _typeNameTable[68] = "NavDemo.MainPage";
+            _typeNameTable[69] = "NavDemo.ViewModels.SearchPage_Model";
+            _typeNameTable[70] = "MVVMSidekick.ViewModels.ViewModelBase`1<NavDemo.ViewModels.SearchPage_Model>";
+            _typeNameTable[71] = "MVVMSidekick.ViewModels.BindableBase`1<NavDemo.ViewModels.SearchPage_Model>";
+            _typeNameTable[72] = "NavDemo.SearchPage";
 
-            _typeTable = new global::System.Type[72];
+            _typeTable = new global::System.Type[73];
             _typeTable[0] = typeof(global::MVVMSidekick.Views.MVVMPage);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
@@ -250,35 +251,36 @@ namespace NavDemo.NavDemo_XamlTypeInfo
             _typeTable[40] = typeof(global::NavDemo.Friend);
             _typeTable[41] = typeof(global::System.Collections.Generic.List<global::NavDemo.Friend>);
             _typeTable[42] = typeof(global::NavDemo.Services.SuggestService);
-            _typeTable[43] = typeof(global::Windows.UI.Xaml.Media.FontFamily);
-            _typeTable[44] = typeof(global::Windows.UI.Xaml.Controls.RichEditBox);
-            _typeTable[45] = typeof(global::Microsoft.Xaml.Interactivity.Interaction);
-            _typeTable[46] = typeof(global::Microsoft.Xaml.Interactivity.BehaviorCollection);
-            _typeTable[47] = typeof(global::Windows.UI.Xaml.DependencyObjectCollection);
-            _typeTable[48] = typeof(global::Windows.UI.Xaml.DependencyObject);
-            _typeTable[49] = typeof(global::Microsoft.Xaml.Interactions.Core.EventTriggerBehavior);
-            _typeTable[50] = typeof(global::Microsoft.Xaml.Interactivity.ActionCollection);
-            _typeTable[51] = typeof(global::Microsoft.Xaml.Interactions.Core.InvokeCommandAction);
-            _typeTable[52] = typeof(global::System.Windows.Input.ICommand);
-            _typeTable[53] = typeof(global::Windows.UI.Xaml.Data.IValueConverter);
-            _typeTable[54] = typeof(global::MVVMSidekick.Behaviors.SendToEventRouterAction);
-            _typeTable[55] = typeof(global::System.Type);
-            _typeTable[56] = typeof(global::NavDemo.HomePage);
-            _typeTable[57] = typeof(global::NavDemo.ViewModels.MainPage_Model);
-            _typeTable[58] = typeof(global::MVVMSidekick.ViewModels.ViewModelBase<global::NavDemo.ViewModels.MainPage_Model>);
-            _typeTable[59] = typeof(global::MVVMSidekick.ViewModels.BindableBase<global::NavDemo.ViewModels.MainPage_Model>);
-            _typeTable[60] = typeof(global::System.Collections.ObjectModel.ObservableCollection<global::NavDemo.Models.NavMenuItem>);
-            _typeTable[61] = typeof(global::System.Collections.ObjectModel.Collection<global::NavDemo.Models.NavMenuItem>);
-            _typeTable[62] = typeof(global::NavDemo.Models.NavMenuItem);
-            _typeTable[63] = typeof(global::MVVMSidekick.ViewModels.BindableBase<global::NavDemo.Models.NavMenuItem>);
-            _typeTable[64] = typeof(global::MVVMSidekick.Views.StageManager);
-            _typeTable[65] = typeof(global::MVVMSidekick.Views.IView);
-            _typeTable[66] = typeof(global::MVVMSidekick.Views.IStage);
-            _typeTable[67] = typeof(global::NavDemo.MainPage);
-            _typeTable[68] = typeof(global::NavDemo.ViewModels.SearchPage_Model);
-            _typeTable[69] = typeof(global::MVVMSidekick.ViewModels.ViewModelBase<global::NavDemo.ViewModels.SearchPage_Model>);
-            _typeTable[70] = typeof(global::MVVMSidekick.ViewModels.BindableBase<global::NavDemo.ViewModels.SearchPage_Model>);
-            _typeTable[71] = typeof(global::NavDemo.SearchPage);
+            _typeTable[43] = typeof(global::NavDemo.Models.Singleton<global::NavDemo.Services.SuggestService>);
+            _typeTable[44] = typeof(global::Windows.UI.Xaml.Media.FontFamily);
+            _typeTable[45] = typeof(global::Windows.UI.Xaml.Controls.RichEditBox);
+            _typeTable[46] = typeof(global::Microsoft.Xaml.Interactivity.Interaction);
+            _typeTable[47] = typeof(global::Microsoft.Xaml.Interactivity.BehaviorCollection);
+            _typeTable[48] = typeof(global::Windows.UI.Xaml.DependencyObjectCollection);
+            _typeTable[49] = typeof(global::Windows.UI.Xaml.DependencyObject);
+            _typeTable[50] = typeof(global::Microsoft.Xaml.Interactions.Core.EventTriggerBehavior);
+            _typeTable[51] = typeof(global::Microsoft.Xaml.Interactivity.ActionCollection);
+            _typeTable[52] = typeof(global::Microsoft.Xaml.Interactions.Core.InvokeCommandAction);
+            _typeTable[53] = typeof(global::System.Windows.Input.ICommand);
+            _typeTable[54] = typeof(global::Windows.UI.Xaml.Data.IValueConverter);
+            _typeTable[55] = typeof(global::MVVMSidekick.Behaviors.SendToEventRouterAction);
+            _typeTable[56] = typeof(global::System.Type);
+            _typeTable[57] = typeof(global::NavDemo.HomePage);
+            _typeTable[58] = typeof(global::NavDemo.ViewModels.MainPage_Model);
+            _typeTable[59] = typeof(global::MVVMSidekick.ViewModels.ViewModelBase<global::NavDemo.ViewModels.MainPage_Model>);
+            _typeTable[60] = typeof(global::MVVMSidekick.ViewModels.BindableBase<global::NavDemo.ViewModels.MainPage_Model>);
+            _typeTable[61] = typeof(global::System.Collections.ObjectModel.ObservableCollection<global::NavDemo.Models.NavMenuItem>);
+            _typeTable[62] = typeof(global::System.Collections.ObjectModel.Collection<global::NavDemo.Models.NavMenuItem>);
+            _typeTable[63] = typeof(global::NavDemo.Models.NavMenuItem);
+            _typeTable[64] = typeof(global::MVVMSidekick.ViewModels.BindableBase<global::NavDemo.Models.NavMenuItem>);
+            _typeTable[65] = typeof(global::MVVMSidekick.Views.StageManager);
+            _typeTable[66] = typeof(global::MVVMSidekick.Views.IView);
+            _typeTable[67] = typeof(global::MVVMSidekick.Views.IStage);
+            _typeTable[68] = typeof(global::NavDemo.MainPage);
+            _typeTable[69] = typeof(global::NavDemo.ViewModels.SearchPage_Model);
+            _typeTable[70] = typeof(global::MVVMSidekick.ViewModels.ViewModelBase<global::NavDemo.ViewModels.SearchPage_Model>);
+            _typeTable[71] = typeof(global::MVVMSidekick.ViewModels.BindableBase<global::NavDemo.ViewModels.SearchPage_Model>);
+            _typeTable[72] = typeof(global::NavDemo.SearchPage);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -327,19 +329,20 @@ namespace NavDemo.NavDemo_XamlTypeInfo
         private object Activate_40_Friend() { return new global::NavDemo.Friend(); }
         private object Activate_41_List() { return new global::System.Collections.Generic.List<global::NavDemo.Friend>(); }
         private object Activate_42_SuggestService() { return new global::NavDemo.Services.SuggestService(); }
-        private object Activate_46_BehaviorCollection() { return new global::Microsoft.Xaml.Interactivity.BehaviorCollection(); }
-        private object Activate_49_EventTriggerBehavior() { return new global::Microsoft.Xaml.Interactions.Core.EventTriggerBehavior(); }
-        private object Activate_50_ActionCollection() { return new global::Microsoft.Xaml.Interactivity.ActionCollection(); }
-        private object Activate_51_InvokeCommandAction() { return new global::Microsoft.Xaml.Interactions.Core.InvokeCommandAction(); }
-        private object Activate_54_SendToEventRouterAction() { return new global::MVVMSidekick.Behaviors.SendToEventRouterAction(); }
-        private object Activate_56_HomePage() { return new global::NavDemo.HomePage(); }
-        private object Activate_57_MainPage_Model() { return new global::NavDemo.ViewModels.MainPage_Model(); }
-        private object Activate_60_ObservableCollection() { return new global::System.Collections.ObjectModel.ObservableCollection<global::NavDemo.Models.NavMenuItem>(); }
-        private object Activate_61_Collection() { return new global::System.Collections.ObjectModel.Collection<global::NavDemo.Models.NavMenuItem>(); }
-        private object Activate_62_NavMenuItem() { return new global::NavDemo.Models.NavMenuItem(); }
-        private object Activate_67_MainPage() { return new global::NavDemo.MainPage(); }
-        private object Activate_68_SearchPage_Model() { return new global::NavDemo.ViewModels.SearchPage_Model(); }
-        private object Activate_71_SearchPage() { return new global::NavDemo.SearchPage(); }
+        private object Activate_43_Singleton() { return new global::NavDemo.Models.Singleton<global::NavDemo.Services.SuggestService>(); }
+        private object Activate_47_BehaviorCollection() { return new global::Microsoft.Xaml.Interactivity.BehaviorCollection(); }
+        private object Activate_50_EventTriggerBehavior() { return new global::Microsoft.Xaml.Interactions.Core.EventTriggerBehavior(); }
+        private object Activate_51_ActionCollection() { return new global::Microsoft.Xaml.Interactivity.ActionCollection(); }
+        private object Activate_52_InvokeCommandAction() { return new global::Microsoft.Xaml.Interactions.Core.InvokeCommandAction(); }
+        private object Activate_55_SendToEventRouterAction() { return new global::MVVMSidekick.Behaviors.SendToEventRouterAction(); }
+        private object Activate_57_HomePage() { return new global::NavDemo.HomePage(); }
+        private object Activate_58_MainPage_Model() { return new global::NavDemo.ViewModels.MainPage_Model(); }
+        private object Activate_61_ObservableCollection() { return new global::System.Collections.ObjectModel.ObservableCollection<global::NavDemo.Models.NavMenuItem>(); }
+        private object Activate_62_Collection() { return new global::System.Collections.ObjectModel.Collection<global::NavDemo.Models.NavMenuItem>(); }
+        private object Activate_63_NavMenuItem() { return new global::NavDemo.Models.NavMenuItem(); }
+        private object Activate_68_MainPage() { return new global::NavDemo.MainPage(); }
+        private object Activate_69_SearchPage_Model() { return new global::NavDemo.ViewModels.SearchPage_Model(); }
+        private object Activate_72_SearchPage() { return new global::NavDemo.SearchPage(); }
         private void VectorAdd_16_List(object instance, object item)
         {
             var collection = (global::System.Collections.Generic.ICollection<global::NavDemo.Dialog>)instance;
@@ -358,25 +361,25 @@ namespace NavDemo.NavDemo_XamlTypeInfo
             var newItem = (global::NavDemo.Friend)item;
             collection.Add(newItem);
         }
-        private void VectorAdd_46_BehaviorCollection(object instance, object item)
+        private void VectorAdd_47_BehaviorCollection(object instance, object item)
         {
             var collection = (global::System.Collections.Generic.ICollection<global::Windows.UI.Xaml.DependencyObject>)instance;
             var newItem = (global::Windows.UI.Xaml.DependencyObject)item;
             collection.Add(newItem);
         }
-        private void VectorAdd_50_ActionCollection(object instance, object item)
+        private void VectorAdd_51_ActionCollection(object instance, object item)
         {
             var collection = (global::System.Collections.Generic.ICollection<global::Windows.UI.Xaml.DependencyObject>)instance;
             var newItem = (global::Windows.UI.Xaml.DependencyObject)item;
             collection.Add(newItem);
         }
-        private void VectorAdd_60_ObservableCollection(object instance, object item)
+        private void VectorAdd_61_ObservableCollection(object instance, object item)
         {
             var collection = (global::System.Collections.Generic.ICollection<global::NavDemo.Models.NavMenuItem>)instance;
             var newItem = (global::NavDemo.Models.NavMenuItem)item;
             collection.Add(newItem);
         }
-        private void VectorAdd_61_Collection(object instance, object item)
+        private void VectorAdd_62_Collection(object instance, object item)
         {
             var collection = (global::System.Collections.Generic.ICollection<global::NavDemo.Models.NavMenuItem>)instance;
             var newItem = (global::NavDemo.Models.NavMenuItem)item;
@@ -719,44 +722,51 @@ namespace NavDemo.NavDemo_XamlTypeInfo
                 break;
 
             case 42:   //  NavDemo.Services.SuggestService
-                userType = new global::NavDemo.NavDemo_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType = new global::NavDemo.NavDemo_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("NavDemo.Models.Singleton`1<NavDemo.Services.SuggestService>"));
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 43:   //  Windows.UI.Xaml.Media.FontFamily
+            case 43:   //  NavDemo.Models.Singleton`1<NavDemo.Services.SuggestService>
+                userType = new global::NavDemo.NavDemo_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_43_Singleton;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 44:   //  Windows.UI.Xaml.Media.FontFamily
                 xamlType = new global::NavDemo.NavDemo_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 44:   //  Windows.UI.Xaml.Controls.RichEditBox
+            case 45:   //  Windows.UI.Xaml.Controls.RichEditBox
                 xamlType = new global::NavDemo.NavDemo_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 45:   //  Microsoft.Xaml.Interactivity.Interaction
+            case 46:   //  Microsoft.Xaml.Interactivity.Interaction
                 userType = new global::NavDemo.NavDemo_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 userType.AddMemberName("Behaviors");
                 xamlType = userType;
                 break;
 
-            case 46:   //  Microsoft.Xaml.Interactivity.BehaviorCollection
+            case 47:   //  Microsoft.Xaml.Interactivity.BehaviorCollection
                 userType = new global::NavDemo.NavDemo_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.DependencyObjectCollection"));
-                userType.CollectionAdd = VectorAdd_46_BehaviorCollection;
+                userType.CollectionAdd = VectorAdd_47_BehaviorCollection;
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 47:   //  Windows.UI.Xaml.DependencyObjectCollection
+            case 48:   //  Windows.UI.Xaml.DependencyObjectCollection
                 xamlType = new global::NavDemo.NavDemo_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 48:   //  Windows.UI.Xaml.DependencyObject
+            case 49:   //  Windows.UI.Xaml.DependencyObject
                 xamlType = new global::NavDemo.NavDemo_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 49:   //  Microsoft.Xaml.Interactions.Core.EventTriggerBehavior
+            case 50:   //  Microsoft.Xaml.Interactions.Core.EventTriggerBehavior
                 userType = new global::NavDemo.NavDemo_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.DependencyObject"));
-                userType.Activator = Activate_49_EventTriggerBehavior;
+                userType.Activator = Activate_50_EventTriggerBehavior;
                 userType.SetContentPropertyName("Microsoft.Xaml.Interactions.Core.EventTriggerBehavior.Actions");
                 userType.AddMemberName("Actions");
                 userType.AddMemberName("EventName");
@@ -765,16 +775,16 @@ namespace NavDemo.NavDemo_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 50:   //  Microsoft.Xaml.Interactivity.ActionCollection
+            case 51:   //  Microsoft.Xaml.Interactivity.ActionCollection
                 userType = new global::NavDemo.NavDemo_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.DependencyObjectCollection"));
-                userType.CollectionAdd = VectorAdd_50_ActionCollection;
+                userType.CollectionAdd = VectorAdd_51_ActionCollection;
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 51:   //  Microsoft.Xaml.Interactions.Core.InvokeCommandAction
+            case 52:   //  Microsoft.Xaml.Interactions.Core.InvokeCommandAction
                 userType = new global::NavDemo.NavDemo_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.DependencyObject"));
-                userType.Activator = Activate_51_InvokeCommandAction;
+                userType.Activator = Activate_52_InvokeCommandAction;
                 userType.AddMemberName("Command");
                 userType.AddMemberName("CommandParameter");
                 userType.AddMemberName("InputConverter");
@@ -783,19 +793,19 @@ namespace NavDemo.NavDemo_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 52:   //  System.Windows.Input.ICommand
+            case 53:   //  System.Windows.Input.ICommand
                 userType = new global::NavDemo.NavDemo_XamlTypeInfo.XamlUserType(this, typeName, type, null);
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 53:   //  Windows.UI.Xaml.Data.IValueConverter
+            case 54:   //  Windows.UI.Xaml.Data.IValueConverter
                 xamlType = new global::NavDemo.NavDemo_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 54:   //  MVVMSidekick.Behaviors.SendToEventRouterAction
+            case 55:   //  MVVMSidekick.Behaviors.SendToEventRouterAction
                 userType = new global::NavDemo.NavDemo_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.DependencyObject"));
-                userType.Activator = Activate_54_SendToEventRouterAction;
+                userType.Activator = Activate_55_SendToEventRouterAction;
                 userType.AddMemberName("EventData");
                 userType.AddMemberName("IsEventFiringToAllBaseClassesChannels");
                 userType.AddMemberName("EventRoutingName");
@@ -805,23 +815,23 @@ namespace NavDemo.NavDemo_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 55:   //  System.Type
+            case 56:   //  System.Type
                 userType = new global::NavDemo.NavDemo_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 56:   //  NavDemo.HomePage
+            case 57:   //  NavDemo.HomePage
                 userType = new global::NavDemo.NavDemo_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("MVVMSidekick.Views.MVVMPage"));
-                userType.Activator = Activate_56_HomePage;
+                userType.Activator = Activate_57_HomePage;
                 userType.AddMemberName("StrongTypeViewModel");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 57:   //  NavDemo.ViewModels.MainPage_Model
+            case 58:   //  NavDemo.ViewModels.MainPage_Model
                 userType = new global::NavDemo.NavDemo_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("MVVMSidekick.ViewModels.ViewModelBase`1<NavDemo.ViewModels.MainPage_Model>"));
-                userType.Activator = Activate_57_MainPage_Model;
+                userType.Activator = Activate_58_MainPage_Model;
                 userType.AddMemberName("Title");
                 userType.AddMemberName("NavMenuItemList");
                 userType.AddMemberName("IsPaneOpen");
@@ -829,7 +839,7 @@ namespace NavDemo.NavDemo_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 58:   //  MVVMSidekick.ViewModels.ViewModelBase`1<NavDemo.ViewModels.MainPage_Model>
+            case 59:   //  MVVMSidekick.ViewModels.ViewModelBase`1<NavDemo.ViewModels.MainPage_Model>
                 userType = new global::NavDemo.NavDemo_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("MVVMSidekick.ViewModels.BindableBase`1<NavDemo.ViewModels.MainPage_Model>"));
                 userType.AddMemberName("UnbindDisposeGroup");
                 userType.AddMemberName("UnloadDisposeGroup");
@@ -842,7 +852,7 @@ namespace NavDemo.NavDemo_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 59:   //  MVVMSidekick.ViewModels.BindableBase`1<NavDemo.ViewModels.MainPage_Model>
+            case 60:   //  MVVMSidekick.ViewModels.BindableBase`1<NavDemo.ViewModels.MainPage_Model>
                 userType = new global::NavDemo.NavDemo_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("MVVMSidekick.ViewModels.BindableBase"));
                 userType.AddMemberName("BindableInstanceId");
                 userType.AddMemberName("Error");
@@ -851,30 +861,30 @@ namespace NavDemo.NavDemo_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 60:   //  System.Collections.ObjectModel.ObservableCollection`1<NavDemo.Models.NavMenuItem>
+            case 61:   //  System.Collections.ObjectModel.ObservableCollection`1<NavDemo.Models.NavMenuItem>
                 userType = new global::NavDemo.NavDemo_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Collections.ObjectModel.Collection`1<NavDemo.Models.NavMenuItem>"));
-                userType.CollectionAdd = VectorAdd_60_ObservableCollection;
+                userType.CollectionAdd = VectorAdd_61_ObservableCollection;
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 61:   //  System.Collections.ObjectModel.Collection`1<NavDemo.Models.NavMenuItem>
+            case 62:   //  System.Collections.ObjectModel.Collection`1<NavDemo.Models.NavMenuItem>
                 userType = new global::NavDemo.NavDemo_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.Activator = Activate_61_Collection;
-                userType.CollectionAdd = VectorAdd_61_Collection;
+                userType.Activator = Activate_62_Collection;
+                userType.CollectionAdd = VectorAdd_62_Collection;
                 xamlType = userType;
                 break;
 
-            case 62:   //  NavDemo.Models.NavMenuItem
+            case 63:   //  NavDemo.Models.NavMenuItem
                 userType = new global::NavDemo.NavDemo_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("MVVMSidekick.ViewModels.BindableBase`1<NavDemo.Models.NavMenuItem>"));
-                userType.Activator = Activate_62_NavMenuItem;
+                userType.Activator = Activate_63_NavMenuItem;
                 userType.AddMemberName("Glyph");
                 userType.AddMemberName("Label");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 63:   //  MVVMSidekick.ViewModels.BindableBase`1<NavDemo.Models.NavMenuItem>
+            case 64:   //  MVVMSidekick.ViewModels.BindableBase`1<NavDemo.Models.NavMenuItem>
                 userType = new global::NavDemo.NavDemo_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("MVVMSidekick.ViewModels.BindableBase"));
                 userType.AddMemberName("BindableInstanceId");
                 userType.AddMemberName("Error");
@@ -883,7 +893,7 @@ namespace NavDemo.NavDemo_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 64:   //  MVVMSidekick.Views.StageManager
+            case 65:   //  MVVMSidekick.Views.StageManager
                 userType = new global::NavDemo.NavDemo_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.DependencyObject"));
                 userType.AddMemberName("CurrentBindingView");
                 userType.AddMemberName("DefaultStage");
@@ -891,29 +901,29 @@ namespace NavDemo.NavDemo_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 65:   //  MVVMSidekick.Views.IView
+            case 66:   //  MVVMSidekick.Views.IView
                 userType = new global::NavDemo.NavDemo_XamlTypeInfo.XamlUserType(this, typeName, type, null);
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 66:   //  MVVMSidekick.Views.IStage
+            case 67:   //  MVVMSidekick.Views.IStage
                 userType = new global::NavDemo.NavDemo_XamlTypeInfo.XamlUserType(this, typeName, type, null);
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 67:   //  NavDemo.MainPage
+            case 68:   //  NavDemo.MainPage
                 userType = new global::NavDemo.NavDemo_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("MVVMSidekick.Views.MVVMPage"));
-                userType.Activator = Activate_67_MainPage;
+                userType.Activator = Activate_68_MainPage;
                 userType.AddMemberName("StrongTypeViewModel");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 68:   //  NavDemo.ViewModels.SearchPage_Model
+            case 69:   //  NavDemo.ViewModels.SearchPage_Model
                 userType = new global::NavDemo.NavDemo_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("MVVMSidekick.ViewModels.ViewModelBase`1<NavDemo.ViewModels.SearchPage_Model>"));
-                userType.Activator = Activate_68_SearchPage_Model;
+                userType.Activator = Activate_69_SearchPage_Model;
                 userType.AddMemberName("Title");
                 userType.AddMemberName("dateText");
                 userType.AddMemberName("listDialog");
@@ -934,7 +944,7 @@ namespace NavDemo.NavDemo_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 69:   //  MVVMSidekick.ViewModels.ViewModelBase`1<NavDemo.ViewModels.SearchPage_Model>
+            case 70:   //  MVVMSidekick.ViewModels.ViewModelBase`1<NavDemo.ViewModels.SearchPage_Model>
                 userType = new global::NavDemo.NavDemo_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("MVVMSidekick.ViewModels.BindableBase`1<NavDemo.ViewModels.SearchPage_Model>"));
                 userType.AddMemberName("UnbindDisposeGroup");
                 userType.AddMemberName("UnloadDisposeGroup");
@@ -947,7 +957,7 @@ namespace NavDemo.NavDemo_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 70:   //  MVVMSidekick.ViewModels.BindableBase`1<NavDemo.ViewModels.SearchPage_Model>
+            case 71:   //  MVVMSidekick.ViewModels.BindableBase`1<NavDemo.ViewModels.SearchPage_Model>
                 userType = new global::NavDemo.NavDemo_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("MVVMSidekick.ViewModels.BindableBase"));
                 userType.AddMemberName("BindableInstanceId");
                 userType.AddMemberName("Error");
@@ -956,9 +966,9 @@ namespace NavDemo.NavDemo_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 71:   //  NavDemo.SearchPage
+            case 72:   //  NavDemo.SearchPage
                 userType = new global::NavDemo.NavDemo_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("MVVMSidekick.Views.MVVMPage"));
-                userType.Activator = Activate_71_SearchPage;
+                userType.Activator = Activate_72_SearchPage;
                 userType.AddMemberName("StrongTypeViewModel");
                 userType.SetIsLocalType();
                 xamlType = userType;

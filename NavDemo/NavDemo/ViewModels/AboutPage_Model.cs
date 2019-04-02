@@ -14,6 +14,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Windows.UI.Xaml.Controls;
 using Windows.Storage;
+using NavDemo.Services;
 
 namespace NavDemo.ViewModels
 {
@@ -168,44 +169,15 @@ namespace NavDemo.ViewModels
                           {
                             //Todo: Add GetDialog logic here, or
                             await MVVMSidekick.Utilities.TaskExHelper.Yield();
-                              Windows.Storage.Pickers.FileOpenPicker open = new Windows.Storage.Pickers.FileOpenPicker();
-                              open.SuggestedStartLocation =
-                                  Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary;
-                              open.FileTypeFilter.Add(".rtf");
+                              RichEditBox richEditBox = (RichEditBox)e.EventArgs.Parameter;
 
-                              //用于获取存放日志信息的目录
-                              //String path = ApplicationData.Current.LocalFolder.Path; 
+                              Windows.Storage.Streams.IRandomAccessStream randAccStream =
+                                        await ServiceLocator.Instance.Resolve<FileService>().GetRandomAccessStream(vm.currentDialog.textDialog);
 
-                              //用路径信息获取文件
-                              StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
-                              string fileName = vm.currentDialog.textDialog;
-                              StorageFile file = await storageFolder.GetFileAsync(fileName);
-                             
-                              
-                              if (file != null)
+                              if (randAccStream != null)
                               {
-                                  try
-                                  {
-                                      Windows.Storage.Streams.IRandomAccessStream randAccStream =
-                                  await file.OpenAsync(Windows.Storage.FileAccessMode.Read);
-
-                                      // Load the file into the Document property of the RichEditBox.
-                                      RichEditBox richEditBox = (RichEditBox)e.EventArgs.Parameter;
-                                      richEditBox.Document.LoadFromStream(Windows.UI.Text.TextSetOptions.FormatRtf, randAccStream);
-
-                                      
-                                  }
-                                  catch (Exception)
-                                  {
-                                      ContentDialog errorDialog = new ContentDialog()
-                                      {
-                                          Title = "File open error",
-                                          Content = "Sorry, I couldn't open the file.",
-                                          PrimaryButtonText = "Ok"
-                                      };
-
-                                      await errorDialog.ShowAsync();
-                                  }
+                                  // Load the file into the Document property of the RichEditBox.
+                                  richEditBox.Document.LoadFromStream(Windows.UI.Text.TextSetOptions.FormatRtf, randAccStream);
                               }
                           })
                       .DoNotifyDefaultEventRouter(vm, commandId)
@@ -292,7 +264,7 @@ namespace NavDemo.ViewModels
         #endregion
 
         
-
+        
 
     }
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NavDemo.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace NavDemo.Services
 {
-    public class SuggestService
+    public class SuggestService : Singleton<SuggestService>
     {
+        
         public static List<Friend> suggestItems;
         
         public void init(List<Friend> items)

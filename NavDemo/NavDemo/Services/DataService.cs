@@ -12,8 +12,9 @@ using NavDemo.Services;
 
 namespace NavDemo.Services
 {
-    public class DataService
+    public class DataService : Singleton<DataService>
     {
+       
         public int InsertFriend()
         {
             int result = 0;

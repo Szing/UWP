@@ -206,8 +206,9 @@ namespace NavDemo.ViewModels
                          {
                              //Todo: Add SomeCommand logic here, or
                              await MVVMSidekick.Utilities.TaskExHelper.Yield();
-                             DbContext.GetInstance().initTableFriend();
-                             
+                             ServiceLocator.Instance.Resolve<DbContext>().initTableDialog();
+                             ServiceLocator.Instance.Resolve<DbContext>().initTableFriend();
+
                          })
                      .DoNotifyDefaultEventRouter(vm, commandId)
                      .Subscribe()
