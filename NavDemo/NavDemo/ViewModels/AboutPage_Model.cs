@@ -57,6 +57,13 @@ namespace NavDemo.ViewModels
         #endregion
 
 
+        public RichEditBox editBox { get => _editBoxLocator(this).Value; set => _editBoxLocator(this).SetValueAndTryNotify(value); }
+        #region Property RichEditBox editBox Setup        
+        protected Property<RichEditBox> _editBox = new Property<RichEditBox> { LocatorFunc = _editBoxLocator };
+        static Func<BindableBase, ValueContainer<RichEditBox>> _editBoxLocator = RegisterContainerLocator(nameof(editBox), m => m.Initialize(nameof(editBox), ref m._editBox, ref _editBoxLocator, () => default(RichEditBox)));
+        #endregion
+
+
         public CommandModel<ReactiveCommand, String> CommandToLastPage
         {
             get { return _CommandToLastPageLocator(this).Value; }
@@ -82,6 +89,16 @@ namespace NavDemo.ViewModels
                               {
                                   vm.indexDialog += 1;
                                   vm.currentDialog = vm.listDialog[vm.indexDialog];
+                                  RichEditBox richEditBox = (RichEditBox)e.EventArgs.Parameter;
+
+                                  Windows.Storage.Streams.IRandomAccessStream randAccStream =
+                                            await ServiceLocator.Instance.Resolve<FileService>().GetRandomAccessStream(vm.currentDialog.textDialog);
+
+                                  if (randAccStream != null)
+                                  {
+                                      // Load the file into the Document property of the RichEditBox.
+                                      richEditBox.Document.LoadFromStream(Windows.UI.Text.TextSetOptions.FormatRtf, randAccStream);
+                                  }
                               }
                               else
                               {
@@ -101,6 +118,7 @@ namespace NavDemo.ViewModels
                   return cmdmdl;
               }));
         #endregion
+
 
 
         public CommandModel<ReactiveCommand, String> CommandToNextPage
@@ -128,6 +146,16 @@ namespace NavDemo.ViewModels
                               {
                                   vm.indexDialog -= 1;
                                   vm.currentDialog = vm.listDialog[vm.indexDialog];
+                                  RichEditBox richEditBox = (RichEditBox)e.EventArgs.Parameter;
+
+                                  Windows.Storage.Streams.IRandomAccessStream randAccStream =
+                                            await ServiceLocator.Instance.Resolve<FileService>().GetRandomAccessStream(vm.currentDialog.textDialog);
+
+                                  if (randAccStream != null)
+                                  {
+                                      // Load the file into the Document property of the RichEditBox.
+                                      richEditBox.Document.LoadFromStream(Windows.UI.Text.TextSetOptions.FormatRtf, randAccStream);
+                                  }
                               }
                               else
                               {
@@ -222,7 +250,7 @@ namespace NavDemo.ViewModels
         ///// </summary>
         ///// <param name="view">View that firing Load event</param>
         ///// <returns>Task awaiter</returns>
-        protected override Task OnBindedViewLoad(MVVMSidekick.Views.IView view)
+        protected  async override Task OnBindedViewLoad(MVVMSidekick.Views.IView view)
         {
             //获取当前dialog的index以便进行上一篇下一篇
             if(currentDialog != null && listDialog != null)
@@ -232,11 +260,21 @@ namespace NavDemo.ViewModels
                     if(listDialog[i].Equals(currentDialog))
                     {
                         indexDialog = i;
+
+                        break;
                     }
+                }
+                Windows.Storage.Streams.IRandomAccessStream randAccStream =
+                                    await ServiceLocator.Instance.Resolve<FileService>().GetRandomAccessStream(currentDialog.textDialog);
+
+                if (randAccStream != null)
+                {
+                    // Load the file into the Document property of the RichEditBox.
+                    editBox.Document.LoadFromStream(Windows.UI.Text.TextSetOptions.FormatRtf, randAccStream);
                 }
             }
 
-            return base.OnBindedViewLoad(view);
+            await base.OnBindedViewLoad(view);
         }
 
         ///// <summary>

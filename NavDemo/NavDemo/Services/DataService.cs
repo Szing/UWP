@@ -130,7 +130,8 @@ namespace NavDemo.Services
             using (var db = DbContext.GetInstance().GetSqLiteConnection())
             {
                 var list = db.Table<Dialog>();
-
+                if (list.Count() == 0)
+                    return 0;
                 return list.ElementAt(list.Count() - 1).idDialog;
             }
         }

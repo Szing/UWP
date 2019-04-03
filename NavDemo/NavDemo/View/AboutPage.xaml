@@ -29,11 +29,11 @@
         <TextBox HorizontalAlignment="Left" Margin="480,165,0,0" Text="{Binding currentDialog.describeDialog}" TextWrapping="Wrap" VerticalAlignment="Top" Height="61" Width="358"/>
         <TextBox HorizontalAlignment="Left" Margin="480,93,0,0" Text="{Binding currentDialog.timeDialog}" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="129"/>
 
-        <Button Content="LastPage" HorizontalAlignment="Left" Margin="138,785,0,0" VerticalAlignment="Top" Command="{Binding CommandToLastPage}"/>
-        <Button Content="NextPage" HorizontalAlignment="Left" Margin="1180,785,0,0" VerticalAlignment="Top" Command="{Binding CommandToNextPage}"/>
+        <Button Content="LastPage" HorizontalAlignment="Left" Margin="138,785,0,0" VerticalAlignment="Top" Command="{Binding CommandToLastPage}" CommandParameter="{Binding ElementName=editor}"/>
+        <Button Content="NextPage" HorizontalAlignment="Left" Margin="1180,785,0,0" VerticalAlignment="Top" Command="{Binding CommandToNextPage}" CommandParameter="{Binding ElementName=editor}"/>
         <RichEditBox Name="editor" HorizontalAlignment="Left" Margin="431,252,0,0" VerticalAlignment="Top" Height="331" Width="528"/>
-        <Button Content="show" HorizontalAlignment="Left" Margin="1014,281,0,0" VerticalAlignment="Top" Command="{Binding CommandGetDialog}" CommandParameter="{Binding ElementName=editor}" />
-
-
+        <!-->
+            <Button Content="show" HorizontalAlignment="Left" Margin="1014,281,0,0" VerticalAlignment="Top" Command="{Binding CommandGetDialog}" CommandParameter="{Binding ElementName=editor}" />
+        <!-->
     </Grid>
 </mvvm:MVVMPage>

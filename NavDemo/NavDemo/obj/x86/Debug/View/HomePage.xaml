@@ -32,25 +32,25 @@
                     <Setter Property="IsCompact" Value="True"/>
                 </Style>
             </RelativePanel.Resources>
-            <AppBarButton x:ConnectionId='6' x:Name="openFileButton" Icon="OpenFile"
+            <AppBarButton x:ConnectionId='4' x:Name="openFileButton" Icon="OpenFile"
                                            ToolTipService.ToolTip="Open file"/>
-            <AppBarButton x:ConnectionId='7' Icon="Save"                         
+            <AppBarButton x:ConnectionId='5' Icon="Save"                         
                   ToolTipService.ToolTip="Save file"
                   RelativePanel.RightOf="openFileButton" Margin="8,0,0,0"/>
-            <AppBarButton x:ConnectionId='8' x:Name="imageButton" Icon="Pictures"                          
+            <AppBarButton x:ConnectionId='6' x:Name="imageButton" Icon="Pictures"                          
                  RelativePanel.LeftOf="Font" ToolTipService.ToolTip="Image" />
-            <AppBarButton x:ConnectionId='9' x:Name="Font" Icon="Font" RelativePanel.LeftOf="fontColorButton" ToolTipService.ToolTip="Font">
+            <AppBarButton x:ConnectionId='7' x:Name="Font" Icon="Font" RelativePanel.LeftOf="fontColorButton" ToolTipService.ToolTip="Font">
                 <AppBarButton.Flyout>
                     <MenuFlyout>
-                        <MenuFlyoutItem x:ConnectionId='30' Text="幼圆" Tag="幼圆" FontFamily="YouYuan"                          />
-                        <MenuFlyoutItem x:ConnectionId='31' Text="楷体" Tag="楷体" FontFamily="KaiTi"                         />
-                        <MenuFlyoutItem x:ConnectionId='32' Text="姚体" Tag="姚体" FontFamily="FZYaoti"                          />
-                        <MenuFlyoutItem x:ConnectionId='33' Text="舒体" Tag="舒体" FontFamily="FZShuTi"                         />
-                        <MenuFlyoutItem x:ConnectionId='34' Text="隶书" Tag="隶书" FontFamily="STLiti"                         />
+                        <MenuFlyoutItem x:ConnectionId='28' Text="幼圆" Tag="幼圆" FontFamily="YouYuan"                          />
+                        <MenuFlyoutItem x:ConnectionId='29' Text="楷体" Tag="楷体" FontFamily="KaiTi"                         />
+                        <MenuFlyoutItem x:ConnectionId='30' Text="姚体" Tag="姚体" FontFamily="FZYaoti"                          />
+                        <MenuFlyoutItem x:ConnectionId='31' Text="舒体" Tag="舒体" FontFamily="FZShuTi"                         />
+                        <MenuFlyoutItem x:ConnectionId='32' Text="隶书" Tag="隶书" FontFamily="STLiti"                         />
                     </MenuFlyout>
                 </AppBarButton.Flyout>
             </AppBarButton>
-            <AppBarButton x:ConnectionId='10' x:Name="fontColorButton" AutomationProperties.Name="Font color"
+            <AppBarButton x:ConnectionId='8' x:Name="fontColorButton" AutomationProperties.Name="Font color"
                                 BorderThickness="0" ToolTipService.ToolTip="Font color"
                                 Background="Transparent" 
                                 RelativePanel.LeftOf="FontSize" >
@@ -70,47 +70,47 @@
                                     <Setter Property="Margin" Value="6"/>
                                 </Style>
                             </VariableSizedWrapGrid.Resources>
-                            <Button x:ConnectionId='21'                           AutomationProperties.Name="Red">
+                            <Button x:ConnectionId='19'                           AutomationProperties.Name="Red">
                                 <Button.Content>
                                     <Rectangle Fill="Red"/>
                                 </Button.Content>
                             </Button>
-                            <Button x:ConnectionId='22'                           AutomationProperties.Name="Orange">
+                            <Button x:ConnectionId='20'                           AutomationProperties.Name="Orange">
                                 <Button.Content>
                                     <Rectangle Fill="Orange"/>
                                 </Button.Content>
                             </Button>
-                            <Button x:ConnectionId='23'                           AutomationProperties.Name="Yellow">
+                            <Button x:ConnectionId='21'                           AutomationProperties.Name="Yellow">
                                 <Button.Content>
                                     <Rectangle Fill="Yellow"/>
                                 </Button.Content>
                             </Button>
-                            <Button x:ConnectionId='24'                           AutomationProperties.Name="Green">
+                            <Button x:ConnectionId='22'                           AutomationProperties.Name="Green">
                                 <Button.Content>
                                     <Rectangle Fill="Green"/>
                                 </Button.Content>
                             </Button>
-                            <Button x:ConnectionId='25'                           AutomationProperties.Name="Blue">
+                            <Button x:ConnectionId='23'                           AutomationProperties.Name="Blue">
                                 <Button.Content>
                                     <Rectangle Fill="Blue"/>
                                 </Button.Content>
                             </Button>
-                            <Button x:ConnectionId='26'                           AutomationProperties.Name="Indigo">
+                            <Button x:ConnectionId='24'                           AutomationProperties.Name="Indigo">
                                 <Button.Content>
                                     <Rectangle Fill="Indigo"/>
                                 </Button.Content>
                             </Button>
-                            <Button x:ConnectionId='27'                           AutomationProperties.Name="Violet">
+                            <Button x:ConnectionId='25'                           AutomationProperties.Name="Violet">
                                 <Button.Content>
                                     <Rectangle Fill="Violet"/>
                                 </Button.Content>
                             </Button>
-                            <Button x:ConnectionId='28'                           AutomationProperties.Name="Gray">
+                            <Button x:ConnectionId='26'                           AutomationProperties.Name="Gray">
                                 <Button.Content>
                                     <Rectangle Fill="Gray"/>
                                 </Button.Content>
                             </Button>
-                            <Button x:ConnectionId='29'                           AutomationProperties.Name="Black">
+                            <Button x:ConnectionId='27'                           AutomationProperties.Name="Black">
                                 <Button.Content>
                                     <Rectangle Fill="Black"/>
                                 </Button.Content>
@@ -120,26 +120,26 @@
                 </AppBarButton.Flyout>
             </AppBarButton>
 
-            <AppBarButton x:ConnectionId='11' x:Name="FontSize" Icon="FontSize"  ToolTipService.ToolTip="FontSize"
+            <AppBarButton x:ConnectionId='9' x:Name="FontSize" Icon="FontSize"  ToolTipService.ToolTip="FontSize"
                       RelativePanel.LeftOf="boldbutton" Margin="0,0,8,0">
                 <AppBarButton.Flyout>
                     <MenuFlyout>
-                        <MenuFlyoutItem x:ConnectionId='16' Text="16" Tag="16"                              />
-                        <MenuFlyoutItem x:ConnectionId='17' Text="20" Tag="20"                             />
-                        <MenuFlyoutItem x:ConnectionId='18' Text="24" Tag="24"                              />
-                        <MenuFlyoutItem x:ConnectionId='19' Text="36" Tag="36"                             />
-                        <MenuFlyoutItem x:ConnectionId='20' Text="48" Tag="48"                             />
+                        <MenuFlyoutItem x:ConnectionId='14' Text="16" Tag="16"                              />
+                        <MenuFlyoutItem x:ConnectionId='15' Text="20" Tag="20"                             />
+                        <MenuFlyoutItem x:ConnectionId='16' Text="24" Tag="24"                              />
+                        <MenuFlyoutItem x:ConnectionId='17' Text="36" Tag="36"                             />
+                        <MenuFlyoutItem x:ConnectionId='18' Text="48" Tag="48"                             />
                     </MenuFlyout>
                 </AppBarButton.Flyout>
             </AppBarButton>
-            <AppBarButton x:ConnectionId='12' x:Name="boldbutton" Icon="Bold"                          ToolTipService.ToolTip="Bold"
+            <AppBarButton x:ConnectionId='10' x:Name="boldbutton" Icon="Bold"                          ToolTipService.ToolTip="Bold"
                   RelativePanel.LeftOf="italicButton" Margin="0,0,8,0"/>
-            <AppBarButton x:ConnectionId='13' x:Name="italicButton" Icon="Italic"                           
+            <AppBarButton x:ConnectionId='11' x:Name="italicButton" Icon="Italic"                           
                   ToolTipService.ToolTip="Italic" RelativePanel.LeftOf="underlineButton" Margin="0,0,8,0"/>
-            <AppBarButton x:ConnectionId='14' x:Name="underlineButton" Icon="Underline"                              
+            <AppBarButton x:ConnectionId='12' x:Name="underlineButton" Icon="Underline"                              
                   ToolTipService.ToolTip="Underline" RelativePanel.AlignRightWithPanel="True"/>
 
-            <RichEditBox x:ConnectionId='15' x:Name="editor"  RelativePanel.Below="openFileButton"
+            <RichEditBox x:ConnectionId='13' x:Name="editor"  RelativePanel.Below="openFileButton"
                  RelativePanel.AlignLeftWithPanel="True" 
                      RelativePanel.AlignRightWithPanel="True" 
                      RelativePanel.AlignBottomWithPanel="True">
@@ -161,8 +161,8 @@
             </Custom:Interaction.Behaviors>
 
         </AutoSuggestBox>
-        <Button x:ConnectionId='4' x:Name="ImageButton" Content="Button1" HorizontalAlignment="Left" Margin="1331,598,0,0" VerticalAlignment="Top" Height="57" Width="107"                     />
-        <Image x:ConnectionId='5' x:Name="Img" HorizontalAlignment="Left" Height="198" Margin="1114,429,0,0" VerticalAlignment="Top" Width="212"/>
+        <!--<Button x:Name="ImageButton" Content="Button1" HorizontalAlignment="Left" Margin="1331,598,0,0" VerticalAlignment="Top" Height="57" Width="107" Click="Button_Click"/>
+        <Image x:Name="Img" HorizontalAlignment="Left" Height="198" Margin="1114,429,0,0" VerticalAlignment="Top" Width="212"/><!-->
         <Button Content="InsertDialog" HorizontalAlignment="Left" Margin="1228,180,0,0" VerticalAlignment="Top" Command="{Binding CommandInsertDialog}" Height="74" Width="128" CommandParameter="{Binding ElementName=editor}"/>
 
 

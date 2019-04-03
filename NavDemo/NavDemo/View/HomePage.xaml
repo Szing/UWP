@@ -161,8 +161,8 @@
             </Custom:Interaction.Behaviors>
 
         </AutoSuggestBox>
-        <Button x:Name="ImageButton" Content="Button1" HorizontalAlignment="Left" Margin="1331,598,0,0" VerticalAlignment="Top" Height="57" Width="107" Click="Button_Click"/>
-        <Image x:Name="Img" HorizontalAlignment="Left" Height="198" Margin="1114,429,0,0" VerticalAlignment="Top" Width="212"/>
+        <!--<Button x:Name="ImageButton" Content="Button1" HorizontalAlignment="Left" Margin="1331,598,0,0" VerticalAlignment="Top" Height="57" Width="107" Click="Button_Click"/>
+        <Image x:Name="Img" HorizontalAlignment="Left" Height="198" Margin="1114,429,0,0" VerticalAlignment="Top" Width="212"/><!-->
         <Button Content="InsertDialog" HorizontalAlignment="Left" Margin="1228,180,0,0" VerticalAlignment="Top" Command="{Binding CommandInsertDialog}" Height="74" Width="128" CommandParameter="{Binding ElementName=editor}"/>
 
 

@@ -43,9 +43,12 @@ namespace NavDemo
             this.InitializeComponent();
             this.RegisterPropertyChangedCallback(ViewModelProperty, (_, __) =>
             {
+                
                 StrongTypeViewModel = this.ViewModel as AboutPage_Model;
+                StrongTypeViewModel.editBox = this.editor as RichEditBox;
             });
             StrongTypeViewModel = this.ViewModel as AboutPage_Model;
+           
         }
 
 
