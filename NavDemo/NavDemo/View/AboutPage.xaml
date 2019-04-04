@@ -16,22 +16,35 @@
         <vm:AboutPage_Model x:Key="DesignVM"/>
     </Page.Resources>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"  DataContext="{StaticResource DesignVM}">
+    <Grid  DataContext="{StaticResource DesignVM}">
+        <Grid.Background>
+            <ImageBrush Stretch="UniformToFill" ImageSource="/Assets/background2.png" Opacity="0.9"/>
+        </Grid.Background>
         <Grid.ChildrenTransitions>
             <TransitionCollection>
                 <EntranceThemeTransition/>
             </TransitionCollection>
         </Grid.ChildrenTransitions>
-
-        <TextBlock x:Name="pageTitle" Text="{Binding Title}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.3*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="8*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            
+        </Grid.RowDefinitions>
+        <!--
+        <TextBlock Grid.Row="1" x:Name="pageTitle" Text="{Binding Title}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
                         IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40"/>
+        -->
 
-        <TextBox HorizontalAlignment="Left" Margin="480,165,0,0" Text="{Binding currentDialog.describeDialog}" TextWrapping="Wrap" VerticalAlignment="Top" Height="61" Width="358"/>
-        <TextBox HorizontalAlignment="Left" Margin="480,93,0,0" Text="{Binding currentDialog.timeDialog}" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="129"/>
 
-        <Button Content="LastPage" HorizontalAlignment="Left" Margin="138,785,0,0" VerticalAlignment="Top" Command="{Binding CommandToLastPage}" CommandParameter="{Binding ElementName=editor}"/>
-        <Button Content="NextPage" HorizontalAlignment="Left" Margin="1180,785,0,0" VerticalAlignment="Top" Command="{Binding CommandToNextPage}" CommandParameter="{Binding ElementName=editor}"/>
-        <RichEditBox Name="editor" HorizontalAlignment="Left" Margin="431,252,0,0" VerticalAlignment="Top" Height="331" Width="528"/>
+        <TextBlock Grid.Row="1"  FontSize="25" Margin="0,0,590,0" HorizontalAlignment="Center"  Text="{Binding currentDialog.timeDialog}" TextWrapping="Wrap" VerticalAlignment="Center" Height="28" Width="129"/>
+        <TextBlock Grid.Row="2"  FontSize="25" Margin="0,0,360,0" HorizontalAlignment="Center"  Text="{Binding currentDialog.describeDialog}" TextWrapping="Wrap" VerticalAlignment="Center" Height="61" Width="358"/>
+        <Button Grid.Row="3" Content="LastPage" HorizontalAlignment="Center" Margin="0,0,950,0" VerticalAlignment="Bottom" Command="{Binding CommandToLastPage}" CommandParameter="{Binding ElementName=editor}"/>
+        <Button Grid.Row="3" Content="NextPage" HorizontalAlignment="Center" Margin="950,0,0,0" VerticalAlignment="Bottom" Command="{Binding CommandToNextPage}" CommandParameter="{Binding ElementName=editor}"/>
+        <RichEditBox Grid.Row="3" Name="editor" HorizontalAlignment="Center"  VerticalAlignment="Top" Height="639" Width="721"/>
+
         <!-->
             <Button Content="show" HorizontalAlignment="Left" Margin="1014,281,0,0" VerticalAlignment="Top" Command="{Binding CommandGetDialog}" CommandParameter="{Binding ElementName=editor}" />
         <!-->

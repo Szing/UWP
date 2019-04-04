@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    "UAP,Version=v10.0.10586": {
+    "UAP,Version=v10.0.17134": {
       "CommonServiceLocator/1.3.0": {
         "type": "package",
         "compile": {
@@ -268,6 +268,18 @@
           "System.Xml.XmlSerializer": "4.0.10"
         }
       },
+      "Microsoft.Toolkit.Uwp/1.5.1": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "9.0.1"
+        },
+        "compile": {
+          "lib/uap10.0/Microsoft.Toolkit.Uwp.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Toolkit.Uwp.dll": {}
+        }
+      },
       "Microsoft.VisualBasic/10.0.0": {
         "type": "package",
         "dependencies": {
@@ -340,6 +352,15 @@
         },
         "runtime": {
           "lib/uap10.0/MVVMSidekick_UAP10.dll": {}
+        }
+      },
+      "Newtonsoft.Json/9.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll": {}
         }
       },
       "Rx-Core/2.2.5": {
@@ -2049,9 +2070,35 @@
           "lib/win8/Microsoft.Practices.Unity.RegistrationByConvention.dll": {},
           "lib/win8/Microsoft.Practices.Unity.dll": {}
         }
+      },
+      "Win2D.uwp/1.23.0": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
+        },
+        "build": {
+          "build/win10/Win2D.uwp.targets": {}
+        },
+        "runtimeTargets": {
+          "runtimes/win10-arm/native/Microsoft.Graphics.Canvas.dll": {
+            "assetType": "native",
+            "rid": "win10-arm"
+          },
+          "runtimes/win10-x64/native/Microsoft.Graphics.Canvas.dll": {
+            "assetType": "native",
+            "rid": "win10-x64"
+          },
+          "runtimes/win10-x86/native/Microsoft.Graphics.Canvas.dll": {
+            "assetType": "native",
+            "rid": "win10-x86"
+          }
+        }
       }
     },
-    "UAP,Version=v10.0.10586/win10-arm": {
+    "UAP,Version=v10.0.17134/win10-arm": {
       "CommonServiceLocator/1.3.0": {
         "type": "package",
         "compile": {
@@ -2311,6 +2358,18 @@
           "System.Xml.XmlSerializer": "4.0.10"
         }
       },
+      "Microsoft.Toolkit.Uwp/1.5.1": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "9.0.1"
+        },
+        "compile": {
+          "lib/uap10.0/Microsoft.Toolkit.Uwp.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Toolkit.Uwp.dll": {}
+        }
+      },
       "Microsoft.VisualBasic/10.0.0": {
         "type": "package",
         "dependencies": {
@@ -2383,6 +2442,15 @@
         },
         "runtime": {
           "lib/uap10.0/MVVMSidekick_UAP10.dll": {}
+        }
+      },
+      "Newtonsoft.Json/9.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll": {}
         }
       },
       "Rx-Core/2.2.5": {
@@ -3956,9 +4024,24 @@
           "lib/win8/Microsoft.Practices.Unity.RegistrationByConvention.dll": {},
           "lib/win8/Microsoft.Practices.Unity.dll": {}
         }
+      },
+      "Win2D.uwp/1.23.0": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
+        },
+        "native": {
+          "runtimes/win10-arm/native/Microsoft.Graphics.Canvas.dll": {}
+        },
+        "build": {
+          "build/win10/Win2D.uwp.targets": {}
+        }
       }
     },
-    "UAP,Version=v10.0.10586/win10-arm-aot": {
+    "UAP,Version=v10.0.17134/win10-arm-aot": {
       "CommonServiceLocator/1.3.0": {
         "type": "package",
         "compile": {
@@ -4204,6 +4287,18 @@
           "System.Xml.XmlSerializer": "4.0.10"
         }
       },
+      "Microsoft.Toolkit.Uwp/1.5.1": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "9.0.1"
+        },
+        "compile": {
+          "lib/uap10.0/Microsoft.Toolkit.Uwp.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Toolkit.Uwp.dll": {}
+        }
+      },
       "Microsoft.VisualBasic/10.0.0": {
         "type": "package",
         "dependencies": {
@@ -4276,6 +4371,15 @@
         },
         "runtime": {
           "lib/uap10.0/MVVMSidekick_UAP10.dll": {}
+        }
+      },
+      "Newtonsoft.Json/9.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll": {}
         }
       },
       "Rx-Core/2.2.5": {
@@ -5826,9 +5930,24 @@
           "lib/win8/Microsoft.Practices.Unity.RegistrationByConvention.dll": {},
           "lib/win8/Microsoft.Practices.Unity.dll": {}
         }
+      },
+      "Win2D.uwp/1.23.0": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
+        },
+        "native": {
+          "runtimes/win10-arm/native/Microsoft.Graphics.Canvas.dll": {}
+        },
+        "build": {
+          "build/win10/Win2D.uwp.targets": {}
+        }
       }
     },
-    "UAP,Version=v10.0.10586/win10-x64": {
+    "UAP,Version=v10.0.17134/win10-x64": {
       "CommonServiceLocator/1.3.0": {
         "type": "package",
         "compile": {
@@ -6095,6 +6214,18 @@
           "runtimes/win10-x64/native/_._": {}
         }
       },
+      "Microsoft.Toolkit.Uwp/1.5.1": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "9.0.1"
+        },
+        "compile": {
+          "lib/uap10.0/Microsoft.Toolkit.Uwp.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Toolkit.Uwp.dll": {}
+        }
+      },
       "Microsoft.VisualBasic/10.0.0": {
         "type": "package",
         "dependencies": {
@@ -6167,6 +6298,15 @@
         },
         "runtime": {
           "lib/uap10.0/MVVMSidekick_UAP10.dll": {}
+        }
+      },
+      "Newtonsoft.Json/9.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll": {}
         }
       },
       "Rx-Core/2.2.5": {
@@ -7740,9 +7880,24 @@
           "lib/win8/Microsoft.Practices.Unity.RegistrationByConvention.dll": {},
           "lib/win8/Microsoft.Practices.Unity.dll": {}
         }
+      },
+      "Win2D.uwp/1.23.0": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
+        },
+        "native": {
+          "runtimes/win10-x64/native/Microsoft.Graphics.Canvas.dll": {}
+        },
+        "build": {
+          "build/win10/Win2D.uwp.targets": {}
+        }
       }
     },
-    "UAP,Version=v10.0.10586/win10-x64-aot": {
+    "UAP,Version=v10.0.17134/win10-x64-aot": {
       "CommonServiceLocator/1.3.0": {
         "type": "package",
         "compile": {
@@ -7988,6 +8143,18 @@
           "System.Xml.XmlSerializer": "4.0.10"
         }
       },
+      "Microsoft.Toolkit.Uwp/1.5.1": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "9.0.1"
+        },
+        "compile": {
+          "lib/uap10.0/Microsoft.Toolkit.Uwp.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Toolkit.Uwp.dll": {}
+        }
+      },
       "Microsoft.VisualBasic/10.0.0": {
         "type": "package",
         "dependencies": {
@@ -8060,6 +8227,15 @@
         },
         "runtime": {
           "lib/uap10.0/MVVMSidekick_UAP10.dll": {}
+        }
+      },
+      "Newtonsoft.Json/9.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll": {}
         }
       },
       "Rx-Core/2.2.5": {
@@ -9610,9 +9786,24 @@
           "lib/win8/Microsoft.Practices.Unity.RegistrationByConvention.dll": {},
           "lib/win8/Microsoft.Practices.Unity.dll": {}
         }
+      },
+      "Win2D.uwp/1.23.0": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
+        },
+        "native": {
+          "runtimes/win10-x64/native/Microsoft.Graphics.Canvas.dll": {}
+        },
+        "build": {
+          "build/win10/Win2D.uwp.targets": {}
+        }
       }
     },
-    "UAP,Version=v10.0.10586/win10-x86": {
+    "UAP,Version=v10.0.17134/win10-x86": {
       "CommonServiceLocator/1.3.0": {
         "type": "package",
         "compile": {
@@ -9879,6 +10070,18 @@
           "runtimes/win10-x86/native/_._": {}
         }
       },
+      "Microsoft.Toolkit.Uwp/1.5.1": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "9.0.1"
+        },
+        "compile": {
+          "lib/uap10.0/Microsoft.Toolkit.Uwp.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Toolkit.Uwp.dll": {}
+        }
+      },
       "Microsoft.VisualBasic/10.0.0": {
         "type": "package",
         "dependencies": {
@@ -9951,6 +10154,15 @@
         },
         "runtime": {
           "lib/uap10.0/MVVMSidekick_UAP10.dll": {}
+        }
+      },
+      "Newtonsoft.Json/9.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll": {}
         }
       },
       "Rx-Core/2.2.5": {
@@ -11524,9 +11736,24 @@
           "lib/win8/Microsoft.Practices.Unity.RegistrationByConvention.dll": {},
           "lib/win8/Microsoft.Practices.Unity.dll": {}
         }
+      },
+      "Win2D.uwp/1.23.0": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
+        },
+        "native": {
+          "runtimes/win10-x86/native/Microsoft.Graphics.Canvas.dll": {}
+        },
+        "build": {
+          "build/win10/Win2D.uwp.targets": {}
+        }
       }
     },
-    "UAP,Version=v10.0.10586/win10-x86-aot": {
+    "UAP,Version=v10.0.17134/win10-x86-aot": {
       "CommonServiceLocator/1.3.0": {
         "type": "package",
         "compile": {
@@ -11772,6 +11999,18 @@
           "System.Xml.XmlSerializer": "4.0.10"
         }
       },
+      "Microsoft.Toolkit.Uwp/1.5.1": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "9.0.1"
+        },
+        "compile": {
+          "lib/uap10.0/Microsoft.Toolkit.Uwp.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Toolkit.Uwp.dll": {}
+        }
+      },
       "Microsoft.VisualBasic/10.0.0": {
         "type": "package",
         "dependencies": {
@@ -11844,6 +12083,15 @@
         },
         "runtime": {
           "lib/uap10.0/MVVMSidekick_UAP10.dll": {}
+        }
+      },
+      "Newtonsoft.Json/9.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll": {}
         }
       },
       "Rx-Core/2.2.5": {
@@ -13393,6 +13641,21 @@
         "runtime": {
           "lib/win8/Microsoft.Practices.Unity.RegistrationByConvention.dll": {},
           "lib/win8/Microsoft.Practices.Unity.dll": {}
+        }
+      },
+      "Win2D.uwp/1.23.0": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
+        },
+        "native": {
+          "runtimes/win10-x86/native/Microsoft.Graphics.Canvas.dll": {}
+        },
+        "build": {
+          "build/win10/Win2D.uwp.targets": {}
         }
       }
     }
@@ -14164,6 +14427,21 @@
         "runtimes/win81-x86/native/api-ms-win-security-cpwl-l1-1-0.dll"
       ]
     },
+    "Microsoft.Toolkit.Uwp/1.5.1": {
+      "sha512": "ModoeoxleTFEOFZiwYzDSSO0ItGDt6/ANcZzwlgTKEtkdQQdV1s9iIUwiO8q8iTULgYyj37WhduJEczifhNouw==",
+      "type": "package",
+      "path": "microsoft.toolkit.uwp/1.5.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/uap10.0/Microsoft.Toolkit.Uwp.dll",
+        "lib/uap10.0/Microsoft.Toolkit.Uwp.pdb",
+        "lib/uap10.0/Microsoft.Toolkit.Uwp.pri",
+        "lib/uap10.0/Microsoft.Toolkit.Uwp.xml",
+        "microsoft.toolkit.uwp.1.5.1.nupkg.sha512",
+        "microsoft.toolkit.uwp.nuspec"
+      ]
+    },
     "Microsoft.VisualBasic/10.0.0": {
       "sha512": "5BEm2/HAVd97whRlCChU7rmSh/9cwGlZ/NTNe3Jl07zuPWfKQq5TUvVNUmdvmEe8QRecJLZ4/e7WF1i1O8V42g==",
       "type": "package",
@@ -14292,6 +14570,32 @@
         "mvvm-sidekick.1.6.12.nupkg.sha512",
         "mvvm-sidekick.nuspec",
         "tools/MVVM-Sidekick.snippet",
+        "tools/install.ps1"
+      ]
+    },
+    "Newtonsoft.Json/9.0.1": {
+      "sha512": "U82mHQSKaIk+lpSVCbWYKNavmNH1i5xrExDEquU1i6I5pV6UMOqRnJRSlKO3cMPfcpp0RgDY+8jUXHdQ4IfXvw==",
+      "type": "package",
+      "path": "newtonsoft.json/9.0.1",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        "lib/net20/Newtonsoft.Json.dll",
+        "lib/net20/Newtonsoft.Json.xml",
+        "lib/net35/Newtonsoft.Json.dll",
+        "lib/net35/Newtonsoft.Json.xml",
+        "lib/net40/Newtonsoft.Json.dll",
+        "lib/net40/Newtonsoft.Json.xml",
+        "lib/net45/Newtonsoft.Json.dll",
+        "lib/net45/Newtonsoft.Json.xml",
+        "lib/netstandard1.0/Newtonsoft.Json.dll",
+        "lib/netstandard1.0/Newtonsoft.Json.xml",
+        "lib/portable-net40+sl5+wp80+win8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net40+sl5+wp80+win8+wpa81/Newtonsoft.Json.xml",
+        "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.xml",
+        "newtonsoft.json.9.0.1.nupkg.sha512",
+        "newtonsoft.json.nuspec",
         "tools/install.ps1"
       ]
     },
@@ -17186,22 +17490,46 @@
         "unity.4.0.1.nupkg.sha512",
         "unity.nuspec"
       ]
+    },
+    "Win2D.uwp/1.23.0": {
+      "sha512": "ft/qJRdLqVAX9pPNkgCDhTsf225VKh2CL4wcFv8bI0fDkN4NcKdEAvX7tEkSZnhMoSAjyer9eXUgHF7ICJpt8g==",
+      "type": "package",
+      "path": "win2d.uwp/1.23.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Win2d.githash.txt",
+        "build/Win2D.common.targets",
+        "build/native/Win2D.uwp.targets",
+        "build/win10/Win2D.uwp.targets",
+        "include/Microsoft.Graphics.Canvas.h",
+        "include/Microsoft.Graphics.Canvas.native.h",
+        "lib/uap10.0/Microsoft.Graphics.Canvas.winmd",
+        "lib/uap10.0/Microsoft.Graphics.Canvas.xml",
+        "runtimes/win10-arm/native/Microsoft.Graphics.Canvas.dll",
+        "runtimes/win10-x64/native/Microsoft.Graphics.Canvas.dll",
+        "runtimes/win10-x86/native/Microsoft.Graphics.Canvas.dll",
+        "win2d.uwp.1.23.0.nupkg.sha512",
+        "win2d.uwp.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
-    "UAP,Version=v10.0.10586": [
+    "UAP,Version=v10.0.17134": [
       "CommonServiceLocator >= 1.3.0",
       "MVVM-Sidekick >= 1.6.12",
       "Microsoft.Bcl >= 1.1.10",
       "Microsoft.Bcl.Async >= 1.0.168",
       "Microsoft.Bcl.Build >= 1.0.21",
       "Microsoft.NETCore.UniversalWindowsPlatform >= 5.0.0",
+      "Microsoft.Toolkit.Uwp >= 1.5.1",
       "Rx-Core >= 2.2.5",
       "Rx-Interfaces >= 2.2.5",
       "Rx-Linq >= 2.2.5",
       "Rx-Main >= 2.2.5",
       "Rx-PlatformServices >= 2.2.5",
-      "SQLite.Net-PCL >= 3.1.1"
+      "SQLite.Net-PCL >= 3.1.1",
+      "Win2D.uwp >= 1.23.0"
     ]
   },
   "packageFolders": {
@@ -17226,20 +17554,20 @@
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "uap10.0.10586"
+        "uap10.0.17134"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "uap10.0.10586": {
+        "uap10.0.17134": {
           "projectReferences": {}
         }
       }
     },
     "frameworks": {
-      "uap10.0.10586": {
+      "uap10.0.17134": {
         "dependencies": {
           "CommonServiceLocator": {
             "target": "Package",
@@ -17265,6 +17593,10 @@
             "target": "Package",
             "version": "[5.0.0, )"
           },
+          "Microsoft.Toolkit.Uwp": {
+            "target": "Package",
+            "version": "[1.5.1, )"
+          },
           "Rx-Core": {
             "target": "Package",
             "version": "[2.2.5, )"
@@ -17288,8 +17620,17 @@
           "SQLite.Net-PCL": {
             "target": "Package",
             "version": "[3.1.1, )"
+          },
+          "Win2D.uwp": {
+            "target": "Package",
+            "version": "[1.23.0, )"
           }
-        }
+        },
+        "imports": [
+          "net461"
+        ],
+        "assetTargetFallback": true,
+        "warn": true
       }
     },
     "runtimes": {

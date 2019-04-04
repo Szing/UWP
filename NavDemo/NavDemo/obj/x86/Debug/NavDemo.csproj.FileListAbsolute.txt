@@ -361,7 +361,6 @@ D:\UWP-master\NavDemo\NavDemo\bin\x86\Debug\System.Xml.XmlDocument.dll
 D:\UWP-master\NavDemo\NavDemo\bin\x86\Debug\System.Xml.XmlSerializer.dll
 D:\UWP-master\NavDemo\NavDemo\bin\x86\Debug\Microsoft.Practices.Unity.RegistrationByConvention.dll
 D:\UWP-master\NavDemo\NavDemo\bin\x86\Debug\Microsoft.Practices.Unity.dll
-D:\UWP-master\NavDemo\NavDemo\obj\x86\Debug\NavDemo.csprojAssemblyReference.cache
 D:\UWP-master\NavDemo\NavDemo\obj\x86\Debug\App.g.i.cs
 D:\UWP-master\NavDemo\NavDemo\obj\x86\Debug\App.g.cs
 D:\UWP-master\NavDemo\NavDemo\obj\x86\Debug\XamlTypeInfo.g.cs
@@ -487,3 +486,16 @@ D:\UWP-master\NavDemo\NavDemo\obj\x86\Debug\View\BlankPage1.xbf
 D:\UWP-master\NavDemo\NavDemo\obj\x86\Debug\View\HomePage.xbf
 D:\UWP-master\NavDemo\NavDemo\obj\x86\Debug\View\MainPage.xbf
 D:\UWP-master\NavDemo\NavDemo\obj\x86\Debug\View\SearchPage.xbf
+D:\UWP-master\NavDemo\NavDemo\obj\x86\Debug\View\AddFriendPage.g.i.cs
+D:\UWP-master\NavDemo\NavDemo\obj\x86\Debug\View\AddFriendPage.g.cs
+D:\UWP-master\NavDemo\NavDemo\obj\x86\Debug\View\AddFriendPage.xaml
+D:\UWP-master\NavDemo\NavDemo\obj\x86\Debug\View\AddFriendPage.xbf
+D:\UWP-master\NavDemo\NavDemo\bin\x86\Debug\View\AddFriendPage.xbf
+D:\UWP-master\NavDemo\NavDemo\bin\x86\Debug\Microsoft.Toolkit.Uwp.dll
+D:\UWP-master\NavDemo\NavDemo\bin\x86\Debug\Microsoft.Toolkit.Uwp.pdb
+D:\UWP-master\NavDemo\NavDemo\bin\x86\Debug\Newtonsoft.Json.dll
+D:\UWP-master\NavDemo\NavDemo\obj\x86\Debug\Microsoft.Toolkit.Uwp.pri.xml
+D:\UWP-master\NavDemo\NavDemo\obj\x86\Debug\NavDemo.csprojAssemblyReference.cache
+D:\UWP-master\NavDemo\NavDemo\bin\x86\Debug\Microsoft.Graphics.Canvas.dll
+D:\UWP-master\NavDemo\NavDemo\bin\x86\Debug\Microsoft.Graphics.Canvas.winmd
+D:\UWP-master\NavDemo\NavDemo\obj\x86\Debug\.winmd_cache\$Microsoft.Graphics.Canvas.winmd_636621561260000000.json

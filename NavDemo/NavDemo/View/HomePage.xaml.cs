@@ -28,6 +28,15 @@ using Windows.ApplicationModel.DataTransfer;
 using System.Diagnostics;
 using NavDemo.Services;
 using Windows.Storage.Streams;
+using Windows.UI.Xaml.Navigation;
+using NavDemo.ViewModels;
+using Windows.Phone.UI.Input;
+using Windows.ApplicationModel.Core;
+using Windows.UI.Xaml.Hosting;
+using Windows.UI.Composition;
+using Windows.UI.ViewManagement;
+using Windows.UI;
+
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -48,14 +57,16 @@ namespace NavDemo
             : base(model)
         {
             this.InitializeComponent();
+            
             this.RegisterPropertyChangedCallback(ViewModelProperty, (_, __) =>
             {
                 StrongTypeViewModel = this.ViewModel as HomePage_Model;
             });
             StrongTypeViewModel = this.ViewModel as HomePage_Model;
+           
         }
+       
 
-      
         public HomePage_Model StrongTypeViewModel
         {
             get { return (HomePage_Model)GetValue(StrongTypeViewModelProperty); }
@@ -171,6 +182,43 @@ namespace NavDemo
             var stream = await ServiceLocator.Instance.Resolve<ImageService>().GetImageStream();
             editor.Document.Selection.InsertImage(200, 100, 0, Windows.UI.Text.VerticalCharacterAlignment.Baseline, "图像", stream);
             
+
+        }
+
+        private void BtnHide_Click(object sender, RoutedEventArgs e)
+        {
+            if (detailGrid.Visibility == Visibility.Collapsed)
+            {
+                btnHide.Content = "︽点击看看";
+                detailGrid.Visibility = Visibility.Visible;
+
+            }
+            else
+            {
+                btnHide.Content = "︾隐藏之后";
+
+                detailGrid.Visibility = Visibility.Collapsed;
+
+            }
+
+
+        }
+        private void BtnHide1_Click(object sender, RoutedEventArgs e)
+        {
+            if (detailGrid1.Visibility == Visibility.Collapsed)
+            {
+                btnHide1.Content = "︾点击看看";
+                detailGrid1.Visibility = Visibility.Visible;
+
+            }
+            else
+            {
+                btnHide1.Content = "︽隐藏之后";
+
+                detailGrid1.Visibility = Visibility.Collapsed;
+
+            }
+
 
         }
     }

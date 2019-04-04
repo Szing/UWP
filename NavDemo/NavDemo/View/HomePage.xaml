@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="using:NavDemo.ViewModels"
+    xmlns:behaviour="using:NavDemo.Behaviours"
     xmlns:Custom="using:Microsoft.Xaml.Interactivity" xmlns:Custom1="using:Microsoft.Xaml.Interactions.Core" xmlns:Custom2="using:MVVMSidekick.Behaviors" 
     x:Name="pageRoot"
     x:Class="NavDemo.HomePage"
@@ -17,16 +18,42 @@
         <vm:HomePage_Model x:Key="DesignVM"/>
     </mvvm:MVVMPage.Resources>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"  DataContext="{StaticResource DesignVM}">
+    <Grid  DataContext="{StaticResource DesignVM}">
+        <Grid.Background>
+            <ImageBrush Stretch="UniformToFill" ImageSource="/Assets/list.png" Opacity="0.3"/>
+        </Grid.Background>
         <Grid.ChildrenTransitions>
             <TransitionCollection>
                 <EntranceThemeTransition/>
             </TransitionCollection>
         </Grid.ChildrenTransitions>
-
-        <TextBlock x:Name="pageTitle" Text="{Binding Title}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
-                        IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40"/>
-        <RelativePanel Margin="364,306,440,160" HorizontalAlignment="Stretch">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.3*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="0.4*"/>
+            <RowDefinition Height="8*"></RowDefinition>
+            <RowDefinition Height="0.4*"/>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="0.2*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="1" x:Name="detailGrid" Margin="0,20,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="2*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock Text="时间：" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="25" Margin="0,0,570,0"/>
+            <TextBox  Grid.Row="0" HorizontalAlignment="Center"  Text="{Binding currentDialog.timeDialog, Mode=TwoWay}" TextWrapping="Wrap" VerticalAlignment="Center" Height="28" Width="358" />
+            <TextBlock Text="简述：" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,10,570,0" FontSize="25"/>
+            <TextBox Grid.Row="1" HorizontalAlignment="Center" Text="{Binding currentDialog.describeDialog, Mode=TwoWay}"  Margin="0,10,0,0"  TextWrapping="Wrap" VerticalAlignment="Center" Height="120" Width="358" />
+        </Grid>
+        <Button Grid.Row="2" 
+                Grid.Column="0" 
+                Content="︽" 
+                VerticalAlignment="Top"  
+                HorizontalAlignment="Stretch" 
+                Name="btnHide" 
+                Click="BtnHide_Click" Background="{x:Null}" Opacity="0.5"/>
+        <RelativePanel Grid.Row="3"  HorizontalAlignment="Center" VerticalAlignment="Stretch"  Margin="0,0,0,0">
             <RelativePanel.Resources>
                 <Style TargetType="AppBarButton">
                     <Setter Property="IsCompact" Value="True"/>
@@ -34,12 +61,12 @@
             </RelativePanel.Resources>
             <AppBarButton x:Name="openFileButton" Icon="OpenFile"
                   Click="OpenButton_Click" ToolTipService.ToolTip="Open file"/>
-            <AppBarButton Icon="Save" Click="SaveButton_Click"
+            <AppBarButton x:Name="saveFileButton" Icon="Save" Click="SaveButton_Click"
                   ToolTipService.ToolTip="Save file"
                   RelativePanel.RightOf="openFileButton" Margin="8,0,0,0"/>
             <AppBarButton x:Name="imageButton" Icon="Pictures" Click="ImageButton_Click"
-                 RelativePanel.LeftOf="Font" ToolTipService.ToolTip="Image" />
-            <AppBarButton x:Name="Font" Icon="Font" RelativePanel.LeftOf="fontColorButton" ToolTipService.ToolTip="Font">
+                 RelativePanel.RightOf="saveFileButton" ToolTipService.ToolTip="Image" />
+            <AppBarButton x:Name="Font" Icon="Font" RelativePanel.RightOf="imageButton" ToolTipService.ToolTip="Font">
                 <AppBarButton.Flyout>
                     <MenuFlyout>
                         <MenuFlyoutItem Text="幼圆" Tag="幼圆" FontFamily="YouYuan" Click="FontButton_Click" />
@@ -53,7 +80,7 @@
             <AppBarButton x:Name="fontColorButton" AutomationProperties.Name="Font color"
                                 BorderThickness="0" ToolTipService.ToolTip="Font color"
                                 Background="Transparent" 
-                                RelativePanel.LeftOf="FontSize" >
+                                RelativePanel.RightOf="Font" >
                 <SymbolIcon Symbol="FontColor" HorizontalAlignment="Stretch" Height="20" Margin="0,0,0,0" VerticalAlignment="Top"/>
                 <AppBarButton.Flyout>
                     <Flyout Placement="Bottom">
@@ -121,7 +148,7 @@
             </AppBarButton>
 
             <AppBarButton x:Name="FontSize" Icon="FontSize"  ToolTipService.ToolTip="FontSize"
-                      RelativePanel.LeftOf="boldbutton" Margin="0,0,8,0">
+                      RelativePanel.RightOf="fontColorButton" Margin="0,0,8,0">
                 <AppBarButton.Flyout>
                     <MenuFlyout>
                         <MenuFlyoutItem Text="16" Tag="16" Click="FontSizeButton_Click" />
@@ -133,11 +160,11 @@
                 </AppBarButton.Flyout>
             </AppBarButton>
             <AppBarButton x:Name="boldbutton" Icon="Bold" Click="BoldButton_Click" ToolTipService.ToolTip="Bold"
-                  RelativePanel.LeftOf="italicButton" Margin="0,0,8,0"/>
+                  RelativePanel.RightOf="FontSize" Margin="0,0,8,0"/>
             <AppBarButton x:Name="italicButton" Icon="Italic" Click="ItalicButton_Click"
-                  ToolTipService.ToolTip="Italic" RelativePanel.LeftOf="underlineButton" Margin="0,0,8,0"/>
+                  ToolTipService.ToolTip="Italic" RelativePanel.RightOf="boldbutton" Margin="0,0,8,0"/>
             <AppBarButton x:Name="underlineButton" Icon="Underline" Click="UnderlineButton_Click"
-                  ToolTipService.ToolTip="Underline" RelativePanel.AlignRightWithPanel="True"/>
+                 RelativePanel.RightOf="italicButton" ToolTipService.ToolTip="Underline" RelativePanel.AlignRightWithPanel="True"/>
 
             <RichEditBox x:Name="editor"  RelativePanel.Below="openFileButton"
                  RelativePanel.AlignLeftWithPanel="True" 
@@ -145,26 +172,34 @@
                      RelativePanel.AlignBottomWithPanel="True">
             </RichEditBox>
         </RelativePanel>
-
-        <TextBox HorizontalAlignment="Left" Margin="480,165,0,0" Text="{Binding currentDialog.describeDialog, Mode=TwoWay}" TextWrapping="Wrap" VerticalAlignment="Top" Height="61" Width="358"/>
-        <TextBox HorizontalAlignment="Left" Margin="480,93,0,0" Text="{Binding currentDialog.timeDialog, Mode=TwoWay}" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="129"/>
-        <AutoSuggestBox  x:Name="MyASBox" HorizontalAlignment="Left" Margin="1083,93,0,0" VerticalAlignment="Top" Height="46" Width="355" 
+        <Button Grid.Row="4" 
+                Grid.Column="0" 
+                Content="︾" 
+                VerticalAlignment="Top"  
+                HorizontalAlignment="Stretch" 
+                Name="btnHide1" 
+                Click="BtnHide1_Click" Background="{x:Null}" Opacity="0.5"/>
+        <Grid Grid.Row="5" x:Name="detailGrid1" Margin="0,0,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                
+            </Grid.RowDefinitions>
+            <AutoSuggestBox  x:Name="MyASBox" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="46" Width="355" Grid.Row="0"
                         QueryIcon="Find" ItemsSource="{Binding friendItemList, Mode=TwoWay}" ItemTemplate="{StaticResource SuggestBoxTemplate}"  TextMemberPath="nameFriend">
 
-            <Custom:Interaction.Behaviors>
-                <Custom1:EventTriggerBehavior EventName="TextChanged">
-                    <Custom2:SendToEventRouterAction EventData="{Binding}" IsEventFiringToAllBaseClassesChannels="True" EventRoutingName="TextChangedEventRouter"/>
-                </Custom1:EventTriggerBehavior>
-                <Custom1:EventTriggerBehavior EventName="SuggestionChosen">
-                    <Custom1:InvokeCommandAction Command="{Binding CommandChoseFriend}"/>
-                </Custom1:EventTriggerBehavior>
-            </Custom:Interaction.Behaviors>
-
-        </AutoSuggestBox>
+                <Custom:Interaction.Behaviors>
+                    <Custom1:EventTriggerBehavior EventName="TextChanged">
+                        <Custom2:SendToEventRouterAction EventData="{Binding}" IsEventFiringToAllBaseClassesChannels="True" EventRoutingName="TextChangedEventRouter"/>
+                    </Custom1:EventTriggerBehavior>
+                    <Custom1:EventTriggerBehavior EventName="SuggestionChosen">
+                        <Custom1:InvokeCommandAction Command="{Binding CommandChoseFriend}"/>
+                    </Custom1:EventTriggerBehavior>
+                </Custom:Interaction.Behaviors>
+            </AutoSuggestBox>
         <!--<Button x:Name="ImageButton" Content="Button1" HorizontalAlignment="Left" Margin="1331,598,0,0" VerticalAlignment="Top" Height="57" Width="107" Click="Button_Click"/>
         <Image x:Name="Img" HorizontalAlignment="Left" Height="198" Margin="1114,429,0,0" VerticalAlignment="Top" Width="212"/><!-->
-        <Button Content="InsertDialog" HorizontalAlignment="Left" Margin="1228,180,0,0" VerticalAlignment="Top" Command="{Binding CommandInsertDialog}" Height="74" Width="128" CommandParameter="{Binding ElementName=editor}"/>
-
+            <Button  Grid.Row="0" Content="InsertDialog" HorizontalAlignment="Center"  VerticalAlignment="Center" Command="{Binding CommandInsertDialog}" Height="60" Width="128" CommandParameter="{Binding ElementName=editor}" Margin="505,0,0,0" Opacity="0.8"/>
+        </Grid>
 
     </Grid>
 </mvvm:MVVMPage>

@@ -38,16 +38,9 @@ namespace NavDemo.ViewModels
             //NavMenuItemList.Add(new NavMenuItem { Glyph = "\uf022", Label = "频道" });
             NavMenuItemList.Add(new NavMenuItem { Glyph = "\uf002", Label = "搜索" });
             //NavMenuItemList.Add(new NavMenuItem { Glyph = "\uf007", Label = "用户中心" });
-            NavMenuItemList.Add(new NavMenuItem { Glyph = "\uf05a", Label = "关于" });
-            /*
-              listFontItem = new ObservableCollection<FontItem>();
-            listFontItem.Add(new FontItem { fontFamily = new FontFamily("YouYuan"), fontName = "幼圆" });
-            listFontItem.Add(new FontItem { fontFamily = new FontFamily("KaiTi"), fontName = "楷体" });
-            listFontItem.Add(new FontItem { fontFamily = new FontFamily("FZYaoti"), fontName = "姚体" });
-            listFontItem.Add(new FontItem { fontFamily = new FontFamily("FZShuTi"), fontName = "舒体" });
-            listFontItem.Add(new FontItem { fontFamily = new FontFamily("STLiti"), fontName = "隶书" });
-             */
+            NavMenuItemList.Add(new NavMenuItem { Glyph = "\uf007", Label = "添加好友" });
             
+           
         }
 
         //propvm tab tab string tab Title
@@ -198,9 +191,9 @@ namespace NavDemo.ViewModels
                                          this.IsPaneOpen = false;
                                          await StageManager["frameMain"].Show(new SearchPage_Model());
                                          break;
-                                     case "关于":
+                                     case "添加好友":
                                          this.IsPaneOpen = false;
-                                         await StageManager["frameMain"].Show(new AboutPage_Model());
+                                         await StageManager["frameMain"].Show(new AddFriendPage_Model());
                                          break;
                                      default:
                                          break;

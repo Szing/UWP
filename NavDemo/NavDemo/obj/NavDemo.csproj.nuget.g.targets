@@ -4,6 +4,7 @@
     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
   </PropertyGroup>
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)win2d.uwp\1.23.0\build\win10\Win2D.uwp.targets" Condition="Exists('$(NuGetPackageRoot)win2d.uwp\1.23.0\build\win10\Win2D.uwp.targets')" />
     <Import Project="$(NuGetPackageRoot)microsoft.bcl.build\1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.bcl.build\1.0.21\build\Microsoft.Bcl.Build.targets')" />
   </ImportGroup>
 </Project>

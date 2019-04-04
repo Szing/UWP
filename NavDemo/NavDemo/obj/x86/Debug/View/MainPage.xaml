@@ -15,62 +15,94 @@
         <vm:MainPage_Model x:Key="DesignVM"/>
 
     </Page.Resources>
-    <Grid x:ConnectionId='1' x:Name="LayoutRoot" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"  DataContext="{StaticResource DesignVM}">
+    <Grid x:ConnectionId='2' x:Name="LayoutRoot"  DataContext="{StaticResource DesignVM}">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="720" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="RootSplitView.DisplayMode" Value="CompactInline"/>
+                        <Setter Target="RootSplitView.IsPaneOpen" Value="True"/>
+                        <Setter Target="RootSplitView.CompactPaneLength" Value="48" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="RootSplitView.DisplayMode" Value="Overlay"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <Grid.Background>
+            <ImageBrush Stretch="UniformToFill" ImageSource="/Assets/background.jpg"/>
+        </Grid.Background>
 
-        
+        <Grid Background="{Binding Source=ms-appx:///Assets/light.jpg}"/>
         <!-- Top-level navigation menu + app content -->
-        <SplitView x:ConnectionId='2' x:Name="RootSplitView" IsPaneOpen="{Binding IsPaneOpen,Mode=TwoWay}"
+        <SplitView x:ConnectionId='3' x:Name="RootSplitView" IsPaneOpen="{Binding IsPaneOpen,Mode=TwoWay}" 
                    DisplayMode="CompactInline"
                    OpenPaneLength="256"
                    IsTabStop="False"
                    CompactPaneLength="48">
+
             <SplitView.Pane>
-                <!-- A custom ListView to display the items in the pane.  The automation Name is set in the ContainerContentChanging event. -->
-                <!--<controls:NavMenuListView x:Name="NavMenuList"
-                                          TabIndex="3"
-                                          Margin="0,48,0,0"
-                                          ContainerContentChanging="NavMenuItemContainerContentChanging"
-                                          ItemContainerStyle="{StaticResource NavMenuItemContainerStyle}"
-                                          ItemTemplate="{StaticResource NavMenuItemTemplate}"
-                                          ItemInvoked="NavMenuList_ItemInvoked" />-->
-                <ListView  Margin="0,48,0,0" ItemsSource="{Binding NavMenuItemList}"
+               
+                <ListView 
+                          Margin="0,48,0,0" ItemsSource="{Binding NavMenuItemList}"
                           ItemTemplate="{StaticResource NavMenuItemTemplate}"
                           ItemContainerStyle="{StaticResource NavMenuItemContainerStyle}"
-                           
                           >
+                    
+
+                    <ListView.Background >
+                        <ImageBrush ImageSource="/Assets/background1.png" Stretch="UniformToFill" Opacity="0.4">
+                            <ImageBrush.Transform>
+                                <CompositeTransform TranslateX="1"/>
+                            </ImageBrush.Transform>
+                            <ImageBrush.RelativeTransform>
+                                <CompositeTransform CenterY="0.5" CenterX="0.5" TranslateX="-1" TranslateY="0"/>
+                            </ImageBrush.RelativeTransform>
+                        </ImageBrush>
+                    </ListView.Background>
+                    
 
                 </ListView>
+
             </SplitView.Pane>
-            <!--<Frame x:Name="mainFrame" mvvm:StageManager.Beacon="frameMain" x:FieldModifier="public">-->
-            <!--</Frame>-->
-            <!-- OnNavigatingToPage we synchronize the selected item in the nav menu with the current page.
-                 OnNavigatedToPage we move keyboard focus to the first item on the page after it's loaded and update the Back button. -->
+           
             <SplitView.Content>
-                <Frame x:ConnectionId='4' x:Name="mainFrame" mvvm:StageManager.Beacon="frameMain" x:FieldModifier="public">
-                    
+                <Frame x:ConnectionId='5' x:Name="mainFrame" mvvm:StageManager.Beacon="frameMain" x:FieldModifier="public">
+
                 </Frame>
             </SplitView.Content>
-            <!--<Frame x:Name="mainFrame">-->
-            <!--<Frame.ContentTransitions>
-                    <TransitionCollection>
-                        <NavigationThemeTransition>
-                            <NavigationThemeTransition.DefaultNavigationTransitionInfo>
-                                <EntranceNavigationTransitionInfo/>
-                            </NavigationThemeTransition.DefaultNavigationTransitionInfo>
-                        </NavigationThemeTransition>
-                    </TransitionCollection>
-                </Frame.ContentTransitions>-->
-            <!--</Frame>-->
+           
         </SplitView>
 
         <!-- Declared last to have it rendered above everything else, but it needs to be the first item in the tab sequence. -->
-        <ToggleButton x:ConnectionId='3' x:Name="TogglePaneButton"
+        <ToggleButton x:ConnectionId='4' x:Name="TogglePaneButton"
                       TabIndex="1"
                       Style="{StaticResource SplitViewTogglePaneButtonStyle}"
                       IsChecked="{Binding IsPaneOpen, ElementName=RootSplitView, Mode=TwoWay}"
                       
                       AutomationProperties.Name="Menu"
-                      ToolTipService.ToolTip="Menu" />
+                      ToolTipService.ToolTip="Menu" >
+
+            <ToggleButton.Background>
+                <ImageBrush ImageSource="/Assets/background1.png" Stretch="UniformToFill" Opacity="0.4">
+                    <ImageBrush.Transform>
+                        <CompositeTransform TranslateX="1"/>
+                    </ImageBrush.Transform>
+                    <ImageBrush.RelativeTransform>
+                        <CompositeTransform CenterY="0.5" CenterX="0.5" TranslateX="-1" TranslateY="0"/>
+                    </ImageBrush.RelativeTransform>
+                </ImageBrush>
+            </ToggleButton.Background>
+        </ToggleButton>
     </Grid>
 </mvvm:MVVMPage>
 

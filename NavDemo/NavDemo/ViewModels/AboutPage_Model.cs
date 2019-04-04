@@ -63,6 +63,7 @@ namespace NavDemo.ViewModels
         static Func<BindableBase, ValueContainer<RichEditBox>> _editBoxLocator = RegisterContainerLocator(nameof(editBox), m => m.Initialize(nameof(editBox), ref m._editBox, ref _editBoxLocator, () => default(RichEditBox)));
         #endregion
 
+       
 
         public CommandModel<ReactiveCommand, String> CommandToLastPage
         {
@@ -271,6 +272,7 @@ namespace NavDemo.ViewModels
                 {
                     // Load the file into the Document property of the RichEditBox.
                     editBox.Document.LoadFromStream(Windows.UI.Text.TextSetOptions.FormatRtf, randAccStream);
+                    
                 }
             }
 

@@ -6,83 +6,111 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="using:NavDemo.ViewModels"
-    xmlns:rs="using:NavDemo.Resources"
-    xmlns:Custom="using:Microsoft.Xaml.Interactivity" xmlns:Custom1="using:Microsoft.Xaml.Interactions.Core" xmlns:Custom2="using:MVVMSidekick.Behaviors" 
+    xmlns:model="using:NavDemo.Models"
+    xmlns:Custom="using:Microsoft.Xaml.Interactivity" 
+    xmlns:Custom1="using:Microsoft.Xaml.Interactions.Core" 
+    xmlns:Custom2="using:MVVMSidekick.Behaviors" 
+    xmlns:behaviour="using:NavDemo.Behaviours"
     x:Name="pageRoot"
     x:Class="NavDemo.SearchPage"
     mc:Ignorable="d">
-
+    
     <mvvm:MVVMPage.Resources>
         <!-- TODO: Delete this line if the key AppName is declared in App.xaml -->
         <x:String x:Key="AppName">My Application</x:String>
         <vm:SearchPage_Model x:Key="DesignVM"/>
     </mvvm:MVVMPage.Resources>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"  DataContext="{StaticResource DesignVM}">
+    <Grid   DataContext="{StaticResource DesignVM}" >
         <Grid.ChildrenTransitions>
             <TransitionCollection>
                 <EntranceThemeTransition/>
             </TransitionCollection>
         </Grid.ChildrenTransitions>
-        <Button Content="write"  HorizontalAlignment="Left" Margin="217,79,0,0" VerticalAlignment="Top" Command="{Binding CommandAddFriend}"/>
-        <Button Content="read" HorizontalAlignment="Left" Margin="282,79,0,0" VerticalAlignment="Top" Command="{Binding CommandGetFriends}"/>
-        <Button Content="init" HorizontalAlignment="Left" Margin="347,79,0,0" VerticalAlignment="Top" Command="{Binding CommandTableInit}"/>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Assets/background.jpg" Opacity="0.8" Stretch="UniformToFill" ></ImageBrush>
+        </Grid.Background>
+        <!--<Button Content="write"  HorizontalAlignment="Left" Margin="-41,233,0,0" VerticalAlignment="Top" Command="{Binding CommandAddFriend}"/>
+        <Button Content="read" HorizontalAlignment="Left" Margin="24,233,0,0" VerticalAlignment="Top" Command="{Binding CommandGetFriends}"/>
+        <Button Content="init" HorizontalAlignment="Left" Margin="89,233,0,0" VerticalAlignment="Top" Command="{Binding CommandTableInit}"/>
+        -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.2*"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="0.3*"/>
+            <RowDefinition Height="5*"></RowDefinition>
 
-        <TextBlock x:Name="pageTitle" Text="{Binding Title}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
-                        IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40"/>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
 
-        <AutoSuggestBox  x:Name="MyASBox" HorizontalAlignment="Left" Margin="529,373,0,0" VerticalAlignment="Top" Height="46" Width="355" 
+
+        <RelativePanel x:Name="relativePanel" Grid.Row="1"  HorizontalAlignment="Center" VerticalAlignment="Center"  Margin="0,20,0,0" >
+
+            <AutoSuggestBox Grid.Row="1" x:Name="MyASBox"   Height="46" Width="355" RelativePanel.LeftOf="suggestButton" Margin="0,0,10,0"
                         QueryIcon="Find" ItemsSource="{Binding friendItemList, Mode=TwoWay}" ItemTemplate="{StaticResource SuggestBoxTemplate}"  TextMemberPath="nameFriend">
 
-            <Custom:Interaction.Behaviors>
-                <Custom1:EventTriggerBehavior EventName="TextChanged">
-                    <Custom2:SendToEventRouterAction EventRoutingName="TChangedEventRouter" IsEventFiringToAllBaseClassesChannels="True" EventData="{Binding}"/>
-                </Custom1:EventTriggerBehavior>
-                <Custom1:EventTriggerBehavior EventName="SuggestionChosen">
-                    <Custom1:InvokeCommandAction Command="{Binding CommandChoseFriend}"/>
-                </Custom1:EventTriggerBehavior>
-            </Custom:Interaction.Behaviors>
+                <Custom:Interaction.Behaviors>
+                    <Custom1:EventTriggerBehavior EventName="TextChanged">
+                        <Custom2:SendToEventRouterAction EventRoutingName="TChangedEventRouter" IsEventFiringToAllBaseClassesChannels="True" EventData="{Binding}"/>
+                    </Custom1:EventTriggerBehavior>
+                    <Custom1:EventTriggerBehavior EventName="SuggestionChosen">
+                        <Custom1:InvokeCommandAction Command="{Binding CommandChoseFriend}"/>
+                    </Custom1:EventTriggerBehavior>
+                </Custom:Interaction.Behaviors>
 
 
-        </AutoSuggestBox>
-        <StackPanel  HorizontalAlignment="Left" Height="140" Margin="386,158,0,0" VerticalAlignment="Top" Width="641">
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Name:" VerticalAlignment="Center"/>
-                <TextBox  PlaceholderText="Name" HorizontalAlignment="Left" Text="{Binding friend.nameFriend, Mode=TwoWay}" VerticalAlignment="Center" Width="179" Margin="0,0,0,0"/>
-                <TextBlock Text="nickName:" VerticalAlignment="Center" Margin="30,0,0,0"/>
-                <TextBox  PlaceholderText="NickName" HorizontalAlignment="Left" Text="{Binding friend.nickNameFriend, Mode=TwoWay}" VerticalAlignment="Center" Width="179" Margin="0,0,0,0"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Image Width="50" Height="50"/>
-                <Button Content="Image" HorizontalAlignment="Center" Height="50" VerticalAlignment="Center" Width="82" Margin="0,0,0,0"/>
-            </StackPanel>
-
-            <Button Content="insert"  Command="{Binding CommandInsertFriend}" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center"/>
-        </StackPanel>
-        <Button Content="GET" HorizontalAlignment="Left" Margin="929,374,0,0" VerticalAlignment="Top" Command="{Binding CommandSubmitFriend}"/>
-        <ListView  HorizontalAlignment="Left" Height="321" Margin="599,478,0,0" VerticalAlignment="Top" Width="171"
+            </AutoSuggestBox>
+            <Button x:Name="suggestButton" Grid.Row="1" Content="GET" RelativePanel.LeftOf="changeButton" Command="{Binding CommandSubmitFriend}" Margin="0,5,10,0" />
+            <CalendarDatePicker x:Name="MemoryCalenderDatePicker"
+                            Grid.Row="1"
+                            PlaceholderText="Mark your day"
+                            Visibility="Collapsed"
+                            RelativePanel.LeftOf="dateButton"
+                            Margin="0,5,10,0"
+                            DateFormat="{}{dayofweek.full},{month.full} {day.integer}, {year.full}" >
+                <Custom:Interaction.Behaviors>
+                    <Custom1:EventTriggerBehavior EventName="DateChanged">
+                        <Custom1:InvokeCommandAction Command="{Binding CommandChangeDate}"/>
+                    </Custom1:EventTriggerBehavior>
+                </Custom:Interaction.Behaviors>
+            </CalendarDatePicker>
+            <Button x:Name="dateButton" Grid.Row="1" Content="SubmitDate" Visibility="Collapsed" RelativePanel.LeftOf="changeButton" Margin="0,5,10,0" Command="{Binding CommandSubmitDate}"/>
+            <Button  Grid.Row="1" x:Name="changeButton" Margin="0,5,0,0" Content="change" RelativePanel.AlignRightWithPanel="True" Click="ChangeButton_Click"/>
+        </RelativePanel>
+        <Button Grid.Row="2" 
+                Grid.Column="0" 
+                Content="︽" 
+                VerticalAlignment="Top"  
+                
+                HorizontalAlignment="Stretch" 
+                Name="btnHide" 
+                Click="BtnHide_Click" Background="{x:Null}" FontWeight="Light" Opacity="0.5"/>
+        <ListView  Grid.Row="3" Name="listView" HorizontalAlignment="Center" Height="778"  VerticalAlignment="Top" Width="690"
                   ItemsSource="{Binding listDialog}"
                           ItemTemplate="{StaticResource DialogItemTemplate}"
                           
                   >
+
             <Custom:Interaction.Behaviors>
                 <Custom1:EventTriggerBehavior EventName="Tapped">
                     <Custom2:SendToEventRouterAction EventData="{Binding}" IsEventFiringToAllBaseClassesChannels="True" EventRoutingName="DialogChosenEventRouter"/>
                 </Custom1:EventTriggerBehavior>
+                <behaviour:ListViewBehavior></behaviour:ListViewBehavior>
             </Custom:Interaction.Behaviors>
+            <ListView.Header>
+                <Grid>
+                    <ParallaxView Source="{x:Bind listView}" VerticalShift="100"
+                              VerticalSourceOffsetKind="Absolute" VerticalSourceStartOffset="-50"
+                              VerticalSourceEndOffset="250" Margin="0,0,0,-1516">
+                        <Image Source="ms-appx:///Assets/logo.jpg" Margin="0,-601,0,13" HorizontalAlignment="Left" Width="1852" />
+                    </ParallaxView>
+
+                </Grid>
+            </ListView.Header>
+
+
         </ListView>
-        <CalendarDatePicker x:Name="MemoryCalenderDatePicker"
-                            PlaceholderText="Mark your day"
-                            Header="Memory Date" 
-                           
-                            DateFormat="{}{dayofweek.full},{month.full} {day.integer}, {year.full}" HorizontalAlignment="Left" Margin="1254,390,0,0" VerticalAlignment="Top">
-            <Custom:Interaction.Behaviors>
-                <Custom1:EventTriggerBehavior EventName="DateChanged">
-                    <Custom1:InvokeCommandAction Command="{Binding CommandChangeDate}"/>
-                </Custom1:EventTriggerBehavior>
-            </Custom:Interaction.Behaviors>
-        </CalendarDatePicker>
-        <TextBlock Name="ShowSelection" Margin="1142,177,80,657" Text="{Binding dateText}"/>
-        <Button Content="SubmitDate" HorizontalAlignment="Left" Margin="1292,478,0,0" VerticalAlignment="Top" Command="{Binding CommandSubmitDate}"/>
+
+
     </Grid>
 </mvvm:MVVMPage>

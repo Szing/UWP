@@ -37,10 +37,15 @@
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition  Width="Auto" />
-                
+                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
             <Image Width="50" Source="{Binding iconFriend}" />
+            <Ellipse Grid.Row="0" Width="60" Height="60"  >
+                <Ellipse.Fill>
+                    <ImageBrush ImageSource="{Binding iconFriend}" ></ImageBrush>
+                </Ellipse.Fill>
+            </Ellipse>
             <StackPanel Grid.Column="1" Margin="7,3,4,3">
                 <TextBlock FontSize="15" FontWeight="Bold" Text="{Binding nameFriend}"/>
                 <TextBlock>

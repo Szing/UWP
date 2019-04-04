@@ -77,5 +77,43 @@ namespace NavDemo
             MyASBox.ItemsSource = ServiceLocator.Instance.Resolve<SuggestService>().Suggest(MyASBox.Text);
             
         }
+
+            
+        private void BtnHide_Click(object sender, RoutedEventArgs e)
+        {
+            if (relativePanel.Visibility == Visibility.Collapsed)
+            {
+                btnHide.Content = "︽点击看看";
+                relativePanel.Visibility = Visibility.Visible;
+               
+            }
+            else
+            {
+                btnHide.Content = "︾隐藏之后";
+                
+                relativePanel.Visibility = Visibility.Collapsed;
+                
+            }
+            
+
+        }
+
+        private void ChangeButton_Click(object sender, RoutedEventArgs e)
+        {
+            if(suggestButton.Visibility == Visibility.Collapsed)
+            {
+                suggestButton.Visibility = Visibility.Visible;
+                MyASBox.Visibility = Visibility.Visible;
+                dateButton.Visibility = Visibility.Collapsed;
+                MemoryCalenderDatePicker.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                dateButton.Visibility = Visibility.Visible;
+                MemoryCalenderDatePicker.Visibility = Visibility.Visible;
+                suggestButton.Visibility = Visibility.Collapsed;
+                MyASBox.Visibility = Visibility.Collapsed;
+            }
+        }
     }
 }

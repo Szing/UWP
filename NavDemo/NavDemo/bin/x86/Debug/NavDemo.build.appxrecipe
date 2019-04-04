@@ -76,6 +76,9 @@
     <AppxPackagedFile Include="C:\Users\hasee\.nuget\packages\microsoft.netcore.portable.compatibility\1.0.0\lib\netcore50\System.dll">
       <PackagePath>System.dll</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\hasee\.nuget\packages\microsoft.toolkit.uwp\1.5.1\lib\uap10.0\Microsoft.Toolkit.Uwp.dll">
+      <PackagePath>Microsoft.Toolkit.Uwp.dll</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\hasee\.nuget\packages\microsoft.visualbasic\10.0.0\lib\netcore50\Microsoft.VisualBasic.dll">
       <PackagePath>Microsoft.VisualBasic.dll</PackagePath>
     </AppxPackagedFile>
@@ -90,6 +93,9 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\hasee\.nuget\packages\mvvm-sidekick\1.6.12\lib\uap10.0\MVVMSidekick_UAP10.dll">
       <PackagePath>MVVMSidekick_UAP10.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\hasee\.nuget\packages\newtonsoft.json\9.0.1\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll">
+      <PackagePath>Newtonsoft.Json.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\hasee\.nuget\packages\rx-core\2.2.5\lib\windows8\System.Reactive.Core.dll">
       <PackagePath>System.Reactive.Core.dll</PackagePath>
@@ -379,24 +385,49 @@
     <AppxPackagedFile Include="C:\Users\hasee\.nuget\packages\unity\4.0.1\lib\win8\Microsoft.Practices.Unity.dll">
       <PackagePath>Microsoft.Practices.Unity.dll</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\hasee\.nuget\packages\win2d.uwp\1.23.0\runtimes\win10-x86\native\Microsoft.Graphics.Canvas.dll">
+      <PackagePath>Microsoft.Graphics.Canvas.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\hasee\.nuget\packages\win2d.uwp\1.23.0\lib\uap10.0\Microsoft.Graphics.Canvas.winmd">
+      <PackagePath>Microsoft.Graphics.Canvas.winmd</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UAP\v0.8.0.0\ExtensionSDKs\SQLite.UWP.2015\3.27.2\Redist\Debug\x86\sqlite3.dll">
       <PackagePath>sqlite3.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.UniversalCRT.Debug\10.0.17134.0\\redist\Debug\x86\ucrtbased.dll">
       <PackagePath>ucrtbased.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Resources\FontAwesome.otf">
-      <PackagePath>Resources\FontAwesome.otf</PackagePath>
+    <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Assets\background.jpg">
+      <PackagePath>Assets\background.jpg</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Properties\Default.rd.xml">
-      <PackagePath>Properties\Default.rd.xml</PackagePath>
+    <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Assets\insertFriendButton.jpg">
+      <PackagePath>Assets\insertFriendButton.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Assets\light.jpg">
+      <PackagePath>Assets\light.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Assets\SplashScreen.scale-200.jpg">
+      <PackagePath>Assets\SplashScreen.scale-200.jpg</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Assets\SplashScreen.scale-400.jpg">
+      <PackagePath>Assets\SplashScreen.scale-400.jpg</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Assets\background1.png">
+      <PackagePath>Assets\background1.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Assets\background2.png">
+      <PackagePath>Assets\background2.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Assets\list.png">
+      <PackagePath>Assets\list.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
-      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
@@ -418,11 +449,20 @@
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Resources\FontAwesome.otf">
+      <PackagePath>Resources\FontAwesome.otf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Properties\Default.rd.xml">
+      <PackagePath>Properties\Default.rd.xml</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\bin\x86\Debug\NavDemo.xr.xml">
       <PackagePath>NavDemo.xr.xml</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\bin\x86\Debug\View\AddFriendPage.xbf">
+      <PackagePath>View\AddFriendPage.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\bin\x86\Debug\View\AboutPage.xbf">
       <PackagePath>View\AboutPage.xbf</PackagePath>
