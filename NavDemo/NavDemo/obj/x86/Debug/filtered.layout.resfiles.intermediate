@@ -24,5 +24,6 @@ View\BlankPage1.xbf
 View\HomePage.xbf
 View\MainPage.xbf
 View\SearchPage.xbf
+View\ShowFriendsPage.xbf
 Properties\Default.rd.xml
 Resources\FontAwesome.otf

@@ -41,9 +41,10 @@
 
         <TextBlock Grid.Row="1"  FontSize="25" Margin="0,0,590,0" HorizontalAlignment="Center"  Text="{Binding currentDialog.timeDialog}" TextWrapping="Wrap" VerticalAlignment="Center" Height="28" Width="129"/>
         <TextBlock Grid.Row="2"  FontSize="25" Margin="0,0,360,0" HorizontalAlignment="Center"  Text="{Binding currentDialog.describeDialog}" TextWrapping="Wrap" VerticalAlignment="Center" Height="61" Width="358"/>
-        <Button Grid.Row="3" Content="LastPage" HorizontalAlignment="Center" Margin="0,0,950,0" VerticalAlignment="Bottom" Command="{Binding CommandToLastPage}" CommandParameter="{Binding ElementName=editor}"/>
-        <Button Grid.Row="3" Content="NextPage" HorizontalAlignment="Center" Margin="950,0,0,0" VerticalAlignment="Bottom" Command="{Binding CommandToNextPage}" CommandParameter="{Binding ElementName=editor}"/>
-        <RichEditBox Grid.Row="3" Name="editor" HorizontalAlignment="Center"  VerticalAlignment="Top" Height="639" Width="721"/>
+        <Button Grid.Row="3" Content="LastPage" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Command="{Binding CommandToLastPage}" CommandParameter="{Binding ElementName=editor}"/>
+        <Button Grid.Row="3" Content="NextPage" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Command="{Binding CommandToNextPage}" CommandParameter="{Binding ElementName=editor}"/>
+        <RichEditBox Grid.Row="3" Name="editor" HorizontalAlignment="Center"  VerticalAlignment="Top" Height="600" Width="721"/>
+        <Button Content="Delete"   HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Bottom"  Command="{Binding CommandDeleteDialog}"/>
 
         <!-->
             <Button Content="show" HorizontalAlignment="Left" Margin="1014,281,0,0" VerticalAlignment="Top" Command="{Binding CommandGetDialog}" CommandParameter="{Binding ElementName=editor}" />

@@ -28,14 +28,13 @@ using Windows.ApplicationModel.DataTransfer;
 using System.Diagnostics;
 using NavDemo.Services;
 using Windows.Storage.Streams;
-using Windows.UI.Xaml.Navigation;
-using NavDemo.ViewModels;
 using Windows.Phone.UI.Input;
 using Windows.ApplicationModel.Core;
 using Windows.UI.Xaml.Hosting;
 using Windows.UI.Composition;
 using Windows.UI.ViewManagement;
 using Windows.UI;
+using Windows.UI.Text;
 
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
@@ -220,6 +219,53 @@ namespace NavDemo
             }
 
 
+        }
+
+        private void Editor_ContextMenuOpening(object sender, ContextMenuEventArgs e)
+        {
+            e.Handled = true;
+            MenuFlyout menu = FlyoutBase.GetAttachedFlyout(editor) as MenuFlyout;
+            menu?.ShowAt(editor, new Point(e.CursorLeft, e.CursorTop));
+        }
+        private void OnCopy(object sender, RoutedEventArgs e)
+        {
+            editor.Document.Selection.Copy();
+        }
+
+        private void OnCut(object sender, RoutedEventArgs e)
+        {
+            editor.Document.Selection.Cut();
+        }
+
+        private void OnPaste(object sender, RoutedEventArgs e)
+        {
+            // Paste方法带有一个整型参数，表示要粘贴的格式
+            editor.Document.Selection.Paste(0);
+        }
+        private void OnUnderline(object sender, RoutedEventArgs e)
+        {
+            MenuFlyoutItem item = sender as MenuFlyoutItem;
+            int x = Convert.ToInt32(item.Tag);
+            UnderlineType unlinetp;
+            switch (x)
+            {
+                case -1: // 无
+                    unlinetp = UnderlineType.None;
+                    break;
+                case 0: // 单实线
+                    unlinetp = UnderlineType.Single;
+                    break;
+                case 1: // 双实线
+                    unlinetp = UnderlineType.Double;
+                    break;
+                case 2: // 虚线
+                    unlinetp = UnderlineType.Dash;
+                    break;
+                default:
+                    unlinetp = UnderlineType.None;
+                    break;
+            }
+            editor.Document.Selection.CharacterFormat.Underline = unlinetp;
         }
     }
 }

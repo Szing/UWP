@@ -167,9 +167,35 @@
                  RelativePanel.RightOf="italicButton" ToolTipService.ToolTip="Underline" RelativePanel.AlignRightWithPanel="True"/>
 
             <RichEditBox x:Name="editor"  RelativePanel.Below="openFileButton"
+                      ContextMenuOpening ="Editor_ContextMenuOpening"
                  RelativePanel.AlignLeftWithPanel="True" 
                      RelativePanel.AlignRightWithPanel="True" 
                      RelativePanel.AlignBottomWithPanel="True">
+                <FlyoutBase.AttachedFlyout>
+                    <MenuFlyout >
+                        <MenuFlyoutItem Text="复制" Click="OnCopy"/>
+                        <MenuFlyoutItem Text="剪切" Click="OnCut"/>
+                        <MenuFlyoutItem Text="粘贴" Click="OnPaste"/>
+                        <MenuFlyoutSeparator/>
+                        <MenuFlyoutSubItem Text="字号">
+                            <MenuFlyoutItem Text="16" Tag="16" Click="FontSizeButton_Click" />
+                            <MenuFlyoutItem Text="20" Tag="20" Click="FontSizeButton_Click"/>
+                            <MenuFlyoutItem Text="24" Tag="24" Click="FontSizeButton_Click" />
+                            <MenuFlyoutItem Text="36" Tag="36" Click="FontSizeButton_Click"/>
+                            <MenuFlyoutItem Text="48" Tag="48" Click="FontSizeButton_Click"/>
+                        </MenuFlyoutSubItem>
+                        <MenuFlyoutSeparator/>
+                        <ToggleMenuFlyoutItem Text="加粗" Click="BoldButton_Click" />
+                        <MenuFlyoutSeparator/>
+                        <MenuFlyoutSubItem Text="下划线">
+                            <MenuFlyoutItem Text="无" Tag="-1" Click="OnUnderline" />
+                            <MenuFlyoutItem Text="单实线" Tag="0" Click="OnUnderline"/>
+                            <MenuFlyoutItem Text="双实线" Tag="1" Click="OnUnderline"/>
+                            <MenuFlyoutItem Text="虚线" Tag="2" Click="OnUnderline"/>
+                        </MenuFlyoutSubItem>
+                    </MenuFlyout>
+                </FlyoutBase.AttachedFlyout>
+
             </RichEditBox>
         </RelativePanel>
         <Button Grid.Row="4" 

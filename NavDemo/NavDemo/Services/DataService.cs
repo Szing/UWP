@@ -121,7 +121,7 @@ namespace NavDemo.Services
         {
             using (var db = DbContext.GetInstance().GetSqLiteConnection())
             {
-                db.Delete<Friend>(idDialog);
+                db.Delete<Dialog>(idDialog);
             }
         }
         

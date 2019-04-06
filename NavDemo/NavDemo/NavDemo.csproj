@@ -103,6 +103,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Behaviours\ListViewBehaviour.cs" />
+    <Compile Include="View\ShowFriendsPage.xaml.cs">
+      <DependentUpon>ShowFriendsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Startups\ShowFriendsPage.cs" />
+    <Compile Include="ViewModels\ShowFriendsPage_Model.cs" />
     <Compile Include="View\AddFriendPage.xaml.cs">
       <DependentUpon>AddFriendPage.xaml</DependentUpon>
     </Compile>
@@ -169,6 +174,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="View\ShowFriendsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\AddFriendPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

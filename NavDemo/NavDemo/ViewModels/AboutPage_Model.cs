@@ -90,6 +90,8 @@ namespace NavDemo.ViewModels
                               {
                                   vm.indexDialog += 1;
                                   vm.currentDialog = vm.listDialog[vm.indexDialog];
+                                  if (vm.currentDialog.textDialog == null)
+                                      vm.currentDialog.textDialog = "default.rtf";
                                   RichEditBox richEditBox = (RichEditBox)e.EventArgs.Parameter;
 
                                   Windows.Storage.Streams.IRandomAccessStream randAccStream =
@@ -147,6 +149,8 @@ namespace NavDemo.ViewModels
                               {
                                   vm.indexDialog -= 1;
                                   vm.currentDialog = vm.listDialog[vm.indexDialog];
+                                  if (vm.currentDialog.textDialog == null)
+                                      vm.currentDialog.textDialog = "default.rtf";
                                   RichEditBox richEditBox = (RichEditBox)e.EventArgs.Parameter;
 
                                   Windows.Storage.Streams.IRandomAccessStream randAccStream =
@@ -222,6 +226,66 @@ namespace NavDemo.ViewModels
               }));
         #endregion
 
+
+        public CommandModel<ReactiveCommand, String> CommandDeleteDialog
+        {
+            get { return _CommandDeleteDialogLocator(this).Value; }
+            set { _CommandDeleteDialogLocator(this).SetValueAndTryNotify(value); }
+        }
+        #region Property CommandModel<ReactiveCommand, String> CommandDeleteDialog Setup               
+        protected Property<CommandModel<ReactiveCommand, String>> _CommandDeleteDialog = new Property<CommandModel<ReactiveCommand, String>> { LocatorFunc = _CommandDeleteDialogLocator };
+        static Func<BindableBase, ValueContainer<CommandModel<ReactiveCommand, String>>> _CommandDeleteDialogLocator = RegisterContainerLocator("CommandDeleteDialog", m => m.Initialize("CommandDeleteDialog", ref m._CommandDeleteDialog, ref _CommandDeleteDialogLocator,
+              model =>
+              {
+                  var state = "CommandDeleteDialog";
+                  var commandId = "CommandDeleteDialog";
+                  var vm = CastToCurrentType(model);
+                  var cmd = new ReactiveCommand(canExecute: true) { ViewModel = model };
+
+                  cmd.DoExecuteUIBusyTask(
+                          vm,
+                          async e =>
+                          {
+                            //Todo: Add DeleteDialog logic here, or
+                            await MVVMSidekick.Utilities.TaskExHelper.Yield();
+                              //获取数据库服务
+                              DataService dataService = ServiceLocator.Instance.Resolve<DataService>();
+                              dataService.DeleteDialog(vm.currentDialog.idDialog);
+                              vm.listDialog.Remove(vm.currentDialog);
+                              if (vm.listDialog.Count == 0)
+                              {
+                                  vm.currentDialog.textDialog = "default.rtf";
+                                  vm.currentDialog.timeDialog = "null";
+                                  vm.currentDialog.describeDialog = "null";
+                              }
+                              else
+                              {
+                                  if (vm.indexDialog == 0)
+                                  {
+                                      vm.currentDialog = vm.listDialog[0];
+                                  }
+                                  else
+                                  {
+                                      --vm.indexDialog;
+                                      vm.currentDialog = vm.listDialog[vm.indexDialog];
+                                  }
+                                  
+                              }
+                             
+                          })
+                      .DoNotifyDefaultEventRouter(vm, commandId)
+                      .Subscribe()
+                      .DisposeWith(vm);
+
+                  var cmdmdl = cmd.CreateCommandModel(state);
+
+                  cmdmdl.ListenToIsUIBusy(
+                      model: vm,
+                      canExecuteWhenBusy: false);
+                  return cmdmdl;
+              }));
+        #endregion
+
         #region Life Time Event Handling
 
         ///// <summary>
@@ -253,8 +317,9 @@ namespace NavDemo.ViewModels
         ///// <returns>Task awaiter</returns>
         protected  async override Task OnBindedViewLoad(MVVMSidekick.Views.IView view)
         {
+            
             //获取当前dialog的index以便进行上一篇下一篇
-            if(currentDialog != null && listDialog != null)
+            if (currentDialog != null && listDialog != null)
             {
                 for(int i = 0; i < listDialog.Count(); ++i)
                 {

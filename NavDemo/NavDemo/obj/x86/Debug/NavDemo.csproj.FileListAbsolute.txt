@@ -499,3 +499,8 @@ D:\UWP-master\NavDemo\NavDemo\obj\x86\Debug\NavDemo.csprojAssemblyReference.cach
 D:\UWP-master\NavDemo\NavDemo\bin\x86\Debug\Microsoft.Graphics.Canvas.dll
 D:\UWP-master\NavDemo\NavDemo\bin\x86\Debug\Microsoft.Graphics.Canvas.winmd
 D:\UWP-master\NavDemo\NavDemo\obj\x86\Debug\.winmd_cache\$Microsoft.Graphics.Canvas.winmd_636621561260000000.json
+D:\UWP-master\NavDemo\NavDemo\obj\x86\Debug\View\ShowFriendsPage.g.i.cs
+D:\UWP-master\NavDemo\NavDemo\obj\x86\Debug\View\ShowFriendsPage.g.cs
+D:\UWP-master\NavDemo\NavDemo\obj\x86\Debug\View\ShowFriendsPage.xaml
+D:\UWP-master\NavDemo\NavDemo\obj\x86\Debug\View\ShowFriendsPage.xbf
+D:\UWP-master\NavDemo\NavDemo\bin\x86\Debug\View\ShowFriendsPage.xbf

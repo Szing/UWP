@@ -38,7 +38,7 @@ namespace NavDemo.ViewModels
             //NavMenuItemList.Add(new NavMenuItem { Glyph = "\uf022", Label = "频道" });
             NavMenuItemList.Add(new NavMenuItem { Glyph = "\uf002", Label = "搜索" });
             //NavMenuItemList.Add(new NavMenuItem { Glyph = "\uf007", Label = "用户中心" });
-            NavMenuItemList.Add(new NavMenuItem { Glyph = "\uf007", Label = "添加好友" });
+            NavMenuItemList.Add(new NavMenuItem { Glyph = "\uf007", Label = "好友中心" });
             
            
         }
@@ -191,9 +191,9 @@ namespace NavDemo.ViewModels
                                          this.IsPaneOpen = false;
                                          await StageManager["frameMain"].Show(new SearchPage_Model());
                                          break;
-                                     case "添加好友":
+                                     case "好友中心":
                                          this.IsPaneOpen = false;
-                                         await StageManager["frameMain"].Show(new AddFriendPage_Model());
+                                         await StageManager["frameMain"].Show(new ShowFriendPage_Model());
                                          break;
                                      default:
                                          break;

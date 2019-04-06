@@ -7,6 +7,7 @@ using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -49,9 +50,10 @@ namespace NavDemo
 #if DEBUG
             if (System.Diagnostics.Debugger.IsAttached)
             {
-                this.DebugSettings.EnableFrameRateCounter = true;
+                this.DebugSettings.EnableFrameRateCounter = false;
             }
 #endif
+
             //Init MVVM-Sidekick Navigations:
             InitNavigationConfigurationInThisAssembly();
 
@@ -109,5 +111,6 @@ namespace NavDemo
             //TODO: Save application state and stop any background activity
             deferral.Complete();
         }
+       
     }
 }

@@ -20,6 +20,7 @@ using Windows.UI.Xaml.Hosting;
 using Windows.UI.Composition;
 using Windows.UI.ViewManagement;
 using Windows.UI;
+using Windows.UI.Core;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -33,6 +34,9 @@ namespace NavDemo
         public MainPage()
         {
             this.InitializeComponent();
+            SystemNavigationManager navmgr = SystemNavigationManager.GetForCurrentView();
+            navmgr.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
+            navmgr.BackRequested += navmgr_BackRequested;
             this.RegisterPropertyChangedCallback(ViewModelProperty, (_, __) =>
             {
                 StrongTypeViewModel = this.ViewModel as MainPage_Model;
@@ -45,6 +49,19 @@ namespace NavDemo
             view.TitleBar.ButtonBackgroundColor = Colors.Transparent; //将标题栏的三个键背景设为透明
             view.TitleBar.ButtonInactiveBackgroundColor = Colors.Transparent; //失去焦点时，将三个键背景设为透明
             view.TitleBar.ButtonInactiveForegroundColor = Colors.White; //失去焦点时，将三个键前景色设为白色
+        }
+        private void navmgr_BackRequested(object sender, BackRequestedEventArgs e)
+        {
+            Frame root = mainFrame;
+            if (root != null)
+            {
+                if (root.CanGoBack)
+                {
+                    e.Handled = true;
+                    root.GoBack();
+                }
+                
+            }
         }
 
         private void initializeFrostedGlass(UIElement glassHost)

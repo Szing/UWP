@@ -559,7 +559,10 @@ namespace NavDemo.ViewModels
                              if(chosenDialog != null)
                              {
                                  AboutPage_Model vms = new AboutPage_Model();
+                                 if (chosenDialog.textDialog == null)
+                                     chosenDialog.textDialog = "default.rtf";
                                  vms.currentDialog = chosenDialog;
+                                 
                                  vms.listDialog = listDialog;
                                  await
                                CastToCurrentType(this)
