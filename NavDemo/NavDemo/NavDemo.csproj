@@ -11,7 +11,7 @@
     <AssemblyName>NavDemo</AssemblyName>
     <DefaultLanguage>zh-CN</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformVersion>10.0.17763.0</TargetPlatformVersion>
+    <TargetPlatformVersion>10.0.17134.0</TargetPlatformVersion>
     <TargetPlatformMinVersion>10.0.17134.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <EnableDotNetNativeCompatibleProfile>true</EnableDotNetNativeCompatibleProfile>
@@ -97,8 +97,17 @@
     <Content Include="Assets\insertFriendButton.jpg" />
     <Content Include="Assets\light.jpg" />
     <Content Include="Assets\list.png" />
+    <Content Include="Assets\screen.png" />
+    <Content Include="Assets\screen2.png" />
+    <Content Include="Assets\SplashScreen.scale-100.jpg" />
+    <Content Include="Assets\SplashScreen.scale-100.png" />
+    <Content Include="Assets\SplashScreen.scale-125.jpg" />
+    <Content Include="Assets\SplashScreen.scale-125.png" />
+    <Content Include="Assets\SplashScreen.scale-150.jpg" />
+    <Content Include="Assets\SplashScreen.scale-150.png" />
     <Content Include="Assets\SplashScreen.scale-200.jpg" />
     <Content Include="Assets\SplashScreen.scale-400.jpg" />
+    <Content Include="Assets\SplashScreen.scale-400.png" />
     <Content Include="Resources\FontAwesome.otf" />
   </ItemGroup>
   <ItemGroup>
@@ -262,7 +271,7 @@
     <SDKReference Include="SQLite.UWP.2015, Version=3.27.2">
       <Name>SQLite for Universal Windows Platform</Name>
     </SDKReference>
-    <SDKReference Include="WindowsMobile, Version=10.0.17763.0">
+    <SDKReference Include="WindowsMobile, Version=10.0.17134.0">
       <Name>Windows Mobile Extensions for the UWP</Name>
     </SDKReference>
   </ItemGroup>

@@ -3,9 +3,9 @@
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <RestoreSuccess Condition=" '$(RestoreSuccess)' == '' ">True</RestoreSuccess>
     <RestoreTool Condition=" '$(RestoreTool)' == '' ">NuGet</RestoreTool>
-    <ProjectAssetsFile Condition=" '$(ProjectAssetsFile)' == '' ">G:\A_VSProgramFiles\UWP\NavDemo\NavDemo\obj\project.assets.json</ProjectAssetsFile>
+    <ProjectAssetsFile Condition=" '$(ProjectAssetsFile)' == '' ">D:\UWP-master\NavDemo\NavDemo\obj\project.assets.json</ProjectAssetsFile>
     <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">$(UserProfile)\.nuget\packages\</NuGetPackageRoot>
-    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\zxn66\.nuget\packages\;C:\Program Files (x86)\Microsoft SDKs\UWPNuGetPackages\</NuGetPackageFolders>
+    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\hasee\.nuget\packages\;C:\Program Files (x86)\Microsoft SDKs\UWPNuGetPackages\</NuGetPackageFolders>
     <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
     <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">4.9.3</NuGetToolVersion>
   </PropertyGroup>
@@ -13,7 +13,7 @@
     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <PkgNewtonsoft_Json Condition=" '$(PkgNewtonsoft_Json)' == '' ">C:\Users\zxn66\.nuget\packages\newtonsoft.json\9.0.1</PkgNewtonsoft_Json>
-    <PkgMVVM-Sidekick Condition=" '$(PkgMVVM-Sidekick)' == '' ">C:\Users\zxn66\.nuget\packages\mvvm-sidekick\1.6.12</PkgMVVM-Sidekick>
+    <PkgNewtonsoft_Json Condition=" '$(PkgNewtonsoft_Json)' == '' ">C:\Users\hasee\.nuget\packages\newtonsoft.json\9.0.1</PkgNewtonsoft_Json>
+    <PkgMVVM-Sidekick Condition=" '$(PkgMVVM-Sidekick)' == '' ">C:\Users\hasee\.nuget\packages\mvvm-sidekick\1.6.12</PkgMVVM-Sidekick>
   </PropertyGroup>
 </Project>

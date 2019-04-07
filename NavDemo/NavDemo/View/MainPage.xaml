@@ -60,9 +60,9 @@
                     
 
                     <ListView.Background >
-                        <ImageBrush ImageSource="/Assets/background1.png" Stretch="UniformToFill" Opacity="0.4">
+                        <ImageBrush ImageSource="/Assets/screen.png" Stretch="UniformToFill" Opacity="0.4">
                             <ImageBrush.Transform>
-                                <CompositeTransform TranslateX="1"/>
+                                <CompositeTransform TranslateX="0"/>
                             </ImageBrush.Transform>
                             <ImageBrush.RelativeTransform>
                                 <CompositeTransform CenterY="0.5" CenterX="0.5" TranslateX="-1" TranslateY="0"/>

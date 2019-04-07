@@ -17533,24 +17533,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\zxn66\\.nuget\\packages\\": {},
+    "C:\\Users\\hasee\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\A_VSProgramFiles\\UWP\\NavDemo\\NavDemo\\NavDemo.csproj",
+      "projectUniqueName": "D:\\UWP-master\\NavDemo\\NavDemo\\NavDemo.csproj",
       "projectName": "NavDemo",
-      "projectPath": "G:\\A_VSProgramFiles\\UWP\\NavDemo\\NavDemo\\NavDemo.csproj",
-      "packagesPath": "C:\\Users\\zxn66\\.nuget\\packages\\",
-      "outputPath": "G:\\A_VSProgramFiles\\UWP\\NavDemo\\NavDemo\\obj\\",
+      "projectPath": "D:\\UWP-master\\NavDemo\\NavDemo\\NavDemo.csproj",
+      "packagesPath": "C:\\Users\\hasee\\.nuget\\packages\\",
+      "outputPath": "D:\\UWP-master\\NavDemo\\NavDemo\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\zxn66\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\hasee\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

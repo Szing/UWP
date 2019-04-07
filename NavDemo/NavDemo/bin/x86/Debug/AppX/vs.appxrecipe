@@ -19,7 +19,7 @@
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
     <LayoutDir>D:\UWP-master\NavDemo\NavDemo\bin\x86\Debug\AppX</LayoutDir>
-    <RegisteredManifestChecksum>BA4155561A8FFF16B0486CF16D2079929908171065C218B8E3BEF8253632129C</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>30FB52DDBEF46FD38747AAF6F5668AAAEB79AB2DBE80425F6E9FE3D615DCBF6A</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>98e5c7c7-0baa-443b-91c1-c3947b2ac306_1.0.0.0_x86__1p041yz6v6mb8</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>98e5c7c7-0baa-443b-91c1-c3947b2ac306_1p041yz6v6mb8!App</RegisteredUserModeAppID>
     <RegisteredPackageID>98e5c7c7-0baa-443b-91c1-c3947b2ac306</RegisteredPackageID>
@@ -30,13 +30,13 @@
     <AppXManifest Include="D:\UWP-master\NavDemo\NavDemo\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-04-07T06:35:15.593</Modified>
+      <Modified>2019-04-07T14:28:54.391</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\bin\x86\Debug\NavDemo.exe">
       <PackagePath>entrypoint\NavDemo.exe</PackagePath>
-      <Modified>2019-04-07T06:35:13.381</Modified>
+      <Modified>2019-04-07T14:28:53.368</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\hasee\.nuget\packages\commonservicelocator\1.3.0\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll">
       <PackagePath>Microsoft.Practices.ServiceLocation.dll</PackagePath>
@@ -532,7 +532,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Assets\background.jpg">
       <PackagePath>Assets\background.jpg</PackagePath>
-      <Modified>2019-04-03T08:44:21.526</Modified>
+      <Modified>2019-04-04T15:15:57.970</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Assets\insertFriendButton.jpg">
       <PackagePath>Assets\insertFriendButton.jpg</PackagePath>
@@ -542,19 +542,29 @@
       <PackagePath>Assets\light.jpg</PackagePath>
       <Modified>2019-04-03T08:28:44.299</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Assets\SplashScreen.scale-100.jpg">
+      <PackagePath>Assets\SplashScreen.scale-100.jpg</PackagePath>
+      <Modified>2019-04-07T07:29:46.917</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Assets\SplashScreen.scale-125.jpg">
+      <PackagePath>Assets\SplashScreen.scale-125.jpg</PackagePath>
+      <Modified>2019-04-07T07:37:47.718</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Assets\SplashScreen.scale-150.jpg">
+      <PackagePath>Assets\SplashScreen.scale-150.jpg</PackagePath>
+      <Modified>2019-04-07T07:37:47.718</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Assets\SplashScreen.scale-200.jpg">
       <PackagePath>Assets\SplashScreen.scale-200.jpg</PackagePath>
-      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-04-04T12:32:27.004</Modified>
+      <Modified>2019-04-07T07:37:47.718</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Assets\SplashScreen.scale-400.jpg">
       <PackagePath>Assets\SplashScreen.scale-400.jpg</PackagePath>
-      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-06-08T11:22:26.534</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Assets\background1.png">
       <PackagePath>Assets\background1.png</PackagePath>
-      <Modified>2019-04-04T03:01:24.987</Modified>
+      <Modified>2019-04-04T15:15:57.972</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Assets\background2.png">
       <PackagePath>Assets\background2.png</PackagePath>
@@ -562,7 +572,35 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Assets\list.png">
       <PackagePath>Assets\list.png</PackagePath>
-      <Modified>2019-04-04T03:00:02.494</Modified>
+      <Modified>2019-04-07T07:11:13.525</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Assets\screen.png">
+      <PackagePath>Assets\screen.png</PackagePath>
+      <Modified>2019-04-07T14:10:55.193</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Assets\screen2.png">
+      <PackagePath>Assets\screen2.png</PackagePath>
+      <Modified>2019-04-07T14:11:20.550</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Assets\SplashScreen.scale-100.png">
+      <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2019-04-07T14:10:55.193</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Assets\SplashScreen.scale-125.png">
+      <PackagePath>Assets\SplashScreen.scale-125.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2019-04-07T14:10:55.193</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Assets\SplashScreen.scale-150.png">
+      <PackagePath>Assets\SplashScreen.scale-150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2019-04-07T14:10:55.193</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Assets\SplashScreen.scale-400.png">
+      <PackagePath>Assets\SplashScreen.scale-400.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2019-04-07T14:10:55.193</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
@@ -570,7 +608,8 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
-      <Modified>2015-12-06T07:37:14.000</Modified>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2019-04-07T14:10:55.193</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
@@ -611,43 +650,43 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2019-04-07T06:35:12.922</Modified>
+      <Modified>2019-04-07T14:28:52.984</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\bin\x86\Debug\View\ShowFriendsPage.xbf">
       <PackagePath>View\ShowFriendsPage.xbf</PackagePath>
-      <Modified>2019-04-07T06:35:12.922</Modified>
+      <Modified>2019-04-07T14:28:52.984</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\bin\x86\Debug\View\AddFriendPage.xbf">
       <PackagePath>View\AddFriendPage.xbf</PackagePath>
-      <Modified>2019-04-07T06:35:12.923</Modified>
+      <Modified>2019-04-07T14:28:52.985</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\bin\x86\Debug\View\AboutPage.xbf">
       <PackagePath>View\AboutPage.xbf</PackagePath>
-      <Modified>2019-04-07T06:35:12.924</Modified>
+      <Modified>2019-04-07T14:28:52.986</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\bin\x86\Debug\View\BlankPage1.xbf">
       <PackagePath>View\BlankPage1.xbf</PackagePath>
-      <Modified>2019-04-07T06:35:12.924</Modified>
+      <Modified>2019-04-07T14:28:52.987</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\bin\x86\Debug\View\HomePage.xbf">
       <PackagePath>View\HomePage.xbf</PackagePath>
-      <Modified>2019-04-07T06:35:12.925</Modified>
+      <Modified>2019-04-07T14:28:52.988</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\bin\x86\Debug\View\MainPage.xbf">
       <PackagePath>View\MainPage.xbf</PackagePath>
-      <Modified>2019-04-07T06:35:12.926</Modified>
+      <Modified>2019-04-07T14:28:52.988</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\bin\x86\Debug\Resources\CustomDataTemplates.xbf">
       <PackagePath>Resources\CustomDataTemplates.xbf</PackagePath>
-      <Modified>2019-04-07T06:35:12.921</Modified>
+      <Modified>2019-04-07T14:28:52.981</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\bin\x86\Debug\View\SearchPage.xbf">
       <PackagePath>View\SearchPage.xbf</PackagePath>
-      <Modified>2019-04-07T06:35:12.927</Modified>
+      <Modified>2019-04-07T14:28:52.989</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\bin\x86\Debug\CustomTheme\CustomStyles.xbf">
       <PackagePath>CustomTheme\CustomStyles.xbf</PackagePath>
-      <Modified>2019-04-07T06:35:12.921</Modified>
+      <Modified>2019-04-07T14:28:52.982</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.17134.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -663,11 +702,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2019-04-06T03:01:38.067</Modified>
+      <Modified>2019-04-07T14:24:12.353</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\bin\x86\Debug\Core\NavDemo.exe">
       <PackagePath>NavDemo.exe</PackagePath>
-      <Modified>2019-04-07T06:35:15.584</Modified>
+      <Modified>2019-04-07T14:28:54.387</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

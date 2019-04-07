@@ -6,5 +6,6 @@
   </PropertyGroup>
   <PropertyGroup>
     <ProjectView>ShowAllFiles</ProjectView>
+    <SplashScreenSource>D:\UWP-master\NavDemo\NavDemo\Assets\screen.png</SplashScreenSource>
   </PropertyGroup>
 </Project>
