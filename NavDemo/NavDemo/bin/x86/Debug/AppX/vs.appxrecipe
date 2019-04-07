@@ -30,7 +30,7 @@
     <AppXManifest Include="G:\A_VSProgramFiles\UWP\NavDemo\NavDemo\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-04-07T03:16:23.049</Modified>
+      <Modified>2019-04-07T03:38:10.088</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
@@ -549,7 +549,7 @@
     <AppxPackagedFile Include="G:\A_VSProgramFiles\UWP\NavDemo\NavDemo\Assets\SplashScreen.scale-200.jpg">
       <PackagePath>Assets\SplashScreen.scale-200.jpg</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-04-07T02:19:26.414</Modified>
+      <Modified>2019-04-07T03:37:56.930</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="G:\A_VSProgramFiles\UWP\NavDemo\NavDemo\Assets\SplashScreen.scale-400.jpg">
       <PackagePath>Assets\SplashScreen.scale-400.jpg</PackagePath>
@@ -615,43 +615,43 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="G:\A_VSProgramFiles\UWP\NavDemo\NavDemo\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2019-04-07T03:16:21.397</Modified>
+      <Modified>2019-04-07T03:38:08.174</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="G:\A_VSProgramFiles\UWP\NavDemo\NavDemo\bin\x86\Debug\View\ShowFriendsPage.xbf">
       <PackagePath>View\ShowFriendsPage.xbf</PackagePath>
-      <Modified>2019-04-07T03:16:21.371</Modified>
+      <Modified>2019-04-07T03:38:08.149</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="G:\A_VSProgramFiles\UWP\NavDemo\NavDemo\bin\x86\Debug\View\AddFriendPage.xbf">
       <PackagePath>View\AddFriendPage.xbf</PackagePath>
-      <Modified>2019-04-07T03:16:21.375</Modified>
+      <Modified>2019-04-07T03:38:08.153</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="G:\A_VSProgramFiles\UWP\NavDemo\NavDemo\bin\x86\Debug\View\AboutPage.xbf">
       <PackagePath>View\AboutPage.xbf</PackagePath>
-      <Modified>2019-04-07T03:16:21.398</Modified>
+      <Modified>2019-04-07T03:38:08.175</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="G:\A_VSProgramFiles\UWP\NavDemo\NavDemo\bin\x86\Debug\View\BlankPage1.xbf">
       <PackagePath>View\BlankPage1.xbf</PackagePath>
-      <Modified>2019-04-07T03:16:21.398</Modified>
+      <Modified>2019-04-07T03:38:08.175</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="G:\A_VSProgramFiles\UWP\NavDemo\NavDemo\bin\x86\Debug\View\HomePage.xbf">
       <PackagePath>View\HomePage.xbf</PackagePath>
-      <Modified>2019-04-07T03:16:21.388</Modified>
+      <Modified>2019-04-07T03:38:08.166</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="G:\A_VSProgramFiles\UWP\NavDemo\NavDemo\bin\x86\Debug\View\MainPage.xbf">
       <PackagePath>View\MainPage.xbf</PackagePath>
-      <Modified>2019-04-07T03:16:21.399</Modified>
+      <Modified>2019-04-07T03:38:08.176</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="G:\A_VSProgramFiles\UWP\NavDemo\NavDemo\bin\x86\Debug\Resources\CustomDataTemplates.xbf">
       <PackagePath>Resources\CustomDataTemplates.xbf</PackagePath>
-      <Modified>2019-04-07T03:16:21.396</Modified>
+      <Modified>2019-04-07T03:38:08.174</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="G:\A_VSProgramFiles\UWP\NavDemo\NavDemo\bin\x86\Debug\View\SearchPage.xbf">
       <PackagePath>View\SearchPage.xbf</PackagePath>
-      <Modified>2019-04-07T03:16:21.396</Modified>
+      <Modified>2019-04-07T03:38:08.173</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="G:\A_VSProgramFiles\UWP\NavDemo\NavDemo\bin\x86\Debug\CustomTheme\CustomStyles.xbf">
       <PackagePath>CustomTheme\CustomStyles.xbf</PackagePath>
-      <Modified>2019-04-07T03:16:21.366</Modified>
+      <Modified>2019-04-07T03:38:08.140</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.17763.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -671,7 +671,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="G:\A_VSProgramFiles\UWP\NavDemo\NavDemo\bin\x86\Debug\Core\NavDemo.exe">
       <PackagePath>NavDemo.exe</PackagePath>
-      <Modified>2019-04-07T03:16:23.037</Modified>
+      <Modified>2019-04-07T03:38:10.074</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
