@@ -170,8 +170,8 @@ namespace NavDemo.ViewModels
                               //Todo: Add SomeCommand logic here, or
                              
                               await MVVMSidekick.Utilities.TaskExHelper.Yield();
-                              
-                              
+
+
                               vm.currentDialog.textDialog = vm.currentIndex.ToString() + ".rtf";
                               ServiceLocator.Instance.Resolve<DataService>()
                                  .InsertDialog(vm.currentDialog);
@@ -186,7 +186,91 @@ namespace NavDemo.ViewModels
                               }
                               await new Windows.UI.Popups.MessageDialog(sb.ToString()).ShowAsync();
 
-                              await ServiceLocator.Instance.Resolve<FileService>().SetRandomAccessStream((RichEditBox)e.EventArgs.Parameter);
+                              //ExportFile Service
+                              Windows.Storage.Pickers.FileSavePicker savePicker = new Windows.Storage.Pickers.FileSavePicker();
+                              savePicker.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary;
+
+                              // Dropdown of file types the user can save the file as
+                              savePicker.FileTypeChoices.Add("Rich Text", new List<string>() { ".rtf" });
+
+                              // Default file name if the user does not type one in or select a file to replace
+                              savePicker.SuggestedFileName = "New Document";
+
+                              Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+                              string fileName = vm.currentDialog.textDialog;
+                              Windows.Storage.StorageFile file = await storageFolder.CreateFileAsync(fileName, Windows.Storage.CreationCollisionOption.ReplaceExisting);
+
+                              await new Windows.UI.Popups.MessageDialog(fileName).ShowAsync();
+                              if (file != null)
+                              {
+                                  // Prevent updates to the remote version of the file until we
+                                  // finish making changes and call CompleteUpdatesAsync.
+                                  Windows.Storage.CachedFileManager.DeferUpdates(file);
+                                  // write to file
+                                  Windows.Storage.Streams.IRandomAccessStream randAccStream =
+                                      await file.OpenAsync(Windows.Storage.FileAccessMode.ReadWrite);
+                                  RichEditBox richEditBox = (RichEditBox)e.EventArgs.Parameter;
+                                  richEditBox.Document.SaveToStream(Windows.UI.Text.TextGetOptions.FormatRtf, randAccStream);
+
+                                  // Let Windows know that we're finished changing the file so the
+                                  // other app can update the remote version of the file.
+                                  Windows.Storage.Provider.FileUpdateStatus status = await Windows.Storage.CachedFileManager.CompleteUpdatesAsync(file);
+                                  if (status != Windows.Storage.Provider.FileUpdateStatus.Complete)
+                                  {
+                                      Windows.UI.Popups.MessageDialog errorBox =
+                                          new Windows.UI.Popups.MessageDialog("File " + file.Name + " couldn't be saved.");
+                                      await errorBox.ShowAsync();
+                                  }
+                              }
+
+                          })
+                      .DoNotifyDefaultEventRouter(vm, commandId)
+                      .Subscribe()
+                      .DisposeWith(vm);
+
+                  var cmdmdl = cmd.CreateCommandModel(state);
+
+                  cmdmdl.ListenToIsUIBusy(
+                      model: vm,
+                      canExecuteWhenBusy: false);
+                  return cmdmdl;
+              }));
+        #endregion
+
+        /// <summary>
+        /// 通过点击日历获取日期
+        /// </summary>
+        public CommandModel<ReactiveCommand, String> CommandChangeDate
+        {
+            get { return _CommandChangeDateLocator(this).Value; }
+            set { _CommandChangeDateLocator(this).SetValueAndTryNotify(value); }
+        }
+        #region Property CommandModel<ReactiveCommand, String> CommandChangeDate Setup               
+        protected Property<CommandModel<ReactiveCommand, String>> _CommandChangeDate = new Property<CommandModel<ReactiveCommand, String>> { LocatorFunc = _CommandChangeDateLocator };
+        static Func<BindableBase, ValueContainer<CommandModel<ReactiveCommand, String>>> _CommandChangeDateLocator = RegisterContainerLocator("CommandChangeDate", m => m.Initialize("CommandChangeDate", ref m._CommandChangeDate, ref _CommandChangeDateLocator,
+              model =>
+              {
+                  var state = "CommandChangeDate";
+                  var commandId = "CommandChangeDate";
+                  var vm = CastToCurrentType(model);
+                  var cmd = new ReactiveCommand(canExecute: true) { ViewModel = model };
+
+                  cmd.DoExecuteUIBusyTask(
+                          vm,
+                          async e =>
+                          {
+                              //Todo: Add ChangeDate logic here, or
+                              await MVVMSidekick.Utilities.TaskExHelper.Yield();
+                              CalendarDatePickerDateChangedEventArgs arg = (CalendarDatePickerDateChangedEventArgs)e.EventArgs.Parameter;
+                              var date = arg.NewDate.Value;
+                              StringBuilder sb = new StringBuilder();
+                              vm.currentDialog.timeDialog = "";
+                              vm.currentDialog.timeDialog += date.Year.ToString() + '/' + date.Month.ToString() + '/' + date.Day.ToString();
+
+
+
+
 
                           })
                       .DoNotifyDefaultEventRouter(vm, commandId)

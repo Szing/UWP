@@ -41,8 +41,22 @@
                 <RowDefinition Height="1*"></RowDefinition>
                 <RowDefinition Height="2*"></RowDefinition>
             </Grid.RowDefinitions>
+            <CalendarDatePicker x:Name="MemoryCalenderDatePicker"
+                            Grid.Row="0"
+                            PlaceholderText="Mark your day"
+                            Visibility="Visible"
+                            RelativePanel.LeftOf="dateButton"
+                             HorizontalAlignment="Center" 
+                                Width="360"
+                            DateFormat="{}{dayofweek.full},{month.full} {day.integer}, {year.full}" >
+                <Custom:Interaction.Behaviors>
+                    <Custom1:EventTriggerBehavior EventName="DateChanged">
+                        <Custom1:InvokeCommandAction Command="{Binding CommandChangeDate}"/>
+                    </Custom1:EventTriggerBehavior>
+                </Custom:Interaction.Behaviors>
+            </CalendarDatePicker>
             <TextBlock Text="时间：" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="25" Margin="0,0,570,0"/>
-            <TextBox  Grid.Row="0" HorizontalAlignment="Center"  Text="{Binding currentDialog.timeDialog, Mode=TwoWay}" TextWrapping="Wrap" VerticalAlignment="Center" Height="28" Width="358" />
+            
             <TextBlock Text="简述：" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,10,570,0" FontSize="25"/>
             <TextBox Grid.Row="1" HorizontalAlignment="Center" Text="{Binding currentDialog.describeDialog, Mode=TwoWay}"  Margin="0,10,0,0"  TextWrapping="Wrap" VerticalAlignment="Center" Height="120" Width="358" />
         </Grid>

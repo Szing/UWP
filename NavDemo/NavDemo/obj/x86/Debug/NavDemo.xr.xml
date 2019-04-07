@@ -20,6 +20,7 @@
     <RootPropertyPathName Name="CommandInsertDialog" />
     <RootPropertyPathName Name="friendItemList" />
     <RootPropertyPathName Name="CommandChoseFriend" />
+    <RootPropertyPathName Name="CommandChangeDate" />
     <RootPropertyPathName Name="IsPaneOpen" />
     <RootPropertyPathName Name="NavMenuItemList" />
     <RootPropertyPathName Name="imageDialog" />
@@ -30,7 +31,6 @@
     <RootPropertyPathName Name="Glyph" />
     <RootPropertyPathName Name="listDialog" />
     <RootPropertyPathName Name="CommandSubmitDate" />
-    <RootPropertyPathName Name="CommandChangeDate" />
     <RootPropertyPathName Name="CommandSubmitFriend" />
   </Roots.PropertyPathNames>
   <Roots.RootTypes>
@@ -322,6 +322,14 @@
       <RootProperty Name="BorderThickness" />
       <RootProperty Name="FontWeight" />
     </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.CalendarDatePicker">
+      <RootProperty Name="PlaceholderText" />
+      <RootProperty Name="Visibility" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="DateFormat" />
+      <RootProperty Name="Margin" />
+    </RootType>
     <RootType FullName="NavDemo.HomePage" />
     <RootType FullName="NavDemo.ViewModels.MainPage_Model" />
     <RootType FullName="Windows.UI.Xaml.Controls.SplitView">
@@ -385,12 +393,6 @@
       <RootProperty Name="Child" />
     </RootType>
     <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.BindExtension" />
-    <RootType FullName="Windows.UI.Xaml.Controls.CalendarDatePicker">
-      <RootProperty Name="PlaceholderText" />
-      <RootProperty Name="Visibility" />
-      <RootProperty Name="Margin" />
-      <RootProperty Name="DateFormat" />
-    </RootType>
     <RootType FullName="NavDemo.SearchPage" />
     <RootType FullName="Windows.UI.Xaml.Media.FontFamily" />
     <RootType FullName="Windows.UI.Xaml.Controls.ContentControl">
