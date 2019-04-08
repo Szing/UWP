@@ -267,6 +267,8 @@ namespace NavDemo.ViewModels
                               StringBuilder sb = new StringBuilder();
                               vm.currentDialog.timeDialog = "";
                               vm.currentDialog.timeDialog += date.Year.ToString() + '/' + date.Month.ToString() + '/' + date.Day.ToString();
+                              vm.currentDialog.flagTime = date.Year * 365 + date.Month * 30 + date.Day;
+
 
 
 

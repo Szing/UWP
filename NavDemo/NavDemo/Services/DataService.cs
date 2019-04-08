@@ -166,7 +166,7 @@ namespace NavDemo.Services
         {
             using (var db = DbContext.GetInstance().GetSqLiteConnection())
             {
-                string sql = "select *from tableDialog WHERE idFriend = ? ORDER BY timeDialog DESC";
+                string sql = "select *from tableDialog WHERE idFriend = ? ORDER BY flagTime DESC";
                 List<Dialog> list = new List<Dialog>();
                 int temp = idFriend;
                 list = db.Query<Dialog>(sql, temp);

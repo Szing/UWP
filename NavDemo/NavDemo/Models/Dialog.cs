@@ -64,6 +64,9 @@ namespace NavDemo
 
         [Column("timeDialog")]
         public string timeDialog { get; set; }
+
+        [Column("flagTime")]
+        public int flagTime { get; set; }
     }
 
 }
