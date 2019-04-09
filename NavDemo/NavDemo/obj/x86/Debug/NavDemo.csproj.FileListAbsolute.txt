@@ -778,3 +778,9 @@ G:\A_VSProgramFiles\UWP\NavDemo\NavDemo\obj\x86\Debug\ProjectArchitectures.txt
 G:\A_VSProgramFiles\UWP\NavDemo\NavDemo\obj\x86\Debug\.winmd_cache\$Microsoft.Graphics.Canvas.winmd_636621561260000000.json
 G:\A_VSProgramFiles\UWP\NavDemo\NavDemo\obj\x86\Debug\.winmd_cache\$Microsoft.UI.Xaml.Markup.winmd_636758264200000000.json
 D:\UWP-master\NavDemo\NavDemo\obj\x86\Debug\.winmd_cache\$Microsoft.UI.Xaml.Markup.winmd_636758264200000000.json
+D:\UWP-master\NavDemo\NavDemo\bin\x86\Debug\GalaSoft.MvvmLight.Extras.dll
+D:\UWP-master\NavDemo\NavDemo\bin\x86\Debug\GalaSoft.MvvmLight.Extras.pdb
+D:\UWP-master\NavDemo\NavDemo\bin\x86\Debug\GalaSoft.MvvmLight.dll
+D:\UWP-master\NavDemo\NavDemo\bin\x86\Debug\GalaSoft.MvvmLight.pdb
+D:\UWP-master\NavDemo\NavDemo\obj\x86\Debug\GalaSoft.MvvmLight.Extras.pri.xml
+D:\UWP-master\NavDemo\NavDemo\obj\x86\Debug\GalaSoft.MvvmLight.pri.xml

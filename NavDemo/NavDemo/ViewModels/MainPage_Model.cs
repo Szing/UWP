@@ -185,15 +185,15 @@ namespace NavDemo.ViewModels
                                  {
                                      case "首页":
                                          this.IsPaneOpen = false;
-                                         await StageManager["frameMain"].Show(new HomePage_Model());
+                                         await StageManager["frameMain"].Show(ServiceLocator.Instance.Resolve<HomePage_Model>());
                                          break;
                                      case "搜索":
                                          this.IsPaneOpen = false;
-                                         await StageManager["frameMain"].Show(new SearchPage_Model());
+                                         await StageManager["frameMain"].Show(ServiceLocator.Instance.Resolve<SearchPage_Model>());
                                          break;
                                      case "好友中心":
                                          this.IsPaneOpen = false;
-                                         await StageManager["frameMain"].Show(new ShowFriendPage_Model());
+                                         await StageManager["frameMain"].Show(ServiceLocator.Instance.Resolve<ShowFriendPage_Model>());
                                          break;
                                      default:
                                          break;

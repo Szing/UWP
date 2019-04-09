@@ -200,7 +200,10 @@
         </Setter>
     </Style>
 
-
+    <Storyboard x:Key="storyBoard">
+        <DoubleAnimation Storyboard.TargetName="kkk" Storyboard.TargetProperty="Width" To="1250" FillBehavior="Stop" />
+        <DoubleAnimation Storyboard.TargetName="kkk" Storyboard.TargetProperty="Opacity" From="1" To="0" FillBehavior="Stop"/>
+    </Storyboard>
 
 </ResourceDictionary>
 

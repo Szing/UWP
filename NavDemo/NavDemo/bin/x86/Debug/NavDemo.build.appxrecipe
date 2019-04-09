@@ -94,6 +94,12 @@
     <AppxPackagedFile Include="C:\Users\hasee\.nuget\packages\mvvm-sidekick\1.6.12\lib\uap10.0\MVVMSidekick_UAP10.dll">
       <PackagePath>MVVMSidekick_UAP10.dll</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\hasee\.nuget\packages\mvvmlightlibs\4.4.32.7\lib\netcore45\GalaSoft.MvvmLight.Extras.dll">
+      <PackagePath>GalaSoft.MvvmLight.Extras.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\hasee\.nuget\packages\mvvmlightlibs\4.4.32.7\lib\netcore45\GalaSoft.MvvmLight.dll">
+      <PackagePath>GalaSoft.MvvmLight.dll</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\hasee\.nuget\packages\newtonsoft.json\9.0.1\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll">
       <PackagePath>Newtonsoft.Json.dll</PackagePath>
     </AppxPackagedFile>

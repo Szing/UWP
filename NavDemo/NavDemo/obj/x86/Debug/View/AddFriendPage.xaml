@@ -1,6 +1,4 @@
-﻿<mvvm:MVVMPage x:ConnectionId='1' 
-    x:Name="pageRoot"
-    x:Class="NavDemo.AddFriendPage"
+﻿<mvvm:MVVMPage x:ConnectionId='1'
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:NavDemo"
@@ -8,13 +6,17 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="using:NavDemo.ViewModels"
+    xmlns:Custom="using:Microsoft.Xaml.Interactivity" xmlns:Custom1="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:media="using:Microsoft.Xaml.Interactions.Media"
+    x:Name="pageRoot"
+    x:Class="NavDemo.AddFriendPage"
     mc:Ignorable="d">
 
-    <Page.Resources>
+    <mvvm:MVVMPage.Resources>
         <!-- TODO: Delete this line if the key AppName is declared in App.xaml -->
         <x:String x:Key="AppName">My Application</x:String>
         <vm:AddFriendPage_Model x:Key="DesignVM"/>
-    </Page.Resources>
+    </mvvm:MVVMPage.Resources>
 
     <Grid x:ConnectionId='2'  DataContext="{StaticResource DesignVM}" 
           AllowDrop="True"                                           >
@@ -34,44 +36,44 @@
                         <AdaptiveTrigger MinWindowWidth="769" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="GridRootLayout.HorizontalAlignment" Value="Left"></Setter>
-                        <Setter Target="GridRootLayout.VerticalAlignment" Value="Top"></Setter>
-                        <Setter Target="GridRootLayout.Width" Value="320"></Setter>
-                        <Setter Target="GridRootLayout.Height" Value="640"></Setter>
+                        <Setter Target="GridRootLayout.HorizontalAlignment" Value="Left"/>
+                        <Setter Target="GridRootLayout.VerticalAlignment" Value="Top"/>
+                        <Setter Target="GridRootLayout.Width" Value="320"/>
+                        <Setter Target="GridRootLayout.Height" Value="640"/>
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="5*"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="3*"></RowDefinition>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="3*"/>
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"></ColumnDefinition>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <TextBlock Grid.Column="1" FontSize="30" FontFamily="YouYuan" Style="{StaticResource SubtitleTextBlockStyle}" HorizontalAlignment="Left">好友名片</TextBlock>
+            <TextBlock Grid.Column="1" FontSize="30" FontFamily="YouYuan" Style="{StaticResource SubtitleTextBlockStyle}" HorizontalAlignment="Left"><Run Text="好友名片"/></TextBlock>
 
         </Grid>
 
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="2*"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Ellipse Grid.Row="1" Width="200" Height="200"  >
                 <Ellipse.Fill>
-                    <ImageBrush x:ConnectionId='4' x:Name="imageBrushFriend"  ImageSource="ms-appx:///Assets/light.jpg" ></ImageBrush>
+                    <ImageBrush x:ConnectionId='5' x:Name="imageBrushFriend"  ImageSource="ms-appx:///Assets/light.jpg" />
                 </Ellipse.Fill>
             </Ellipse>
             <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
@@ -87,39 +89,39 @@
 
         <Grid Grid.Row="2" BorderThickness="0,0,0,1" BorderBrush="#EEEEEE">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition Width="5*"></ColumnDefinition>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="5*"/>
             </Grid.ColumnDefinitions>
-            <TextBlock VerticalAlignment="Center">星级</TextBlock>
+            <TextBlock VerticalAlignment="Center"><Run Text="星级"/></TextBlock>
             <FontIcon Grid.Column="1" Glyph="&#xE1CF;" HorizontalAlignment="Left" />
         </Grid>
         <Grid Grid.Row="3" BorderThickness="0,0,0,1" BorderBrush="#EEEEEE">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition Width="5*"></ColumnDefinition>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="5*"/>
             </Grid.ColumnDefinitions>
-            <TextBlock VerticalAlignment="Center">二维码</TextBlock>
-            <FontIcon Grid.Column="1"  Glyph="&#xE14E;" HorizontalAlignment="Left"></FontIcon>
+            <TextBlock VerticalAlignment="Center"><Run Text="二维码"/></TextBlock>
+            <FontIcon Grid.Column="1"  Glyph="&#xE14E;" HorizontalAlignment="Left"/>
         </Grid>
         <Grid Grid.Row="4" BorderThickness="0,0,0,1" BorderBrush="#EEEEEE">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition Width="5*"></ColumnDefinition>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="5*"/>
             </Grid.ColumnDefinitions>
-            <TextBlock VerticalAlignment="Center">地区</TextBlock>
-            <TextBlock Grid.Column="1" VerticalAlignment="Center">上海</TextBlock>
+            <TextBlock VerticalAlignment="Center"><Run Text="地区"/></TextBlock>
+            <TextBlock Grid.Column="1" VerticalAlignment="Center"><Run Text="上海"/></TextBlock>
         </Grid>
         <Grid Grid.Row="5" BorderThickness="0,0,0,1" BorderBrush="#EEEEEE">
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Ellipse Width="70"  Height="70"  Grid.Row="0">
+            <Ellipse x:ConnectionId='3' Name="kkk" Width="70"  Height="70"  Grid.Row="0"                    >
                 <Ellipse.Fill>
-                    <ImageBrush x:ConnectionId='3' x:Name="insertFriendButton"  ImageSource="ms-appx:///Assets/insertFriendButton.jpg"  ></ImageBrush>
+                    <ImageBrush x:ConnectionId='4'  x:Name="insertFriendButton"  ImageSource="ms-appx:///Assets/insertFriendButton.jpg"  />
                 </Ellipse.Fill>
             </Ellipse>
-            
-            <Button Content="insert"  Style="{StaticResource TransparentPathIconButtonStyle}"  Command="{Binding CommandInsertFriend}" HorizontalAlignment="Center" VerticalAlignment="Center" Height="69" Width="70"  />
+
+           
         </Grid>
 
     </Grid>
