@@ -42,7 +42,7 @@
             <ImageBrush Stretch="UniformToFill" ImageSource="/Assets/background.jpg"/>
         </Grid.Background>
 
-        <Grid Background="{Binding Source=ms-appx:///Assets/light.jpg}"/>
+        
         <!-- Top-level navigation menu + app content -->
         <SplitView x:Name="RootSplitView" IsPaneOpen="{Binding IsPaneOpen,Mode=TwoWay}" 
                    DisplayMode="CompactInline"
@@ -51,36 +51,36 @@
                    CompactPaneLength="48">
 
             <SplitView.Pane>
-               
+        
                 <ListView 
-                          Margin="0,48,0,0" ItemsSource="{Binding NavMenuItemList}"
+                          Margin="0,32,0,0" ItemsSource="{Binding NavMenuItemList}"
                           ItemTemplate="{StaticResource NavMenuItemTemplate}"
-                          ItemContainerStyle="{StaticResource NavMenuItemContainerStyle}"
+                          ItemContainerStyle="{StaticResource NavMenuItemContainerStyle}" Opacity="0.7"
                           >
-                    
+
 
                     <ListView.Background >
-                        <ImageBrush ImageSource="/Assets/background1.png" Stretch="UniformToFill" Opacity="0.4">
+                        <ImageBrush ImageSource="/Assets/dushuren.png" Stretch="UniformToFill" Opacity="0.4">
                             <ImageBrush.Transform>
                                 <CompositeTransform TranslateX="1"/>
                             </ImageBrush.Transform>
                             <ImageBrush.RelativeTransform>
-                                <CompositeTransform CenterY="0.5" CenterX="0.5" TranslateX="-1" TranslateY="0"/>
+                                <CompositeTransform CenterY="0.5" CenterX="0.5" TranslateX="-0.1" TranslateY="0"/>
                             </ImageBrush.RelativeTransform>
                         </ImageBrush>
                     </ListView.Background>
-                    
+            
 
                 </ListView>
 
             </SplitView.Pane>
-           
+
             <SplitView.Content>
                 <Frame x:Name="mainFrame" mvvm:StageManager.Beacon="frameMain" x:FieldModifier="public">
-
+                    
                 </Frame>
             </SplitView.Content>
-           
+
         </SplitView>
 
         <!-- Declared last to have it rendered above everything else, but it needs to be the first item in the tab sequence. -->
@@ -93,12 +93,12 @@
                       ToolTipService.ToolTip="Menu" >
 
             <ToggleButton.Background>
-                <ImageBrush ImageSource="/Assets/background1.png" Stretch="UniformToFill" Opacity="0.4">
+                <ImageBrush ImageSource="/Assets/dushuren.png" Stretch="UniformToFill" Opacity="1">
                     <ImageBrush.Transform>
-                        <CompositeTransform TranslateX="1"/>
+                        <CompositeTransform TranslateX="-0.1"/>
                     </ImageBrush.Transform>
                     <ImageBrush.RelativeTransform>
-                        <CompositeTransform CenterY="0.5" CenterX="0.5" TranslateX="-1" TranslateY="0"/>
+                        <CompositeTransform CenterY="0.5" CenterX="0.5" TranslateX="1.1" TranslateY="0"/>
                     </ImageBrush.RelativeTransform>
                 </ImageBrush>
             </ToggleButton.Background>

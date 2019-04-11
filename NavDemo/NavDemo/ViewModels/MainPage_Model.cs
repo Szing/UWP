@@ -34,13 +34,13 @@ namespace NavDemo.ViewModels
             }
             IsPaneOpen = false;
             NavMenuItemList = new ObservableCollection<NavMenuItem>();
-            NavMenuItemList.Add(new NavMenuItem { Glyph = "\uf015", Label = "首页" });
+            NavMenuItemList.Add(new NavMenuItem { Glyph = "\uf044", Label = "首页" });
             //NavMenuItemList.Add(new NavMenuItem { Glyph = "\uf022", Label = "频道" });
             NavMenuItemList.Add(new NavMenuItem { Glyph = "\uf002", Label = "搜索" });
             //NavMenuItemList.Add(new NavMenuItem { Glyph = "\uf007", Label = "用户中心" });
             NavMenuItemList.Add(new NavMenuItem { Glyph = "\uf007", Label = "好友中心" });
-            
-           
+            NavMenuItemList.Add(new NavMenuItem { Glyph = "\uf067", Label = "添加好友" });
+
         }
 
         //propvm tab tab string tab Title
@@ -194,6 +194,10 @@ namespace NavDemo.ViewModels
                                      case "好友中心":
                                          this.IsPaneOpen = false;
                                          await StageManager["frameMain"].Show(ServiceLocator.Instance.Resolve<ShowFriendPage_Model>());
+                                         break;
+                                     case "添加好友":
+                                         this.IsPaneOpen = false;
+                                         await StageManager["frameMain"].Show(ServiceLocator.Instance.Resolve<AddFriendPage_Model>());
                                          break;
                                      default:
                                          break;

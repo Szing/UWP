@@ -403,35 +403,23 @@
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.UniversalCRT.Debug\10.0.17134.0\\redist\Debug\x86\ucrtbased.dll">
       <PackagePath>ucrtbased.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Assets\background.jpg">
-      <PackagePath>Assets\background.jpg</PackagePath>
+    <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Assets\a.png">
+      <PackagePath>Assets\a.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Assets\insertFriendButton.jpg">
-      <PackagePath>Assets\insertFriendButton.jpg</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Assets\light.jpg">
-      <PackagePath>Assets\light.jpg</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Assets\SplashScreen.scale-100.jpg">
-      <PackagePath>Assets\SplashScreen.scale-100.jpg</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Assets\SplashScreen.scale-125.jpg">
-      <PackagePath>Assets\SplashScreen.scale-125.jpg</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Assets\SplashScreen.scale-150.jpg">
-      <PackagePath>Assets\SplashScreen.scale-150.jpg</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Assets\SplashScreen.scale-200.jpg">
-      <PackagePath>Assets\SplashScreen.scale-200.jpg</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Assets\SplashScreen.scale-400.jpg">
-      <PackagePath>Assets\SplashScreen.scale-400.jpg</PackagePath>
+    <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Assets\b.png">
+      <PackagePath>Assets\b.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Assets\background1.png">
       <PackagePath>Assets\background1.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Assets\background2.png">
       <PackagePath>Assets\background2.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Assets\background3.png">
+      <PackagePath>Assets\background3.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Assets\dushuren.png">
+      <PackagePath>Assets\dushuren.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Assets\list.png">
       <PackagePath>Assets\list.png</PackagePath>
@@ -457,6 +445,12 @@
     <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Assets\SplashScreen.scale-400.png">
       <PackagePath>Assets\SplashScreen.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Assets\timg.png">
+      <PackagePath>Assets\timg.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Assets\timg1.png">
+      <PackagePath>Assets\timg1.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
@@ -484,6 +478,45 @@
     <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Assets\background.jpg">
+      <PackagePath>Assets\background.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Assets\daojian1.jpg">
+      <PackagePath>Assets\daojian1.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Assets\insertFriendButton.jpg">
+      <PackagePath>Assets\insertFriendButton.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Assets\light.jpg">
+      <PackagePath>Assets\light.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Assets\mozi.jpg">
+      <PackagePath>Assets\mozi.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Assets\SplashScreen.scale-100.jpg">
+      <PackagePath>Assets\SplashScreen.scale-100.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Assets\SplashScreen.scale-125.jpg">
+      <PackagePath>Assets\SplashScreen.scale-125.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Assets\SplashScreen.scale-150.jpg">
+      <PackagePath>Assets\SplashScreen.scale-150.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Assets\SplashScreen.scale-200.jpg">
+      <PackagePath>Assets\SplashScreen.scale-200.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Assets\SplashScreen.scale-400.jpg">
+      <PackagePath>Assets\SplashScreen.scale-400.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Assets\tongren.jpg">
+      <PackagePath>Assets\tongren.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Assets\yasina.jpg">
+      <PackagePath>Assets\yasina.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Assets\zijincheng.jpg">
+      <PackagePath>Assets\zijincheng.jpg</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Resources\FontAwesome.otf">
       <PackagePath>Resources\FontAwesome.otf</PackagePath>

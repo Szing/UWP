@@ -27,7 +27,7 @@
             </TransitionCollection>
         </Grid.ChildrenTransitions>
 
-        
+
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="5*"></RowDefinition>
@@ -39,15 +39,18 @@
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
-            
+
             <TextBlock FontSize="30" FontFamily="YouYuan" Style="{StaticResource SubtitleTextBlockStyle}" HorizontalAlignment="Left" VerticalAlignment="Center">好友名片</TextBlock>
-            <Ellipse Width="70"  Height="70"  HorizontalAlignment="Left" Margin="150,0,0,0">
+            <!--
+             <Ellipse Width="70"  Height="70"  HorizontalAlignment="Left" Margin="150,0,0,0">
                 <Ellipse.Fill>
-                    <ImageBrush x:ConnectionId='4' x:Name="insertFriendButton"  ImageSource="ms-appx:///Assets/insertFriendButton.jpg"  ></ImageBrush>
+                    <ImageBrush x:Name="insertFriendButton"  ImageSource="ms-appx:///Assets/insertFriendButton.jpg"  ></ImageBrush>
                 </Ellipse.Fill>
             </Ellipse>
 
             <Button Content="insert"  HorizontalAlignment="Left" Margin="150,0,0,0" Style="{StaticResource TransparentPathIconButtonStyle}"  Command="{Binding CommandInsertFriend}" VerticalAlignment="Center" Height="69" Width="70"  />
+            -->
+           
         </Grid>
 
         <Grid Grid.Row="1">
@@ -57,17 +60,29 @@
                 <RowDefinition Height="2*"></RowDefinition>
                 <RowDefinition Height="Auto"></RowDefinition>
             </Grid.RowDefinitions>
-            <Ellipse Grid.Row="1" Width="200" Height="200"  >
+            <Ellipse Grid.Row="1" Width="200" Height="200"  HorizontalAlignment="Center">
                 <Ellipse.Fill>
                     <ImageBrush x:ConnectionId='3' x:Name="imageBrushFriend"  ImageSource="{Binding currentFriend.iconFriend}" ></ImageBrush>
                 </Ellipse.Fill>
             </Ellipse>
+            <Button   Grid.Row="1" Content="Last"  Style="{StaticResource ImageButtonStyle}"  HorizontalAlignment="Center" VerticalAlignment="Center" Height="120" Width="120"  Command="{Binding CommandToLastFriend}" Margin="0,0,350,0">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Assets/timg1.png"/>
+                </Button.Background>
+            </Button>
+
+
+            <Button  Grid.Row="1" Content="Next" Style="{StaticResource ImageButtonStyle}"  HorizontalAlignment="Center" VerticalAlignment="Center" Height="120" Width="120"  Command="{Binding CommandToNextFriend}" Margin="350,0,0,0">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Assets/timg.png" />
+                </Button.Background>
+            </Button>
             <TextBlock Grid.Row="2" Margin="-300,0,0,0" Text="Name:" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             <TextBox  Grid.Row="2" VerticalAlignment="Center"  Text="{Binding currentFriend.nameFriend}" Width="179" HorizontalAlignment="Center"/>
 
             <TextBlock  Grid.Row="3"  Style="{StaticResource BodyTextBlockStyle}" Margin="-300,0,0,0" Height="32" Width="75" HorizontalAlignment="Center" VerticalAlignment="Center"><Run Text="NickName:"/></TextBlock>
             <TextBox   Grid.Row="3"   Text="{Binding currentFriend.nickNameFriend}"  Height="32" Width="179" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center"/>
-            
+
         </Grid>
 
         <Grid Grid.Row="2" BorderThickness="0,0,0,1" BorderBrush="#EEEEEE">
@@ -98,11 +113,11 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
-            
+
 
             <Button Content="Delete"    Command="{Binding CommandDeleteFriend}" HorizontalAlignment="Center" VerticalAlignment="Center" Height="69" Width="70"  />
-            <Button Content="Last" HorizontalAlignment="Left" VerticalAlignment="Center" Height="69" Width="70"  Command="{Binding CommandToLastFriend}"/>
-            <Button Content="Next" HorizontalAlignment="Right" VerticalAlignment="Center" Height="69" Width="70"  Command="{Binding CommandToNextFriend}"/>
+
+
         </Grid>
 
     </Grid>

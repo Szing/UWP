@@ -44,11 +44,13 @@ namespace NavDemo
             StrongTypeViewModel = this.ViewModel as MainPage_Model;
             var coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
             coreTitleBar.ExtendViewIntoTitleBar = true;
-            //initializeFrostedGlass(GlassHost);
-            var view = ApplicationView.GetForCurrentView();
+            ApplicationView view = ApplicationView.GetForCurrentView();
+
             view.TitleBar.ButtonBackgroundColor = Colors.Transparent; //将标题栏的三个键背景设为透明
             view.TitleBar.ButtonInactiveBackgroundColor = Colors.Transparent; //失去焦点时，将三个键背景设为透明
             view.TitleBar.ButtonInactiveForegroundColor = Colors.White; //失去焦点时，将三个键前景色设为白色
+            
+
         }
         private void navmgr_BackRequested(object sender, BackRequestedEventArgs e)
         {
@@ -66,6 +68,7 @@ namespace NavDemo
 
         private void initializeFrostedGlass(UIElement glassHost)
         {
+
             Visual hostVisual = ElementCompositionPreview.GetElementVisual(glassHost);
             Compositor compositor = hostVisual.Compositor;
             var backdropBrush = compositor.CreateHostBackdropBrush();
@@ -120,7 +123,6 @@ namespace NavDemo
         public static readonly DependencyProperty StrongTypeViewModelProperty =
                     DependencyProperty.Register("StrongTypeViewModel", typeof(MainPage_Model), typeof(MainPage), new PropertyMetadata(null));
 
-
-
+        
     }
 }

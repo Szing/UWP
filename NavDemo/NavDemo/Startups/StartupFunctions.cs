@@ -35,6 +35,7 @@ namespace MVVMSidekick.Startups
             SimpleIoc.Default.Register<HomePage_Model>();
             SimpleIoc.Default.Register<SearchPage_Model>();
             SimpleIoc.Default.Register<ShowFriendPage_Model>();
+            SimpleIoc.Default.Register<AddFriendPage_Model>();
 
             Services.ServiceLocator.Instance.Register<DbContext>(DbContext.GetInstance());
             Services.ServiceLocator.Instance.Register<DataService>(DataService.GetInstance());
@@ -45,7 +46,7 @@ namespace MVVMSidekick.Startups
             Services.ServiceLocator.Instance.Register<HomePage_Model>(SimpleIoc.Default.GetInstance<HomePage_Model>());
             Services.ServiceLocator.Instance.Register<SearchPage_Model>(SimpleIoc.Default.GetInstance<SearchPage_Model>());
             Services.ServiceLocator.Instance.Register<ShowFriendPage_Model>(SimpleIoc.Default.GetInstance<ShowFriendPage_Model>());
-
+            Services.ServiceLocator.Instance.Register<AddFriendPage_Model>(SimpleIoc.Default.GetInstance<AddFriendPage_Model>());
         }
 
 

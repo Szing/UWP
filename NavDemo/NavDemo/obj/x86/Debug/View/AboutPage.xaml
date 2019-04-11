@@ -18,7 +18,7 @@
 
     <Grid  DataContext="{StaticResource DesignVM}">
         <Grid.Background>
-            <ImageBrush Stretch="UniformToFill" ImageSource="/Assets/background2.png" Opacity="0.9"/>
+            <ImageBrush Stretch="UniformToFill" ImageSource="/Assets/dushuren.png" Opacity="1"/>
         </Grid.Background>
         <Grid.ChildrenTransitions>
             <TransitionCollection>

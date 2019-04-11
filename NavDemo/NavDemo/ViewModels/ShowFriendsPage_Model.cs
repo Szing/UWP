@@ -233,10 +233,14 @@ namespace NavDemo.ViewModels
                           {
                             //Todo: Add InsertFriend logic here, or
                             await MVVMSidekick.Utilities.TaskExHelper.Yield();
-                              AddFriendPage_Model vms = new AddFriendPage_Model();
-                            await vm.StageManager
-                                    .DefaultStage
-                                    .Show<AddFriendPage_Model>(vms);
+
+                              await
+                            CastToCurrentType(model)
+                            .StageManager
+                            .DefaultStage
+                            .Show(ServiceLocator.Instance.Resolve<AddFriendPage_Model>());
+
+                             
 
 
                           })
@@ -307,7 +311,9 @@ namespace NavDemo.ViewModels
                 currentFriend.idFriend = -1;
                 currentFriend.nameFriend = "null";
                 currentFriend.nickNameFriend = "null";
+
             }
+            
             return base.OnBindedViewLoad(view);
         }
         #endregion

@@ -51,6 +51,7 @@ namespace NavDemo
             StrongTypeViewModel = this.ViewModel as AddFriendPage_Model;
         }
 
+
         private async void Grid_Drop(object sender, DragEventArgs e)
         {
             var defer = e.GetDeferral();

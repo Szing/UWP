@@ -91,12 +91,18 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <Content Include="Assets\a.png" />
+    <Content Include="Assets\b.png" />
     <Content Include="Assets\background.jpg" />
     <Content Include="Assets\background1.png" />
     <Content Include="Assets\background2.png" />
+    <Content Include="Assets\background3.png" />
+    <Content Include="Assets\daojian1.jpg" />
+    <Content Include="Assets\dushuren.png" />
     <Content Include="Assets\insertFriendButton.jpg" />
     <Content Include="Assets\light.jpg" />
     <Content Include="Assets\list.png" />
+    <Content Include="Assets\mozi.jpg" />
     <Content Include="Assets\screen.png" />
     <Content Include="Assets\screen2.png" />
     <Content Include="Assets\SplashScreen.scale-100.jpg" />
@@ -108,6 +114,11 @@
     <Content Include="Assets\SplashScreen.scale-200.jpg" />
     <Content Include="Assets\SplashScreen.scale-400.jpg" />
     <Content Include="Assets\SplashScreen.scale-400.png" />
+    <Content Include="Assets\timg.png" />
+    <Content Include="Assets\timg1.png" />
+    <Content Include="Assets\tongren.jpg" />
+    <Content Include="Assets\yasina.jpg" />
+    <Content Include="Assets\zijincheng.jpg" />
     <Content Include="Resources\FontAwesome.otf" />
   </ItemGroup>
   <ItemGroup>

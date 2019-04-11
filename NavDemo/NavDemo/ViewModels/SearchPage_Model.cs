@@ -558,7 +558,7 @@ namespace NavDemo.ViewModels
                              chosenDialog = (Dialog)i.SelectedItem;
                              if(chosenDialog != null)
                              {
-                                 AboutPage_Model vms = new AboutPage_Model();
+                                 AboutPage_Model vms = ServiceLocator.Instance.Resolve<AboutPage_Model>();
                                  if (chosenDialog.textDialog == null)
                                      chosenDialog.textDialog = "default.rtf";
                                  vms.currentDialog = chosenDialog;

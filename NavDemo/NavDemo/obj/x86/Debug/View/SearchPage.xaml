@@ -46,8 +46,11 @@
 
         <RelativePanel x:ConnectionId='2' x:Name="relativePanel" Grid.Row="1"  HorizontalAlignment="Center" VerticalAlignment="Center"  Margin="0,20,0,0" >
 
-            <AutoSuggestBox x:ConnectionId='6' Grid.Row="1" x:Name="MyASBox"   Height="46" Width="355" RelativePanel.LeftOf="suggestButton" Margin="0,0,10,0"
-                        QueryIcon="Find" ItemsSource="{Binding friendItemList, Mode=TwoWay}" ItemTemplate="{StaticResource SuggestBoxTemplate}"  TextMemberPath="nameFriend">
+            <AutoSuggestBox x:ConnectionId='6' Style="{Binding AutoSuggestBoxStyle1}" Grid.Row="1" x:Name="MyASBox"   Height="46" Width="355" RelativePanel.LeftOf="suggestButton" Margin="0,0,10,0"
+                        QueryIcon="Find" ItemsSource="{Binding friendItemList, Mode=TwoWay}" ItemTemplate="{StaticResource SuggestBoxTemplate}"  TextMemberPath="nameFriend" Opacity="0.5">
+                <AutoSuggestBox.Background>
+                    <AcrylicBrush/>
+                </AutoSuggestBox.Background>
 
                 <Custom:Interaction.Behaviors>
                     <Custom1:EventTriggerBehavior EventName="TextChanged">
