@@ -15,6 +15,7 @@ using System.Runtime.Serialization;
 using NavDemo.Services;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml;
+using System.Diagnostics;
 
 namespace NavDemo.ViewModels
 {
@@ -44,26 +45,36 @@ namespace NavDemo.ViewModels
         #endregion
 
 
+        /// <summary>
+        /// 用于搜索的日期
+        /// </summary>
         public string dateText { get => _dateTextLocator(this).Value; set => _dateTextLocator(this).SetValueAndTryNotify(value); }
         #region Property string dateText Setup        
         protected Property<string> _dateText = new Property<string> { LocatorFunc = _dateTextLocator };
         static Func<BindableBase, ValueContainer<string>> _dateTextLocator = RegisterContainerLocator(nameof(dateText), m => m.Initialize(nameof(dateText), ref m._dateText, ref _dateTextLocator, () => default(string)));
         #endregion
 
+        /// <summary>
+        /// 日志列表
+        /// </summary>
         public List<Dialog> listDialog { get => _listDialogLocator(this).Value; set => _listDialogLocator(this).SetValueAndTryNotify(value); }
         #region Property List<Dialog> listDialog Setup        
         protected Property<List<Dialog>> _listDialog = new Property<List<Dialog>> { LocatorFunc = _listDialogLocator };
         static Func<BindableBase, ValueContainer<List<Dialog>>> _listDialogLocator = RegisterContainerLocator(nameof(listDialog), m => m.Initialize(nameof(listDialog), ref m._listDialog, ref _listDialogLocator, () => default(List<Dialog>)));
         #endregion
 
-
+        /// <summary>
+        /// 选中的日志
+        /// </summary>
         public Dialog chosenDialog { get => _chosenDialogLocator(this).Value; set => _chosenDialogLocator(this).SetValueAndTryNotify(value); }
         #region Property Dialog chosenDialog Setup        
         protected Property<Dialog> _chosenDialog = new Property<Dialog> { LocatorFunc = _chosenDialogLocator };
         static Func<BindableBase, ValueContainer<Dialog>> _chosenDialogLocator = RegisterContainerLocator(nameof(chosenDialog), m => m.Initialize(nameof(chosenDialog), ref m._chosenDialog, ref _chosenDialogLocator, () => default(Dialog)));
         #endregion
 
-
+        /// <summary>
+        /// Suggest服务
+        /// </summary>
         public SuggestService suggest { get => _suggestLocator(this).Value; set => _suggestLocator(this).SetValueAndTryNotify(value); }
         #region Property SuggestService suggest Setup        
         protected Property<SuggestService> _suggest = new Property<SuggestService> { LocatorFunc = _suggestLocator };
@@ -71,14 +82,9 @@ namespace NavDemo.ViewModels
         #endregion
 
 
-
-        public Friend friend { get => _friendLocator(this).Value; set => _friendLocator(this).SetValueAndTryNotify(value); }
-        #region Property Friend friend Setup        
-        protected Property<Friend> _friend = new Property<Friend> { LocatorFunc = _friendLocator };
-        static Func<BindableBase, ValueContainer<Friend>> _friendLocator = RegisterContainerLocator(nameof(friend), m => m.Initialize(nameof(friend), ref m._friend, ref _friendLocator, () => default(Friend)));
-        #endregion
-
-
+        /// <summary>
+        /// 在搜索框选中的Friend
+        /// </summary>
         public Friend chosenFriend { get => _chosenFriendLocator(this).Value; set => _chosenFriendLocator(this).SetValueAndTryNotify(value); }
         #region Property Friend chosenFriend Setup        
         protected Property<Friend> _chosenFriend = new Property<Friend> { LocatorFunc = _chosenFriendLocator };
@@ -93,6 +99,16 @@ namespace NavDemo.ViewModels
         protected Property<List<Friend>> _friendItemList = new Property<List<Friend>> { LocatorFunc = _friendItemListLocator };
         static Func<BindableBase, ValueContainer<List<Friend>>> _friendItemListLocator = RegisterContainerLocator(nameof(friendItemList), m => m.Initialize(nameof(friendItemList), ref m._friendItemList, ref _friendItemListLocator, () => default(List<Friend>)));
         #endregion
+
+        /// <summary>
+        /// 当前suggestBox的内容
+        /// </summary>
+        public string suggestBoxText { get => _suggestBoxTextLocator(this).Value; set => _suggestBoxTextLocator(this).SetValueAndTryNotify(value); }
+        #region Property string suggestBoxText Setup        
+        protected Property<string> _suggestBoxText = new Property<string> { LocatorFunc = _suggestBoxTextLocator };
+        static Func<BindableBase, ValueContainer<string>> _suggestBoxTextLocator = RegisterContainerLocator(nameof(suggestBoxText), m => m.Initialize(nameof(suggestBoxText), ref m._suggestBoxText, ref _suggestBoxTextLocator, () => default(string)));
+        #endregion
+
 
         /// <summary>
         /// 通过默认的添加函数添加默认的好友，用于测试
@@ -137,7 +153,9 @@ namespace NavDemo.ViewModels
         #endregion
 
 
-
+        /// <summary>
+        /// 获取好友列表，用于测试
+        /// </summary>
         public CommandModel<ReactiveCommand, String> CommandGetFriends
         {
             get { return _CommandGetFriendsLocator(this).Value; }
@@ -184,7 +202,9 @@ namespace NavDemo.ViewModels
         #endregion
 
 
-
+        /// <summary>
+        /// 初始化表单，用于测试，实际功能已经被移到MainPage
+        /// </summary>
         public CommandModel<ReactiveCommand, String> CommandTableInit
         {
             get { return _CommandTableInitLocator(this).Value; }
@@ -310,46 +330,7 @@ namespace NavDemo.ViewModels
         #endregion
 
 
-        /// <summary>
-        /// 带参添加朋友，通过新建好友ID卡添加
-        /// </summary>
-        public CommandModel<ReactiveCommand, String> CommandInsertFriend
-        {
-            get { return _CommandInsertFriendLocator(this).Value; }
-            set { _CommandInsertFriendLocator(this).SetValueAndTryNotify(value); }
-        }
-        #region Property CommandModel<ReactiveCommand, String> CommandInsertFriend Setup               
-        protected Property<CommandModel<ReactiveCommand, String>> _CommandInsertFriend = new Property<CommandModel<ReactiveCommand, String>> { LocatorFunc = _CommandInsertFriendLocator };
-        static Func<BindableBase, ValueContainer<CommandModel<ReactiveCommand, String>>> _CommandInsertFriendLocator = RegisterContainerLocator("CommandInsertFriend", m => m.Initialize("CommandInsertFriend", ref m._CommandInsertFriend, ref _CommandInsertFriendLocator,
-              model =>
-              {
-                  var state = "CommandInsertFriend";
-                  var commandId = "CommandInsertFriend";
-                  var vm = CastToCurrentType(model);
-                  var cmd = new ReactiveCommand(canExecute: true) { ViewModel = model };
-
-                  cmd.DoExecuteUIBusyTask(
-                          vm,
-                          async e =>
-                          {
-                            //Todo: Add InsertFriend logic here, or
-                            await MVVMSidekick.Utilities.TaskExHelper.Yield();
-                              ServiceLocator.Instance.Resolve<DataService>()
-                                 .InsertFriend(vm.friend);
-                              vm.suggest.insert(vm.friend);
-                          })
-                      .DoNotifyDefaultEventRouter(vm, commandId)
-                      .Subscribe()
-                      .DisposeWith(vm);
-
-                  var cmdmdl = cmd.CreateCommandModel(state);
-
-                  cmdmdl.ListenToIsUIBusy(
-                      model: vm,
-                      canExecuteWhenBusy: false);
-                  return cmdmdl;
-              }));
-        #endregion
+       
 
         /// <summary>
         /// 将被选中的项放到chosenFriend中
@@ -376,10 +357,10 @@ namespace NavDemo.ViewModels
                             //Todo: Add CommandChoseFriend logic here, or
                             await MVVMSidekick.Utilities.TaskExHelper.Yield();
 
-
+                              var i = e;
                               AutoSuggestBoxSuggestionChosenEventArgs args= (AutoSuggestBoxSuggestionChosenEventArgs) e.EventArgs.Parameter;
                               vm.chosenFriend = (Friend)args.SelectedItem;
-                             
+                              
                               
                              //await new Windows.UI.Popups.MessageDialog(vm.chosenFriend.nameFriend).ShowAsync();
                           })
@@ -485,9 +466,9 @@ namespace NavDemo.ViewModels
                 DialogChosenCommand();
                 flag = true;
             }
-            friend = new Friend() { nameFriend = "unknow" ,nickNameFriend = "unknow" };
+           
             chosenFriend = new Friend();
-
+            
            
             //获取数据库服务
             DataService dataService = ServiceLocator.Instance.Resolve<DataService>();
@@ -508,10 +489,14 @@ namespace NavDemo.ViewModels
         ///// </summary>
         ///// <param name="view">View that firing Unload event</param>
         ///// <returns>Task awaiter</returns>
-        //protected override Task OnBindedViewUnload(MVVMSidekick.Views.IView view)
-        //{
-        //    return base.OnBindedViewUnload(view);
-        //}
+        protected override Task OnBindedViewUnload(MVVMSidekick.Views.IView view)
+        {
+            //在此处可以清空上次搜索造成的影响
+            suggestBoxText = "";
+            if(listDialog != null)
+                listDialog.Clear();
+            return base.OnBindedViewUnload(view);
+        }
 
         ///// <summary>
         ///// <para>If dispose actions got exceptions, will handled here. </para>
@@ -529,8 +514,10 @@ namespace NavDemo.ViewModels
         
           
         
-
-        //TChangedEventRouter
+            
+        /// <summary>
+        /// 搜索框输入监听
+        /// </summary>
         private void TChangedCommand()
         {
             //一般列表项点击事件
@@ -539,13 +526,15 @@ namespace NavDemo.ViewModels
                      .Subscribe(
                           e =>
                          {
-                             var i = (AutoSuggestBox)e.Sender;
+                             
                            
-                             friendItemList =  ServiceLocator.Instance.Resolve<SuggestService>().Suggest(i.Text); 
+                             friendItemList =  ServiceLocator.Instance.Resolve<SuggestService>().Suggest(suggestBoxText); 
                          }
                      ).DisposeWith(this);
         }
-        //DialogChosenEventRouter
+        /// <summary>
+        /// 日志列表点击事件监听
+        /// </summary>
         private void DialogChosenCommand()
         {
             //一般列表项点击事件
@@ -554,8 +543,7 @@ namespace NavDemo.ViewModels
                      .Subscribe(
                          async e =>
                          {
-                             var i = (ListView)e.Sender;
-                             chosenDialog = (Dialog)i.SelectedItem;
+                             chosenDialog = e.EventData as Dialog;
                              if(chosenDialog != null)
                              {
                                  AboutPage_Model vms = ServiceLocator.Instance.Resolve<AboutPage_Model>();
@@ -564,11 +552,8 @@ namespace NavDemo.ViewModels
                                  vms.currentDialog = chosenDialog;
                                  
                                  vms.listDialog = listDialog;
-                                 await
-                               CastToCurrentType(this)
-                               .StageManager
-                               .DefaultStage
-                               .Show<AboutPage_Model>(vms);
+                                
+                                 await StageManager["frameMain"].Show(vms);
                              }
                              
                          }

@@ -34,9 +34,12 @@ namespace NavDemo
         public MainPage()
         {
             this.InitializeComponent();
+
+            //回退功能
             SystemNavigationManager navmgr = SystemNavigationManager.GetForCurrentView();
             navmgr.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
             navmgr.BackRequested += navmgr_BackRequested;
+
             this.RegisterPropertyChangedCallback(ViewModelProperty, (_, __) =>
             {
                 StrongTypeViewModel = this.ViewModel as MainPage_Model;
@@ -46,12 +49,20 @@ namespace NavDemo
             coreTitleBar.ExtendViewIntoTitleBar = true;
             ApplicationView view = ApplicationView.GetForCurrentView();
 
-            view.TitleBar.ButtonBackgroundColor = Colors.Transparent; //将标题栏的三个键背景设为透明
-            view.TitleBar.ButtonInactiveBackgroundColor = Colors.Transparent; //失去焦点时，将三个键背景设为透明
-            view.TitleBar.ButtonInactiveForegroundColor = Colors.White; //失去焦点时，将三个键前景色设为白色
+            //将标题栏的三个键背景设为透明
+            view.TitleBar.ButtonBackgroundColor = Colors.Transparent;
+            //失去焦点时，将三个键背景设为透明
+            view.TitleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
+            //失去焦点时，将三个键前景色设为白色
+            view.TitleBar.ButtonInactiveForegroundColor = Colors.White; 
             
 
         }
+        /// <summary>
+        /// 回退事件
+        /// </summary>
+        /// <param name="sender">回退事件触发者</param>
+        /// <param name="e">回退事件参数</param>
         private void navmgr_BackRequested(object sender, BackRequestedEventArgs e)
         {
             Frame root = mainFrame;
@@ -65,7 +76,10 @@ namespace NavDemo
                 
             }
         }
-
+        /// <summary>
+        /// 毛玻璃效果
+        /// </summary>
+        /// <param name="glassHost">需要毛玻璃化的组件</param>
         private void initializeFrostedGlass(UIElement glassHost)
         {
 

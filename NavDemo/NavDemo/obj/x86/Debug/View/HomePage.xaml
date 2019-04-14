@@ -224,7 +224,7 @@
                 <RowDefinition Height="*"></RowDefinition>
                 
             </Grid.RowDefinitions>
-            <AutoSuggestBox x:ConnectionId='6'  x:Name="MyASBox" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="46" Width="355" Grid.Row="0"
+            <AutoSuggestBox x:ConnectionId='6'  x:Name="MyASBox" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="46" Width="355" Grid.Row="0" Text="{Binding suggestBoxText, Mode=TwoWay}"
                         QueryIcon="Find" ItemsSource="{Binding friendItemList, Mode=TwoWay}" ItemTemplate="{StaticResource SuggestBoxTemplate}"  TextMemberPath="nameFriend">
 
                 <Custom:Interaction.Behaviors>

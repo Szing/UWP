@@ -119,6 +119,6 @@
 
 
         </Grid>
-
-    </Grid>
+        <Button Grid.Row="5" Width="70" Height="70" Command="{Binding CommandInsertFriend}" Content="InsertFriend"/>
+    </Grid> 
 </mvvm:MVVMPage>

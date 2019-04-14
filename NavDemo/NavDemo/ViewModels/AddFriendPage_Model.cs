@@ -29,7 +29,9 @@ namespace NavDemo.ViewModels
         static Func<BindableBase, ValueContainer<string>> _TitleLocator = RegisterContainerLocator(nameof(Title), m => m.Initialize(nameof(Title), ref m._Title, ref _TitleLocator, () => default(string)));
         #endregion
 
-
+        /// <summary>
+        /// 当前Friend
+        /// </summary>
         public Friend friend { get => _friendLocator(this).Value; set => _friendLocator(this).SetValueAndTryNotify(value); }
         #region Property Friend friend Setup        
         protected Property<Friend> _friend = new Property<Friend> { LocatorFunc = _friendLocator };

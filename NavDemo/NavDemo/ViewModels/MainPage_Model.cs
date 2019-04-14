@@ -55,15 +55,7 @@ namespace NavDemo.ViewModels
         static Func<String> _TitleDefaultValueFactory = ()=>"Title is Here";
         #endregion
 
-        /*
-         * public ObservableCollection<FontItem> listFontItem { get => _listFontItemLocator(this).Value; set => _listFontItemLocator(this).SetValueAndTryNotify(value); }
-        #region Property ObservableCollection<FontItem> listFontItem Setup        
-        protected Property<ObservableCollection<FontItem>> _listFontItem = new Property<ObservableCollection<FontItem>> { LocatorFunc = _listFontItemLocator };
-        static Func<BindableBase, ValueContainer<ObservableCollection<FontItem>>> _listFontItemLocator = RegisterContainerLocator(nameof(listFontItem), m => m.Initialize(nameof(listFontItem), ref m._listFontItem, ref _listFontItemLocator, () => default(ObservableCollection<FontItem>)));
-        #endregion
-         */
-
-
+    
 
 
         /// <summary>
@@ -122,7 +114,8 @@ namespace NavDemo.ViewModels
         //    return base.OnUnbindedFromView(view, newValue);
         //}
 
-        private bool isLoaded;
+        //检测初始化的标记
+        private bool isLoaded = false;
         /// <summary>
         /// This will be invoked by view when the view fires Load event and this viewmodel instance is already in view's ViewModel property
         /// </summary>
@@ -168,7 +161,9 @@ namespace NavDemo.ViewModels
 
         #endregion
 
-
+        /// <summary>
+        /// 汉堡菜单点击事件监听器
+        /// </summary>
         private void RegisterCommand()
         {
             //一般列表项点击事件

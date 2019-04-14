@@ -78,7 +78,12 @@ namespace NavDemo
             
         }
 
-            
+       
+        /// <summary>
+        /// 向上隐藏
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnHide_Click(object sender, RoutedEventArgs e)
         {
             if (relativePanel.Visibility == Visibility.Collapsed)
@@ -97,7 +102,11 @@ namespace NavDemo
             
 
         }
-
+        /// <summary>
+        /// 更换搜索模式
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ChangeButton_Click(object sender, RoutedEventArgs e)
         {
             if(suggestButton.Visibility == Visibility.Collapsed)

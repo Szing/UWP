@@ -30,7 +30,9 @@ namespace NavDemo.ViewModels
         #endregion
 
 
-
+        /// <summary>
+        /// 当前展示的Friend
+        /// </summary>
         public Friend currentFriend { get => _currentFriendLocator(this).Value; set => _currentFriendLocator(this).SetValueAndTryNotify(value); }
         #region Property Friend currentFriend Setup        
         protected Property<Friend> _currentFriend = new Property<Friend> { LocatorFunc = _currentFriendLocator };
@@ -39,21 +41,27 @@ namespace NavDemo.ViewModels
 
 
 
-
+        /// <summary>
+        /// Friend列表
+        /// </summary>
         public List<Friend> listFriend { get => _listFriendLocator(this).Value; set => _listFriendLocator(this).SetValueAndTryNotify(value); }
         #region Property List<Friend> listFriend Setup        
         protected Property<List<Friend>> _listFriend = new Property<List<Friend>> { LocatorFunc = _listFriendLocator };
         static Func<BindableBase, ValueContainer<List<Friend>>> _listFriendLocator = RegisterContainerLocator(nameof(listFriend), m => m.Initialize(nameof(listFriend), ref m._listFriend, ref _listFriendLocator, () => default(List<Friend>)));
         #endregion
 
-
+        /// <summary>
+        /// 当前Friend序号
+        /// </summary>
         public int indexFriend { get => _indexFriendLocator(this).Value; set => _indexFriendLocator(this).SetValueAndTryNotify(value); }
         #region Property int indexFriend Setup        
         protected Property<int> _indexFriend = new Property<int> { LocatorFunc = _indexFriendLocator };
         static Func<BindableBase, ValueContainer<int>> _indexFriendLocator = RegisterContainerLocator(nameof(indexFriend), m => m.Initialize(nameof(indexFriend), ref m._indexFriend, ref _indexFriendLocator, () => default(int)));
         #endregion
 
-
+        /// <summary>
+        /// 转到上一个Friend
+        /// </summary>
         public CommandModel<ReactiveCommand, String> CommandToLastFriend
         {
             get { return _CommandToLastFriendLocator(this).Value; }
@@ -100,7 +108,9 @@ namespace NavDemo.ViewModels
         #endregion
 
 
-
+        /// <summary>
+        /// 转到下一个Friend
+        /// </summary>
         public CommandModel<ReactiveCommand, String> CommandToNextFriend
         {
             get { return _CommandToNextFriendLocator(this).Value; }
@@ -148,9 +158,10 @@ namespace NavDemo.ViewModels
         #endregion
 
 
-        
 
-
+        /// <summary>
+        /// 删除当前Friend
+        /// </summary>
         public CommandModel<ReactiveCommand, String> CommandDeleteFriend
         {
             get { return _CommandDeleteFriendLocator(this).Value; }
@@ -212,6 +223,9 @@ namespace NavDemo.ViewModels
 
 
 
+        /// <summary>
+        /// 加入新Friend
+        /// </summary>
         public CommandModel<ReactiveCommand, String> CommandInsertFriend
         {
             get { return _CommandInsertFriendLocator(this).Value; }
@@ -233,16 +247,11 @@ namespace NavDemo.ViewModels
                           {
                             //Todo: Add InsertFriend logic here, or
                             await MVVMSidekick.Utilities.TaskExHelper.Yield();
-
                               await
-                            CastToCurrentType(model)
-                            .StageManager
-                            .DefaultStage
-                            .Show(ServiceLocator.Instance.Resolve<AddFriendPage_Model>());
-
-                             
-
-
+                               CastToCurrentType(model)
+                               .StageManager
+                               .DefaultStage
+                               .Show(ServiceLocator.Instance.Resolve<AddFriendPage_Model>());
                           })
                       .DoNotifyDefaultEventRouter(vm, commandId)
                       .Subscribe()
@@ -256,6 +265,7 @@ namespace NavDemo.ViewModels
                   return cmdmdl;
               }));
         #endregion
+
 
 
         #region Life Time Event Handling

@@ -88,6 +88,11 @@ namespace NavDemo
             base.OnNavigatedFrom(e);
         }
 
+        /// <summary>
+        /// 打开并导入rtf文件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void OpenButton_Click(object sender, RoutedEventArgs e)
         {
             Windows.Storage.Streams.IRandomAccessStream randAccStream =
@@ -100,20 +105,32 @@ namespace NavDemo
             }
             
         }
-
+        /// <summary>
+        /// 导出rtf文件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void SaveButton_Click(object sender, RoutedEventArgs e)
         {
             await ServiceLocator.Instance.Resolve<FileService>().SetRandomAccessStream(editor);
 
         }
-
+        /// <summary>
+        /// 更改字体样式
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FontButton_Click(object sender, RoutedEventArgs e)
         {
             MenuFlyoutItem item = sender as MenuFlyoutItem;
             var font = item.FontFamily;
             editor.FontFamily = font;
         }
-
+        /// <summary>
+        /// 更改字体颜色
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ColorButton_Click(object sender, RoutedEventArgs e)
         {
             // Extract the color of the button that was clicked.
@@ -125,7 +142,11 @@ namespace NavDemo
             fontColorButton.Flyout.Hide();
             editor.Focus(Windows.UI.Xaml.FocusState.Keyboard);
         }
-
+        /// <summary>
+        /// 更改字体大小
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FontSizeButton_Click(object sender, RoutedEventArgs e)
         {
             MenuFlyoutItem item = sender as MenuFlyoutItem;
@@ -134,7 +155,11 @@ namespace NavDemo
 
             editor.Document.Selection.CharacterFormat.Size = size;
         }
-
+        /// <summary>
+        /// 加粗选中文字
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BoldButton_Click(object sender, RoutedEventArgs e)
         {
             Windows.UI.Text.ITextSelection selectedText = editor.Document.Selection;
@@ -145,7 +170,11 @@ namespace NavDemo
                 selectedText.CharacterFormat = charFormatting;
             }
         }
-
+        /// <summary>
+        /// 使选中文字变成斜体
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ItalicButton_Click(object sender, RoutedEventArgs e)
         {
             Windows.UI.Text.ITextSelection selectedText = editor.Document.Selection;
@@ -156,7 +185,11 @@ namespace NavDemo
                 selectedText.CharacterFormat = charFormatting;
             }
         }
-
+        /// <summary>
+        /// 为选中区域添加下划线
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void UnderlineButton_Click(object sender, RoutedEventArgs e)
         {
             Windows.UI.Text.ITextSelection selectedText = editor.Document.Selection;
@@ -174,7 +207,11 @@ namespace NavDemo
                 selectedText.CharacterFormat = charFormatting;
             }
         }
-
+        /// <summary>
+        /// 插入图片
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void   ImageButton_Click(object sender, RoutedEventArgs e)
         {
            
@@ -184,6 +221,11 @@ namespace NavDemo
 
         }
 
+        /// <summary>
+        /// 向上隐藏区域
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnHide_Click(object sender, RoutedEventArgs e)
         {
             if (detailGrid.Visibility == Visibility.Collapsed)
@@ -202,6 +244,11 @@ namespace NavDemo
 
 
         }
+        /// <summary>
+        /// 向下隐藏区域
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnHide1_Click(object sender, RoutedEventArgs e)
         {
             if (detailGrid1.Visibility == Visibility.Collapsed)
@@ -220,28 +267,50 @@ namespace NavDemo
 
 
         }
-
+        /// <summary>
+        /// 右键菜单
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Editor_ContextMenuOpening(object sender, ContextMenuEventArgs e)
         {
             e.Handled = true;
             MenuFlyout menu = FlyoutBase.GetAttachedFlyout(editor) as MenuFlyout;
             menu?.ShowAt(editor, new Point(e.CursorLeft, e.CursorTop));
         }
+        /// <summary>
+        /// 复制功能
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnCopy(object sender, RoutedEventArgs e)
         {
             editor.Document.Selection.Copy();
         }
-
+        /// <summary>
+        /// 剪切功能
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnCut(object sender, RoutedEventArgs e)
         {
             editor.Document.Selection.Cut();
         }
-
+        /// <summary>
+        /// 黏贴功能
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnPaste(object sender, RoutedEventArgs e)
         {
             // Paste方法带有一个整型参数，表示要粘贴的格式
             editor.Document.Selection.Paste(0);
         }
+        /// <summary>
+        /// 添加下划线功能
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnUnderline(object sender, RoutedEventArgs e)
         {
             MenuFlyoutItem item = sender as MenuFlyoutItem;

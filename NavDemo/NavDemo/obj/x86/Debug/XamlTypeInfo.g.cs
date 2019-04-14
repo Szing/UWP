@@ -853,7 +853,7 @@ namespace NavDemo.NavDemo_XamlTypeInfo
                 userType.AddMemberName("friendItemList");
                 userType.AddMemberName("suggest");
                 userType.AddMemberName("fontFamily");
-                userType.AddMemberName("currentRichEditBox");
+                userType.AddMemberName("suggestBoxText");
                 userType.AddMemberName("currentIndex");
                 userType.AddMemberName("CommandChoseFriend");
                 userType.AddMemberName("CommandInsertDialog");
@@ -1088,15 +1088,14 @@ namespace NavDemo.NavDemo_XamlTypeInfo
                 userType.AddMemberName("listDialog");
                 userType.AddMemberName("chosenDialog");
                 userType.AddMemberName("suggest");
-                userType.AddMemberName("friend");
                 userType.AddMemberName("chosenFriend");
                 userType.AddMemberName("friendItemList");
+                userType.AddMemberName("suggestBoxText");
                 userType.AddMemberName("CommandAddFriend");
                 userType.AddMemberName("CommandGetFriends");
                 userType.AddMemberName("CommandTableInit");
                 userType.AddMemberName("CommandSubmitFriend");
                 userType.AddMemberName("CommandSubmitDate");
-                userType.AddMemberName("CommandInsertFriend");
                 userType.AddMemberName("CommandChoseFriend");
                 userType.AddMemberName("CommandChangeDate");
                 userType.SetIsLocalType();
@@ -1975,15 +1974,15 @@ namespace NavDemo.NavDemo_XamlTypeInfo
             var that = (global::NavDemo.ViewModels.HomePage_Model)instance;
             that.fontFamily = (global::Windows.UI.Xaml.Media.FontFamily)Value;
         }
-        private object get_102_HomePage_Model_currentRichEditBox(object instance)
+        private object get_102_HomePage_Model_suggestBoxText(object instance)
         {
             var that = (global::NavDemo.ViewModels.HomePage_Model)instance;
-            return that.currentRichEditBox;
+            return that.suggestBoxText;
         }
-        private void set_102_HomePage_Model_currentRichEditBox(object instance, object Value)
+        private void set_102_HomePage_Model_suggestBoxText(object instance, object Value)
         {
             var that = (global::NavDemo.ViewModels.HomePage_Model)instance;
-            that.currentRichEditBox = (global::Windows.UI.Xaml.Controls.RichEditBox)Value;
+            that.suggestBoxText = (global::System.String)Value;
         }
         private object get_103_HomePage_Model_currentIndex(object instance)
         {
@@ -2491,35 +2490,35 @@ namespace NavDemo.NavDemo_XamlTypeInfo
             var that = (global::NavDemo.ViewModels.SearchPage_Model)instance;
             that.suggest = (global::NavDemo.Services.SuggestService)Value;
         }
-        private object get_166_SearchPage_Model_friend(object instance)
-        {
-            var that = (global::NavDemo.ViewModels.SearchPage_Model)instance;
-            return that.friend;
-        }
-        private void set_166_SearchPage_Model_friend(object instance, object Value)
-        {
-            var that = (global::NavDemo.ViewModels.SearchPage_Model)instance;
-            that.friend = (global::NavDemo.Friend)Value;
-        }
-        private object get_167_SearchPage_Model_chosenFriend(object instance)
+        private object get_166_SearchPage_Model_chosenFriend(object instance)
         {
             var that = (global::NavDemo.ViewModels.SearchPage_Model)instance;
             return that.chosenFriend;
         }
-        private void set_167_SearchPage_Model_chosenFriend(object instance, object Value)
+        private void set_166_SearchPage_Model_chosenFriend(object instance, object Value)
         {
             var that = (global::NavDemo.ViewModels.SearchPage_Model)instance;
             that.chosenFriend = (global::NavDemo.Friend)Value;
         }
-        private object get_168_SearchPage_Model_friendItemList(object instance)
+        private object get_167_SearchPage_Model_friendItemList(object instance)
         {
             var that = (global::NavDemo.ViewModels.SearchPage_Model)instance;
             return that.friendItemList;
         }
-        private void set_168_SearchPage_Model_friendItemList(object instance, object Value)
+        private void set_167_SearchPage_Model_friendItemList(object instance, object Value)
         {
             var that = (global::NavDemo.ViewModels.SearchPage_Model)instance;
             that.friendItemList = (global::System.Collections.Generic.List<global::NavDemo.Friend>)Value;
+        }
+        private object get_168_SearchPage_Model_suggestBoxText(object instance)
+        {
+            var that = (global::NavDemo.ViewModels.SearchPage_Model)instance;
+            return that.suggestBoxText;
+        }
+        private void set_168_SearchPage_Model_suggestBoxText(object instance, object Value)
+        {
+            var that = (global::NavDemo.ViewModels.SearchPage_Model)instance;
+            that.suggestBoxText = (global::System.String)Value;
         }
         private object get_169_SearchPage_Model_CommandAddFriend(object instance)
         {
@@ -2571,127 +2570,117 @@ namespace NavDemo.NavDemo_XamlTypeInfo
             var that = (global::NavDemo.ViewModels.SearchPage_Model)instance;
             that.CommandSubmitDate = (global::MVVMSidekick.ViewModels.CommandModel<global::MVVMSidekick.Reactive.ReactiveCommand, global::System.String>)Value;
         }
-        private object get_174_SearchPage_Model_CommandInsertFriend(object instance)
-        {
-            var that = (global::NavDemo.ViewModels.SearchPage_Model)instance;
-            return that.CommandInsertFriend;
-        }
-        private void set_174_SearchPage_Model_CommandInsertFriend(object instance, object Value)
-        {
-            var that = (global::NavDemo.ViewModels.SearchPage_Model)instance;
-            that.CommandInsertFriend = (global::MVVMSidekick.ViewModels.CommandModel<global::MVVMSidekick.Reactive.ReactiveCommand, global::System.String>)Value;
-        }
-        private object get_175_SearchPage_Model_CommandChoseFriend(object instance)
+        private object get_174_SearchPage_Model_CommandChoseFriend(object instance)
         {
             var that = (global::NavDemo.ViewModels.SearchPage_Model)instance;
             return that.CommandChoseFriend;
         }
-        private void set_175_SearchPage_Model_CommandChoseFriend(object instance, object Value)
+        private void set_174_SearchPage_Model_CommandChoseFriend(object instance, object Value)
         {
             var that = (global::NavDemo.ViewModels.SearchPage_Model)instance;
             that.CommandChoseFriend = (global::MVVMSidekick.ViewModels.CommandModel<global::MVVMSidekick.Reactive.ReactiveCommand, global::System.String>)Value;
         }
-        private object get_176_SearchPage_Model_CommandChangeDate(object instance)
+        private object get_175_SearchPage_Model_CommandChangeDate(object instance)
         {
             var that = (global::NavDemo.ViewModels.SearchPage_Model)instance;
             return that.CommandChangeDate;
         }
-        private void set_176_SearchPage_Model_CommandChangeDate(object instance, object Value)
+        private void set_175_SearchPage_Model_CommandChangeDate(object instance, object Value)
         {
             var that = (global::NavDemo.ViewModels.SearchPage_Model)instance;
             that.CommandChangeDate = (global::MVVMSidekick.ViewModels.CommandModel<global::MVVMSidekick.Reactive.ReactiveCommand, global::System.String>)Value;
         }
-        private object get_177_ViewModelBase_UnbindDisposeGroup(object instance)
+        private object get_176_ViewModelBase_UnbindDisposeGroup(object instance)
         {
             var that = (global::MVVMSidekick.ViewModels.ViewModelBase<global::NavDemo.ViewModels.SearchPage_Model>)instance;
             return that.UnbindDisposeGroup;
         }
-        private object get_178_ViewModelBase_UnloadDisposeGroup(object instance)
+        private object get_177_ViewModelBase_UnloadDisposeGroup(object instance)
         {
             var that = (global::MVVMSidekick.ViewModels.ViewModelBase<global::NavDemo.ViewModels.SearchPage_Model>)instance;
             return that.UnloadDisposeGroup;
         }
-        private object get_179_ViewModelBase_IsDisposingWhenUnbindRequired(object instance)
+        private object get_178_ViewModelBase_IsDisposingWhenUnbindRequired(object instance)
         {
             var that = (global::MVVMSidekick.ViewModels.ViewModelBase<global::NavDemo.ViewModels.SearchPage_Model>)instance;
             return that.IsDisposingWhenUnbindRequired;
         }
-        private object get_180_ViewModelBase_IsDisposingWhenUnloadRequired(object instance)
+        private object get_179_ViewModelBase_IsDisposingWhenUnloadRequired(object instance)
         {
             var that = (global::MVVMSidekick.ViewModels.ViewModelBase<global::NavDemo.ViewModels.SearchPage_Model>)instance;
             return that.IsDisposingWhenUnloadRequired;
         }
-        private object get_181_ViewModelBase_StageManager(object instance)
+        private object get_180_ViewModelBase_StageManager(object instance)
         {
             var that = (global::MVVMSidekick.ViewModels.ViewModelBase<global::NavDemo.ViewModels.SearchPage_Model>)instance;
             return that.StageManager;
         }
-        private void set_181_ViewModelBase_StageManager(object instance, object Value)
+        private void set_180_ViewModelBase_StageManager(object instance, object Value)
         {
             var that = (global::MVVMSidekick.ViewModels.ViewModelBase<global::NavDemo.ViewModels.SearchPage_Model>)instance;
             that.StageManager = (global::MVVMSidekick.Views.IStageManager)Value;
         }
-        private object get_182_ViewModelBase_HaveReturnValue(object instance)
+        private object get_181_ViewModelBase_HaveReturnValue(object instance)
         {
             var that = (global::MVVMSidekick.ViewModels.ViewModelBase<global::NavDemo.ViewModels.SearchPage_Model>)instance;
             return that.HaveReturnValue;
         }
-        private object get_183_ViewModelBase_IsUIBusy(object instance)
+        private object get_182_ViewModelBase_IsUIBusy(object instance)
         {
             var that = (global::MVVMSidekick.ViewModels.ViewModelBase<global::NavDemo.ViewModels.SearchPage_Model>)instance;
             return that.IsUIBusy;
         }
-        private void set_183_ViewModelBase_IsUIBusy(object instance, object Value)
+        private void set_182_ViewModelBase_IsUIBusy(object instance, object Value)
         {
             var that = (global::MVVMSidekick.ViewModels.ViewModelBase<global::NavDemo.ViewModels.SearchPage_Model>)instance;
             that.IsUIBusy = (global::System.Boolean)Value;
         }
-        private object get_184_ViewModelBase_Dispatcher(object instance)
+        private object get_183_ViewModelBase_Dispatcher(object instance)
         {
             var that = (global::MVVMSidekick.ViewModels.ViewModelBase<global::NavDemo.ViewModels.SearchPage_Model>)instance;
             return that.Dispatcher;
         }
-        private object get_185_BindableBase_BindableInstanceId(object instance)
+        private object get_184_BindableBase_BindableInstanceId(object instance)
         {
             var that = (global::MVVMSidekick.ViewModels.BindableBase<global::NavDemo.ViewModels.SearchPage_Model>)instance;
             return that.BindableInstanceId;
         }
-        private object get_186_BindableBase_Error(object instance)
+        private object get_185_BindableBase_Error(object instance)
         {
             var that = (global::MVVMSidekick.ViewModels.BindableBase<global::NavDemo.ViewModels.SearchPage_Model>)instance;
             return that.Error;
         }
-        private object get_187_BindableBase_HasErrors(object instance)
+        private object get_186_BindableBase_HasErrors(object instance)
         {
             var that = (global::MVVMSidekick.ViewModels.BindableBase<global::NavDemo.ViewModels.SearchPage_Model>)instance;
             return that.HasErrors;
         }
-        private object get_188_BindableBase_LocalEventRouter(object instance)
+        private object get_187_BindableBase_LocalEventRouter(object instance)
         {
             var that = (global::MVVMSidekick.ViewModels.BindableBase<global::NavDemo.ViewModels.SearchPage_Model>)instance;
             return that.LocalEventRouter;
         }
-        private void set_188_BindableBase_LocalEventRouter(object instance, object Value)
+        private void set_187_BindableBase_LocalEventRouter(object instance, object Value)
         {
             var that = (global::MVVMSidekick.ViewModels.BindableBase<global::NavDemo.ViewModels.SearchPage_Model>)instance;
             that.LocalEventRouter = (global::MVVMSidekick.EventRouting.EventRouter)Value;
         }
-        private object get_189_ListViewBehavior_AssociatedObject(object instance)
+        private object get_188_ListViewBehavior_AssociatedObject(object instance)
         {
             var that = (global::NavDemo.Behaviours.ListViewBehavior)instance;
             return that.AssociatedObject;
         }
-        private void set_189_ListViewBehavior_AssociatedObject(object instance, object Value)
+        private void set_188_ListViewBehavior_AssociatedObject(object instance, object Value)
         {
             var that = (global::NavDemo.Behaviours.ListViewBehavior)instance;
             that.AssociatedObject = (global::Windows.UI.Xaml.DependencyObject)Value;
         }
-        private object get_190_SearchPage_StrongTypeViewModel(object instance)
+        private object get_189_SearchPage_StrongTypeViewModel(object instance)
         {
             var that = (global::NavDemo.SearchPage)instance;
             return that.StrongTypeViewModel;
         }
-        private void set_190_SearchPage_StrongTypeViewModel(object instance, object Value)
+        private void set_189_SearchPage_StrongTypeViewModel(object instance, object Value)
         {
             var that = (global::NavDemo.SearchPage)instance;
             that.StrongTypeViewModel = (global::NavDemo.ViewModels.SearchPage_Model)Value;
@@ -3321,11 +3310,11 @@ namespace NavDemo.NavDemo_XamlTypeInfo
                 xamlMember.Getter = get_101_HomePage_Model_fontFamily;
                 xamlMember.Setter = set_101_HomePage_Model_fontFamily;
                 break;
-            case "NavDemo.ViewModels.HomePage_Model.currentRichEditBox":
+            case "NavDemo.ViewModels.HomePage_Model.suggestBoxText":
                 userType = (global::NavDemo.NavDemo_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NavDemo.ViewModels.HomePage_Model");
-                xamlMember = new global::NavDemo.NavDemo_XamlTypeInfo.XamlMember(this, "currentRichEditBox", "Windows.UI.Xaml.Controls.RichEditBox");
-                xamlMember.Getter = get_102_HomePage_Model_currentRichEditBox;
-                xamlMember.Setter = set_102_HomePage_Model_currentRichEditBox;
+                xamlMember = new global::NavDemo.NavDemo_XamlTypeInfo.XamlMember(this, "suggestBoxText", "String");
+                xamlMember.Getter = get_102_HomePage_Model_suggestBoxText;
+                xamlMember.Setter = set_102_HomePage_Model_suggestBoxText;
                 break;
             case "NavDemo.ViewModels.HomePage_Model.currentIndex":
                 userType = (global::NavDemo.NavDemo_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NavDemo.ViewModels.HomePage_Model");
@@ -3726,23 +3715,23 @@ namespace NavDemo.NavDemo_XamlTypeInfo
                 xamlMember.Getter = get_165_SearchPage_Model_suggest;
                 xamlMember.Setter = set_165_SearchPage_Model_suggest;
                 break;
-            case "NavDemo.ViewModels.SearchPage_Model.friend":
-                userType = (global::NavDemo.NavDemo_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NavDemo.ViewModels.SearchPage_Model");
-                xamlMember = new global::NavDemo.NavDemo_XamlTypeInfo.XamlMember(this, "friend", "NavDemo.Friend");
-                xamlMember.Getter = get_166_SearchPage_Model_friend;
-                xamlMember.Setter = set_166_SearchPage_Model_friend;
-                break;
             case "NavDemo.ViewModels.SearchPage_Model.chosenFriend":
                 userType = (global::NavDemo.NavDemo_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NavDemo.ViewModels.SearchPage_Model");
                 xamlMember = new global::NavDemo.NavDemo_XamlTypeInfo.XamlMember(this, "chosenFriend", "NavDemo.Friend");
-                xamlMember.Getter = get_167_SearchPage_Model_chosenFriend;
-                xamlMember.Setter = set_167_SearchPage_Model_chosenFriend;
+                xamlMember.Getter = get_166_SearchPage_Model_chosenFriend;
+                xamlMember.Setter = set_166_SearchPage_Model_chosenFriend;
                 break;
             case "NavDemo.ViewModels.SearchPage_Model.friendItemList":
                 userType = (global::NavDemo.NavDemo_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NavDemo.ViewModels.SearchPage_Model");
                 xamlMember = new global::NavDemo.NavDemo_XamlTypeInfo.XamlMember(this, "friendItemList", "System.Collections.Generic.List`1<NavDemo.Friend>");
-                xamlMember.Getter = get_168_SearchPage_Model_friendItemList;
-                xamlMember.Setter = set_168_SearchPage_Model_friendItemList;
+                xamlMember.Getter = get_167_SearchPage_Model_friendItemList;
+                xamlMember.Setter = set_167_SearchPage_Model_friendItemList;
+                break;
+            case "NavDemo.ViewModels.SearchPage_Model.suggestBoxText":
+                userType = (global::NavDemo.NavDemo_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NavDemo.ViewModels.SearchPage_Model");
+                xamlMember = new global::NavDemo.NavDemo_XamlTypeInfo.XamlMember(this, "suggestBoxText", "String");
+                xamlMember.Getter = get_168_SearchPage_Model_suggestBoxText;
+                xamlMember.Setter = set_168_SearchPage_Model_suggestBoxText;
                 break;
             case "NavDemo.ViewModels.SearchPage_Model.CommandAddFriend":
                 userType = (global::NavDemo.NavDemo_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NavDemo.ViewModels.SearchPage_Model");
@@ -3774,108 +3763,102 @@ namespace NavDemo.NavDemo_XamlTypeInfo
                 xamlMember.Getter = get_173_SearchPage_Model_CommandSubmitDate;
                 xamlMember.Setter = set_173_SearchPage_Model_CommandSubmitDate;
                 break;
-            case "NavDemo.ViewModels.SearchPage_Model.CommandInsertFriend":
-                userType = (global::NavDemo.NavDemo_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NavDemo.ViewModels.SearchPage_Model");
-                xamlMember = new global::NavDemo.NavDemo_XamlTypeInfo.XamlMember(this, "CommandInsertFriend", "MVVMSidekick.ViewModels.CommandModel`2<MVVMSidekick.Reactive.ReactiveCommand, String>");
-                xamlMember.Getter = get_174_SearchPage_Model_CommandInsertFriend;
-                xamlMember.Setter = set_174_SearchPage_Model_CommandInsertFriend;
-                break;
             case "NavDemo.ViewModels.SearchPage_Model.CommandChoseFriend":
                 userType = (global::NavDemo.NavDemo_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NavDemo.ViewModels.SearchPage_Model");
                 xamlMember = new global::NavDemo.NavDemo_XamlTypeInfo.XamlMember(this, "CommandChoseFriend", "MVVMSidekick.ViewModels.CommandModel`2<MVVMSidekick.Reactive.ReactiveCommand, String>");
-                xamlMember.Getter = get_175_SearchPage_Model_CommandChoseFriend;
-                xamlMember.Setter = set_175_SearchPage_Model_CommandChoseFriend;
+                xamlMember.Getter = get_174_SearchPage_Model_CommandChoseFriend;
+                xamlMember.Setter = set_174_SearchPage_Model_CommandChoseFriend;
                 break;
             case "NavDemo.ViewModels.SearchPage_Model.CommandChangeDate":
                 userType = (global::NavDemo.NavDemo_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NavDemo.ViewModels.SearchPage_Model");
                 xamlMember = new global::NavDemo.NavDemo_XamlTypeInfo.XamlMember(this, "CommandChangeDate", "MVVMSidekick.ViewModels.CommandModel`2<MVVMSidekick.Reactive.ReactiveCommand, String>");
-                xamlMember.Getter = get_176_SearchPage_Model_CommandChangeDate;
-                xamlMember.Setter = set_176_SearchPage_Model_CommandChangeDate;
+                xamlMember.Getter = get_175_SearchPage_Model_CommandChangeDate;
+                xamlMember.Setter = set_175_SearchPage_Model_CommandChangeDate;
                 break;
             case "MVVMSidekick.ViewModels.ViewModelBase`1<NavDemo.ViewModels.SearchPage_Model>.UnbindDisposeGroup":
                 userType = (global::NavDemo.NavDemo_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MVVMSidekick.ViewModels.ViewModelBase`1<NavDemo.ViewModels.SearchPage_Model>");
                 xamlMember = new global::NavDemo.NavDemo_XamlTypeInfo.XamlMember(this, "UnbindDisposeGroup", "MVVMSidekick.Common.IDisposeGroup");
-                xamlMember.Getter = get_177_ViewModelBase_UnbindDisposeGroup;
+                xamlMember.Getter = get_176_ViewModelBase_UnbindDisposeGroup;
                 xamlMember.SetIsReadOnly();
                 break;
             case "MVVMSidekick.ViewModels.ViewModelBase`1<NavDemo.ViewModels.SearchPage_Model>.UnloadDisposeGroup":
                 userType = (global::NavDemo.NavDemo_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MVVMSidekick.ViewModels.ViewModelBase`1<NavDemo.ViewModels.SearchPage_Model>");
                 xamlMember = new global::NavDemo.NavDemo_XamlTypeInfo.XamlMember(this, "UnloadDisposeGroup", "MVVMSidekick.Common.IDisposeGroup");
-                xamlMember.Getter = get_178_ViewModelBase_UnloadDisposeGroup;
+                xamlMember.Getter = get_177_ViewModelBase_UnloadDisposeGroup;
                 xamlMember.SetIsReadOnly();
                 break;
             case "MVVMSidekick.ViewModels.ViewModelBase`1<NavDemo.ViewModels.SearchPage_Model>.IsDisposingWhenUnbindRequired":
                 userType = (global::NavDemo.NavDemo_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MVVMSidekick.ViewModels.ViewModelBase`1<NavDemo.ViewModels.SearchPage_Model>");
                 xamlMember = new global::NavDemo.NavDemo_XamlTypeInfo.XamlMember(this, "IsDisposingWhenUnbindRequired", "Boolean");
-                xamlMember.Getter = get_179_ViewModelBase_IsDisposingWhenUnbindRequired;
+                xamlMember.Getter = get_178_ViewModelBase_IsDisposingWhenUnbindRequired;
                 xamlMember.SetIsReadOnly();
                 break;
             case "MVVMSidekick.ViewModels.ViewModelBase`1<NavDemo.ViewModels.SearchPage_Model>.IsDisposingWhenUnloadRequired":
                 userType = (global::NavDemo.NavDemo_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MVVMSidekick.ViewModels.ViewModelBase`1<NavDemo.ViewModels.SearchPage_Model>");
                 xamlMember = new global::NavDemo.NavDemo_XamlTypeInfo.XamlMember(this, "IsDisposingWhenUnloadRequired", "Boolean");
-                xamlMember.Getter = get_180_ViewModelBase_IsDisposingWhenUnloadRequired;
+                xamlMember.Getter = get_179_ViewModelBase_IsDisposingWhenUnloadRequired;
                 xamlMember.SetIsReadOnly();
                 break;
             case "MVVMSidekick.ViewModels.ViewModelBase`1<NavDemo.ViewModels.SearchPage_Model>.StageManager":
                 userType = (global::NavDemo.NavDemo_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MVVMSidekick.ViewModels.ViewModelBase`1<NavDemo.ViewModels.SearchPage_Model>");
                 xamlMember = new global::NavDemo.NavDemo_XamlTypeInfo.XamlMember(this, "StageManager", "MVVMSidekick.Views.IStageManager");
-                xamlMember.Getter = get_181_ViewModelBase_StageManager;
-                xamlMember.Setter = set_181_ViewModelBase_StageManager;
+                xamlMember.Getter = get_180_ViewModelBase_StageManager;
+                xamlMember.Setter = set_180_ViewModelBase_StageManager;
                 break;
             case "MVVMSidekick.ViewModels.ViewModelBase`1<NavDemo.ViewModels.SearchPage_Model>.HaveReturnValue":
                 userType = (global::NavDemo.NavDemo_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MVVMSidekick.ViewModels.ViewModelBase`1<NavDemo.ViewModels.SearchPage_Model>");
                 xamlMember = new global::NavDemo.NavDemo_XamlTypeInfo.XamlMember(this, "HaveReturnValue", "Boolean");
-                xamlMember.Getter = get_182_ViewModelBase_HaveReturnValue;
+                xamlMember.Getter = get_181_ViewModelBase_HaveReturnValue;
                 xamlMember.SetIsReadOnly();
                 break;
             case "MVVMSidekick.ViewModels.ViewModelBase`1<NavDemo.ViewModels.SearchPage_Model>.IsUIBusy":
                 userType = (global::NavDemo.NavDemo_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MVVMSidekick.ViewModels.ViewModelBase`1<NavDemo.ViewModels.SearchPage_Model>");
                 xamlMember = new global::NavDemo.NavDemo_XamlTypeInfo.XamlMember(this, "IsUIBusy", "Boolean");
-                xamlMember.Getter = get_183_ViewModelBase_IsUIBusy;
-                xamlMember.Setter = set_183_ViewModelBase_IsUIBusy;
+                xamlMember.Getter = get_182_ViewModelBase_IsUIBusy;
+                xamlMember.Setter = set_182_ViewModelBase_IsUIBusy;
                 break;
             case "MVVMSidekick.ViewModels.ViewModelBase`1<NavDemo.ViewModels.SearchPage_Model>.Dispatcher":
                 userType = (global::NavDemo.NavDemo_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MVVMSidekick.ViewModels.ViewModelBase`1<NavDemo.ViewModels.SearchPage_Model>");
                 xamlMember = new global::NavDemo.NavDemo_XamlTypeInfo.XamlMember(this, "Dispatcher", "Windows.UI.Core.CoreDispatcher");
-                xamlMember.Getter = get_184_ViewModelBase_Dispatcher;
+                xamlMember.Getter = get_183_ViewModelBase_Dispatcher;
                 xamlMember.SetIsReadOnly();
                 break;
             case "MVVMSidekick.ViewModels.BindableBase`1<NavDemo.ViewModels.SearchPage_Model>.BindableInstanceId":
                 userType = (global::NavDemo.NavDemo_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MVVMSidekick.ViewModels.BindableBase`1<NavDemo.ViewModels.SearchPage_Model>");
                 xamlMember = new global::NavDemo.NavDemo_XamlTypeInfo.XamlMember(this, "BindableInstanceId", "String");
-                xamlMember.Getter = get_185_BindableBase_BindableInstanceId;
+                xamlMember.Getter = get_184_BindableBase_BindableInstanceId;
                 xamlMember.SetIsReadOnly();
                 break;
             case "MVVMSidekick.ViewModels.BindableBase`1<NavDemo.ViewModels.SearchPage_Model>.Error":
                 userType = (global::NavDemo.NavDemo_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MVVMSidekick.ViewModels.BindableBase`1<NavDemo.ViewModels.SearchPage_Model>");
                 xamlMember = new global::NavDemo.NavDemo_XamlTypeInfo.XamlMember(this, "Error", "String");
-                xamlMember.Getter = get_186_BindableBase_Error;
+                xamlMember.Getter = get_185_BindableBase_Error;
                 xamlMember.SetIsReadOnly();
                 break;
             case "MVVMSidekick.ViewModels.BindableBase`1<NavDemo.ViewModels.SearchPage_Model>.HasErrors":
                 userType = (global::NavDemo.NavDemo_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MVVMSidekick.ViewModels.BindableBase`1<NavDemo.ViewModels.SearchPage_Model>");
                 xamlMember = new global::NavDemo.NavDemo_XamlTypeInfo.XamlMember(this, "HasErrors", "Boolean");
-                xamlMember.Getter = get_187_BindableBase_HasErrors;
+                xamlMember.Getter = get_186_BindableBase_HasErrors;
                 xamlMember.SetIsReadOnly();
                 break;
             case "MVVMSidekick.ViewModels.BindableBase`1<NavDemo.ViewModels.SearchPage_Model>.LocalEventRouter":
                 userType = (global::NavDemo.NavDemo_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MVVMSidekick.ViewModels.BindableBase`1<NavDemo.ViewModels.SearchPage_Model>");
                 xamlMember = new global::NavDemo.NavDemo_XamlTypeInfo.XamlMember(this, "LocalEventRouter", "MVVMSidekick.EventRouting.EventRouter");
-                xamlMember.Getter = get_188_BindableBase_LocalEventRouter;
-                xamlMember.Setter = set_188_BindableBase_LocalEventRouter;
+                xamlMember.Getter = get_187_BindableBase_LocalEventRouter;
+                xamlMember.Setter = set_187_BindableBase_LocalEventRouter;
                 break;
             case "NavDemo.Behaviours.ListViewBehavior.AssociatedObject":
                 userType = (global::NavDemo.NavDemo_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NavDemo.Behaviours.ListViewBehavior");
                 xamlMember = new global::NavDemo.NavDemo_XamlTypeInfo.XamlMember(this, "AssociatedObject", "Windows.UI.Xaml.DependencyObject");
-                xamlMember.Getter = get_189_ListViewBehavior_AssociatedObject;
-                xamlMember.Setter = set_189_ListViewBehavior_AssociatedObject;
+                xamlMember.Getter = get_188_ListViewBehavior_AssociatedObject;
+                xamlMember.Setter = set_188_ListViewBehavior_AssociatedObject;
                 break;
             case "NavDemo.SearchPage.StrongTypeViewModel":
                 userType = (global::NavDemo.NavDemo_XamlTypeInfo.XamlUserType)GetXamlTypeByName("NavDemo.SearchPage");
                 xamlMember = new global::NavDemo.NavDemo_XamlTypeInfo.XamlMember(this, "StrongTypeViewModel", "NavDemo.ViewModels.SearchPage_Model");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_190_SearchPage_StrongTypeViewModel;
-                xamlMember.Setter = set_190_SearchPage_StrongTypeViewModel;
+                xamlMember.Getter = get_189_SearchPage_StrongTypeViewModel;
+                xamlMember.Setter = set_189_SearchPage_StrongTypeViewModel;
                 break;
             }
             return xamlMember;

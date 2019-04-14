@@ -46,7 +46,7 @@
 
         <RelativePanel x:Name="relativePanel" Grid.Row="1"  HorizontalAlignment="Center" VerticalAlignment="Center"  Margin="0,20,0,0" >
 
-            <AutoSuggestBox Style="{Binding AutoSuggestBoxStyle1}" Grid.Row="1" x:Name="MyASBox"   Height="46" Width="355" RelativePanel.LeftOf="suggestButton" Margin="0,0,10,0"
+            <AutoSuggestBox Style="{StaticResource AutoSuggestBoxStyle1}" Grid.Row="1" x:Name="MyASBox"   Height="46" Width="355" RelativePanel.LeftOf="suggestButton" Margin="0,0,10,0" Text="{Binding suggestBoxText,Mode=TwoWay}"
                         QueryIcon="Find" ItemsSource="{Binding friendItemList, Mode=TwoWay}" ItemTemplate="{StaticResource SuggestBoxTemplate}"  TextMemberPath="nameFriend" Opacity="0.5">
                 <AutoSuggestBox.Background>
                     <AcrylicBrush/>
@@ -95,9 +95,6 @@
                   >
 
             <Custom:Interaction.Behaviors>
-                <Custom1:EventTriggerBehavior EventName="Tapped">
-                    <Custom2:SendToEventRouterAction EventData="{Binding}" IsEventFiringToAllBaseClassesChannels="True" EventRoutingName="DialogChosenEventRouter"/>
-                </Custom1:EventTriggerBehavior>
                 <behaviour:ListViewBehavior></behaviour:ListViewBehavior>
             </Custom:Interaction.Behaviors>
             <ListView.Header>

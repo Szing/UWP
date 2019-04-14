@@ -36,27 +36,36 @@ namespace NavDemo.ViewModels
         static Func<BindableBase, String> _TitleDefaultValueFactory = m => m.GetType().Name;
         #endregion
 
-
+        /// <summary>
+        /// 当前的日志
+        /// </summary>
         public Dialog currentDialog { get => _currentDialogLocator(this).Value; set => _currentDialogLocator(this).SetValueAndTryNotify(value); }
         #region Property Dialog currentDialog Setup        
         protected Property<Dialog> _currentDialog = new Property<Dialog> { LocatorFunc = _currentDialogLocator };
         static Func<BindableBase, ValueContainer<Dialog>> _currentDialogLocator = RegisterContainerLocator(nameof(currentDialog), m => m.Initialize(nameof(currentDialog), ref m._currentDialog, ref _currentDialogLocator, () => default(Dialog)));
         #endregion
 
+        /// <summary>
+        /// 日志列表
+        /// </summary>
         public List<Dialog> listDialog { get => _listDialogLocator(this).Value; set => _listDialogLocator(this).SetValueAndTryNotify(value); }
         #region Property List<Dialog> listDialog Setup        
         protected Property<List<Dialog>> _listDialog = new Property<List<Dialog>> { LocatorFunc = _listDialogLocator };
         static Func<BindableBase, ValueContainer<List<Dialog>>> _listDialogLocator = RegisterContainerLocator(nameof(listDialog), m => m.Initialize(nameof(listDialog), ref m._listDialog, ref _listDialogLocator, () => default(List<Dialog>)));
         #endregion
 
-
+        /// <summary>
+        /// 日志索引
+        /// </summary>
         public int indexDialog { get => _indexDialogLocator(this).Value; set => _indexDialogLocator(this).SetValueAndTryNotify(value); }
         #region Property int indexDialog Setup        
         protected Property<int> _indexDialog = new Property<int> { LocatorFunc = _indexDialogLocator };
         static Func<BindableBase, ValueContainer<int>> _indexDialogLocator = RegisterContainerLocator(nameof(indexDialog), m => m.Initialize(nameof(indexDialog), ref m._indexDialog, ref _indexDialogLocator, () => default(int)));
         #endregion
 
-
+        /// <summary>
+        /// 富文本框实例，在这里使用是真的非常不好的一件事
+        /// </summary>
         public RichEditBox editBox { get => _editBoxLocator(this).Value; set => _editBoxLocator(this).SetValueAndTryNotify(value); }
         #region Property RichEditBox editBox Setup        
         protected Property<RichEditBox> _editBox = new Property<RichEditBox> { LocatorFunc = _editBoxLocator };
@@ -64,7 +73,9 @@ namespace NavDemo.ViewModels
         #endregion
 
        
-
+        /// <summary>
+        /// 切换到上一个日志
+        /// </summary>
         public CommandModel<ReactiveCommand, String> CommandToLastPage
         {
             get { return _CommandToLastPageLocator(this).Value; }
@@ -123,7 +134,9 @@ namespace NavDemo.ViewModels
         #endregion
 
 
-
+        /// <summary>
+        /// 切换到下一个日志
+        /// </summary>
         public CommandModel<ReactiveCommand, String> CommandToNextPage
         {
             get { return _CommandToNextPageLocator(this).Value; }
@@ -180,7 +193,9 @@ namespace NavDemo.ViewModels
               }));
         #endregion
 
-
+        /// <summary>
+        /// 获取日志
+        /// </summary>
         public CommandModel<ReactiveCommand, String> CommandGetDialog
         {
             get { return _CommandGetDialogLocator(this).Value; }
@@ -226,7 +241,9 @@ namespace NavDemo.ViewModels
               }));
         #endregion
 
-
+        /// <summary>
+        /// 删除日志
+        /// </summary>
         public CommandModel<ReactiveCommand, String> CommandDeleteDialog
         {
             get { return _CommandDeleteDialogLocator(this).Value; }
