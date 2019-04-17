@@ -21,6 +21,9 @@ using Windows.UI.Composition;
 using Windows.UI.ViewManagement;
 using Windows.UI;
 using Windows.UI.Core;
+using MVVMSidekick.Services;
+using NavDemo.Services;
+using System.Threading.Tasks;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -137,6 +140,10 @@ namespace NavDemo
         public static readonly DependencyProperty StrongTypeViewModelProperty =
                     DependencyProperty.Register("StrongTypeViewModel", typeof(MainPage_Model), typeof(MainPage), new PropertyMetadata(null));
 
-        
+        private void  Button_Click(object sender, RoutedEventArgs e)
+        {
+            //ServiceLocator.Instance.Resolve<FileService>().WriteDialog("dialog.txt");
+            ServiceLocator.Instance.Resolve<FileService>().ReadDialog("dialog.txt");
+        }
     }
 }

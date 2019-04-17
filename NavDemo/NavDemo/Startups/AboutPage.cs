@@ -24,7 +24,7 @@ namespace MVVMSidekick.Startups
             ViewModelLocator<AboutPage_Model>
                 .Instance
                 .Register(context =>
-                    new AboutPage_Model())
+                    GalaSoft.MvvmLight.Ioc.SimpleIoc.Default.GetInstance<AboutPage_Model>())
                 .GetViewMapper()
                 .MapToDefault<AboutPage>();
 

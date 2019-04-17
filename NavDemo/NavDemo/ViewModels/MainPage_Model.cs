@@ -86,7 +86,7 @@ namespace NavDemo.ViewModels
         static Func<bool> _IsPaneOpenDefaultValueFactory = () => default(bool);
         #endregion
 
-
+        
        
 
 
@@ -180,19 +180,19 @@ namespace NavDemo.ViewModels
                                  {
                                      case "首页":
                                          this.IsPaneOpen = false;
-                                         await StageManager["frameMain"].Show(ServiceLocator.Instance.Resolve<HomePage_Model>());
+                                         await StageManager["frameMain"].Show(ViewModelLocator< HomePage_Model>.Instance.Resolve());
                                          break;
                                      case "搜索":
                                          this.IsPaneOpen = false;
-                                         await StageManager["frameMain"].Show(ServiceLocator.Instance.Resolve<SearchPage_Model>());
+                                         await StageManager["frameMain"].Show(ViewModelLocator<SearchPage_Model>.Instance.Resolve());
                                          break;
                                      case "好友中心":
                                          this.IsPaneOpen = false;
-                                         await StageManager["frameMain"].Show(ServiceLocator.Instance.Resolve<ShowFriendPage_Model>());
+                                         await StageManager["frameMain"].Show(ViewModelLocator<ShowFriendPage_Model>.Instance.Resolve());
                                          break;
                                      case "添加好友":
                                          this.IsPaneOpen = false;
-                                         await StageManager["frameMain"].Show(ServiceLocator.Instance.Resolve<AddFriendPage_Model>());
+                                         await StageManager["frameMain"].Show(ViewModelLocator<AddFriendPage_Model>.Instance.Resolve());
                                          break;
                                      default:
                                          break;

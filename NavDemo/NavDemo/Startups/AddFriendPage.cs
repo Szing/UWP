@@ -24,7 +24,7 @@ namespace MVVMSidekick.Startups
             ViewModelLocator<AddFriendPage_Model>
                 .Instance
                 .Register(context =>
-                    new AddFriendPage_Model())
+                    GalaSoft.MvvmLight.Ioc.SimpleIoc.Default.GetInstance<AddFriendPage_Model>())
                 .GetViewMapper()
                 .MapToDefault<AddFriendPage>();
 

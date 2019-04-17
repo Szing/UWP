@@ -60,6 +60,7 @@ namespace NavDemo.Services
             using (var db = DbContext.GetInstance().GetSqLiteConnection())
             {
                 List<Friend> list = new List<Friend>();
+                
                 foreach (var item in db.Table<Friend>())
                 {
                     list.Add(item);

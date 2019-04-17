@@ -546,13 +546,17 @@ namespace NavDemo.ViewModels
                              chosenDialog = e.EventData as Dialog;
                              if(chosenDialog != null)
                              {
-                                 AboutPage_Model vms = ServiceLocator.Instance.Resolve<AboutPage_Model>();
+                                 AboutPage_Model vms = ViewModelLocator<AboutPage_Model>.Instance.Resolve();
                                  if (chosenDialog.textDialog == null)
                                      chosenDialog.textDialog = "default.rtf";
                                  vms.currentDialog = chosenDialog;
                                  
-                                 vms.listDialog = listDialog;
-                                
+                                 vms.listDialog = new List<Dialog>();
+                                 foreach (var i in listDialog)
+                                 {
+                                     vms.listDialog.Add(i);
+                                 }
+
                                  await StageManager["frameMain"].Show(vms);
                              }
                              

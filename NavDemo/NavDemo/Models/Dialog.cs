@@ -67,6 +67,19 @@ namespace NavDemo
 
         [Column("flagTime")]
         public int flagTime { get; set; }
+
+        public void Set(int idD,int idF,string name,string nickname,
+            string img,string des,string text,string time,int flag)
+        {
+            idDialog = idD;
+            idFriend = idF;
+            nameFriend = name;
+            nickNameFriend = nickname;
+            describeDialog = des;
+            textDialog = text;
+            timeDialog = time;
+            flagTime = flag;
+        }
     }
 
 }

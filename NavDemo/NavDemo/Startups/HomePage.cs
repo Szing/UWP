@@ -24,7 +24,7 @@ namespace MVVMSidekick.Startups
             ViewModelLocator<HomePage_Model>
                 .Instance
                 .Register(context =>
-                    new HomePage_Model())
+                   GalaSoft.MvvmLight.Ioc.SimpleIoc.Default.GetInstance<HomePage_Model>())
                 .GetViewMapper()
                 .MapToDefault<HomePage>();
 

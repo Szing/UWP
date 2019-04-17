@@ -77,7 +77,8 @@
 
             <SplitView.Content>
                 <Frame x:ConnectionId='5' x:Name="mainFrame" mvvm:StageManager.Beacon="frameMain" x:FieldModifier="public">
-                    
+                    <Button x:ConnectionId='6' x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="494,216,0,0" VerticalAlignment="Top"                     />
+
                 </Frame>
             </SplitView.Content>
 

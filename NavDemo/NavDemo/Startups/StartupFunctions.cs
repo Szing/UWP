@@ -25,28 +25,38 @@ namespace MVVMSidekick.Startups
 			AllConfig.Add(action);
 			return action;
 		}
+
+        /// <summary>
+        /// 用于注册各类的ViewModelLocator
+        /// </summary>
 		public static void RunAllConfig()
 		{
 			if (AllConfig==null) return;
-			foreach (var item in AllConfig)
-			{
-				item();
-			}
-            SimpleIoc.Default.Register<HomePage_Model>();
-            SimpleIoc.Default.Register<SearchPage_Model>();
-            SimpleIoc.Default.Register<ShowFriendPage_Model>();
-            SimpleIoc.Default.Register<AddFriendPage_Model>();
 
+
+            SimpleIoc.Default.Register<HomePage_Model>();
+            SimpleIoc.Default.Register<AboutPage_Model>();
+            SimpleIoc.Default.Register<SearchPage_Model>();
+            SimpleIoc.Default.Register<AddFriendPage_Model>();
+            SimpleIoc.Default.Register<ShowFriendPage_Model>();
+            
             Services.ServiceLocator.Instance.Register<DbContext>(DbContext.GetInstance());
             Services.ServiceLocator.Instance.Register<DataService>(DataService.GetInstance());
             Services.ServiceLocator.Instance.Register<SuggestService>(SuggestService.GetInstance());
             Services.ServiceLocator.Instance.Register<FileService>(FileService.GetInstance());
             Services.ServiceLocator.Instance.Register<ImageService>(ImageService.GetInstance());
+
+            foreach (var item in AllConfig)
+			{
+				item();
+			}
+
             
-            Services.ServiceLocator.Instance.Register<HomePage_Model>(SimpleIoc.Default.GetInstance<HomePage_Model>());
-            Services.ServiceLocator.Instance.Register<SearchPage_Model>(SimpleIoc.Default.GetInstance<SearchPage_Model>());
-            Services.ServiceLocator.Instance.Register<ShowFriendPage_Model>(SimpleIoc.Default.GetInstance<ShowFriendPage_Model>());
-            Services.ServiceLocator.Instance.Register<AddFriendPage_Model>(SimpleIoc.Default.GetInstance<AddFriendPage_Model>());
+
+            
+            
+            
+            
         }
 
 

@@ -15,6 +15,7 @@ using System.Runtime.Serialization;
 using Windows.UI.Xaml.Controls;
 using Windows.Storage;
 using NavDemo.Services;
+using System.Diagnostics;
 
 namespace NavDemo.ViewModels
 {
@@ -338,12 +339,11 @@ namespace NavDemo.ViewModels
             //获取当前dialog的index以便进行上一篇下一篇
             if (currentDialog != null && listDialog != null)
             {
-                for(int i = 0; i < listDialog.Count(); ++i)
+                for(int i = 0; i < listDialog.Count; ++i)
                 {
                     if(listDialog[i].Equals(currentDialog))
                     {
                         indexDialog = i;
-
                         break;
                     }
                 }

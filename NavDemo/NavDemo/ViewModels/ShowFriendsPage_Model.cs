@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using NavDemo.Services;
+using System.Diagnostics;
 
 namespace NavDemo.ViewModels
 {
@@ -245,16 +246,26 @@ namespace NavDemo.ViewModels
                           vm,
                           async e =>
                           {
-                            //Todo: Add InsertFriend logic here, or
-                            await MVVMSidekick.Utilities.TaskExHelper.Yield();
-                              await
-                               CastToCurrentType(model)
-                               .StageManager
-                               .DefaultStage
-                               .Show(ServiceLocator.Instance.Resolve<AddFriendPage_Model>());
+                              //Todo: Add InsertFriend logic here, or
+                             
+                                 
+                              await MVVMSidekick.Utilities.TaskExHelper.Yield();
+                             
+
                           })
                       .DoNotifyDefaultEventRouter(vm, commandId)
-                      .Subscribe()
+                      .Subscribe(
+                      async _=> {
+                          using (var targetvm = ViewModelLocator<AddFriendPage_Model>.Instance.Resolve())
+                          {
+                              await
+                              CastToCurrentType(model)
+                              .StageManager
+                              .DefaultStage
+                              .Show(targetvm);
+                              
+                          }
+                      })
                       .DisposeWith(vm);
 
                   var cmdmdl = cmd.CreateCommandModel(state);
@@ -266,6 +277,63 @@ namespace NavDemo.ViewModels
               }));
         #endregion
 
+
+        public CommandModel<ReactiveCommand, String> CommandTest
+        {
+            get { return _CommandTestLocator(this).Value; }
+            set { _CommandTestLocator(this).SetValueAndTryNotify(value); }
+        }
+        #region Property CommandModel<ReactiveCommand, String> CommandTest Setup               
+        protected Property<CommandModel<ReactiveCommand, String>> _CommandTest = new Property<CommandModel<ReactiveCommand, String>> { LocatorFunc = _CommandTestLocator };
+        static Func<BindableBase, ValueContainer<CommandModel<ReactiveCommand, String>>> _CommandTestLocator = RegisterContainerLocator("CommandTest", m => m.Initialize("CommandTest", ref m._CommandTest, ref _CommandTestLocator,
+              model =>
+              {
+                  var state = "CommandTest";
+                  var commandId = "CommandTest";
+                  var vm = CastToCurrentType(model);
+                  var cmd = new ReactiveCommand(canExecute: true) { ViewModel = model };
+
+                  cmd.DoExecuteUIBusyTask(
+                          vm,
+                          async e =>
+                          {
+                              //Todo: Add Test logic here, or
+                              await MVVMSidekick.Utilities.TaskExHelper.Yield();
+                          })
+                      .Subscribe(_ => {
+                          //向事件信道发送一个新的事件，在别的viewmodel监听就可以触发
+                          //MVVMSidekick.EventRouting.EventRouterHelper.RaiseEvent(vm, new object(), "hello");
+                          //string eventArgs = "hello";
+                          Type type = typeof(Friend);
+                          Friend friend = new Friend();
+                          friend.nameFriend = "hello";
+                          friend.idFriend = 10;
+                          MVVMSidekick.EventRouting.EventRouter.Instance.RaiseEvent(vm, friend, "hello", true, true);
+                      })
+                      .DisposeWith(vm);
+
+                  var cmdmdl = cmd.CreateCommandModel(state);
+
+                  cmdmdl.ListenToIsUIBusy(
+                      model: vm,
+                      canExecuteWhenBusy: false);
+                  return cmdmdl;
+              }));
+        #endregion
+
+        private void RegisterCommand()
+        {
+            //一般列表项点击事件
+            MVVMSidekick.EventRouting.EventRouter.Instance.GetEventChannel<Object>()
+                .Where(x => x.EventName == "hello")
+                     .Subscribe(
+                          e =>
+                          {
+                              var i = e;
+                              Friend item = e.EventData as Friend;
+                          }
+                     ).DisposeWith(this);
+        }
 
 
         #region Life Time Event Handling
@@ -357,7 +425,7 @@ namespace NavDemo.ViewModels
         #endregion
 
         #endregion
-
+        
     }
 }
 

@@ -19,12 +19,18 @@ namespace NavDemo.Services
     {
         private string DbFileName = "test1.db";
         private string DbFilePath;
-        
+        //private SQLiteConnection connection;
         public SQLiteConnection GetSqLiteConnection()
         {
             ISQLitePlatform platform = new SQLitePlatformWinRT();
             SQLiteConnection con = new SQLiteConnection(platform, DbFilePath);
+            /*
+             if (connection != null)
+                return connection;
+            else return connection = new SQLiteConnection(platform, DbFilePath);
+             */
 
+            
 
             return con;
         }

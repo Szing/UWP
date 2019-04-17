@@ -21,10 +21,11 @@ namespace MVVMSidekick.Startups
 
         public static void ConfigShowFriendPage()
         {
+            
             ViewModelLocator<ShowFriendPage_Model>
                 .Instance
                 .Register(context =>
-                    new ShowFriendPage_Model())
+                   GalaSoft.MvvmLight.Ioc.SimpleIoc.Default.GetInstance<ShowFriendPage_Model>())
                 .GetViewMapper()
                 .MapToDefault<ShowFriendPage>();
 

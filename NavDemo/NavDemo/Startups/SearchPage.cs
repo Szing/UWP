@@ -24,7 +24,7 @@ namespace MVVMSidekick.Startups
             ViewModelLocator<SearchPage_Model>
                 .Instance
                 .Register(context =>
-                    new SearchPage_Model())
+                    GalaSoft.MvvmLight.Ioc.SimpleIoc.Default.GetInstance<SearchPage_Model>())
                 .GetViewMapper()
                 .MapToDefault<SearchPage>();
 
