@@ -1,0 +1,91 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:Behaviors="using:MVVMSidekick.Behaviors"
+    >
+
+    <DataTemplate x:Key="NavMenuItemTemplate" >
+        <Grid >
+            <Interactivity:Interaction.Behaviors>
+                <Core:EventTriggerBehavior EventName="Tapped">
+                    <Behaviors:SendToEventRouterAction IsEventFiringToAllBaseClassesChannels="True" EventRoutingName="NavToPage" EventData="{Binding}" />
+                </Core:EventTriggerBehavior>
+            </Interactivity:Interaction.Behaviors>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition MinWidth="48" Width="Auto" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <FontIcon x:Name="Glyph" FontFamily="{StaticResource FontAwesomeFontFamily}" FontSize="16" Margin="0" Glyph="{Binding Glyph}" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTipService.ToolTip="{Binding Label}"/>
+            <TextBlock x:Name="Text" Grid.Column="1" Text="{Binding Label}" VerticalAlignment="Center" />
+        </Grid>
+    </DataTemplate>
+    <DataTemplate x:Key="FontItemTemplate" >
+        <Grid >
+            <Interactivity:Interaction.Behaviors>
+                <Core:EventTriggerBehavior EventName="Tapped">
+                    <Core:InvokeCommandAction Command="{Binding CommandChoseFont}" ></Core:InvokeCommandAction>
+                </Core:EventTriggerBehavior>
+            </Interactivity:Interaction.Behaviors>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition MinWidth="48" Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <TextBlock x:Name="Text" Grid.Column="0" Text="{Binding fontName}" FontFamily="{Binding fontFamily}" VerticalAlignment="Center" />
+        </Grid>
+    </DataTemplate>
+    <DataTemplate x:Key="SuggestBoxTemplate">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition  Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Image Width="50" Source="{Binding iconFriend}" />
+            <Ellipse Grid.Row="0" Width="60" Height="60"  >
+                <Ellipse.Fill>
+                    <ImageBrush ImageSource="{Binding iconFriend}" ></ImageBrush>
+                </Ellipse.Fill>
+            </Ellipse>
+            <StackPanel Grid.Column="1" Margin="7,3,4,3">
+                <TextBlock FontSize="15" FontWeight="Bold" Text="{Binding nameFriend}"/>
+                <TextBlock>
+                                    <Run>昵称：</Run>
+                                    <Run Text="{Binding nickNameFriend}" />
+                </TextBlock>
+            </StackPanel>
+
+        </Grid>
+    </DataTemplate>
+    <DataTemplate x:Key="DialogItemTemplate" >
+        <Grid >
+            <Interactivity:Interaction.Behaviors>
+                <Core:EventTriggerBehavior EventName="Tapped">
+                    <Behaviors:SendToEventRouterAction IsEventFiringToAllBaseClassesChannels="True" EventRoutingName="DialogChosenEventRouter" EventData="{Binding}" />
+                </Core:EventTriggerBehavior>
+               
+            </Interactivity:Interaction.Behaviors>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition  Width="Auto" />
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Image Width="50" Source="{Binding imageDialog}" />
+            <StackPanel Grid.Column="1" Margin="7,3,4,3">
+                <TextBlock FontSize="15" FontWeight="Bold" Text="{Binding describeDialog}"/>
+                <TextBlock>
+                                    <Run Text="{Binding nameFriend}" />
+                                    <Run>：</Run>
+                                    <Run Text="{Binding nickNameFriend}" />
+                </TextBlock>
+                <TextBlock>
+                                    <Run>时间：</Run>
+                                    <Run Text="{Binding timeDialog}" />
+                </TextBlock>
+            </StackPanel>
+
+        </Grid>
+    </DataTemplate>
+</ResourceDictionary>
+

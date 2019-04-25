@@ -15,11 +15,14 @@ using NavDemo;
 
 namespace NavDemo.Services
 {
-    public class DbContext : Singleton<DbContext>
+    public class DbContext : Singleton<DbContext>,IDbContentService
     {
         private string DbFileName = "test1.db";
         private string DbFilePath;
-        //private SQLiteConnection connection;
+        /// <summary>
+        /// 获取SQL链接
+        /// </summary>
+        /// <returns>SQL链接</returns>
         public SQLiteConnection GetSqLiteConnection()
         {
             ISQLitePlatform platform = new SQLitePlatformWinRT();
@@ -34,6 +37,9 @@ namespace NavDemo.Services
 
             return con;
         }
+        /// <summary>
+        /// 初始化Friend表
+        /// </summary>
         public void initTableFriend()
         {
             string FdLocal = ApplicationData.Current.LocalFolder.Path;
@@ -48,6 +54,9 @@ namespace NavDemo.Services
 
             
         }
+        /// <summary>
+        /// 初始化Dialog表
+        /// </summary>
         public void initTableDialog()
         {
             string FdLocal = ApplicationData.Current.LocalFolder.Path;

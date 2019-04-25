@@ -372,10 +372,12 @@ namespace NavDemo.ViewModels
         ///// </summary>
         ///// <param name="view">View that firing Unload event</param>
         ///// <returns>Task awaiter</returns>
-        //protected override Task OnBindedViewUnload(MVVMSidekick.Views.IView view)
-        //{
-        //    return base.OnBindedViewUnload(view);
-        //}
+        protected override Task OnBindedViewUnload(MVVMSidekick.Views.IView view)
+        {
+            friendItemList.Clear();
+            suggestBoxText = "";
+            return base.OnBindedViewUnload(view);
+        }
 
         ///// <summary>
         ///// <para>If dispose actions got exceptions, will handled here. </para>

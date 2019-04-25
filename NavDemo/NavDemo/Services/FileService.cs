@@ -14,9 +14,12 @@ using Windows.UI.Xaml.Controls;
 namespace NavDemo.Services
 {
 
-    public class FileService : Singleton<FileService>
+    public class FileService : Singleton<FileService>,IFileService
     {
-
+        /// <summary>
+        /// 通过FilePicker获取富文本流（弹出框选文件）
+        /// </summary>
+        /// <returns>富文本流</returns>
         public async Task<IRandomAccessStream> GetRandomAccessStream()
         {
             Windows.Storage.Pickers.FileOpenPicker open =
@@ -52,7 +55,10 @@ namespace NavDemo.Services
             }
             return null;
         }
-
+        /// <summary>
+        /// 设置富文本框的内容流
+        /// </summary>
+        /// <param name="editor">富文本框</param>
         public async Task SetRandomAccessStream(RichEditBox editor)
         {
             Windows.Storage.Pickers.FileSavePicker savePicker = new Windows.Storage.Pickers.FileSavePicker();
@@ -87,7 +93,11 @@ namespace NavDemo.Services
                 }
             }
         }
-
+        /// <summary>
+        /// 从文件中获取富文本流
+        /// </summary>
+        /// <param name="fileName">流来源的文件名</param>
+        /// <returns>富文本流</returns>
         public async Task<IRandomAccessStream> GetRandomAccessStream(string fileName)
         {
             Windows.Storage.Pickers.FileOpenPicker open =
@@ -126,7 +136,10 @@ namespace NavDemo.Services
             }
             return null;
         }
-
+        /// <summary>
+        /// 将好友信息从文件读入到数据库
+        /// </summary>
+        /// <param name="fileName">Friend来源文件</param>
         public async Task ReadFriend(string fileName)
         {
             StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
@@ -178,6 +191,10 @@ namespace NavDemo.Services
             }
 
         }
+        /// <summary>
+        /// 将日志信息从文件读入到数据库
+        /// </summary>
+        /// <param name="fileName">Friend来源文件</param>
         public async Task ReadDialog(string fileName)
         {
             StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
@@ -260,6 +277,10 @@ namespace NavDemo.Services
             }
 
         }
+        /// <summary>
+        /// 将好友信息从数据库写入到文件
+        /// </summary>
+        /// <param name="fileName">Friend来源文件</param>
         public async Task WriteFriend(string fileName)
         {
             StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
@@ -277,6 +298,10 @@ namespace NavDemo.Services
 
             File.WriteAllLines(file.Path,list.ToArray());
         }
+        /// <summary>
+        /// 将日志信息从数据库写入到文件
+        /// </summary>
+        /// <param name="fileName">Friend来源文件</param>
         public async Task WriteDialog(string fileName)
         {
             StorageFolder storageFolder = ApplicationData.Current.LocalFolder;

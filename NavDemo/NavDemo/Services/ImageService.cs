@@ -13,8 +13,12 @@ using Windows.System;
 
 namespace NavDemo.Services
 {
-    public class ImageService:Singleton<ImageService>
+    public class ImageService:Singleton<ImageService>,IImageService
     {
+        /// <summary>
+        /// 获取经过截取后的图片流
+        /// </summary>
+        /// <returns>图片流</returns>
         public async Task<IRandomAccessStream> GetImageStream()
         {
             var picker = new Windows.Storage.Pickers.FileOpenPicker();

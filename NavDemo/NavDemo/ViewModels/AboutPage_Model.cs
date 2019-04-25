@@ -289,7 +289,16 @@ namespace NavDemo.ViewModels
                                   }
                                   
                               }
-                             
+                              Windows.Storage.Streams.IRandomAccessStream randAccStream =
+                                    await ServiceLocator.Instance.Resolve<FileService>().GetRandomAccessStream(vm.currentDialog.textDialog);
+
+                              if (randAccStream != null)
+                              {
+                                  // Load the file into the Document property of the RichEditBox.
+                                  vm.editBox.Document.LoadFromStream(Windows.UI.Text.TextSetOptions.FormatRtf, randAccStream);
+
+                              }
+
                           })
                       .DoNotifyDefaultEventRouter(vm, commandId)
                       .Subscribe()

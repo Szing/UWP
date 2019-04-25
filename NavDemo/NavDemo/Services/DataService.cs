@@ -12,9 +12,13 @@ using NavDemo.Services;
 
 namespace NavDemo.Services
 {
-    public class DataService : Singleton<DataService>
+    public class DataService : Singleton<DataService>,IDataService
     {
-       
+
+        /// <summary>
+        /// 插入Friend到数据库（用于测试）
+        /// </summary>
+        /// <returns></returns>
         public int InsertFriend()
         {
             int result = 0;
@@ -37,6 +41,12 @@ namespace NavDemo.Services
             }
             return result;
         }
+
+        /// <summary>
+        /// 插入Friend到数据库库
+        /// </summary>
+        /// <param name="friend">要插入的Friend</param>
+        /// <returns></returns>
         public int InsertFriend(Friend friend)
         {
             int result = 0;
@@ -48,6 +58,11 @@ namespace NavDemo.Services
             }
             return result;
         }
+
+        /// <summary>
+        /// 从数据库删除Friend
+        /// </summary>
+        /// <param name="idFriend">要删除Friend的id</param>
         public void DeleteFriend(int idFriend)
         {
             using (var db = DbContext.GetInstance().GetSqLiteConnection())
@@ -55,6 +70,10 @@ namespace NavDemo.Services
                 db.Delete<Friend>(idFriend);
             }
         }
+        /// <summary>
+        /// 从数据库获取所有Friend
+        /// </summary>
+        /// <returns>所有Friend</returns>
         public List<Friend> GetAllFriends()
         {
             using (var db = DbContext.GetInstance().GetSqLiteConnection())
@@ -71,6 +90,11 @@ namespace NavDemo.Services
 
             }
         }
+        /// <summary>
+        /// 获取特定id的Friend
+        /// </summary>
+        /// <param name="id">Friend的id</param>
+        /// <returns>所有的指定id的Friend</returns>
         public List<Friend> GetFriends(int id)
         {
             using (var db = DbContext.GetInstance().GetSqLiteConnection())
@@ -84,7 +108,10 @@ namespace NavDemo.Services
             }
             
         }
-
+        /// <summary>
+        /// 插入Dialog到数据库（用于测试）
+        /// </summary>
+        /// <returns></returns>
         public int InsertDialog()
         {
             int result = 0;
@@ -107,6 +134,11 @@ namespace NavDemo.Services
             }
             return result;
         }
+        /// <summary>
+        /// 插入dialog到数据库
+        /// </summary>
+        /// <param name="dialog">要插入的日志</param>
+        /// <returns></returns>
         public int InsertDialog(Dialog dialog)
         {
             int result = 0;
@@ -118,6 +150,10 @@ namespace NavDemo.Services
             }
             return result;
         }
+        /// <summary>
+        /// 从数据库删除指定id的Dialog
+        /// </summary>
+        /// <param name="idDialog">要删除的Dialog的id</param>
         public void DeleteDialog(int idDialog)
         {
             using (var db = DbContext.GetInstance().GetSqLiteConnection())
@@ -126,6 +162,10 @@ namespace NavDemo.Services
             }
         }
         
+        /// <summary>
+        /// 获取数据库中最后一篇Dialog的id
+        /// </summary>
+        /// <returns>最后一篇Dialog的id</returns>
         public int GetLastDialogId()
         {
             using (var db = DbContext.GetInstance().GetSqLiteConnection())
@@ -141,7 +181,12 @@ namespace NavDemo.Services
         {
             throw new NotImplementedException();
         }
+        
 
+        /// <summary>
+        /// 获取数据中所有的Dialog
+        /// </summary>
+        /// <returns>所有的Dialog</returns>
         public List<Dialog> GetAllDialogs()
         {
             using (var db = DbContext.GetInstance().GetSqLiteConnection())
@@ -158,11 +203,12 @@ namespace NavDemo.Services
 
             }
         }
+
         /// <summary>
-        /// 获取降序排列的dialog
+        /// 获取指定Friend id的Dialog(按时间降序)
         /// </summary>
-        /// <param name="idFriend">朋友id</param>
-        /// <returns>该朋友对应listDialog</returns>
+        /// <param name="idFriend">与Dialog相关联的Friend的id</param>
+        /// <returns></returns>
         public List<Dialog> GetDialogs(int idFriend)
         {
             using (var db = DbContext.GetInstance().GetSqLiteConnection())
@@ -176,6 +222,11 @@ namespace NavDemo.Services
             }
 
         }
+        /// <summary>
+        /// 获取指定时间的Dialog
+        /// </summary>
+        /// <param name="timeDialog">某个Dialog的相应时间</param>
+        /// <returns></returns>
         public List<Dialog> GetDialogs(string timeDialog)
         {
             using (var db = DbContext.GetInstance().GetSqLiteConnection())

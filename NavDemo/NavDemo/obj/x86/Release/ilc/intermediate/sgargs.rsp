@@ -1,0 +1,10 @@
+/out:"D:\UWP-master\NavDemo\NavDemo\obj\x86\Release\ilc\intermediate\SgGenerated\\"
+/int:"D:\UWP-master\NavDemo\NavDemo\obj\x86\Release\ilc\intermediate\\"
+/ref:"D:\UWP-master\NavDemo\NavDemo\obj\x86\Release\ilc\intermediate\PreMergeILTransformed\\"
+/ref:"D:\UWP-master\NavDemo\NavDemo\obj\x86\Release\ilc\intermediate\TransformedSRWR\\"
+/ref:"D:\UWP-master\NavDemo\NavDemo\obj\x86\Release\ilc\in\\"
+/ref:"D:\UWP-master\NavDemo\NavDemo\obj\x86\Release\ilc\in\\"
+/ref:"D:\UWP-master\NavDemo\NavDemo\obj\x86\Release\ilc\in\\"
+/ref:"C:\Program Files (x86)\MSBuild\15.0\.Net\.NetNative\15.0.24211\x86\ilc\lib\Private\\"
+/ref:"D:\UWP-master\NavDemo\NavDemo\obj\x86\Release\ilc\in\WinMetadata\\"
+/ca:System.Private.CoreLib

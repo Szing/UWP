@@ -1,0 +1,1 @@
+D:\UWP-master\NavDemo\NavDemo\NavDemo.csproj;x86
