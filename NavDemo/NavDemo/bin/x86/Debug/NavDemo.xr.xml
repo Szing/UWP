@@ -11,6 +11,7 @@
     <RootPropertyPathName Name="iconFriend" />
     <RootPropertyPathName Name="friend" />
     <RootPropertyPathName Name="CommandDeleteDialog" />
+    <RootPropertyPathName Name="richEditBoxContent" />
     <RootPropertyPathName Name="CommandToNextPage" />
     <RootPropertyPathName Name="CommandToLastPage" />
     <RootPropertyPathName Name="currentDialog" />
@@ -24,6 +25,7 @@
     <RootPropertyPathName Name="CommandChangeDate" />
     <RootPropertyPathName Name="IsPaneOpen" />
     <RootPropertyPathName Name="NavMenuItemList" />
+    <RootPropertyPathName Name="listViewBackGround" />
     <RootPropertyPathName Name="imageDialog" />
     <RootPropertyPathName Name="CommandChoseFont" />
     <RootPropertyPathName Name="fontName" />
@@ -201,6 +203,11 @@
       <RootProperty Name="Height" />
       <RootProperty Name="Width" />
       <RootEvent Name="ContextMenuOpening" />
+      <RootEvent Name="TextChanged" />
+    </RootType>
+    <RootType FullName="NavDemo.AttachProps.RtfText">
+      <RootMethod Name="GetRichText" />
+      <RootMethod Name="SetRichText" />
     </RootType>
     <RootType FullName="NavDemo.AboutPage" />
     <RootType FullName="NavDemo.ViewModels.BlankPage1_Model" />

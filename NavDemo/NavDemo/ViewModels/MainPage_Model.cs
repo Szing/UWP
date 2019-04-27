@@ -86,11 +86,19 @@ namespace NavDemo.ViewModels
         static Func<bool> _IsPaneOpenDefaultValueFactory = () => default(bool);
         #endregion
 
+
         
-       
 
 
-        #region Life Time Event Handling
+
+        public string listViewBackGround { get => _listViewBackGroundLocator(this).Value; set => _listViewBackGroundLocator(this).SetValueAndTryNotify(value); }
+        #region Property string listViewBackGround Setup        
+        protected Property<string> _listViewBackGround = new Property<string> { LocatorFunc = _listViewBackGroundLocator};
+        static Func<BindableBase, ValueContainer<string>> _listViewBackGroundLocator = RegisterContainerLocator(nameof(listViewBackGround), m => m.Initialize(nameof(listViewBackGround), ref m._listViewBackGround, ref _listViewBackGroundLocator, () => default(string)));
+        #endregion
+
+
+        #region Life Time Event Handlingp
 
         ///// <summary>
         ///// This will be invoked by view when this viewmodel instance is set to view's ViewModel property. 
@@ -129,6 +137,8 @@ namespace NavDemo.ViewModels
                 this.isLoaded = true;
             }
 
+            //初始化ListView背景
+            listViewBackGround = "/Assets/background1.png";
             //建立Friend的数据表单
             ServiceLocator.Instance.Resolve<DbContext>().initTableFriend();
             //建立Dialog的数据表单
@@ -180,14 +190,17 @@ namespace NavDemo.ViewModels
                                  {
                                      case "首页":
                                          this.IsPaneOpen = false;
+                                         listViewBackGround = "/Assets/background1.png";
                                          await StageManager["frameMain"].Show(ViewModelLocator< HomePage_Model>.Instance.Resolve());
                                          break;
                                      case "搜索":
                                          this.IsPaneOpen = false;
+                                         listViewBackGround = "/Assets/dushuren.png";
                                          await StageManager["frameMain"].Show(ViewModelLocator<SearchPage_Model>.Instance.Resolve());
                                          break;
                                      case "好友中心":
                                          this.IsPaneOpen = false;
+                                         listViewBackGround = "/Assets/mozi.png";
                                          await StageManager["frameMain"].Show(ViewModelLocator<ShowFriendPage_Model>.Instance.Resolve());
                                          break;
                                      case "添加好友":

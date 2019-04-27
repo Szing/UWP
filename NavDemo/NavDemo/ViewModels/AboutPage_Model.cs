@@ -16,6 +16,7 @@ using Windows.UI.Xaml.Controls;
 using Windows.Storage;
 using NavDemo.Services;
 using System.Diagnostics;
+using System.IO;
 
 namespace NavDemo.ViewModels
 {
@@ -64,16 +65,20 @@ namespace NavDemo.ViewModels
         static Func<BindableBase, ValueContainer<int>> _indexDialogLocator = RegisterContainerLocator(nameof(indexDialog), m => m.Initialize(nameof(indexDialog), ref m._indexDialog, ref _indexDialogLocator, () => default(int)));
         #endregion
 
+        
+
         /// <summary>
-        /// 富文本框实例，在这里使用是真的非常不好的一件事
+        /// RichEditBox的内容string
         /// </summary>
-        public RichEditBox editBox { get => _editBoxLocator(this).Value; set => _editBoxLocator(this).SetValueAndTryNotify(value); }
-        #region Property RichEditBox editBox Setup        
-        protected Property<RichEditBox> _editBox = new Property<RichEditBox> { LocatorFunc = _editBoxLocator };
-        static Func<BindableBase, ValueContainer<RichEditBox>> _editBoxLocator = RegisterContainerLocator(nameof(editBox), m => m.Initialize(nameof(editBox), ref m._editBox, ref _editBoxLocator, () => default(RichEditBox)));
+        public string richEditBoxContent { get => _richEditBoxContentLocator(this).Value; set => _richEditBoxContentLocator(this).SetValueAndTryNotify(value); }
+        #region Property string richEditBoxContent Setup        
+        protected Property<string> _richEditBoxContent = new Property<string> { LocatorFunc = _richEditBoxContentLocator };
+        static Func<BindableBase, ValueContainer<string>> _richEditBoxContentLocator = RegisterContainerLocator(nameof(richEditBoxContent), m => m.Initialize(nameof(richEditBoxContent), ref m._richEditBoxContent, ref _richEditBoxContentLocator, () => default(string)));
         #endregion
 
-       
+
+
+
         /// <summary>
         /// 切换到上一个日志
         /// </summary>
@@ -104,16 +109,8 @@ namespace NavDemo.ViewModels
                                   vm.currentDialog = vm.listDialog[vm.indexDialog];
                                   if (vm.currentDialog.textDialog == null)
                                       vm.currentDialog.textDialog = "default.rtf";
-                                  RichEditBox richEditBox = (RichEditBox)e.EventArgs.Parameter;
-
-                                  Windows.Storage.Streams.IRandomAccessStream randAccStream =
-                                            await ServiceLocator.Instance.Resolve<FileService>().GetRandomAccessStream(vm.currentDialog.textDialog);
-
-                                  if (randAccStream != null)
-                                  {
-                                      // Load the file into the Document property of the RichEditBox.
-                                      richEditBox.Document.LoadFromStream(Windows.UI.Text.TextSetOptions.FormatRtf, randAccStream);
-                                  }
+                                  vm.richEditBoxContent = await ServiceLocator.Instance.Resolve<FileService>()
+                                                                .GetStringFromFile(vm.currentDialog.textDialog);
                               }
                               else
                               {
@@ -165,16 +162,8 @@ namespace NavDemo.ViewModels
                                   vm.currentDialog = vm.listDialog[vm.indexDialog];
                                   if (vm.currentDialog.textDialog == null)
                                       vm.currentDialog.textDialog = "default.rtf";
-                                  RichEditBox richEditBox = (RichEditBox)e.EventArgs.Parameter;
-
-                                  Windows.Storage.Streams.IRandomAccessStream randAccStream =
-                                            await ServiceLocator.Instance.Resolve<FileService>().GetRandomAccessStream(vm.currentDialog.textDialog);
-
-                                  if (randAccStream != null)
-                                  {
-                                      // Load the file into the Document property of the RichEditBox.
-                                      richEditBox.Document.LoadFromStream(Windows.UI.Text.TextSetOptions.FormatRtf, randAccStream);
-                                  }
+                                  vm.richEditBoxContent = await ServiceLocator.Instance.Resolve<FileService>()
+                                                                .GetStringFromFile(vm.currentDialog.textDialog);
                               }
                               else
                               {
@@ -218,16 +207,8 @@ namespace NavDemo.ViewModels
                           {
                             //Todo: Add GetDialog logic here, or
                             await MVVMSidekick.Utilities.TaskExHelper.Yield();
-                              RichEditBox richEditBox = (RichEditBox)e.EventArgs.Parameter;
-
-                              Windows.Storage.Streams.IRandomAccessStream randAccStream =
-                                        await ServiceLocator.Instance.Resolve<FileService>().GetRandomAccessStream(vm.currentDialog.textDialog);
-
-                              if (randAccStream != null)
-                              {
-                                  // Load the file into the Document property of the RichEditBox.
-                                  richEditBox.Document.LoadFromStream(Windows.UI.Text.TextSetOptions.FormatRtf, randAccStream);
-                              }
+                              vm.richEditBoxContent = await ServiceLocator.Instance.Resolve<FileService>()
+                                                                .GetStringFromFile(vm.currentDialog.textDialog);
                           })
                       .DoNotifyDefaultEventRouter(vm, commandId)
                       .Subscribe()
@@ -289,15 +270,8 @@ namespace NavDemo.ViewModels
                                   }
                                   
                               }
-                              Windows.Storage.Streams.IRandomAccessStream randAccStream =
-                                    await ServiceLocator.Instance.Resolve<FileService>().GetRandomAccessStream(vm.currentDialog.textDialog);
-
-                              if (randAccStream != null)
-                              {
-                                  // Load the file into the Document property of the RichEditBox.
-                                  vm.editBox.Document.LoadFromStream(Windows.UI.Text.TextSetOptions.FormatRtf, randAccStream);
-
-                              }
+                              vm.richEditBoxContent = await ServiceLocator.Instance.Resolve<FileService>()
+                                                                 .GetStringFromFile(vm.currentDialog.textDialog);
 
                           })
                       .DoNotifyDefaultEventRouter(vm, commandId)
@@ -356,15 +330,23 @@ namespace NavDemo.ViewModels
                         break;
                     }
                 }
-                Windows.Storage.Streams.IRandomAccessStream randAccStream =
-                                    await ServiceLocator.Instance.Resolve<FileService>().GetRandomAccessStream(currentDialog.textDialog);
 
+                
+                richEditBoxContent = await ServiceLocator.Instance.Resolve<FileService>().GetStringFromFile(currentDialog.textDialog);
+                
+                /*
+                 
+                 Windows.Storage.Streams.IRandomAccessStream randAccStream =
+                                    await ServiceLocator.Instance.Resolve<FileService>().GetRandomAccessStream(currentDialog.textDialog);
+                
                 if (randAccStream != null)
                 {
                     // Load the file into the Document property of the RichEditBox.
-                    editBox.Document.LoadFromStream(Windows.UI.Text.TextSetOptions.FormatRtf, randAccStream);
-                    
+                   editBox.Document.LoadFromStream(Windows.UI.Text.TextSetOptions.FormatRtf, randAccStream);
+
                 }
+                 */
+
             }
 
             await base.OnBindedViewLoad(view);

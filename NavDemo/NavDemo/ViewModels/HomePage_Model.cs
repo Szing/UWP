@@ -24,6 +24,7 @@ using Windows.System;
 using Windows.Foundation.Collections;
 using Windows.ApplicationModel.DataTransfer;
 using Windows.UI.Xaml.Media.Imaging;
+using System.IO;
 
 namespace NavDemo.ViewModels
 {
@@ -112,8 +113,15 @@ namespace NavDemo.ViewModels
         #endregion
 
 
-      
 
+        /// <summary>
+        /// RichEditBox的内容string
+        /// </summary>
+        public string richEditBoxContent { get => _richEditBoxContentLocator(this).Value; set => _richEditBoxContentLocator(this).SetValueAndTryNotify(value); }
+        #region Property string richEditBoxContent Setup        
+        protected Property<string> _richEditBoxContent = new Property<string> { LocatorFunc = _richEditBoxContentLocator };
+        static Func<BindableBase, ValueContainer<string>> _richEditBoxContentLocator = RegisterContainerLocator(nameof(richEditBoxContent), m => m.Initialize(nameof(richEditBoxContent), ref m._richEditBoxContent, ref _richEditBoxContentLocator, () => default(string)));
+        #endregion
 
 
         /// <summary>
@@ -186,61 +194,18 @@ namespace NavDemo.ViewModels
                           {
                               //Todo: Add SomeCommand logic here, or
                              
-                              await MVVMSidekick.Utilities.TaskExHelper.Yield();
+                              
 
 
                               vm.currentDialog.textDialog = vm.currentIndex.ToString() + ".rtf";
                               ServiceLocator.Instance.Resolve<DataService>()
                                  .InsertDialog(vm.currentDialog);
                               vm.currentIndex++;
-                              StringBuilder sb = new StringBuilder();
-                              DataService dataService = ServiceLocator.Instance.Resolve<DataService>();
 
-                              List<Dialog> list = dataService.GetAllDialogs();
-                              foreach (Dialog item in list)
-                              {
-                                  sb.AppendLine($"{item.idFriend} {item.timeDialog} {item.describeDialog} {item.textDialog} ");
-                              }
-                              await new Windows.UI.Popups.MessageDialog(sb.ToString()).ShowAsync();
+                              await ServiceLocator.Instance.Resolve<FileService>()
+                                .SetStringToFile(vm.currentDialog.textDialog,vm.richEditBoxContent);
 
-                              //ExportFile Service
-                              Windows.Storage.Pickers.FileSavePicker savePicker = new Windows.Storage.Pickers.FileSavePicker();
-                              savePicker.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary;
-
-                              // Dropdown of file types the user can save the file as
-                              savePicker.FileTypeChoices.Add("Rich Text", new List<string>() { ".rtf" });
-
-                              // Default file name if the user does not type one in or select a file to replace
-                              savePicker.SuggestedFileName = "New Document";
-
-                              Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
-
-                              string fileName = vm.currentDialog.textDialog;
-                              Windows.Storage.StorageFile file = await storageFolder.CreateFileAsync(fileName, Windows.Storage.CreationCollisionOption.ReplaceExisting);
-
-                              await new Windows.UI.Popups.MessageDialog(fileName).ShowAsync();
-                              if (file != null)
-                              {
-                                  // Prevent updates to the remote version of the file until we
-                                  // finish making changes and call CompleteUpdatesAsync.
-                                  Windows.Storage.CachedFileManager.DeferUpdates(file);
-                                  // write to file
-                                  Windows.Storage.Streams.IRandomAccessStream randAccStream =
-                                      await file.OpenAsync(Windows.Storage.FileAccessMode.ReadWrite);
-                                  RichEditBox richEditBox = (RichEditBox)e.EventArgs.Parameter;
-                                  richEditBox.Document.SaveToStream(Windows.UI.Text.TextGetOptions.FormatRtf, randAccStream);
-
-                                  // Let Windows know that we're finished changing the file so the
-                                  // other app can update the remote version of the file.
-                                  Windows.Storage.Provider.FileUpdateStatus status = await Windows.Storage.CachedFileManager.CompleteUpdatesAsync(file);
-                                  if (status != Windows.Storage.Provider.FileUpdateStatus.Complete)
-                                  {
-                                      Windows.UI.Popups.MessageDialog errorBox =
-                                          new Windows.UI.Popups.MessageDialog("File " + file.Name + " couldn't be saved.");
-                                      await errorBox.ShowAsync();
-                                  }
-                              }
-
+                              await MVVMSidekick.Utilities.TaskExHelper.Yield();
                           })
                       .DoNotifyDefaultEventRouter(vm, commandId)
                       .Subscribe()
@@ -350,7 +315,7 @@ namespace NavDemo.ViewModels
             chosenFriend = new Friend();
             currentDialog = new Dialog();
             fontFamily = new FontFamily("SongTi");
-            suggestBoxText = ""; 
+            suggestBoxText = "";
             //获取数据库服务
             DataService dataService = ServiceLocator.Instance.Resolve<DataService>();
             //获取当前最后一篇dialog的id

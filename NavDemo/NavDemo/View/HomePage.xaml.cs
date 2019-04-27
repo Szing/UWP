@@ -35,6 +35,7 @@ using Windows.UI.Composition;
 using Windows.UI.ViewManagement;
 using Windows.UI;
 using Windows.UI.Text;
+using NavDemo.AttachProps;
 
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
@@ -88,6 +89,7 @@ namespace NavDemo
             base.OnNavigatedFrom(e);
         }
 
+        
         /// <summary>
         /// 打开并导入rtf文件
         /// </summary>
@@ -335,6 +337,39 @@ namespace NavDemo
                     break;
             }
             editor.Document.Selection.CharacterFormat.Underline = unlinetp;
+        }
+        string text = "";
+        private void Button_Click1(object sender, RoutedEventArgs e)
+        {
+            editor.Document.GetText(TextGetOptions.FormatRtf,out text);
+            Debug.Write(text);
+        }
+
+        private void Button_Click2(object sender, RoutedEventArgs e)
+        {
+            editor.Document.SetText(TextSetOptions.FormatRtf, text);
+        }
+
+        
+        int i = 0;
+        string old = "";
+        private void Editor_TextChanged(object sender, RoutedEventArgs e)
+        {
+            if (i == 0)
+            {
+                ++i;
+                return;
+            }
+            
+            RichEditBox edit = sender as RichEditBox;
+            string str = "";
+            edit.Document.GetText(TextGetOptions.FormatRtf, out str);
+            if(str != old)
+            {
+                RtfText.SetRichText(edit, str);
+                old = str;
+            }
+                 
         }
     }
 }

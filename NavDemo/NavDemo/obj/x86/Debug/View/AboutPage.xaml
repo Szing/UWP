@@ -8,6 +8,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="using:NavDemo.ViewModels"
+    xmlns:ap="using:NavDemo.AttachProps"
     mc:Ignorable="d">
 
     <Page.Resources>
@@ -43,7 +44,7 @@
         <TextBlock Grid.Row="2"  FontSize="25" Margin="0,0,360,0" HorizontalAlignment="Center"  Text="{Binding currentDialog.describeDialog}" TextWrapping="Wrap" VerticalAlignment="Center" Height="61" Width="358"/>
         <Button Grid.Row="3" Content="LastPage" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Command="{Binding CommandToLastPage}" CommandParameter="{Binding ElementName=editor}"/>
         <Button Grid.Row="3" Content="NextPage" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Command="{Binding CommandToNextPage}" CommandParameter="{Binding ElementName=editor}"/>
-        <RichEditBox x:ConnectionId='2' Grid.Row="3" Name="editor" HorizontalAlignment="Center"  VerticalAlignment="Top" Height="600" Width="721"/>
+        <RichEditBox x:ConnectionId='2' Grid.Row="3" Name="editor" HorizontalAlignment="Center"  VerticalAlignment="Top" Height="600" Width="721" ap:RtfText.RichText ="{Binding richEditBoxContent,Mode=OneWay}"/>
         <Button Content="Delete"   HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Bottom"  Command="{Binding CommandDeleteDialog}"/>
 
         <!-->

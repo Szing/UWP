@@ -34,6 +34,22 @@ namespace NavDemo.Services
         Task ReadFriend(string fileName);
 
         /// <summary>
+        /// 从AppData中的文本中获取string
+        /// </summary>
+        /// <param name="fileName">AppData目录下的文件名，需要带拓展名</param>
+        /// <returns>文本流的string形式</returns>
+        Task<string> GetStringFromFile(string fileName);
+
+        /// <summary>
+        /// 向AppData中的rtf文本中写入string
+        /// </summary>
+        /// <param name="fileName">AppData目录下的文件名，需要带拓展名</param>
+        /// <param name="content">要写入的内容</param>
+        /// <returns>文本信息</returns>
+        Task SetStringToFile(string fileName, string content);
+   
+
+        /// <summary>
         /// 将日志信息从文件读入到数据库
         /// </summary>
         /// <param name="fileName">Friend来源文件</param>

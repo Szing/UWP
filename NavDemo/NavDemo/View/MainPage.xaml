@@ -60,7 +60,7 @@
 
 
                     <ListView.Background >
-                        <ImageBrush ImageSource="/Assets/dushuren.png" Stretch="UniformToFill" Opacity="0.4">
+                        <ImageBrush ImageSource="{Binding listViewBackGround}" Stretch="UniformToFill" Opacity="0.4">
                             <ImageBrush.Transform>
                                 <CompositeTransform TranslateX="1"/>
                             </ImageBrush.Transform>

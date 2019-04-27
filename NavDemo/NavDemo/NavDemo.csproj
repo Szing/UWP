@@ -122,6 +122,7 @@
     <Content Include="Resources\FontAwesome.otf" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AttachProps\RtfStringSetter.cs" />
     <Compile Include="Behaviours\ListViewBehaviour.cs" />
     <Compile Include="Services\IDataService.cs" />
     <Compile Include="Services\IDbContentService.cs" />

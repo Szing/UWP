@@ -55,6 +55,7 @@ namespace NavDemo.Services
             }
             return null;
         }
+
         /// <summary>
         /// 设置富文本框的内容流
         /// </summary>
@@ -93,6 +94,7 @@ namespace NavDemo.Services
                 }
             }
         }
+
         /// <summary>
         /// 从文件中获取富文本流
         /// </summary>
@@ -109,7 +111,7 @@ namespace NavDemo.Services
             StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
             
             StorageFile file = await storageFolder.GetFileAsync(fileName);
-
+            
             
             if (file != null)
             {
@@ -135,6 +137,50 @@ namespace NavDemo.Services
                 }
             }
             return null;
+        }
+
+        /// <summary>
+        /// 从AppData中的文本中获取string
+        /// </summary>
+        /// <param name="fileName">AppData目录下的文件名，需要带拓展名</param>
+        /// <returns>文本信息</returns>
+        public async Task<string> GetStringFromFile(string fileName)
+        {
+            StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
+
+            StorageFile file = await storageFolder.GetFileAsync(fileName);
+           
+            return System.IO.File.ReadAllText(file.Path);
+        }
+        /// <summary>
+        /// 向AppData中的rtf文本中写入string
+        /// </summary>
+        /// <param name="fileName">AppData目录下的文件名，需要带拓展名</param>
+        /// <param name="content">要写入的内容</param>
+        /// <returns>文本信息</returns>
+        public async Task SetStringToFile(string fileName,string content)
+        {
+            //ExportFile Service
+            Windows.Storage.Pickers.FileSavePicker savePicker = new Windows.Storage.Pickers.FileSavePicker();
+            savePicker.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary;
+
+            // Dropdown of file types the user can save the file as
+            savePicker.FileTypeChoices.Add("Rich Text", new List<string>() { ".rtf" });
+
+            // Default file name if the user does not type one in or select a file to replace
+            savePicker.SuggestedFileName = "New Document";
+
+            Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+            
+            Windows.Storage.StorageFile file = await storageFolder.CreateFileAsync(fileName, Windows.Storage.CreationCollisionOption.ReplaceExisting);
+
+            await new Windows.UI.Popups.MessageDialog(fileName).ShowAsync();
+            if (file != null)
+            {
+                System.IO.File.WriteAllText(file.Path, content);
+            }
+
         }
         /// <summary>
         /// 将好友信息从文件读入到数据库
@@ -191,6 +237,7 @@ namespace NavDemo.Services
             }
 
         }
+
         /// <summary>
         /// 将日志信息从文件读入到数据库
         /// </summary>
@@ -277,6 +324,7 @@ namespace NavDemo.Services
             }
 
         }
+
         /// <summary>
         /// 将好友信息从数据库写入到文件
         /// </summary>
@@ -298,6 +346,7 @@ namespace NavDemo.Services
 
             File.WriteAllLines(file.Path,list.ToArray());
         }
+
         /// <summary>
         /// 将日志信息从数据库写入到文件
         /// </summary>
