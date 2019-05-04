@@ -29,15 +29,56 @@
             </TransitionCollection>
         </Grid.ChildrenTransitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.3*"></RowDefinition>
+            <RowDefinition Height="0.2*"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="0.4*"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="8*"></RowDefinition>
-            <RowDefinition Height="0.4*"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="0.2*"></RowDefinition>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="1" x:Name="detailGrid" Margin="0,20,0,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition  Width="0.5*"></ColumnDefinition>
+            <ColumnDefinition  Width="7*"></ColumnDefinition>
+            <ColumnDefinition  Width="0.5*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="1400" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        
+                        <Setter Target="btnHide1.Content" Value="︽隐藏之后"/>
+                        <Setter Target="detailGrid1.Visibility" Value="Collapsed"/>
+                        <Setter Target="btnHide.Content" Value="︾隐藏之后"/>
+                        <Setter Target="detailGrid.Visibility" Value="Collapsed"/>
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="900" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+
+                        <Setter Target="btnHide1.Content" Value="︽隐藏之后"/>
+                        <Setter Target="detailGrid1.Visibility" Value="Collapsed"/>
+                        <Setter Target="btnHide.Content" Value="︾隐藏之后"/>
+                        <Setter Target="detailGrid.Visibility" Value="Collapsed"/>
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <Grid Grid.Row="1" x:Name="detailGrid" Margin="0,20,0,0" Grid.Column="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*"></RowDefinition>
                 <RowDefinition Height="2*"></RowDefinition>
@@ -62,13 +103,13 @@
             <TextBox Grid.Row="1" HorizontalAlignment="Center" Text="{Binding currentDialog.describeDialog, Mode=TwoWay}"  Margin="0,10,0,0"  TextWrapping="Wrap" VerticalAlignment="Center" Height="120" Width="358" />
         </Grid>
         <Button Grid.Row="2" 
-                Grid.Column="0" 
+                Grid.ColumnSpan="3" 
                 Content="︽" 
                 VerticalAlignment="Top"  
                 HorizontalAlignment="Stretch" 
                 Name="btnHide" 
                 Click="BtnHide_Click" Background="{x:Null}" Opacity="0.5"/>
-        <RelativePanel Grid.Row="3"  HorizontalAlignment="Center" VerticalAlignment="Stretch"  Margin="0,0,0,0">
+        <RelativePanel  Name="RelativePanel" Grid.Row="3" Grid.Column="1"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Margin="0,0,0,0">
             <RelativePanel.Resources>
                 <Style TargetType="AppBarButton">
                     <Setter Property="IsCompact" Value="True"/>
@@ -188,6 +229,7 @@
                      RelativePanel.AlignBottomWithPanel="True"
                      ap:RtfText.RichText ="{Binding richEditBoxContent,Mode=TwoWay}"
                      TextChanged="Editor_TextChanged"
+                     
                       >
                 <FlyoutBase.AttachedFlyout>
                     <MenuFlyout >
@@ -217,13 +259,13 @@
             </RichEditBox>
         </RelativePanel>
         <Button Grid.Row="4" 
-                Grid.Column="0" 
+                Grid.ColumnSpan="3"
                 Content="︾" 
                 VerticalAlignment="Top"  
                 HorizontalAlignment="Stretch" 
                 Name="btnHide1" 
                 Click="BtnHide1_Click" Background="{x:Null}" Opacity="0.5"/>
-        <Grid Grid.Row="5" x:Name="detailGrid1" Margin="0,0,0,0">
+        <Grid Grid.Row="5" x:Name="detailGrid1" Margin="0,0,0,0" Grid.Column="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"></RowDefinition>
                 
@@ -244,8 +286,7 @@
         <Image x:Name="Img" HorizontalAlignment="Left" Height="198" Margin="1114,429,0,0" VerticalAlignment="Top" Width="212"/><!-->
             <Button  Grid.Row="0" Content="InsertDialog" HorizontalAlignment="Center"  VerticalAlignment="Center" Command="{Binding CommandInsertDialog}" Height="60" Width="128" CommandParameter="{Binding ElementName=editor}" Margin="505,0,0,0" Opacity="0.8"/>
         </Grid>
-        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="106,104,0,0" Grid.Row="3" VerticalAlignment="Top" Click="Button_Click1"/>
-        <Button x:Name="button1" Content="Button" HorizontalAlignment="Left" Margin="118,186,0,0" Grid.Row="3" VerticalAlignment="Top" Click="Button_Click2"/>
+       
 
     </Grid>
 </mvvm:MVVMPage>

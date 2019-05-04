@@ -247,8 +247,7 @@ namespace NavDemo.ViewModels
                           async e =>
                           {
                               //Todo: Add InsertFriend logic here, or
-                             
-                                 
+                               
                               await MVVMSidekick.Utilities.TaskExHelper.Yield();
                              
 
@@ -277,7 +276,9 @@ namespace NavDemo.ViewModels
               }));
         #endregion
 
-
+        /// <summary>
+        /// 向消息信道发送事件的测试
+        /// </summary>
         public CommandModel<ReactiveCommand, String> CommandTest
         {
             get { return _CommandTestLocator(this).Value; }
@@ -321,6 +322,9 @@ namespace NavDemo.ViewModels
               }));
         #endregion
 
+        /// <summary>
+        /// 从消息信道接受事件的测试
+        /// </summary>
         private void RegisterCommand()
         {
             //一般列表项点击事件
@@ -377,7 +381,8 @@ namespace NavDemo.ViewModels
             DataService dataService = ServiceLocator.Instance.Resolve<DataService>();
             //获取好友列表
             listFriend = dataService.GetAllFriends();
-
+            //初始化好友索引
+            indexFriend = 0;
             currentFriend = new Friend();
             if(listFriend.Count != 0)
             {

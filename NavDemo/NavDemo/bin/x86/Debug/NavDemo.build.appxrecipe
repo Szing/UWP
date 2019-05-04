@@ -494,6 +494,9 @@
     <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Assets\mozi.jpg">
       <PackagePath>Assets\mozi.jpg</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Assets\se.jpg">
+      <PackagePath>Assets\se.jpg</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\Assets\SplashScreen.scale-100.jpg">
       <PackagePath>Assets\SplashScreen.scale-100.jpg</PackagePath>
     </AppxPackagedFile>

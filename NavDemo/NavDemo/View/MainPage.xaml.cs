@@ -34,6 +34,7 @@ namespace NavDemo
     /// </summary>
     public sealed partial class MainPage : MVVMPage
     {
+        private double x = 0;
         public MainPage()
         {
             this.InitializeComponent();
@@ -48,19 +49,55 @@ namespace NavDemo
                 StrongTypeViewModel = this.ViewModel as MainPage_Model;
             });
             StrongTypeViewModel = this.ViewModel as MainPage_Model;
+
+            /*
             var coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
             coreTitleBar.ExtendViewIntoTitleBar = true;
+            initializeFrostedGlass(GlassHost);
+            */
             ApplicationView view = ApplicationView.GetForCurrentView();
-
             //将标题栏的三个键背景设为透明
             view.TitleBar.ButtonBackgroundColor = Colors.Transparent;
             //失去焦点时，将三个键背景设为透明
             view.TitleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
             //失去焦点时，将三个键前景色设为白色
-            view.TitleBar.ButtonInactiveForegroundColor = Colors.White; 
+            view.TitleBar.ButtonInactiveForegroundColor = Colors.White;
             
-
+            //滑动打开汉堡菜单服务
+            this.ManipulationMode = ManipulationModes.TranslateX;
+            this.ManipulationCompleted += The_ManipulationCompleted;
+            this.ManipulationDelta += The_ManipulationDelta;
         }
+
+        /// <summary>
+        /// 修改TitleBar的样式
+        /// </summary>
+        void ApplyColorToTitleBar()
+        {
+            var view = ApplicationView.GetForCurrentView();
+
+            // active
+            view.TitleBar.BackgroundColor = Colors.DarkBlue;
+            view.TitleBar.ForegroundColor = Colors.White;
+
+            // inactive
+            view.TitleBar.InactiveBackgroundColor = Colors.LightGray;
+            view.TitleBar.InactiveForegroundColor = Colors.Gray;
+
+            // button
+            view.TitleBar.ButtonBackgroundColor = Colors.Transparent;
+            view.TitleBar.ButtonForegroundColor = Colors.White;
+
+            view.TitleBar.ButtonHoverBackgroundColor = Colors.LightSkyBlue;
+            view.TitleBar.ButtonHoverForegroundColor = Colors.White;
+
+            view.TitleBar.ButtonPressedBackgroundColor = Color.FromArgb(255, 0, 0, 120);
+            view.TitleBar.ButtonPressedForegroundColor = Colors.White;
+
+            view.TitleBar.ButtonInactiveBackgroundColor = Colors.DarkGray;
+            view.TitleBar.ButtonInactiveForegroundColor = Colors.Gray;
+        }
+
         /// <summary>
         /// 回退事件
         /// </summary>
@@ -79,6 +116,7 @@ namespace NavDemo
                 
             }
         }
+
         /// <summary>
         /// 毛玻璃效果
         /// </summary>
@@ -95,6 +133,20 @@ namespace NavDemo
             var bindSizeAnimation = compositor.CreateExpressionAnimation("hostVisual.Size");
             bindSizeAnimation.SetReferenceParameter("hostVisual", hostVisual);
             glassVisual.StartAnimation("Size", bindSizeAnimation);
+        }
+
+        private void The_ManipulationDelta(object sender, ManipulationDeltaRoutedEventArgs e)
+        {
+            x += e.Delta.Translation.X;     //将滑动的值赋给x 
+        }
+
+        private void The_ManipulationCompleted(object sender, ManipulationCompletedRoutedEventArgs e)
+        {
+            if (x > 100)
+                RootSplitView.IsPaneOpen = true;
+            if (x < -100)
+                RootSplitView.IsPaneOpen = false;
+            x = 0;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -128,8 +180,6 @@ namespace NavDemo
                 }
             }
         }
-
-
 
         public MainPage_Model StrongTypeViewModel
         {

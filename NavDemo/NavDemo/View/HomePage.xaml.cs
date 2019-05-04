@@ -338,21 +338,16 @@ namespace NavDemo
             }
             editor.Document.Selection.CharacterFormat.Underline = unlinetp;
         }
-        string text = "";
-        private void Button_Click1(object sender, RoutedEventArgs e)
-        {
-            editor.Document.GetText(TextGetOptions.FormatRtf,out text);
-            Debug.Write(text);
-        }
-
-        private void Button_Click2(object sender, RoutedEventArgs e)
-        {
-            editor.Document.SetText(TextSetOptions.FormatRtf, text);
-        }
+       
 
         
         int i = 0;
         string old = "";
+        /// <summary>
+        /// RichEditBox输入改变唤醒附加属性
+        /// </summary>
+        /// <param name="sender">RichEditBox</param>
+        /// <param name="e">事件参数</param>
         private void Editor_TextChanged(object sender, RoutedEventArgs e)
         {
             if (i == 0)

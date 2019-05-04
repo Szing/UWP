@@ -149,7 +149,6 @@ namespace NavDemo.ViewModels
                               //Todo: Add CommandChoseFriend logic here, or
                               await MVVMSidekick.Utilities.TaskExHelper.Yield();
 
-
                               AutoSuggestBoxSuggestionChosenEventArgs args = (AutoSuggestBoxSuggestionChosenEventArgs)e.EventArgs.Parameter;
                               vm.chosenFriend = (Friend)args.SelectedItem;
                               vm.currentDialog.idFriend = vm.chosenFriend.idFriend;
@@ -194,9 +193,6 @@ namespace NavDemo.ViewModels
                           {
                               //Todo: Add SomeCommand logic here, or
                              
-                              
-
-
                               vm.currentDialog.textDialog = vm.currentIndex.ToString() + ".rtf";
                               ServiceLocator.Instance.Resolve<DataService>()
                                  .InsertDialog(vm.currentDialog);
@@ -250,11 +246,6 @@ namespace NavDemo.ViewModels
                               vm.currentDialog.timeDialog = "";
                               vm.currentDialog.timeDialog += date.Year.ToString() + '/' + date.Month.ToString() + '/' + date.Day.ToString();
                               vm.currentDialog.flagTime = date.Year * 365 + date.Month * 30 + date.Day;
-
-
-
-
-
 
                           })
                       .DoNotifyDefaultEventRouter(vm, commandId)
@@ -316,6 +307,7 @@ namespace NavDemo.ViewModels
             currentDialog = new Dialog();
             fontFamily = new FontFamily("SongTi");
             suggestBoxText = "";
+            richEditBoxContent = "";
             //获取数据库服务
             DataService dataService = ServiceLocator.Instance.Resolve<DataService>();
             //获取当前最后一篇dialog的id
@@ -326,7 +318,6 @@ namespace NavDemo.ViewModels
             suggest.init(dataService.GetAllFriends());
             //初始化suggest下拉表单
             friendItemList = dataService.GetAllFriends();
-
 
 
             return base.OnBindedViewLoad(view);
@@ -341,6 +332,7 @@ namespace NavDemo.ViewModels
         {
             friendItemList.Clear();
             suggestBoxText = "";
+            
             return base.OnBindedViewUnload(view);
         }
 

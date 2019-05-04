@@ -10,6 +10,7 @@
     <RootPropertyPathName Name="CommandToLastFriend" />
     <RootPropertyPathName Name="iconFriend" />
     <RootPropertyPathName Name="friend" />
+    <RootPropertyPathName Name="CommandSaveDialog" />
     <RootPropertyPathName Name="CommandDeleteDialog" />
     <RootPropertyPathName Name="richEditBoxContent" />
     <RootPropertyPathName Name="CommandToNextPage" />
@@ -202,6 +203,7 @@
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Height" />
       <RootProperty Name="Width" />
+      <RootEvent Name="SelectionChanged" />
       <RootEvent Name="ContextMenuOpening" />
       <RootEvent Name="TextChanged" />
     </RootType>
@@ -215,6 +217,7 @@
     <RootType FullName="NavDemo.BlankPage1" />
     <RootType FullName="NavDemo.ViewModels.HomePage_Model" />
     <RootType FullName="Windows.UI.Xaml.Controls.RelativePanel">
+      <RootProperty Name="Name" />
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Margin" />

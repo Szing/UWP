@@ -361,8 +361,6 @@ namespace NavDemo.ViewModels
                               AutoSuggestBoxSuggestionChosenEventArgs args= (AutoSuggestBoxSuggestionChosenEventArgs) e.EventArgs.Parameter;
                               vm.chosenFriend = (Friend)args.SelectedItem;
                               
-                              
-                             //await new Windows.UI.Popups.MessageDialog(vm.chosenFriend.nameFriend).ShowAsync();
                           })
                       .DoNotifyDefaultEventRouter(vm, commandId)
                       .Subscribe()
@@ -408,9 +406,6 @@ namespace NavDemo.ViewModels
                               vm.dateText = "";
                               vm.dateText += date.Year.ToString() + '/' + date.Month.ToString() + '/' + date.Day.ToString();
 
-                             
-                              
-                              
 
                           })
                       .DoNotifyDefaultEventRouter(vm, commandId)
@@ -468,8 +463,7 @@ namespace NavDemo.ViewModels
             }
            
             chosenFriend = new Friend();
-            
-           
+
             //获取数据库服务
             DataService dataService = ServiceLocator.Instance.Resolve<DataService>();
             //获取suggest服务
@@ -478,8 +472,6 @@ namespace NavDemo.ViewModels
             suggest.init(dataService.GetAllFriends());
             //初始化suggest下拉表单
             friendItemList = dataService.GetAllFriends();
-
-            
 
             return base.OnBindedViewLoad(view);
         }
@@ -526,8 +518,6 @@ namespace NavDemo.ViewModels
                      .Subscribe(
                           e =>
                          {
-                             
-                           
                              friendItemList =  ServiceLocator.Instance.Resolve<SuggestService>().Suggest(suggestBoxText); 
                          }
                      ).DisposeWith(this);

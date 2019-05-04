@@ -152,6 +152,7 @@ namespace NavDemo.Services
            
             return System.IO.File.ReadAllText(file.Path);
         }
+
         /// <summary>
         /// 向AppData中的rtf文本中写入string
         /// </summary>
@@ -171,10 +172,12 @@ namespace NavDemo.Services
             savePicker.SuggestedFileName = "New Document";
 
             Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
-
-            
-            Windows.Storage.StorageFile file = await storageFolder.CreateFileAsync(fileName, Windows.Storage.CreationCollisionOption.ReplaceExisting);
-
+            Windows.Storage.StorageFile file = await storageFolder.GetFileAsync(fileName);
+            if (file == null )
+            {
+                file = await storageFolder.CreateFileAsync(fileName, Windows.Storage.CreationCollisionOption.ReplaceExisting);
+            }
+           
             await new Windows.UI.Popups.MessageDialog(fileName).ShowAsync();
             if (file != null)
             {

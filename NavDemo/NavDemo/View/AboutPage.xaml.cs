@@ -21,6 +21,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Windows.UI.Text;
+using NavDemo.AttachProps;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -74,6 +76,30 @@ namespace NavDemo
             base.OnNavigatedFrom(e);
         }
 
-        
+        int i = 0;
+        string old = "";
+        /// <summary>
+        /// RichEditBox输入改变唤醒附加属性
+        /// </summary>
+        /// <param name="sender">RichEditBox</param>
+        /// <param name="e">事件参数</param>
+        private void Editor_TextChanged(object sender, RoutedEventArgs e)
+        {
+            if (i == 0)
+            {
+                ++i;
+                return;
+            }
+
+            RichEditBox edit = sender as RichEditBox;
+            string str = "";
+            edit.Document.GetText(TextGetOptions.FormatRtf, out str);
+            if (str != old)
+            {
+                RtfText.SetRichText(edit, str);
+                old = str;
+            }
+
+        }
     }
 }

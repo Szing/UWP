@@ -102,7 +102,7 @@ namespace NavDemo.ViewModels
                           async e =>
                           {
                             //Todo: Add ToLastPage logic here, or
-                            await MVVMSidekick.Utilities.TaskExHelper.Yield();
+                           
                               if(vm.listDialog != null && vm.indexDialog+1 < vm.listDialog.Count())
                               {
                                   vm.indexDialog += 1;
@@ -116,7 +116,7 @@ namespace NavDemo.ViewModels
                               {
                                   await new Windows.UI.Popups.MessageDialog("It's the page 0").ShowAsync();
                               }
-                              
+                              await MVVMSidekick.Utilities.TaskExHelper.Yield();
                           })
                       .DoNotifyDefaultEventRouter(vm, commandId)
                       .Subscribe()
@@ -155,7 +155,6 @@ namespace NavDemo.ViewModels
                           async e =>
                           {
                             //Todo: Add ToNextPage logic here, or
-                            await MVVMSidekick.Utilities.TaskExHelper.Yield();
                               if (vm.listDialog != null &&vm.indexDialog > 0)
                               {
                                   vm.indexDialog -= 1;
@@ -169,6 +168,7 @@ namespace NavDemo.ViewModels
                               {
                                   await new Windows.UI.Popups.MessageDialog("It's the page Max").ShowAsync();
                               }
+                              await MVVMSidekick.Utilities.TaskExHelper.Yield();
                           })
                       .DoNotifyDefaultEventRouter(vm, commandId)
                       .Subscribe()
@@ -246,7 +246,6 @@ namespace NavDemo.ViewModels
                           async e =>
                           {
                             //Todo: Add DeleteDialog logic here, or
-                            await MVVMSidekick.Utilities.TaskExHelper.Yield();
                               //获取数据库服务
                               DataService dataService = ServiceLocator.Instance.Resolve<DataService>();
                               dataService.DeleteDialog(vm.currentDialog.idDialog);
@@ -272,6 +271,7 @@ namespace NavDemo.ViewModels
                               }
                               vm.richEditBoxContent = await ServiceLocator.Instance.Resolve<FileService>()
                                                                  .GetStringFromFile(vm.currentDialog.textDialog);
+                              await MVVMSidekick.Utilities.TaskExHelper.Yield();
 
                           })
                       .DoNotifyDefaultEventRouter(vm, commandId)
@@ -286,6 +286,44 @@ namespace NavDemo.ViewModels
                   return cmdmdl;
               }));
         #endregion
+
+
+        public CommandModel<ReactiveCommand, String> CommandSaveDialog
+        {
+            get { return _CommandSaveDialogLocator(this).Value; }
+            set { _CommandSaveDialogLocator(this).SetValueAndTryNotify(value); }
+        }
+        #region Property CommandModel<ReactiveCommand, String> CommandSaveDialog Setup               
+        protected Property<CommandModel<ReactiveCommand, String>> _CommandSaveDialog = new Property<CommandModel<ReactiveCommand, String>> { LocatorFunc = _CommandSaveDialogLocator };
+        static Func<BindableBase, ValueContainer<CommandModel<ReactiveCommand, String>>> _CommandSaveDialogLocator = RegisterContainerLocator("CommandSaveDialog", m => m.Initialize("CommandSaveDialog", ref m._CommandSaveDialog, ref _CommandSaveDialogLocator,
+              model =>
+              {
+                  var state = "CommandSaveDialog";
+                  var commandId = "CommandSaveDialog";
+                  var vm = CastToCurrentType(model);
+                  var cmd = new ReactiveCommand(canExecute: true) { ViewModel = model };
+
+                  cmd.DoExecuteUIBusyTask(
+                          vm,
+                          async e =>
+                          {
+                              //Todo: Add SaveDialog logic here, or
+                            await ServiceLocator.Instance.Resolve<FileService>().SetStringToFile(vm.currentDialog.textDialog, vm.richEditBoxContent);
+                            await MVVMSidekick.Utilities.TaskExHelper.Yield();
+                          })
+                      .DoNotifyDefaultEventRouter(vm, commandId)
+                      .Subscribe()
+                      .DisposeWith(vm);
+
+                  var cmdmdl = cmd.CreateCommandModel(state);
+
+                  cmdmdl.ListenToIsUIBusy(
+                      model: vm,
+                      canExecuteWhenBusy: false);
+                  return cmdmdl;
+              }));
+        #endregion
+
 
         #region Life Time Event Handling
 
@@ -331,21 +369,8 @@ namespace NavDemo.ViewModels
                     }
                 }
 
-                
                 richEditBoxContent = await ServiceLocator.Instance.Resolve<FileService>().GetStringFromFile(currentDialog.textDialog);
-                
-                /*
-                 
-                 Windows.Storage.Streams.IRandomAccessStream randAccStream =
-                                    await ServiceLocator.Instance.Resolve<FileService>().GetRandomAccessStream(currentDialog.textDialog);
-                
-                if (randAccStream != null)
-                {
-                    // Load the file into the Document property of the RichEditBox.
-                   editBox.Document.LoadFromStream(Windows.UI.Text.TextSetOptions.FormatRtf, randAccStream);
 
-                }
-                 */
 
             }
 
