@@ -7,5 +7,12 @@
   <PropertyGroup>
     <ProjectView>ShowAllFiles</ProjectView>
     <SplashScreenSource>D:\UWP-master\NavDemo\NavDemo\Assets\screen.png</SplashScreenSource>
+    <AppxPackageIsForStore>False</AppxPackageIsForStore>
+    <AppxShowAllApps>False</AppxShowAllApps>
+    <AppxBuildConfigurationSelection>x86|x64|arm</AppxBuildConfigurationSelection>
+    <PackageOptionalProjectsInIdeBuilds>False</PackageOptionalProjectsInIdeBuilds>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <UseSimulator>false</UseSimulator>
   </PropertyGroup>
 </Project>

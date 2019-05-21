@@ -150,7 +150,25 @@ namespace NavDemo
             base.OnNavigatedFrom(e);
         }
 
-       
-
+        /// <summary>
+        /// 添加好友事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void InsertButton_Click(object sender, RoutedEventArgs e)
+        {
+            ShowMessagePopupWindow("您确定要添加该好友吗");
+        }
+        /// <summary>
+        /// 显示确定取消菜单
+        /// </summary>
+        /// <param name="str">提示字段</param>
+        private void ShowMessagePopupWindow(string str)
+        {
+            var msgPopup = new Resources.MessagePopupWindow(str);
+            msgPopup.LeftClick += (s, e) => { StrongTypeViewModel.CommandInsertFriend.Execute(null); };
+            msgPopup.RightClick += (s, e) => { };
+            msgPopup.ShowWIndow();
+        }
     }
 }

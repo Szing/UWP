@@ -85,6 +85,26 @@ namespace NavDemo
         {
             base.OnNavigatedFrom(e);
         }
+        /// <summary>
+        /// 显示确定取消菜单
+        /// </summary>
+        /// <param name="str">提示字段</param>
+        private void ShowMessagePopupWindow(string str)
+        {
+            var msgPopup = new Resources.MessagePopupWindow(str);
+            msgPopup.LeftClick += (s, e) => { StrongTypeViewModel.CommandDeleteFriend.Execute(null); };
+            msgPopup.RightClick += (s, e) => { };
+            msgPopup.ShowWIndow();
+        }
 
+        /// <summary>
+        /// 删除好友事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            ShowMessagePopupWindow("您确定要删除该好友吗");
+        }
     }
 }

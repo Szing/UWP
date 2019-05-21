@@ -783,3 +783,8 @@ D:\UWP-master\NavDemo\NavDemo\obj\x86\Debug\Microsoft.Practices.Unity.Registrati
 D:\UWP-master\NavDemo\NavDemo\obj\x86\Debug\ProjectArchitectures.txt
 D:\UWP-master\NavDemo\NavDemo\obj\x86\Debug\.winmd_cache\$Microsoft.Graphics.Canvas.winmd_636621561260000000.json
 D:\UWP-master\NavDemo\NavDemo\obj\x86\Debug\NavDemo.csprojAssemblyReference.cache
+D:\UWP-master\NavDemo\NavDemo\bin\x86\Debug\Resources\MessagePopupWindow.xbf
+D:\UWP-master\NavDemo\NavDemo\obj\x86\Debug\Resources\MessagePopupWindow.g.i.cs
+D:\UWP-master\NavDemo\NavDemo\obj\x86\Debug\Resources\MessagePopupWindow.g.cs
+D:\UWP-master\NavDemo\NavDemo\obj\x86\Debug\Resources\MessagePopupWindow.xaml
+D:\UWP-master\NavDemo\NavDemo\obj\x86\Debug\Resources\MessagePopupWindow.xbf

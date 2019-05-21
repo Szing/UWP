@@ -115,7 +115,7 @@
             </Grid.RowDefinitions>
 
 
-            <Button Content="Delete"    Command="{Binding CommandDeleteFriend}" HorizontalAlignment="Center" VerticalAlignment="Center" Height="69" Width="70"  />
+            <Button Content="Delete"  Click="Button_Click" HorizontalAlignment="Center" VerticalAlignment="Center" Height="69" Width="70"  />
 
 
         </Grid>

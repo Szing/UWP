@@ -161,7 +161,24 @@ namespace NavDemo.Services
                 db.Delete<Dialog>(idDialog);
             }
         }
-        
+
+        /// <summary>
+        /// 从数据库删除指定id的Dialog
+        /// </summary>
+        /// <param name="idFriend">要删除的Dialog属于的Friend的id</param>
+        public void DeleteDialog(int idFriend,string name)
+        {
+            List<Dialog>  dialogs = GetDialogs(idFriend);
+            using (var db = DbContext.GetInstance().GetSqLiteConnection())
+            {
+                foreach(var d in dialogs)
+                {
+                    db.Delete<Dialog>(d.idDialog);
+                }
+                     
+            }
+        }
+
         /// <summary>
         /// 获取数据库中最后一篇Dialog的id
         /// </summary>
@@ -222,6 +239,7 @@ namespace NavDemo.Services
             }
 
         }
+
         /// <summary>
         /// 获取指定时间的Dialog
         /// </summary>
@@ -239,5 +257,7 @@ namespace NavDemo.Services
             }
 
         }
+
+        
     }
 }

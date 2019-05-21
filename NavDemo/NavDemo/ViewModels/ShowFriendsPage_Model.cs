@@ -183,30 +183,37 @@ namespace NavDemo.ViewModels
                           async e =>
                           {
                               //Todo: Add DeleteFriend logic here, or
-                              await MVVMSidekick.Utilities.TaskExHelper.Yield();
-                              //获取数据库服务
-                              DataService dataService = ServiceLocator.Instance.Resolve<DataService>();
-                              dataService.DeleteFriend(vm.currentFriend.idFriend);
-                              vm.listFriend.Remove(vm.currentFriend);
-                              if (vm.listFriend.Count == 0)
+                              if (vm.listFriend.Count != 0)
                               {
-                                  vm.currentFriend.iconFriend = "ms-appx:///Assets/light.jpg";
-                                  vm.currentFriend.nameFriend = "null";
-                                  vm.currentFriend.nickNameFriend = "null";
-                              }
-                              else
-                              {
-                                  if (vm.indexFriend == 0)
+                                  //获取数据库服务
+                                  DataService dataService = ServiceLocator.Instance.Resolve<DataService>();
+                                  dataService.DeleteFriend(vm.currentFriend.idFriend);
+                                  dataService.DeleteDialog(vm.currentFriend.idFriend, "");
+                                  vm.listFriend.Remove(vm.currentFriend);
+                                  if (vm.listFriend.Count == 0)
                                   {
-                                      vm.currentFriend = vm.listFriend[0];
+                                      vm.currentFriend.iconFriend = "ms-appx:///Assets/light.jpg";
+                                      vm.currentFriend.nameFriend = "null";
+                                      vm.currentFriend.nickNameFriend = "null";
                                   }
                                   else
                                   {
-                                      --vm.indexFriend;
-                                      vm.currentFriend = vm.listFriend[vm.indexFriend];
-                                  }
+                                      if (vm.indexFriend == 0)
+                                      {
+                                          vm.currentFriend = vm.listFriend[0];
+                                      }
+                                      else
+                                      {
+                                          --vm.indexFriend;
+                                          vm.currentFriend = vm.listFriend[vm.indexFriend];
+                                      }
 
+                                  }
                               }
+                              await MVVMSidekick.Utilities.TaskExHelper.Yield();
+                              
+                                  
+                              
 
                           })
                       .DoNotifyDefaultEventRouter(vm, commandId)

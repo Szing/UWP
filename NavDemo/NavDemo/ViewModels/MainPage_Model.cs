@@ -33,6 +33,8 @@ namespace NavDemo.ViewModels
                 Title = "Title is a little different in Design mode";
             }
             IsPaneOpen = false;
+            indexPage = 0;
+            typeSlide = 1;
             NavMenuItemList = new ObservableCollection<NavMenuItem>();
             NavMenuItemList.Add(new NavMenuItem { Glyph = "\uf044", Label = "首页" });
             //NavMenuItemList.Add(new NavMenuItem { Glyph = "\uf022", Label = "频道" });
@@ -43,6 +45,8 @@ namespace NavDemo.ViewModels
 
         }
 
+        int indexPage;
+        int typeSlide;
         //propvm tab tab string tab Title
         public String Title
         {
@@ -56,7 +60,6 @@ namespace NavDemo.ViewModels
         #endregion
 
     
-
 
         /// <summary>
         /// 汉堡菜单列表
@@ -87,7 +90,7 @@ namespace NavDemo.ViewModels
         #endregion
 
 
-        
+
 
 
 
@@ -96,6 +99,125 @@ namespace NavDemo.ViewModels
         protected Property<string> _listViewBackGround = new Property<string> { LocatorFunc = _listViewBackGroundLocator};
         static Func<BindableBase, ValueContainer<string>> _listViewBackGroundLocator = RegisterContainerLocator(nameof(listViewBackGround), m => m.Initialize(nameof(listViewBackGround), ref m._listViewBackGround, ref _listViewBackGroundLocator, () => default(string)));
         #endregion
+
+
+        public CommandModel<ReactiveCommand, String> CommandNextPage
+        {
+            get { return _CommandNextPageLocator(this).Value; }
+            set { _CommandNextPageLocator(this).SetValueAndTryNotify(value); }
+        }
+        #region Property CommandModel<ReactiveCommand, String> CommandNextPage Setup               
+        protected Property<CommandModel<ReactiveCommand, String>> _CommandNextPage = new Property<CommandModel<ReactiveCommand, String>> { LocatorFunc = _CommandNextPageLocator };
+        static Func<BindableBase, ValueContainer<CommandModel<ReactiveCommand, String>>> _CommandNextPageLocator = RegisterContainerLocator("CommandNextPage", m => m.Initialize("CommandNextPage", ref m._CommandNextPage, ref _CommandNextPageLocator,
+              model =>
+              {
+                  var state = "CommandNextPage";
+                  var commandId = "CommandNextPage";
+                  var vm = CastToCurrentType(model);
+                  var cmd = new ReactiveCommand(canExecute: true) { ViewModel = model };
+
+                  cmd.DoExecuteUIBusyTask(
+                          vm,
+                          async e =>
+                          {
+                              //Todo: Add NextPage logic here, or
+                              int i = (int)e.EventArgs.Parameter;
+                              
+                              // i = 1 到下一个page i = 2到上一个page i = 3 到顶部page  i = 4到底部page
+                            
+                                
+                              if (i == 1)
+                              {
+                                  if(vm.indexPage < 4)
+                                  {
+                                      ++vm.indexPage;
+                                      NavMenuItem item = new NavMenuItem();
+                                      switch (vm.indexPage)
+                                      {
+                                          case 1:
+                                              item.Init("\uf044", "首页");
+                                              break;
+                                          case 2:
+                                              item.Init("\uf002", "搜索");
+                                              break;
+                                          case 3:
+                                              item.Init("\uf007", "好友中心");
+                                              break;
+                                          case 4:
+                                              item.Init("\uf067", "添加好友");
+                                              break;
+                                          default:
+                                              break;
+                                      }
+                                      MVVMSidekick.EventRouting.EventRouter.Instance.RaiseEvent(vm, item, "NavToPage", true, true);
+                                  }
+
+                              }
+                              else if(i == 2)
+                              {
+                                  if (vm.indexPage > 1)
+                                  {
+                                      --vm.indexPage;
+                                      NavMenuItem item = new NavMenuItem();
+                                      switch (vm.indexPage)
+                                      {
+                                          case 1:
+                                              item.Init("\uf044", "首页");
+                                              break;
+                                          case 2:
+                                              item.Init("\uf002", "搜索");
+                                              break;
+                                          case 3:
+                                              item.Init("\uf007", "好友中心");
+                                              break;
+                                          case 4:
+                                              item.Init("\uf067", "添加好友");
+                                              break;
+                                          default:
+                                              break;
+                                      }
+                                      MVVMSidekick.EventRouting.EventRouter.Instance.RaiseEvent(vm, item, "NavToPage", true, true);
+                                  }
+                              }
+                              else if(i == 3)
+                              {
+                                  if (vm.indexPage < 4)
+                                  {
+                                      vm.indexPage = 4;
+                                      NavMenuItem item = new NavMenuItem();
+                                      item.Init("\uf067", "添加好友");
+                                      
+                                      MVVMSidekick.EventRouting.EventRouter.Instance.RaiseEvent(vm, item, "NavToPage", true, true);
+                                  }
+                              }
+                              else if(i == 4)
+                              {
+                                  if (vm.indexPage > 1)
+                                  {
+                                      vm.indexPage = 1;
+                                      NavMenuItem item = new NavMenuItem();
+                                      item.Init("\uf044", "首页");
+                                      MVVMSidekick.EventRouting.EventRouter.Instance.RaiseEvent(vm, item, "NavToPage", true, true);
+                                  }
+                              }
+                                
+                                    
+                                  
+                            await MVVMSidekick.Utilities.TaskExHelper.Yield();
+                          })
+                      .DoNotifyDefaultEventRouter(vm, commandId)
+                      .Subscribe()
+                      .DisposeWith(vm);
+                      
+                  var cmdmdl = cmd.CreateCommandModel(state);
+
+                  cmdmdl.ListenToIsUIBusy(
+                      model: vm,
+                      canExecuteWhenBusy: false);
+                  return cmdmdl;
+              }));
+        #endregion
+
 
 
         #region Life Time Event Handlingp
@@ -190,21 +312,25 @@ namespace NavDemo.ViewModels
                                  {
                                      case "首页":
                                          this.IsPaneOpen = false;
+                                         indexPage = 1;
                                          listViewBackGround = "/Assets/background1.png";
                                          await StageManager["frameMain"].Show(ViewModelLocator< HomePage_Model>.Instance.Resolve());
                                          break;
                                      case "搜索":
                                          this.IsPaneOpen = false;
+                                         indexPage = 2;
                                          listViewBackGround = "/Assets/dushuren.png";
                                          await StageManager["frameMain"].Show(ViewModelLocator<SearchPage_Model>.Instance.Resolve());
                                          break;
                                      case "好友中心":
                                          this.IsPaneOpen = false;
+                                         indexPage = 3;
                                          listViewBackGround = "/Assets/mozi.png";
                                          await StageManager["frameMain"].Show(ViewModelLocator<ShowFriendPage_Model>.Instance.Resolve());
                                          break;
                                      case "添加好友":
                                          this.IsPaneOpen = false;
+                                         indexPage = 4;
                                          await StageManager["frameMain"].Show(ViewModelLocator<AddFriendPage_Model>.Instance.Resolve());
                                          break;
                                      default:

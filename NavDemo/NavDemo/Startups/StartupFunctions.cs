@@ -39,7 +39,13 @@ namespace MVVMSidekick.Startups
             SimpleIoc.Default.Register<SearchPage_Model>();
             SimpleIoc.Default.Register<AddFriendPage_Model>();
             SimpleIoc.Default.Register<ShowFriendPage_Model>();
-            
+
+            SimpleIoc.Default.Register<IDbContentService, DbContext>();
+            SimpleIoc.Default.Register<IDataService, DataService>();
+            SimpleIoc.Default.Register<ISuggestService, SuggestService>();
+            SimpleIoc.Default.Register<IFileService, FileService>();
+            SimpleIoc.Default.Register<IImageService, ImageService>();
+
             Services.ServiceLocator.Instance.Register<DbContext>(DbContext.GetInstance());
             Services.ServiceLocator.Instance.Register<DataService>(DataService.GetInstance());
             Services.ServiceLocator.Instance.Register<SuggestService>(SuggestService.GetInstance());

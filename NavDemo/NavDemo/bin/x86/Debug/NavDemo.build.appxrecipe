@@ -533,6 +533,9 @@
     <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\bin\x86\Debug\Resources\MessagePopupWindow.xbf">
+      <PackagePath>Resources\MessagePopupWindow.xbf</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\bin\x86\Debug\View\ShowFriendsPage.xbf">
       <PackagePath>View\ShowFriendsPage.xbf</PackagePath>
     </AppxPackagedFile>

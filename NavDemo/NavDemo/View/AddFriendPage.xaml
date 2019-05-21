@@ -121,7 +121,7 @@
                 </Ellipse.Fill>
             </Ellipse>
 
-            <Button Content="insert"  Style="{StaticResource TransparentPathIconButtonStyle}"  Command="{Binding CommandInsertFriend}" HorizontalAlignment="Center" VerticalAlignment="Center" Height="69" Width="70"  >
+            <Button Content="insert"  Style="{StaticResource TransparentPathIconButtonStyle}" Click ="InsertButton_Click "  HorizontalAlignment="Center" VerticalAlignment="Center" Height="69" Width="70"  >
                 <!--<Custom:Interaction.Behaviors>
                     <Custom1:EventTriggerBehavior EventName="Tapped">
                         <media:ControlStoryboardAction Storyboard="{StaticResource storyBoard}" ControlStoryboardOption="Stop" ></media:ControlStoryboardAction>

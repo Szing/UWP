@@ -22,6 +22,8 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using NavDemo.Services;
+using Windows.UI;
+using System.Text;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -124,5 +126,54 @@ namespace NavDemo
                 MyASBox.Visibility = Visibility.Collapsed;
             }
         }
+
+        private void MemoryCalenderDatePicker_CalendarViewDayItemChanging(CalendarView sender, CalendarViewDayItemChangingEventArgs e)
+        {
+
+            if (e.Phase == 0)
+            {
+                // Register callback for next phase.
+                e.RegisterUpdateCallback(MemoryCalenderDatePicker_CalendarViewDayItemChanging);
+            }
+            // Set blackout dates.
+            else if (e.Phase == 1)
+            {
+                // Blackout dates in the past, Sundays, and dates that are fully booked.
+
+
+                var date = e.Item.Date;
+                StringBuilder sb = new StringBuilder();
+                var dateText = "";
+                dateText += date.Year.ToString() + '/' + date.Month.ToString() + '/' + date.Day.ToString();
+                if (ServiceLocator.Instance.Resolve<DataService>().GetDialogs(dateText).Count() == 0)
+                    e.Item.IsBlackout = true;
+
+                // Register callback for next phase.
+                e.RegisterUpdateCallback(MemoryCalenderDatePicker_CalendarViewDayItemChanging);
+            }
+            // Set density bars.
+            else if (e.Phase == 2)
+            {
+                // Avoid unnecessary processing.
+                // You don't need to set bars on past dates or Sundays.
+                var date = e.Item.Date;
+                StringBuilder sb = new StringBuilder();
+                var dateText = "";
+                dateText += date.Year.ToString() + '/' + date.Month.ToString() + '/' + date.Day.ToString();
+                var count = ServiceLocator.Instance.Resolve<DataService>().GetDialogs(dateText).Count();
+
+                List<Color> densityColors = new List<Color>();
+
+                for (int i = 0; i < count; ++i)
+                {
+                    densityColors.Add(Colors.Blue);
+                }
+
+                e.Item.SetDensityColors(densityColors);
+            }
+            
+
+        }
+        
     }
 }

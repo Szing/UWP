@@ -9,6 +9,7 @@ namespace NavDemo.Services
 {
     public class SuggestService : Singleton<SuggestService>,ISuggestService
     {
+        
         //单例的建议项
         public static List<Friend> suggestItems;
 
@@ -20,7 +21,7 @@ namespace NavDemo.Services
         {
             suggestItems = items;
         }
-
+            
         /// <summary>
         /// 加入新的建议项
         /// </summary>

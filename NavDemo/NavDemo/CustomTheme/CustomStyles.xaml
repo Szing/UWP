@@ -6,7 +6,7 @@
     <FontFamily x:Key="FontAwesomeFontFamily">/Resources/FontAwesome.otf#FontAwesome</FontFamily>
 
     
-    <Style x:Key="ImageButtonStyle" TargetType="Button">
+    <Style  x:Key="ImageButtonStyle" TargetType="Button">
         <Setter Property="Background" Value="{ThemeResource ButtonBackground}"/>
         <Setter Property="Foreground" Value="{ThemeResource ButtonForeground}"/>
         <Setter Property="BorderBrush" Value="{ThemeResource ButtonBorderBrush}"/>

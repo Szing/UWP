@@ -62,10 +62,15 @@ namespace NavDemo.ViewModels
                           async e =>
                           {
                               //Todo: Add InsertFriend logic here, or
+                              if(vm.friend.nameFriend != null && vm.friend.nickNameFriend != null)
+                              {
+                                  ServiceLocator.Instance.Resolve<DataService>()
+                                .InsertFriend(vm.friend);
+                                  await new Windows.UI.Popups.MessageDialog("添加成功").ShowAsync();
+                              }
+                             
                               await MVVMSidekick.Utilities.TaskExHelper.Yield();
-                              ServiceLocator.Instance.Resolve<DataService>()
-                                 .InsertFriend(vm.friend);
-                              await new Windows.UI.Popups.MessageDialog("添加成功").ShowAsync();
+                              
                               //vm.suggest.insert(vm.friend);
                           })
                       .DoNotifyDefaultEventRouter(vm, commandId)

@@ -70,6 +70,7 @@
                             Visibility="Collapsed"
                             RelativePanel.LeftOf="dateButton"
                             Margin="0,5,10,0"
+                            CalendarViewDayItemChanging ="MemoryCalenderDatePicker_CalendarViewDayItemChanging"    
                             DateFormat="{}{dayofweek.full},{month.full} {day.integer}, {year.full}" >
                 <Custom:Interaction.Behaviors>
                     <Custom1:EventTriggerBehavior EventName="DateChanged">

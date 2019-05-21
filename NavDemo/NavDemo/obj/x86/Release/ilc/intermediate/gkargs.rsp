@@ -63,6 +63,6 @@
 /Lib:"C:\Program Files (x86)\Windows Kits\10\References\10.0.17134.0\Windows.UI.Xaml.Hosting.HostingContract\2.0.0.0"
 /Lib:"C:\Program Files (x86)\Windows Kits\10\References\10.0.17134.0\Windows.Web.Http.Diagnostics.HttpDiagnosticsContract\2.0.0.0"
 /WinMD:"D:\UWP-master\NavDemo\NavDemo\obj\x86\Release\ilc\in\WinMetadata\Windows.winmd"
-/VSTelemetrySessionSettings:{"IsOptedIn":true,"HostName":"Dev14","AppInsightsInstrumentationKey":"f144292e-e3b2-4011-ac90-20e5c03fbce5","AsimovInstrumentationKey":"AIF-312cbd79-9dbb-4c48-a7da-3cc2a931cb70","AppId":1001,"UserId":"d64aec14-2b81-4d4d-99f4-05d24a4d0513","Id":"a99402e8-1fb1-4b32-a885-00dddbad96d1","ProcessStartTime":636918041136002090}
+/VSTelemetrySessionSettings:{"IsOptedIn":true,"HostName":"Dev14","AppInsightsInstrumentationKey":"f144292e-e3b2-4011-ac90-20e5c03fbce5","AsimovInstrumentationKey":"AIF-312cbd79-9dbb-4c48-a7da-3cc2a931cb70","AppId":1001,"UserId":"d64aec14-2b81-4d4d-99f4-05d24a4d0513","Id":"f44f9d35-4217-4378-a5df-31b20e1f3f39","ProcessStartTime":636929972114589945}
 /RdXmlPath:"C:\Program Files (x86)\MSBuild\15.0\.Net\.NetNative\15.0.24211\LibraryXML"
 /RunOnlyPreDR

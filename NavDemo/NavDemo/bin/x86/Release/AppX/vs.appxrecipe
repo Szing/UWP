@@ -30,7 +30,7 @@
     <AppXManifest Include="D:\UWP-master\NavDemo\NavDemo\bin\x86\Release\ilc\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-04-25T15:51:30.686</Modified>
+      <Modified>2019-05-06T04:49:46.750</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
@@ -93,6 +93,10 @@
     <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\bin\x86\Release\ilc\Assets\screen2.png">
       <PackagePath>Assets\screen2.png</PackagePath>
       <Modified>2019-04-07T14:11:20.550</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\bin\x86\Release\ilc\Assets\se.jpg">
+      <PackagePath>Assets\se.jpg</PackagePath>
+      <Modified>2019-04-29T11:35:25.586</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\bin\x86\Release\ilc\Assets\SplashScreen.scale-100.jpg">
       <PackagePath>Assets\SplashScreen.scale-100.jpg</PackagePath>
@@ -198,19 +202,19 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\bin\x86\Release\ilc\NavDemo.dll">
       <PackagePath>NavDemo.dll</PackagePath>
-      <Modified>2019-04-25T15:51:28.811</Modified>
+      <Modified>2019-05-06T04:49:45.183</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\bin\x86\Release\ilc\NavDemo.exe">
       <PackagePath>NavDemo.exe</PackagePath>
-      <Modified>2019-04-25T15:51:30.577</Modified>
+      <Modified>2019-05-06T04:49:46.699</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\bin\x86\Release\ilc\NavDemo.pdb">
       <PackagePath>NavDemo.pdb</PackagePath>
-      <Modified>2019-04-25T15:51:30.562</Modified>
+      <Modified>2019-05-06T04:49:46.690</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\bin\x86\Release\ilc\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2019-04-25T15:49:40.762</Modified>
+      <Modified>2019-05-06T04:48:16.730</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\bin\x86\Release\ilc\Resources\FontAwesome.otf">
       <PackagePath>Resources\FontAwesome.otf</PackagePath>
@@ -222,27 +226,27 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\bin\x86\Release\ilc\_Resources\0.rsrc">
       <PackagePath>_Resources\0.rsrc</PackagePath>
-      <Modified>2019-04-25T15:50:36.693</Modified>
+      <Modified>2019-05-06T04:49:00.816</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\bin\x86\Release\ilc\_Resources\1.rsrc">
       <PackagePath>_Resources\1.rsrc</PackagePath>
-      <Modified>2019-04-25T15:50:36.899</Modified>
+      <Modified>2019-05-06T04:49:00.993</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\bin\x86\Release\ilc\_Resources\2.rsrc">
       <PackagePath>_Resources\2.rsrc</PackagePath>
-      <Modified>2019-04-25T15:50:36.909</Modified>
+      <Modified>2019-05-06T04:49:00.997</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\bin\x86\Release\ilc\_Resources\3.rsrc">
       <PackagePath>_Resources\3.rsrc</PackagePath>
-      <Modified>2019-04-25T15:50:36.929</Modified>
+      <Modified>2019-05-06T04:49:01.012</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\bin\x86\Release\ilc\_Resources\4.rsrc">
       <PackagePath>_Resources\4.rsrc</PackagePath>
-      <Modified>2019-04-25T15:50:37.062</Modified>
+      <Modified>2019-05-06T04:49:01.135</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\bin\x86\Release\ilc\_Resources\index.txt">
       <PackagePath>_Resources\index.txt</PackagePath>
-      <Modified>2019-04-25T15:50:37.065</Modified>
+      <Modified>2019-05-06T04:49:01.137</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

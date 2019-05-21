@@ -37,5 +37,10 @@ namespace NavDemo.Models
         static Func<string> _LabelDefaultValueFactory = () => { return default(string); };
         #endregion
         
+        public void Init(string glyph,string label)
+        {
+            Glyph = glyph;
+            Label = label;
+        }
     }
 }

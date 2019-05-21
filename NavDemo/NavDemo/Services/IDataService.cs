@@ -75,6 +75,8 @@ namespace NavDemo.Services
         /// <param name="timeDialog">某个Dialog的相应时间</param>
         /// <returns></returns>
         List<Dialog> GetDialogs(string timeDialog);
+
+
     }
 }
 

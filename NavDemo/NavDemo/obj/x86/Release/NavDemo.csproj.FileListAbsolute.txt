@@ -563,3 +563,5 @@ D:\UWP-master\NavDemo\NavDemo\obj\x86\Release\ilc\intermediate\rhbindargs.NavDem
 D:\UWP-master\NavDemo\NavDemo\obj\x86\Release\ilc\intermediate\sgargs.rsp
 D:\UWP-master\NavDemo\NavDemo\obj\x86\Release\ilc\intermediate\TransformedSRWR\System.Runtime.WindowsRuntime.dll
 D:\UWP-master\NavDemo\NavDemo\obj\x86\Release\ilc\intermediate\TransformedSRWR\System.Runtime.WindowsRuntime.dll.ILTransformTask.repro
+D:\UWP-master\NavDemo\NavDemo\bin\x86\Release\ilc\Assets\se.jpg
+D:\UWP-master\NavDemo\NavDemo\obj\x86\Release\ilc\in\Assets\se.jpg

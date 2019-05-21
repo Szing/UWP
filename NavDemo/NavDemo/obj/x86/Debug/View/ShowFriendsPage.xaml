@@ -62,7 +62,7 @@
             </Grid.RowDefinitions>
             <Ellipse Grid.Row="1" Width="200" Height="200"  HorizontalAlignment="Center">
                 <Ellipse.Fill>
-                    <ImageBrush x:ConnectionId='3' x:Name="imageBrushFriend"  ImageSource="{Binding currentFriend.iconFriend}" ></ImageBrush>
+                    <ImageBrush x:ConnectionId='4' x:Name="imageBrushFriend"  ImageSource="{Binding currentFriend.iconFriend}" ></ImageBrush>
                 </Ellipse.Fill>
             </Ellipse>
             <Button   Grid.Row="1" Content="Last"  Style="{StaticResource ImageButtonStyle}"  HorizontalAlignment="Center" VerticalAlignment="Center" Height="120" Width="120"  Command="{Binding CommandToLastFriend}" Margin="0,0,350,0">
@@ -115,7 +115,7 @@
             </Grid.RowDefinitions>
 
 
-            <Button Content="Delete"    Command="{Binding CommandDeleteFriend}" HorizontalAlignment="Center" VerticalAlignment="Center" Height="69" Width="70"  />
+            <Button x:ConnectionId='3' Content="Delete"                       HorizontalAlignment="Center" VerticalAlignment="Center" Height="69" Width="70"  />
 
 
         </Grid>

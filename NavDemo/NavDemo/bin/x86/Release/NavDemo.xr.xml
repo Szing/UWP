@@ -10,7 +10,9 @@
     <RootPropertyPathName Name="CommandToLastFriend" />
     <RootPropertyPathName Name="iconFriend" />
     <RootPropertyPathName Name="friend" />
+    <RootPropertyPathName Name="CommandSaveDialog" />
     <RootPropertyPathName Name="CommandDeleteDialog" />
+    <RootPropertyPathName Name="richEditBoxContent" />
     <RootPropertyPathName Name="CommandToNextPage" />
     <RootPropertyPathName Name="CommandToLastPage" />
     <RootPropertyPathName Name="currentDialog" />
@@ -24,6 +26,7 @@
     <RootPropertyPathName Name="CommandChangeDate" />
     <RootPropertyPathName Name="IsPaneOpen" />
     <RootPropertyPathName Name="NavMenuItemList" />
+    <RootPropertyPathName Name="listViewBackGround" />
     <RootPropertyPathName Name="imageDialog" />
     <RootPropertyPathName Name="CommandChoseFont" />
     <RootPropertyPathName Name="fontName" />
@@ -200,7 +203,13 @@
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Height" />
       <RootProperty Name="Width" />
+      <RootEvent Name="SelectionChanged" />
       <RootEvent Name="ContextMenuOpening" />
+      <RootEvent Name="TextChanged" />
+    </RootType>
+    <RootType FullName="NavDemo.AttachProps.RtfText">
+      <RootMethod Name="GetRichText" />
+      <RootMethod Name="SetRichText" />
     </RootType>
     <RootType FullName="NavDemo.AboutPage" />
     <RootType FullName="NavDemo.ViewModels.BlankPage1_Model" />
@@ -208,6 +217,7 @@
     <RootType FullName="NavDemo.BlankPage1" />
     <RootType FullName="NavDemo.ViewModels.HomePage_Model" />
     <RootType FullName="Windows.UI.Xaml.Controls.RelativePanel">
+      <RootProperty Name="Name" />
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Margin" />
@@ -353,6 +363,7 @@
       <RootProperty Name="Width" />
       <RootProperty Name="DateFormat" />
       <RootProperty Name="Margin" />
+      <RootEvent Name="CalendarViewDayItemChanging" />
     </RootType>
     <RootType FullName="NavDemo.HomePage" />
     <RootType FullName="NavDemo.ViewModels.MainPage_Model" />
@@ -399,9 +410,7 @@
       <RootProperty Name="Padding" />
       <RootProperty Name="ItemContainerTransitions" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.Frame">
-      <RootProperty Name="Content" />
-    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.Frame" />
     <RootType FullName="MVVMSidekick.Views.StageManager">
       <RootMethod Name="GetBeacon" />
       <RootMethod Name="SetBeacon" />

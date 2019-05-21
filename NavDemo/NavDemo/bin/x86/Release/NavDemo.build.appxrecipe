@@ -70,6 +70,9 @@
     <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\bin\x86\Release\ilc\Assets\screen2.png">
       <PackagePath>Assets\screen2.png</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\bin\x86\Release\ilc\Assets\se.jpg">
+      <PackagePath>Assets\se.jpg</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="D:\UWP-master\NavDemo\NavDemo\bin\x86\Release\ilc\Assets\SplashScreen.scale-100.jpg">
       <PackagePath>Assets\SplashScreen.scale-100.jpg</PackagePath>
     </AppxPackagedFile>

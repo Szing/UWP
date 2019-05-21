@@ -45,8 +45,9 @@ namespace NavDemo.Services
         /// </summary>
         /// <param name="fileName">AppData目录下的文件名，需要带拓展名</param>
         /// <param name="content">要写入的内容</param>
+        /// <param name="tag">要选择的模式</param>
         /// <returns>文本信息</returns>
-        Task SetStringToFile(string fileName, string content);
+        Task SetStringToFile(string fileName, string content,int tag);
    
 
         /// <summary>

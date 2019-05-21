@@ -35,6 +35,8 @@ namespace NavDemo.ViewModels
         // If you have install the code sniplets, use "propvm + [tab] +[tab]" create a property。
         // 如果您已经安装了 MVVMSidekick 代码片段，请用 propvm +tab +tab 输入属性
 
+
+
         public String Title
         {
             get { return _TitleLocator(this).Value; }
@@ -154,7 +156,7 @@ namespace NavDemo.ViewModels
                               vm.currentDialog.idFriend = vm.chosenFriend.idFriend;
                               vm.currentDialog.nickNameFriend = vm.chosenFriend.nickNameFriend;
                               vm.currentDialog.nameFriend = vm.chosenFriend.nameFriend;
-                              await new Windows.UI.Popups.MessageDialog(vm.chosenFriend.idFriend.ToString()).ShowAsync();
+                             
                           })
                       .DoNotifyDefaultEventRouter(vm, commandId)
                       .Subscribe()
@@ -194,12 +196,22 @@ namespace NavDemo.ViewModels
                               //Todo: Add SomeCommand logic here, or
                              
                               vm.currentDialog.textDialog = vm.currentIndex.ToString() + ".rtf";
-                              ServiceLocator.Instance.Resolve<DataService>()
-                                 .InsertDialog(vm.currentDialog);
-                              vm.currentIndex++;
+                              if(vm.currentDialog.timeDialog != null 
+                              &&vm.currentDialog.describeDialog != null
+                              && vm.currentDialog.nameFriend != null)
+                              {
+                                  ServiceLocator.Instance.Resolve<DataService>()
+                                     .InsertDialog(vm.currentDialog);
 
-                              await ServiceLocator.Instance.Resolve<FileService>()
-                                .SetStringToFile(vm.currentDialog.textDialog,vm.richEditBoxContent);
+                                  vm.currentIndex++;
+
+                                  await ServiceLocator.Instance.Resolve<FileService>()
+                                    .SetStringToFile(vm.currentDialog.textDialog, vm.richEditBoxContent, 1);
+                              }
+                              else
+                              {
+                                  await new Windows.UI.Popups.MessageDialog("请完善日期，描述并选择好友").ShowAsync();
+                              }
 
                               await MVVMSidekick.Utilities.TaskExHelper.Yield();
                           })
@@ -241,6 +253,7 @@ namespace NavDemo.ViewModels
                               //Todo: Add ChangeDate logic here, or
                               await MVVMSidekick.Utilities.TaskExHelper.Yield();
                               CalendarDatePickerDateChangedEventArgs arg = (CalendarDatePickerDateChangedEventArgs)e.EventArgs.Parameter;
+                              
                               var date = arg.NewDate.Value;
                               StringBuilder sb = new StringBuilder();
                               vm.currentDialog.timeDialog = "";
@@ -363,7 +376,8 @@ namespace NavDemo.ViewModels
                 .Where(x => x.EventName == "TextChangedEventRouter")
                      .Subscribe(
                           e =>
-                          {                            
+                          {
+                              
                               friendItemList = ServiceLocator.Instance.Resolve<SuggestService>().Suggest(suggestBoxText);
                           }
                      ).DisposeWith(this);

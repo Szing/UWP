@@ -2,7 +2,6 @@
 <Roots >
   <Roots.PropertyPathNames>
     <RootPropertyPathName Name="CommandInsertFriend" />
-    <RootPropertyPathName Name="CommandDeleteFriend" />
     <RootPropertyPathName Name="currentFriend" />
     <RootPropertyPathName Name="nickNameFriend" />
     <RootPropertyPathName Name="nameFriend" />
@@ -10,8 +9,6 @@
     <RootPropertyPathName Name="CommandToLastFriend" />
     <RootPropertyPathName Name="iconFriend" />
     <RootPropertyPathName Name="friend" />
-    <RootPropertyPathName Name="CommandSaveDialog" />
-    <RootPropertyPathName Name="CommandDeleteDialog" />
     <RootPropertyPathName Name="richEditBoxContent" />
     <RootPropertyPathName Name="CommandToNextPage" />
     <RootPropertyPathName Name="CommandToLastPage" />
@@ -46,35 +43,107 @@
       <RootProperty Name="MergedDictionaries" />
       <RootProperty Name="Source" />
     </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.UserControl">
+      <RootProperty Name="Content" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.Grid">
+      <RootProperty Name="Children" />
+      <RootProperty Name="Padding" />
+      <RootProperty Name="ColumnDefinitions" />
+      <RootProperty Name="DataContext" />
+      <RootProperty Name="AllowDrop" />
+      <RootProperty Name="Background" />
+      <RootProperty Name="ChildrenTransitions" />
+      <RootProperty Name="RowDefinitions" />
+      <RootProperty Name="BorderThickness" />
+      <RootProperty Name="BorderBrush" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Resources" />
+      <RootEvent Name="DragOver" />
+      <RootEvent Name="Drop" />
+      <RootMethod Name="GetColumn" />
+      <RootMethod Name="SetColumn" />
+      <RootMethod Name="GetRow" />
+      <RootMethod Name="SetRow" />
+      <RootMethod Name="GetColumnSpan" />
+      <RootMethod Name="SetColumnSpan" />
+      <RootMethod Name="GetRowSpan" />
+      <RootMethod Name="SetRowSpan" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.Border">
+      <RootProperty Name="Background" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="RenderTransform" />
+      <RootProperty Name="Child" />
+      <RootProperty Name="CornerRadius" />
+      <RootProperty Name="BorderThickness" />
+      <RootProperty Name="BorderBrush" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.StackPanel">
+      <RootProperty Name="Background" />
+      <RootProperty Name="Orientation" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="Children" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Margin" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.ColumnDefinition">
+      <RootProperty Name="Width" />
+      <RootProperty Name="MinWidth" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.Button">
+      <RootProperty Name="Content" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="HorizontalContentAlignment" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="VerticalContentAlignment" />
+      <RootProperty Name="BorderThickness" />
+      <RootProperty Name="Background" />
+      <RootProperty Name="Foreground" />
+      <RootProperty Name="MaxWidth" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="Command" />
+      <RootProperty Name="Style" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="CommandParameter" />
+      <RootProperty Name="Name" />
+      <RootProperty Name="Opacity" />
+      <RootProperty Name="FontWeight" />
+      <RootProperty Name="Visibility" />
+      <RootProperty Name="FontSize" />
+      <RootProperty Name="IsTabStop" />
+      <RootProperty Name="MinWidth" />
+      <RootEvent Name="Click" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.TextBlock">
+      <RootProperty Name="TextWrapping" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Inlines" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Text" />
+      <RootProperty Name="Style" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="FontSize" />
+      <RootProperty Name="FontFamily" />
+      <RootProperty Name="IsHitTestVisible" />
+      <RootProperty Name="FontWeight" />
+      <RootProperty Name="CharacterSpacing" />
+      <RootProperty Name="FontStyle" />
+      <RootProperty Name="Foreground" />
+    </RootType>
+    <RootType FullName="NavDemo.Resources.MessagePopupWindow" />
     <RootType FullName="MVVMSidekick.Views.MVVMPage">
       <RootProperty Name="Resources" />
       <RootProperty Name="Content" />
     </RootType>
     <RootType FullName="System.String" />
     <RootType FullName="NavDemo.ViewModels.ShowFriendPage_Model" />
-    <RootType FullName="Windows.UI.Xaml.Controls.Grid">
-      <RootProperty Name="DataContext" />
-      <RootProperty Name="AllowDrop" />
-      <RootProperty Name="Background" />
-      <RootProperty Name="ChildrenTransitions" />
-      <RootProperty Name="RowDefinitions" />
-      <RootProperty Name="Children" />
-      <RootProperty Name="BorderThickness" />
-      <RootProperty Name="BorderBrush" />
-      <RootProperty Name="ColumnDefinitions" />
-      <RootProperty Name="Margin" />
-      <RootProperty Name="Resources" />
-      <RootEvent Name="DragOver" />
-      <RootEvent Name="Drop" />
-      <RootMethod Name="GetRow" />
-      <RootMethod Name="SetRow" />
-      <RootMethod Name="GetColumn" />
-      <RootMethod Name="SetColumn" />
-      <RootMethod Name="GetColumnSpan" />
-      <RootMethod Name="SetColumnSpan" />
-      <RootMethod Name="GetRowSpan" />
-      <RootMethod Name="SetRowSpan" />
-    </RootType>
     <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.StaticResourceExtension" />
     <RootType FullName="Windows.UI.Xaml.Media.ImageBrush">
       <RootProperty Name="ImageSource" />
@@ -88,52 +157,9 @@
     <RootType FullName="Windows.UI.Xaml.Controls.RowDefinition">
       <RootProperty Name="Height" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.Button">
-      <RootProperty Name="Width" />
-      <RootProperty Name="Height" />
-      <RootProperty Name="Command" />
-      <RootProperty Name="Content" />
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="VerticalAlignment" />
-      <RootProperty Name="Style" />
-      <RootProperty Name="Margin" />
-      <RootProperty Name="Background" />
-      <RootProperty Name="CommandParameter" />
-      <RootProperty Name="Name" />
-      <RootProperty Name="Opacity" />
-      <RootProperty Name="FontWeight" />
-      <RootProperty Name="Visibility" />
-      <RootProperty Name="BorderThickness" />
-      <RootProperty Name="FontSize" />
-      <RootProperty Name="IsTabStop" />
-      <RootProperty Name="MinWidth" />
-      <RootEvent Name="Click" />
-    </RootType>
     <RootType FullName="Windows.UI.Xaml.Data.Binding">
       <RootProperty Name="Mode" />
       <RootProperty Name="ElementName" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.ColumnDefinition">
-      <RootProperty Name="Width" />
-      <RootProperty Name="MinWidth" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.TextBlock">
-      <RootProperty Name="VerticalAlignment" />
-      <RootProperty Name="Inlines" />
-      <RootProperty Name="Margin" />
-      <RootProperty Name="Text" />
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="Style" />
-      <RootProperty Name="Height" />
-      <RootProperty Name="Width" />
-      <RootProperty Name="FontSize" />
-      <RootProperty Name="FontFamily" />
-      <RootProperty Name="TextWrapping" />
-      <RootProperty Name="IsHitTestVisible" />
-      <RootProperty Name="FontWeight" />
-      <RootProperty Name="CharacterSpacing" />
-      <RootProperty Name="FontStyle" />
-      <RootProperty Name="Foreground" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.FontIcon">
       <RootProperty Name="Glyph" />
@@ -189,12 +215,6 @@
       <RootProperty Name="Value" />
       <RootProperty Name="Property" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.StackPanel">
-      <RootProperty Name="Orientation" />
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="Children" />
-      <RootProperty Name="Margin" />
-    </RootType>
     <RootType FullName="NavDemo.AddFriendPage" />
     <RootType FullName="NavDemo.ViewModels.AboutPage_Model" />
     <RootType FullName="Windows.UI.Xaml.Controls.RichEditBox">
@@ -203,7 +223,6 @@
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Height" />
       <RootProperty Name="Width" />
-      <RootEvent Name="SelectionChanged" />
       <RootEvent Name="ContextMenuOpening" />
       <RootEvent Name="TextChanged" />
     </RootType>
@@ -363,6 +382,7 @@
       <RootProperty Name="Width" />
       <RootProperty Name="DateFormat" />
       <RootProperty Name="Margin" />
+      <RootEvent Name="CalendarViewDayItemChanging" />
     </RootType>
     <RootType FullName="NavDemo.HomePage" />
     <RootType FullName="NavDemo.ViewModels.MainPage_Model" />
@@ -409,9 +429,7 @@
       <RootProperty Name="Padding" />
       <RootProperty Name="ItemContainerTransitions" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.Frame">
-      <RootProperty Name="Content" />
-    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.Frame" />
     <RootType FullName="MVVMSidekick.Views.StageManager">
       <RootMethod Name="GetBeacon" />
       <RootMethod Name="SetBeacon" />
@@ -496,14 +514,6 @@
     <RootType FullName="Windows.UI.Xaml.Controls.Primitives.Popup">
       <RootProperty Name="FocusVisualPrimaryBrush" />
       <RootProperty Name="Child" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.Border">
-      <RootProperty Name="RenderTransform" />
-      <RootProperty Name="Child" />
-      <RootProperty Name="CornerRadius" />
-      <RootProperty Name="Background" />
-      <RootProperty Name="BorderThickness" />
-      <RootProperty Name="BorderBrush" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Media.TranslateTransform" />
     <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.TemplateBindingExtension" />

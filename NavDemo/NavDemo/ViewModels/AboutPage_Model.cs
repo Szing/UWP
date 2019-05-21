@@ -288,6 +288,9 @@ namespace NavDemo.ViewModels
         #endregion
 
 
+        /// <summary>
+        /// 保存日志更改
+        /// </summary>
         public CommandModel<ReactiveCommand, String> CommandSaveDialog
         {
             get { return _CommandSaveDialogLocator(this).Value; }
@@ -308,7 +311,7 @@ namespace NavDemo.ViewModels
                           async e =>
                           {
                               //Todo: Add SaveDialog logic here, or
-                            await ServiceLocator.Instance.Resolve<FileService>().SetStringToFile(vm.currentDialog.textDialog, vm.richEditBoxContent);
+                            await ServiceLocator.Instance.Resolve<FileService>().SetStringToFile(vm.currentDialog.textDialog, vm.richEditBoxContent,0);
                             await MVVMSidekick.Utilities.TaskExHelper.Yield();
                           })
                       .DoNotifyDefaultEventRouter(vm, commandId)

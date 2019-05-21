@@ -39,6 +39,7 @@ App.xbf
 CustomTheme\CustomStyles.xbf
 NavDemo.xr.xml
 Resources\CustomDataTemplates.xbf
+Resources\MessagePopupWindow.xbf
 View\AboutPage.xbf
 View\AddFriendPage.xbf
 View\BlankPage1.xbf

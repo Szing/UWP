@@ -90,6 +90,7 @@
                             RelativePanel.LeftOf="dateButton"
                              HorizontalAlignment="Center" 
                                 Width="360"
+                                
                             DateFormat="{}{dayofweek.full},{month.full} {day.integer}, {year.full}" >
                 <Custom:Interaction.Behaviors>
                     <Custom1:EventTriggerBehavior EventName="DateChanged">

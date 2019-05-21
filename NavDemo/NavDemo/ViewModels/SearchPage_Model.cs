@@ -269,9 +269,13 @@ namespace NavDemo.ViewModels
                           {
                             //Todo: Add FriendSubmit logic here, or
                             await MVVMSidekick.Utilities.TaskExHelper.Yield();
-                              DataService dataService = ServiceLocator.Instance.Resolve<DataService>();
-                              List<Dialog> list = dataService.GetDialogs(vm.chosenFriend.idFriend);
-                              vm.listDialog = list;
+                              if(vm.chosenFriend.nameFriend != null)
+                              {
+                                  DataService dataService = ServiceLocator.Instance.Resolve<DataService>();
+                                  List<Dialog> list = dataService.GetDialogs(vm.chosenFriend.idFriend);
+                                  vm.listDialog = list;
+                              }
+                             
                               
 
                           })
@@ -310,11 +314,16 @@ namespace NavDemo.ViewModels
                           vm,
                           async e =>
                           {
-                            //Todo: Add SubmitDate logic here, or
-                            await MVVMSidekick.Utilities.TaskExHelper.Yield();
-                              DataService dataService = ServiceLocator.Instance.Resolve<DataService>();
-                              List<Dialog> list = dataService.GetDialogs(vm.dateText);
-                              vm.listDialog = list;
+                              //Todo: Add SubmitDate logic here, or
+                              if(vm.dateText != null)
+                              {
+                                  DataService dataService = ServiceLocator.Instance.Resolve<DataService>();
+                                  List<Dialog> list = dataService.GetDialogs(vm.dateText);
+                                  vm.listDialog = list;
+                              }
+                             
+                              await MVVMSidekick.Utilities.TaskExHelper.Yield();
+                              
                           })
                       .DoNotifyDefaultEventRouter(vm, commandId)
                       .Subscribe()

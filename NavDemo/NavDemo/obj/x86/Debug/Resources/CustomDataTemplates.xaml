@@ -41,7 +41,7 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <Image Width="50" Source="{Binding iconFriend}" />
+            
             <Ellipse Grid.Row="0" Width="60" Height="60"  >
                 <Ellipse.Fill>
                     <ImageBrush ImageSource="{Binding iconFriend}" ></ImageBrush>

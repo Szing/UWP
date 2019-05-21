@@ -35,6 +35,7 @@ namespace NavDemo
     public sealed partial class MainPage : MVVMPage
     {
         private double x = 0;
+        private double y = 0;
         public MainPage()
         {
             this.InitializeComponent();
@@ -63,10 +64,12 @@ namespace NavDemo
             //失去焦点时，将三个键前景色设为白色
             view.TitleBar.ButtonInactiveForegroundColor = Colors.White;
             
-            //滑动打开汉堡菜单服务
+            //X方向滑动打开汉堡菜单服务
             this.ManipulationMode = ManipulationModes.TranslateX;
             this.ManipulationCompleted += The_ManipulationCompleted;
             this.ManipulationDelta += The_ManipulationDelta;
+           
+
         }
 
         /// <summary>
@@ -138,6 +141,8 @@ namespace NavDemo
         private void The_ManipulationDelta(object sender, ManipulationDeltaRoutedEventArgs e)
         {
             x += e.Delta.Translation.X;     //将滑动的值赋给x 
+            y += e.Delta.Translation.Y;     //将滑动的值赋给y
+
         }
 
         private void The_ManipulationCompleted(object sender, ManipulationCompletedRoutedEventArgs e)
@@ -147,6 +152,30 @@ namespace NavDemo
             if (x < -100)
                 RootSplitView.IsPaneOpen = false;
             x = 0;
+
+            if (y > 100)
+            {
+                if (y < 500)
+                {
+                    StrongTypeViewModel.CommandNextPage.Execute(1);
+                }
+                else
+                {
+                    StrongTypeViewModel.CommandNextPage.Execute(3);
+                }
+            }
+            else if (y < -100)
+            {
+                if (y > -500)
+                {
+                    StrongTypeViewModel.CommandNextPage.Execute(2);
+                }
+                else
+                {
+                    StrongTypeViewModel.CommandNextPage.Execute(4);
+                }
+            }
+            y = 0;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -195,5 +224,8 @@ namespace NavDemo
             //ServiceLocator.Instance.Resolve<FileService>().WriteDialog("dialog.txt");
             ServiceLocator.Instance.Resolve<FileService>().ReadDialog("dialog.txt");
         }
+
+        
+        
     }
 }

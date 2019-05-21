@@ -158,8 +158,9 @@ namespace NavDemo.Services
         /// </summary>
         /// <param name="fileName">AppData目录下的文件名，需要带拓展名</param>
         /// <param name="content">要写入的内容</param>
+        /// <param name="tag">要选择的模式</param>
         /// <returns>文本信息</returns>
-        public async Task SetStringToFile(string fileName,string content)
+        public async Task SetStringToFile(string fileName,string content,int tag)
         {
             //ExportFile Service
             Windows.Storage.Pickers.FileSavePicker savePicker = new Windows.Storage.Pickers.FileSavePicker();
@@ -172,11 +173,16 @@ namespace NavDemo.Services
             savePicker.SuggestedFileName = "New Document";
 
             Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
-            Windows.Storage.StorageFile file = await storageFolder.GetFileAsync(fileName);
-            if (file == null )
+            Windows.Storage.StorageFile file;
+            if (tag == 1)
             {
-                file = await storageFolder.CreateFileAsync(fileName, Windows.Storage.CreationCollisionOption.ReplaceExisting);
+                 file = await storageFolder.CreateFileAsync(fileName, Windows.Storage.CreationCollisionOption.ReplaceExisting);
             }
+            else 
+            {
+                file = await storageFolder.GetFileAsync(fileName);
+            }
+            
            
             await new Windows.UI.Popups.MessageDialog(fileName).ShowAsync();
             if (file != null)

@@ -73,7 +73,7 @@
             </Grid.RowDefinitions>
             <Ellipse Grid.Row="1" Width="200" Height="200"  >
                 <Ellipse.Fill>
-                    <ImageBrush x:ConnectionId='5' x:Name="imageBrushFriend"  ImageSource="ms-appx:///Assets/light.jpg" />
+                    <ImageBrush x:ConnectionId='6' x:Name="imageBrushFriend"  ImageSource="ms-appx:///Assets/light.jpg" />
                 </Ellipse.Fill>
             </Ellipse>
             <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
@@ -117,11 +117,11 @@
             </Grid.RowDefinitions>
             <Ellipse x:ConnectionId='3' Name="kkk" Width="70"  Height="70"  Grid.Row="0">
                 <Ellipse.Fill>
-                    <ImageBrush x:ConnectionId='4'  x:Name="insertFriendButton"  ImageSource="ms-appx:///Assets/insertFriendButton.jpg"  />
+                    <ImageBrush x:ConnectionId='5'  x:Name="insertFriendButton"  ImageSource="ms-appx:///Assets/insertFriendButton.jpg"  />
                 </Ellipse.Fill>
             </Ellipse>
 
-            <Button Content="insert"  Style="{StaticResource TransparentPathIconButtonStyle}"  Command="{Binding CommandInsertFriend}" HorizontalAlignment="Center" VerticalAlignment="Center" Height="69" Width="70"  >
+            <Button x:ConnectionId='4' Content="insert"  Style="{StaticResource TransparentPathIconButtonStyle}"                               HorizontalAlignment="Center" VerticalAlignment="Center" Height="69" Width="70"  >
                 <!--<Custom:Interaction.Behaviors>
                     <Custom1:EventTriggerBehavior EventName="Tapped">
                         <media:ControlStoryboardAction Storyboard="{StaticResource storyBoard}" ControlStoryboardOption="Stop" ></media:ControlStoryboardAction>
