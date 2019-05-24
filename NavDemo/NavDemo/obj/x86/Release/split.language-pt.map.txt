@@ -1,0 +1,6 @@
+﻿[ResourceMetadata]
+"ResourceId"			"split.language-pt"
+"ResourceDimensions"		"language-pt-br"
+
+[Files]
+"D:\UWP-master\NavDemo\NavDemo\obj\x86\Release\split.language-pt.pri"			"resources.pri"

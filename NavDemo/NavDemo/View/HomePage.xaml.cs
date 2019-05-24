@@ -63,9 +63,29 @@ namespace NavDemo
                 StrongTypeViewModel = this.ViewModel as HomePage_Model;
             });
             StrongTypeViewModel = this.ViewModel as HomePage_Model;
-           
+
+            var coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
+            coreTitleBar.ExtendViewIntoTitleBar = true;
+            initializeFrostedGlass(GlassHost);
         }
-       
+
+        /// <summary>
+        /// 毛玻璃效果
+        /// </summary>
+        /// <param name="glassHost">需要毛玻璃化的组件</param>
+        private void initializeFrostedGlass(UIElement glassHost)
+        {
+
+            Visual hostVisual = ElementCompositionPreview.GetElementVisual(glassHost);
+            Compositor compositor = hostVisual.Compositor;
+            var backdropBrush = compositor.CreateHostBackdropBrush();
+            var glassVisual = compositor.CreateSpriteVisual();
+            glassVisual.Brush = backdropBrush;
+            ElementCompositionPreview.SetElementChildVisual(glassHost, glassVisual);
+            var bindSizeAnimation = compositor.CreateExpressionAnimation("hostVisual.Size");
+            bindSizeAnimation.SetReferenceParameter("hostVisual", hostVisual);
+            glassVisual.StartAnimation("Size", bindSizeAnimation);
+        }
 
         public HomePage_Model StrongTypeViewModel
         {

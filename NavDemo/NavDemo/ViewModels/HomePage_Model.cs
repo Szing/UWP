@@ -35,6 +35,20 @@ namespace NavDemo.ViewModels
         // If you have install the code sniplets, use "propvm + [tab] +[tab]" create a property。
         // 如果您已经安装了 MVVMSidekick 代码片段，请用 propvm +tab +tab 输入属性
 
+        /// <summary>
+        /// 文件读写服务
+        /// </summary>
+        FileService _fileService;
+
+        /// <summary>
+        /// 数据库操作服务
+        /// </summary>
+        DataService _dataService;
+
+        /// <summary>
+        /// 搜索框建议服务
+        /// </summary>
+        SuggestService _suggestService;
 
 
         public String Title
@@ -75,15 +89,6 @@ namespace NavDemo.ViewModels
         static Func<BindableBase, ValueContainer<List<Friend>>> _friendItemListLocator = RegisterContainerLocator(nameof(friendItemList), m => m.Initialize(nameof(friendItemList), ref m._friendItemList, ref _friendItemListLocator, () => default(List<Friend>)));
         #endregion
 
-
-        /// <summary>
-        /// Suggest服务，用来生成提示项
-        /// </summary>
-        public SuggestService suggest { get => _suggestLocator(this).Value; set => _suggestLocator(this).SetValueAndTryNotify(value); }
-        #region Property SuggestService suggest Setup        
-        protected Property<SuggestService> _suggest = new Property<SuggestService> { LocatorFunc = _suggestLocator };
-        static Func<BindableBase, ValueContainer<SuggestService>> _suggestLocator = RegisterContainerLocator(nameof(suggest), m => m.Initialize(nameof(suggest), ref m._suggest, ref _suggestLocator, () => default(SuggestService)));
-        #endregion
 
         /// <summary>
         /// 用来初始化富文本框的字体类型
@@ -196,17 +201,12 @@ namespace NavDemo.ViewModels
                               //Todo: Add SomeCommand logic here, or
                              
                               vm.currentDialog.textDialog = vm.currentIndex.ToString() + ".rtf";
-                              if(vm.currentDialog.timeDialog != null 
-                              &&vm.currentDialog.describeDialog != null
-                              && vm.currentDialog.nameFriend != null)
+                              if(vm.currentDialog.timeDialog != null && vm.currentDialog.describeDialog != null && vm.currentDialog.nameFriend != null)
                               {
-                                  ServiceLocator.Instance.Resolve<DataService>()
-                                     .InsertDialog(vm.currentDialog);
-
+                                  vm._dataService.InsertDialog(vm.currentDialog);
                                   vm.currentIndex++;
+                                  await vm._fileService.SetStringToFile(vm.currentDialog.textDialog, vm.richEditBoxContent, 1);
 
-                                  await ServiceLocator.Instance.Resolve<FileService>()
-                                    .SetStringToFile(vm.currentDialog.textDialog, vm.richEditBoxContent, 1);
                               }
                               else
                               {
@@ -316,21 +316,27 @@ namespace NavDemo.ViewModels
                 
                 flag = true;
             }
+
+            //获取文件服务实例
+            _fileService = ServiceLocator.Instance.Resolve<FileService>();
+            //获取数据库操作服务实例
+            _dataService = ServiceLocator.Instance.Resolve<DataService>();
+            //获取搜索框建议服务实例
+            _suggestService = ServiceLocator.Instance.Resolve<SuggestService>();
+
+
             chosenFriend = new Friend();
             currentDialog = new Dialog();
             fontFamily = new FontFamily("SongTi");
             suggestBoxText = "";
             richEditBoxContent = "";
-            //获取数据库服务
-            DataService dataService = ServiceLocator.Instance.Resolve<DataService>();
+            
             //获取当前最后一篇dialog的id
-            currentIndex = dataService.GetLastDialogId();
-            //获取suggest服务
-            suggest = ServiceLocator.Instance.Resolve<SuggestService>();
+            currentIndex = _dataService.GetLastDialogId();
             //初始化suggst项目总体
-            suggest.init(dataService.GetAllFriends());
+            _suggestService.init(_dataService.GetAllFriends());
             //初始化suggest下拉表单
-            friendItemList = dataService.GetAllFriends();
+            friendItemList = _dataService.GetAllFriends();
 
 
             return base.OnBindedViewLoad(view);
@@ -378,7 +384,7 @@ namespace NavDemo.ViewModels
                           e =>
                           {
                               
-                              friendItemList = ServiceLocator.Instance.Resolve<SuggestService>().Suggest(suggestBoxText);
+                              friendItemList = _suggestService.Suggest(suggestBoxText);
                           }
                      ).DisposeWith(this);
         }

@@ -1,0 +1,8 @@
+﻿[ResourceMetadata]
+"ResourceId"			"split.scale-150"
+"ResourceDimensions"		"scale-150"
+
+[Files]
+"D:\UWP-master\NavDemo\NavDemo\obj\x86\Release\split.scale-150.pri"			"resources.pri"
+"D:\UWP-master\NavDemo\NavDemo\obj\x86\Release\PackageLayout\Assets\SplashScreen.scale-150.png"			"Assets\SplashScreen.scale-150.png"
+"D:\UWP-master\NavDemo\NavDemo\obj\x86\Release\PackageLayout\Assets\SplashScreen.scale-150.jpg"			"Assets\SplashScreen.scale-150.jpg"

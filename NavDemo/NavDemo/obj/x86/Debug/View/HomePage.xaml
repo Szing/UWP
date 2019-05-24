@@ -19,29 +19,21 @@
         <vm:HomePage_Model x:Key="DesignVM"/>
     </mvvm:MVVMPage.Resources>
 
-    <Grid  DataContext="{StaticResource DesignVM}">
-        <Grid.Background>
+    <Grid  DataContext="{StaticResource DesignVM}" >
+        <!--
+         <Grid.Background>
             <ImageBrush Stretch="UniformToFill" ImageSource="/Assets/list.png" Opacity="0.3"/>
         </Grid.Background>
+        -->
+       
+        
+       
         <Grid.ChildrenTransitions>
             <TransitionCollection>
                 <EntranceThemeTransition/>
             </TransitionCollection>
         </Grid.ChildrenTransitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="0.2*"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="8*"></RowDefinition>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="0.2*"></RowDefinition>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition  Width="0.5*"></ColumnDefinition>
-            <ColumnDefinition  Width="7*"></ColumnDefinition>
-            <ColumnDefinition  Width="0.5*"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
+
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
                 <VisualState>
@@ -49,7 +41,7 @@
                         <AdaptiveTrigger MinWindowWidth="1400" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        
+
                         <Setter Target="btnHide1.Content" Value="︽隐藏之后"/>
                         <Setter Target="detailGrid1.Visibility" Value="Collapsed"/>
                         <Setter Target="btnHide.Content" Value="︾隐藏之后"/>
@@ -73,17 +65,33 @@
                         <AdaptiveTrigger MinWindowWidth="0" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        
+
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
-        <Grid x:ConnectionId='2' Grid.Row="1" x:Name="detailGrid" Margin="0,20,0,0" Grid.Column="1">
+        <Grid x:ConnectionId='2' Name="GlassHost" ></Grid>
+        <Grid Background="AliceBlue" Opacity="0.9">
             <Grid.RowDefinitions>
-                <RowDefinition Height="1*"></RowDefinition>
-                <RowDefinition Height="2*"></RowDefinition>
+                <RowDefinition Height="0.2*"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="8*"></RowDefinition>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="0.2*"></RowDefinition>
             </Grid.RowDefinitions>
-            <CalendarDatePicker x:ConnectionId='50' x:Name="MemoryCalenderDatePicker"
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition  Width="0.5*"></ColumnDefinition>
+                <ColumnDefinition  Width="7*"></ColumnDefinition>
+                <ColumnDefinition  Width="0.5*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid x:ConnectionId='3' Grid.Row="1" x:Name="detailGrid" Margin="0,20,0,0" Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="2*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <CalendarDatePicker x:ConnectionId='51' x:Name="MemoryCalenderDatePicker"
                             Grid.Row="0"
                             PlaceholderText="Mark your day"
                             Visibility="Visible"
@@ -92,138 +100,138 @@
                                 Width="360"
                                 
                             DateFormat="{}{dayofweek.full},{month.full} {day.integer}, {year.full}" >
-                <Custom:Interaction.Behaviors>
-                    <Custom1:EventTriggerBehavior EventName="DateChanged">
-                        <Custom1:InvokeCommandAction Command="{Binding CommandChangeDate}"/>
-                    </Custom1:EventTriggerBehavior>
-                </Custom:Interaction.Behaviors>
-            </CalendarDatePicker>
-            <TextBlock Text="时间：" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="25" Margin="0,0,570,0"/>
-            
-            <TextBlock Text="简述：" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,10,570,0" FontSize="25"/>
-            <TextBox Grid.Row="1" HorizontalAlignment="Center" Text="{Binding currentDialog.describeDialog, Mode=TwoWay}"  Margin="0,10,0,0"  TextWrapping="Wrap" VerticalAlignment="Center" Height="120" Width="358" />
-        </Grid>
-        <Button x:ConnectionId='3' Grid.Row="2" 
+                    <Custom:Interaction.Behaviors>
+                        <Custom1:EventTriggerBehavior EventName="DateChanged">
+                            <Custom1:InvokeCommandAction Command="{Binding CommandChangeDate}"/>
+                        </Custom1:EventTriggerBehavior>
+                    </Custom:Interaction.Behaviors>
+                </CalendarDatePicker>
+                <TextBlock Text="时间：" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="25" Margin="0,0,570,0"/>
+
+                <TextBlock Text="简述：" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,10,570,0" FontSize="25"/>
+                <TextBox Grid.Row="1" HorizontalAlignment="Center" Text="{Binding currentDialog.describeDialog, Mode=TwoWay}"  Margin="0,10,0,0"  TextWrapping="Wrap" VerticalAlignment="Center" Height="120" Width="358" />
+            </Grid>
+            <Button x:ConnectionId='4' Grid.Row="2" 
                 Grid.ColumnSpan="3" 
                 Content="︽" 
                 VerticalAlignment="Top"  
                 HorizontalAlignment="Stretch" 
                 Name="btnHide" 
                                       Background="{x:Null}" Opacity="0.5"/>
-        <RelativePanel x:ConnectionId='4'  Name="RelativePanel" Grid.Row="3" Grid.Column="1"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Margin="0,0,0,0">
-            <RelativePanel.Resources>
-                <Style TargetType="AppBarButton">
-                    <Setter Property="IsCompact" Value="True"/>
-                </Style>
-            </RelativePanel.Resources>
-            <AppBarButton x:ConnectionId='8' x:Name="openFileButton" Icon="OpenFile"
+            <RelativePanel x:ConnectionId='5'  Name="RelativePanel" Grid.Row="3" Grid.Column="1"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Margin="0,0,0,0">
+                <RelativePanel.Resources>
+                    <Style TargetType="AppBarButton">
+                        <Setter Property="IsCompact" Value="True"/>
+                    </Style>
+                </RelativePanel.Resources>
+                <AppBarButton x:ConnectionId='9' x:Name="openFileButton" Icon="OpenFile"
                                            ToolTipService.ToolTip="Open file"/>
-            <AppBarButton x:ConnectionId='9' x:Name="saveFileButton" Icon="Save"                         
+                <AppBarButton x:ConnectionId='10' x:Name="saveFileButton" Icon="Save"                         
                   ToolTipService.ToolTip="Save file"
                   RelativePanel.RightOf="openFileButton" Margin="8,0,0,0"/>
-            <AppBarButton x:ConnectionId='10' x:Name="imageButton" Icon="Pictures"                          
+                <AppBarButton x:ConnectionId='11' x:Name="imageButton" Icon="Pictures"                          
                  RelativePanel.RightOf="saveFileButton" ToolTipService.ToolTip="Image" />
-            <AppBarButton x:ConnectionId='11' x:Name="Font" Icon="Font" RelativePanel.RightOf="imageButton" ToolTipService.ToolTip="Font">
-                <AppBarButton.Flyout>
-                    <MenuFlyout>
-                        <MenuFlyoutItem x:ConnectionId='45' Text="幼圆" Tag="幼圆" FontFamily="YouYuan"                          />
-                        <MenuFlyoutItem x:ConnectionId='46' Text="楷体" Tag="楷体" FontFamily="KaiTi"                         />
-                        <MenuFlyoutItem x:ConnectionId='47' Text="姚体" Tag="姚体" FontFamily="FZYaoti"                          />
-                        <MenuFlyoutItem x:ConnectionId='48' Text="舒体" Tag="舒体" FontFamily="FZShuTi"                         />
-                        <MenuFlyoutItem x:ConnectionId='49' Text="隶书" Tag="隶书" FontFamily="STLiti"                         />
-                    </MenuFlyout>
-                </AppBarButton.Flyout>
-            </AppBarButton>
-            <AppBarButton x:ConnectionId='12' x:Name="fontColorButton" AutomationProperties.Name="Font color"
+                <AppBarButton x:ConnectionId='12' x:Name="Font" Icon="Font" RelativePanel.RightOf="imageButton" ToolTipService.ToolTip="Font">
+                    <AppBarButton.Flyout>
+                        <MenuFlyout>
+                            <MenuFlyoutItem x:ConnectionId='46' Text="幼圆" Tag="幼圆" FontFamily="YouYuan"                          />
+                            <MenuFlyoutItem x:ConnectionId='47' Text="楷体" Tag="楷体" FontFamily="KaiTi"                         />
+                            <MenuFlyoutItem x:ConnectionId='48' Text="姚体" Tag="姚体" FontFamily="FZYaoti"                          />
+                            <MenuFlyoutItem x:ConnectionId='49' Text="舒体" Tag="舒体" FontFamily="FZShuTi"                         />
+                            <MenuFlyoutItem x:ConnectionId='50' Text="隶书" Tag="隶书" FontFamily="STLiti"                         />
+                        </MenuFlyout>
+                    </AppBarButton.Flyout>
+                </AppBarButton>
+                <AppBarButton x:ConnectionId='13' x:Name="fontColorButton" AutomationProperties.Name="Font color"
                                 BorderThickness="0" ToolTipService.ToolTip="Font color"
                                 Background="Transparent" 
                                 RelativePanel.RightOf="Font" >
-                <SymbolIcon Symbol="FontColor" HorizontalAlignment="Stretch" Height="20" Margin="0,0,0,0" VerticalAlignment="Top"/>
-                <AppBarButton.Flyout>
-                    <Flyout Placement="Bottom">
-                        <VariableSizedWrapGrid Orientation="Horizontal" MaximumRowsOrColumns="3">
-                            <VariableSizedWrapGrid.Resources>
-                                <Style TargetType="Rectangle">
-                                    <Setter Property="Width" Value="32"/>
-                                    <Setter Property="Height" Value="32"/>
-                                </Style>
-                                <Style TargetType="Button">
-                                    <Setter Property="Padding" Value="0"/>
-                                    <Setter Property="MinWidth" Value="0"/>
-                                    <Setter Property="MinHeight" Value="0"/>
-                                    <Setter Property="Margin" Value="6"/>
-                                </Style>
-                            </VariableSizedWrapGrid.Resources>
-                            <Button x:ConnectionId='36'                           AutomationProperties.Name="Red">
-                                <Button.Content>
-                                    <Rectangle Fill="Red"/>
-                                </Button.Content>
-                            </Button>
-                            <Button x:ConnectionId='37'                           AutomationProperties.Name="Orange">
-                                <Button.Content>
-                                    <Rectangle Fill="Orange"/>
-                                </Button.Content>
-                            </Button>
-                            <Button x:ConnectionId='38'                           AutomationProperties.Name="Yellow">
-                                <Button.Content>
-                                    <Rectangle Fill="Yellow"/>
-                                </Button.Content>
-                            </Button>
-                            <Button x:ConnectionId='39'                           AutomationProperties.Name="Green">
-                                <Button.Content>
-                                    <Rectangle Fill="Green"/>
-                                </Button.Content>
-                            </Button>
-                            <Button x:ConnectionId='40'                           AutomationProperties.Name="Blue">
-                                <Button.Content>
-                                    <Rectangle Fill="Blue"/>
-                                </Button.Content>
-                            </Button>
-                            <Button x:ConnectionId='41'                           AutomationProperties.Name="Indigo">
-                                <Button.Content>
-                                    <Rectangle Fill="Indigo"/>
-                                </Button.Content>
-                            </Button>
-                            <Button x:ConnectionId='42'                           AutomationProperties.Name="Violet">
-                                <Button.Content>
-                                    <Rectangle Fill="Violet"/>
-                                </Button.Content>
-                            </Button>
-                            <Button x:ConnectionId='43'                           AutomationProperties.Name="Gray">
-                                <Button.Content>
-                                    <Rectangle Fill="Gray"/>
-                                </Button.Content>
-                            </Button>
-                            <Button x:ConnectionId='44'                           AutomationProperties.Name="Black">
-                                <Button.Content>
-                                    <Rectangle Fill="Black"/>
-                                </Button.Content>
-                            </Button>
-                        </VariableSizedWrapGrid>
-                    </Flyout>
-                </AppBarButton.Flyout>
-            </AppBarButton>
+                    <SymbolIcon Symbol="FontColor" HorizontalAlignment="Stretch" Height="20" Margin="0,0,0,0" VerticalAlignment="Top"/>
+                    <AppBarButton.Flyout>
+                        <Flyout Placement="Bottom">
+                            <VariableSizedWrapGrid Orientation="Horizontal" MaximumRowsOrColumns="3">
+                                <VariableSizedWrapGrid.Resources>
+                                    <Style TargetType="Rectangle">
+                                        <Setter Property="Width" Value="32"/>
+                                        <Setter Property="Height" Value="32"/>
+                                    </Style>
+                                    <Style TargetType="Button">
+                                        <Setter Property="Padding" Value="0"/>
+                                        <Setter Property="MinWidth" Value="0"/>
+                                        <Setter Property="MinHeight" Value="0"/>
+                                        <Setter Property="Margin" Value="6"/>
+                                    </Style>
+                                </VariableSizedWrapGrid.Resources>
+                                <Button x:ConnectionId='37'                           AutomationProperties.Name="Red">
+                                    <Button.Content>
+                                        <Rectangle Fill="Red"/>
+                                    </Button.Content>
+                                </Button>
+                                <Button x:ConnectionId='38'                           AutomationProperties.Name="Orange">
+                                    <Button.Content>
+                                        <Rectangle Fill="Orange"/>
+                                    </Button.Content>
+                                </Button>
+                                <Button x:ConnectionId='39'                           AutomationProperties.Name="Yellow">
+                                    <Button.Content>
+                                        <Rectangle Fill="Yellow"/>
+                                    </Button.Content>
+                                </Button>
+                                <Button x:ConnectionId='40'                           AutomationProperties.Name="Green">
+                                    <Button.Content>
+                                        <Rectangle Fill="Green"/>
+                                    </Button.Content>
+                                </Button>
+                                <Button x:ConnectionId='41'                           AutomationProperties.Name="Blue">
+                                    <Button.Content>
+                                        <Rectangle Fill="Blue"/>
+                                    </Button.Content>
+                                </Button>
+                                <Button x:ConnectionId='42'                           AutomationProperties.Name="Indigo">
+                                    <Button.Content>
+                                        <Rectangle Fill="Indigo"/>
+                                    </Button.Content>
+                                </Button>
+                                <Button x:ConnectionId='43'                           AutomationProperties.Name="Violet">
+                                    <Button.Content>
+                                        <Rectangle Fill="Violet"/>
+                                    </Button.Content>
+                                </Button>
+                                <Button x:ConnectionId='44'                           AutomationProperties.Name="Gray">
+                                    <Button.Content>
+                                        <Rectangle Fill="Gray"/>
+                                    </Button.Content>
+                                </Button>
+                                <Button x:ConnectionId='45'                           AutomationProperties.Name="Black">
+                                    <Button.Content>
+                                        <Rectangle Fill="Black"/>
+                                    </Button.Content>
+                                </Button>
+                            </VariableSizedWrapGrid>
+                        </Flyout>
+                    </AppBarButton.Flyout>
+                </AppBarButton>
 
-            <AppBarButton x:ConnectionId='13' x:Name="FontSize" Icon="FontSize"  ToolTipService.ToolTip="FontSize"
+                <AppBarButton x:ConnectionId='14' x:Name="FontSize" Icon="FontSize"  ToolTipService.ToolTip="FontSize"
                       RelativePanel.RightOf="fontColorButton" Margin="0,0,8,0">
-                <AppBarButton.Flyout>
-                    <MenuFlyout>
-                        <MenuFlyoutItem x:ConnectionId='31' Text="16" Tag="16"                              />
-                        <MenuFlyoutItem x:ConnectionId='32' Text="20" Tag="20"                             />
-                        <MenuFlyoutItem x:ConnectionId='33' Text="24" Tag="24"                              />
-                        <MenuFlyoutItem x:ConnectionId='34' Text="36" Tag="36"                             />
-                        <MenuFlyoutItem x:ConnectionId='35' Text="48" Tag="48"                             />
-                    </MenuFlyout>
-                </AppBarButton.Flyout>
-            </AppBarButton>
-            <AppBarButton x:ConnectionId='14' x:Name="boldbutton" Icon="Bold"                          ToolTipService.ToolTip="Bold"
+                    <AppBarButton.Flyout>
+                        <MenuFlyout>
+                            <MenuFlyoutItem x:ConnectionId='32' Text="16" Tag="16"                              />
+                            <MenuFlyoutItem x:ConnectionId='33' Text="20" Tag="20"                             />
+                            <MenuFlyoutItem x:ConnectionId='34' Text="24" Tag="24"                              />
+                            <MenuFlyoutItem x:ConnectionId='35' Text="36" Tag="36"                             />
+                            <MenuFlyoutItem x:ConnectionId='36' Text="48" Tag="48"                             />
+                        </MenuFlyout>
+                    </AppBarButton.Flyout>
+                </AppBarButton>
+                <AppBarButton x:ConnectionId='15' x:Name="boldbutton" Icon="Bold"                          ToolTipService.ToolTip="Bold"
                   RelativePanel.RightOf="FontSize" Margin="0,0,8,0"/>
-            <AppBarButton x:ConnectionId='15' x:Name="italicButton" Icon="Italic"                           
+                <AppBarButton x:ConnectionId='16' x:Name="italicButton" Icon="Italic"                           
                   ToolTipService.ToolTip="Italic" RelativePanel.RightOf="boldbutton" Margin="0,0,8,0"/>
-            <AppBarButton x:ConnectionId='16' x:Name="underlineButton" Icon="Underline"                              
+                <AppBarButton x:ConnectionId='17' x:Name="underlineButton" Icon="Underline"                              
                  RelativePanel.RightOf="italicButton" ToolTipService.ToolTip="Underline" RelativePanel.AlignRightWithPanel="True"/>
 
-            <RichEditBox x:ConnectionId='17' x:Name="editor"  RelativePanel.Below="openFileButton"
+                <RichEditBox x:ConnectionId='18' x:Name="editor"  RelativePanel.Below="openFileButton"
                                                                      
                  RelativePanel.AlignLeftWithPanel="True" 
                      RelativePanel.AlignRightWithPanel="True" 
@@ -232,61 +240,66 @@
                                                      
                      
                       >
-                <FlyoutBase.AttachedFlyout>
-                    <MenuFlyout >
-                        <MenuFlyoutItem x:ConnectionId='18' Text="复制"               />
-                        <MenuFlyoutItem x:ConnectionId='19' Text="剪切"              />
-                        <MenuFlyoutItem x:ConnectionId='20' Text="粘贴"                />
-                        <MenuFlyoutSeparator/>
-                        <MenuFlyoutSubItem Text="字号">
-                            <MenuFlyoutItem x:ConnectionId='26' Text="16" Tag="16"                              />
-                            <MenuFlyoutItem x:ConnectionId='27' Text="20" Tag="20"                             />
-                            <MenuFlyoutItem x:ConnectionId='28' Text="24" Tag="24"                              />
-                            <MenuFlyoutItem x:ConnectionId='29' Text="36" Tag="36"                             />
-                            <MenuFlyoutItem x:ConnectionId='30' Text="48" Tag="48"                             />
-                        </MenuFlyoutSubItem>
-                        <MenuFlyoutSeparator/>
-                        <ToggleMenuFlyoutItem x:ConnectionId='21' Text="加粗"                          />
-                        <MenuFlyoutSeparator/>
-                        <MenuFlyoutSubItem Text="下划线">
-                            <MenuFlyoutItem x:ConnectionId='22' Text="无" Tag="-1"                     />
-                            <MenuFlyoutItem x:ConnectionId='23' Text="单实线" Tag="0"                    />
-                            <MenuFlyoutItem x:ConnectionId='24' Text="双实线" Tag="1"                    />
-                            <MenuFlyoutItem x:ConnectionId='25' Text="虚线" Tag="2"                    />
-                        </MenuFlyoutSubItem>
-                    </MenuFlyout>
-                </FlyoutBase.AttachedFlyout>
+                    <FlyoutBase.AttachedFlyout>
+                        <MenuFlyout >
+                            <MenuFlyoutItem x:ConnectionId='19' Text="复制"               />
+                            <MenuFlyoutItem x:ConnectionId='20' Text="剪切"              />
+                            <MenuFlyoutItem x:ConnectionId='21' Text="粘贴"                />
+                            <MenuFlyoutSeparator/>
+                            <MenuFlyoutSubItem Text="字号">
+                                <MenuFlyoutItem x:ConnectionId='27' Text="16" Tag="16"                              />
+                                <MenuFlyoutItem x:ConnectionId='28' Text="20" Tag="20"                             />
+                                <MenuFlyoutItem x:ConnectionId='29' Text="24" Tag="24"                              />
+                                <MenuFlyoutItem x:ConnectionId='30' Text="36" Tag="36"                             />
+                                <MenuFlyoutItem x:ConnectionId='31' Text="48" Tag="48"                             />
+                            </MenuFlyoutSubItem>
+                            <MenuFlyoutSeparator/>
+                            <ToggleMenuFlyoutItem x:ConnectionId='22' Text="加粗"                          />
+                            <MenuFlyoutSeparator/>
+                            <MenuFlyoutSubItem Text="下划线">
+                                <MenuFlyoutItem x:ConnectionId='23' Text="无" Tag="-1"                     />
+                                <MenuFlyoutItem x:ConnectionId='24' Text="单实线" Tag="0"                    />
+                                <MenuFlyoutItem x:ConnectionId='25' Text="双实线" Tag="1"                    />
+                                <MenuFlyoutItem x:ConnectionId='26' Text="虚线" Tag="2"                    />
+                            </MenuFlyoutSubItem>
+                        </MenuFlyout>
+                    </FlyoutBase.AttachedFlyout>
 
-            </RichEditBox>
-        </RelativePanel>
-        <Button x:ConnectionId='5' Grid.Row="4" 
+                </RichEditBox>
+            </RelativePanel>
+            <Button x:ConnectionId='6' Grid.Row="4" 
                 Grid.ColumnSpan="3"
                 Content="︾" 
                 VerticalAlignment="Top"  
                 HorizontalAlignment="Stretch" 
                 Name="btnHide1" 
                                        Background="{x:Null}" Opacity="0.5"/>
-        <Grid x:ConnectionId='6' Grid.Row="5" x:Name="detailGrid1" Margin="0,0,0,0" Grid.Column="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"></RowDefinition>
-                
-            </Grid.RowDefinitions>
-            <AutoSuggestBox x:ConnectionId='7'  x:Name="MyASBox" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="46" Width="355" Grid.Row="0" Text="{Binding suggestBoxText, Mode=TwoWay}"
+            <Grid x:ConnectionId='7' Grid.Row="5" x:Name="detailGrid1" Margin="0,0,0,0" Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+
+                </Grid.RowDefinitions>
+                <AutoSuggestBox x:ConnectionId='8'  x:Name="MyASBox" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="46" Width="355" Grid.Row="0" Text="{Binding suggestBoxText, Mode=TwoWay}"
                         QueryIcon="Find" ItemsSource="{Binding friendItemList, Mode=TwoWay}" ItemTemplate="{StaticResource SuggestBoxTemplate}"  TextMemberPath="nameFriend">
 
-                <Custom:Interaction.Behaviors>
-                    <Custom1:EventTriggerBehavior EventName="TextChanged">
-                        <Custom2:SendToEventRouterAction EventData="{Binding}" IsEventFiringToAllBaseClassesChannels="True" EventRoutingName="TextChangedEventRouter"/>
-                    </Custom1:EventTriggerBehavior>
-                    <Custom1:EventTriggerBehavior EventName="SuggestionChosen">
-                        <Custom1:InvokeCommandAction Command="{Binding CommandChoseFriend}"/>
-                    </Custom1:EventTriggerBehavior>
-                </Custom:Interaction.Behaviors>
-            </AutoSuggestBox>
-        <!--<Button x:Name="ImageButton" Content="Button1" HorizontalAlignment="Left" Margin="1331,598,0,0" VerticalAlignment="Top" Height="57" Width="107" Click="Button_Click"/>
+                    <Custom:Interaction.Behaviors>
+                        <Custom1:EventTriggerBehavior EventName="TextChanged">
+                            <Custom2:SendToEventRouterAction EventData="{Binding}" IsEventFiringToAllBaseClassesChannels="True" EventRoutingName="TextChangedEventRouter"/>
+                        </Custom1:EventTriggerBehavior>
+                        <Custom1:EventTriggerBehavior EventName="SuggestionChosen">
+                            <Custom1:InvokeCommandAction Command="{Binding CommandChoseFriend}"/>
+                        </Custom1:EventTriggerBehavior>
+                    </Custom:Interaction.Behaviors>
+                </AutoSuggestBox>
+                <!--<Button x:Name="ImageButton" Content="Button1" HorizontalAlignment="Left" Margin="1331,598,0,0" VerticalAlignment="Top" Height="57" Width="107" Click="Button_Click"/>
         <Image x:Name="Img" HorizontalAlignment="Left" Height="198" Margin="1114,429,0,0" VerticalAlignment="Top" Width="212"/><!-->
-            <Button  Grid.Row="0" Content="InsertDialog" HorizontalAlignment="Center"  VerticalAlignment="Center" Command="{Binding CommandInsertDialog}" Height="60" Width="128" CommandParameter="{Binding ElementName=editor}" Margin="505,0,0,0" Opacity="0.8"/>
+                <Button  Grid.Row="0" Content="InsertDialog" HorizontalAlignment="Center"  VerticalAlignment="Center" Command="{Binding CommandInsertDialog}" Height="60" Width="128" CommandParameter="{Binding ElementName=editor}" Margin="505,0,0,0" Opacity="0.8"/>
+            </Grid>
         </Grid>
+       
+        
+        
+      
        
 
     </Grid>

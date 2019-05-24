@@ -44,9 +44,23 @@ namespace NavDemo.ViewModels
             NavMenuItemList.Add(new NavMenuItem { Glyph = "\uf067", Label = "添加好友" });
 
         }
-
+        /// <summary>
+        /// 当前的页面位置
+        /// </summary>
         int indexPage;
+
+        /// <summary>
+        /// 滑动类型
+        /// </summary>
         int typeSlide;
+
+        
+
+        /// <summary>
+        /// 数据库连接与建表服务
+        /// </summary>
+        DbContext _dbContextService;
+
         //propvm tab tab string tab Title
         public String Title
         {
@@ -89,18 +103,18 @@ namespace NavDemo.ViewModels
         static Func<bool> _IsPaneOpenDefaultValueFactory = () => default(bool);
         #endregion
 
-
-
-
-
-
+        /// <summary>
+        /// 汉堡菜单背景
+        /// </summary>
         public string listViewBackGround { get => _listViewBackGroundLocator(this).Value; set => _listViewBackGroundLocator(this).SetValueAndTryNotify(value); }
         #region Property string listViewBackGround Setup        
         protected Property<string> _listViewBackGround = new Property<string> { LocatorFunc = _listViewBackGroundLocator};
         static Func<BindableBase, ValueContainer<string>> _listViewBackGroundLocator = RegisterContainerLocator(nameof(listViewBackGround), m => m.Initialize(nameof(listViewBackGround), ref m._listViewBackGround, ref _listViewBackGroundLocator, () => default(string)));
         #endregion
 
-
+        /// <summary>
+        /// 纵向拉伸跳转
+        /// </summary>
         public CommandModel<ReactiveCommand, String> CommandNextPage
         {
             get { return _CommandNextPageLocator(this).Value; }
@@ -124,8 +138,7 @@ namespace NavDemo.ViewModels
                               int i = (int)e.EventArgs.Parameter;
                               
                               // i = 1 到下一个page i = 2到上一个page i = 3 到顶部page  i = 4到底部page
-                            
-                                
+                                                         
                               if (i == 1)
                               {
                                   if(vm.indexPage < 4)
@@ -259,14 +272,18 @@ namespace NavDemo.ViewModels
                 this.isLoaded = true;
             }
 
+            //获取数据库连接建表服务实例
+            _dbContextService = ServiceLocator.Instance.Resolve<DbContext>();
+
             //初始化ListView背景
             listViewBackGround = "/Assets/background1.png";
             //建立Friend的数据表单
-            ServiceLocator.Instance.Resolve<DbContext>().initTableFriend();
+            _dbContextService.initTableFriend();
             //建立Dialog的数据表单
-            ServiceLocator.Instance.Resolve<DbContext>().initTableDialog();
+            _dbContextService.initTableDialog();
+
             await base.OnBindedViewLoad(view);
-            //await StageManager["frameMain"].Show(new HomePage_Model());
+            
         }
 
         ///// <summary>

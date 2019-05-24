@@ -132,6 +132,9 @@
   <ItemGroup>
     <Compile Include="AttachProps\RtfStringSetter.cs" />
     <Compile Include="Behaviours\ListViewBehaviour.cs" />
+    <Compile Include="Models\FireflyParticle.cs" />
+    <Compile Include="Models\GlowEffectGraph.cs" />
+    <Compile Include="Models\Ran.cs" />
     <Compile Include="Resources\MessagePopupWindow.xaml.cs">
       <DependentUpon>MessagePopupWindow.xaml</DependentUpon>
     </Compile>

@@ -53,7 +53,7 @@ namespace NavDemo
             
         }
 
-        private async void Grid_Drop(object sender, DragEventArgs e)
+        private void Grid_Drop(object sender, DragEventArgs e)
         {
            
         }

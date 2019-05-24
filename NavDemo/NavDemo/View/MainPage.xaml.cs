@@ -24,6 +24,9 @@ using Windows.UI.Core;
 using MVVMSidekick.Services;
 using NavDemo.Services;
 using System.Threading.Tasks;
+using NavDemo.Models;
+using Microsoft.Graphics.Canvas.UI.Xaml;
+using Microsoft.Graphics.Canvas;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -38,8 +41,9 @@ namespace NavDemo
         private double y = 0;
         public MainPage()
         {
+           
             this.InitializeComponent();
-
+           
             //回退功能
             SystemNavigationManager navmgr = SystemNavigationManager.GetForCurrentView();
             navmgr.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
@@ -68,8 +72,8 @@ namespace NavDemo
             this.ManipulationMode = ManipulationModes.TranslateX;
             this.ManipulationCompleted += The_ManipulationCompleted;
             this.ManipulationDelta += The_ManipulationDelta;
-           
 
+            Page_Loaded();
         }
 
         /// <summary>
@@ -219,13 +223,55 @@ namespace NavDemo
         public static readonly DependencyProperty StrongTypeViewModelProperty =
                     DependencyProperty.Register("StrongTypeViewModel", typeof(MainPage_Model), typeof(MainPage), new PropertyMetadata(null));
 
-        private void  Button_Click(object sender, RoutedEventArgs e)
+        private async void  Button_Click(object sender, RoutedEventArgs e)
         {
             //ServiceLocator.Instance.Resolve<FileService>().WriteDialog("dialog.txt");
-            ServiceLocator.Instance.Resolve<FileService>().ReadDialog("dialog.txt");
+            await ServiceLocator.Instance.Resolve<FileService>().ReadDialog("dialog.txt");
         }
 
-        
-        
+        private List<FireflyParticle> FireflyParticle { set; get; } = new List<FireflyParticle>();
+
+        private void Page_Loaded()
+        {
+            if (!FireflyParticle.Any())
+            {
+                Rect bound = new Rect(0, 0,1920,1280);
+                for (int i = 0; i < 100; i++)
+                {
+                    FireflyParticle.Add(new FireflyParticle(bound));
+                }
+            }
+        }
+
+        private void Canvas_OnUpdate(ICanvasAnimatedControl sender, CanvasAnimatedUpdateEventArgs args)
+        {
+            foreach (var temp in FireflyParticle)
+            {
+                temp.Time(args.Timing.ElapsedTime);
+            }
+        }
+
+        private void Canvas_Draw(ICanvasAnimatedControl sender, CanvasAnimatedDrawEventArgs args)
+        {
+            using (var session = args.DrawingSession)
+            {
+                foreach (var temp in FireflyParticle)
+                {
+                    using (var cl = new CanvasCommandList(session))
+                    using (var ds = cl.CreateDrawingSession())
+                    {
+                        var c = temp.CenterColor;
+                        c.A = (byte)(temp.OpColor * 255);
+                        ds.FillCircle((float)temp.Point.X, (float)temp.Point.Y, (float)temp.Radius, c);
+                        using (var glow = new GlowEffectGraph())
+                        {
+                            glow.Setup(cl, temp.Radius);
+                            session.DrawImage(glow.Blur);
+                        }
+                    }
+                }
+            }
+        }
+
     }
 }

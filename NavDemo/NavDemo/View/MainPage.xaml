@@ -8,6 +8,8 @@
     xmlns:mvvm="using:MVVMSidekick.Views"
     xmlns:vm="using:NavDemo.ViewModels"
     xmlns:nm="using:NavDemo.Models"
+    xmlns:canvas="using:Microsoft.Graphics.Canvas.UI.Xaml"
+
     mc:Ignorable="d">
     <Page.Resources>
         <!-- TODO: Delete this line if the key AppName is declared in App.xaml -->
@@ -38,10 +40,13 @@
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
+        <!--
         <Grid.Background>
             <ImageBrush Stretch="UniformToFill" ImageSource="/Assets/background.jpg"/>
         </Grid.Background>
-
+        -->
+        
+        
         
         <!-- Top-level navigation menu + app content -->
         <SplitView x:Name="RootSplitView" IsPaneOpen="{Binding IsPaneOpen,Mode=TwoWay}" 
@@ -77,7 +82,8 @@
 
             <SplitView.Content>
                 <Frame x:Name="mainFrame" mvvm:StageManager.Beacon="frameMain" x:FieldModifier="public">
-                   
+                    <canvas:CanvasAnimatedControl x:Name="canvas"   Update="Canvas_OnUpdate" Draw="Canvas_Draw" >
+                    </canvas:CanvasAnimatedControl>
 
                 </Frame>
             </SplitView.Content>

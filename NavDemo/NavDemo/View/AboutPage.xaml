@@ -28,25 +28,224 @@
         </Grid.ChildrenTransitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.3*"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="0.2*"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="8*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
-            
+
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition  Width="0.5*"></ColumnDefinition>
+            <ColumnDefinition  Width="7*"></ColumnDefinition>
+            <ColumnDefinition  Width="0.5*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="1400" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="timeTextBlock.Visibility" Value="Collapsed"/>
+                        <Setter Target="describeTextBlock.Visibility" Value="Collapsed"/>
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="900" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+
+                        <Setter Target="timeTextBlock.Visibility" Value="Collapsed"/>
+                        <Setter Target="describeTextBlock.Visibility" Value="Collapsed"/>
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
         <!--
         <TextBlock Grid.Row="1" x:Name="pageTitle" Text="{Binding Title}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
                         IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40"/>
         -->
 
 
-        <TextBlock Grid.Row="1"  FontSize="25" Margin="0,0,590,0" HorizontalAlignment="Center"  Text="{Binding currentDialog.timeDialog}" TextWrapping="Wrap" VerticalAlignment="Center" Height="28" Width="129"/>
-        <TextBlock Grid.Row="2"  FontSize="25" Margin="0,0,360,0" HorizontalAlignment="Center"  Text="{Binding currentDialog.describeDialog}" TextWrapping="Wrap" VerticalAlignment="Center" Height="61" Width="358"/>
-        <Button Grid.Row="3" Content="LastPage" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Command="{Binding CommandToLastPage}" CommandParameter="{Binding ElementName=editor}"/>
-        <Button Grid.Row="3" Content="NextPage" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Command="{Binding CommandToNextPage}" CommandParameter="{Binding ElementName=editor}"/>
+        <TextBlock Name="timeTextBlock" Grid.Row="1" Grid.Column="1"  FontSize="25"  HorizontalAlignment="Left"  Text="{Binding currentDialog.timeDialog}" TextWrapping="Wrap" VerticalAlignment="Center" Height="28" Width="129"/>
+        <TextBlock Name="describeTextBlock" Grid.Row="3" Grid.Column="1" FontSize="25"  HorizontalAlignment="Left"  Text="{Binding currentDialog.describeDialog}" TextWrapping="Wrap" VerticalAlignment="Center" Height="61" Width="358"/>
+        <Button  Style="{StaticResource ImageButtonStyle}" Grid.Row="4" Grid.Column="0" Content="LastPage" HorizontalAlignment="Center"  VerticalAlignment="Center" Command="{Binding CommandToLastPage}" CommandParameter="{Binding ElementName=editor}" Height="97" Width="84" >
+            <Button.Background>
+                <ImageBrush ImageSource="/Assets/b.png" Stretch="Fill"/>
+            </Button.Background>
+        </Button>
+        <Button Style="{StaticResource ImageButtonStyle}" Grid.Row="4" Grid.Column="2" Content="NextPage" HorizontalAlignment="Center"  VerticalAlignment="Center" Command="{Binding CommandToNextPage}" CommandParameter="{Binding ElementName=editor}" Height="97" Width="84" >
+            <Button.Background>
+                <ImageBrush Stretch="Fill" ImageSource="/Assets/a.png"/>
+            </Button.Background>
+        </Button>
+
+        <RelativePanel  Name="RelativePanel" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Margin="0,0,0,0">
+            <RelativePanel.Resources>
+                <Style TargetType="AppBarButton">
+                    <Setter Property="IsCompact" Value="True"/>
+                </Style>
+            </RelativePanel.Resources>
+            <AppBarButton x:Name="openFileButton" Icon="OpenFile"
+                  Click="OpenButton_Click" ToolTipService.ToolTip="Open file"/>
+            <AppBarButton x:Name="saveFileButton" Icon="Save" Click="SaveButton1_Click"
+                  ToolTipService.ToolTip="Save file"
+                  RelativePanel.RightOf="openFileButton" Margin="8,0,0,0"/>
+            <AppBarButton x:Name="imageButton" Icon="Pictures" Click="ImageButton_Click"
+                 RelativePanel.RightOf="saveFileButton" ToolTipService.ToolTip="Image" />
+            <AppBarButton x:Name="Font" Icon="Font" RelativePanel.RightOf="imageButton" ToolTipService.ToolTip="Font">
+                <AppBarButton.Flyout>
+                    <MenuFlyout>
+                        <MenuFlyoutItem Text="幼圆" Tag="幼圆" FontFamily="YouYuan" Click="FontButton_Click" />
+                        <MenuFlyoutItem Text="楷体" Tag="楷体" FontFamily="KaiTi" Click="FontButton_Click"/>
+                        <MenuFlyoutItem Text="姚体" Tag="姚体" FontFamily="FZYaoti" Click="FontButton_Click" />
+                        <MenuFlyoutItem Text="舒体" Tag="舒体" FontFamily="FZShuTi" Click="FontButton_Click"/>
+                        <MenuFlyoutItem Text="隶书" Tag="隶书" FontFamily="STLiti" Click="FontButton_Click"/>
+                    </MenuFlyout>
+                </AppBarButton.Flyout>
+            </AppBarButton>
+            <AppBarButton x:Name="fontColorButton" AutomationProperties.Name="Font color"
+                                BorderThickness="0" ToolTipService.ToolTip="Font color"
+                                Background="Transparent" 
+                                RelativePanel.RightOf="Font" >
+                <SymbolIcon Symbol="FontColor" HorizontalAlignment="Stretch" Height="20" Margin="0,0,0,0" VerticalAlignment="Top"/>
+                <AppBarButton.Flyout>
+                    <Flyout Placement="Bottom">
+                        <VariableSizedWrapGrid Orientation="Horizontal" MaximumRowsOrColumns="3">
+                            <VariableSizedWrapGrid.Resources>
+                                <Style TargetType="Rectangle">
+                                    <Setter Property="Width" Value="32"/>
+                                    <Setter Property="Height" Value="32"/>
+                                </Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="Padding" Value="0"/>
+                                    <Setter Property="MinWidth" Value="0"/>
+                                    <Setter Property="MinHeight" Value="0"/>
+                                    <Setter Property="Margin" Value="6"/>
+                                </Style>
+                            </VariableSizedWrapGrid.Resources>
+                            <Button Click="ColorButton_Click" AutomationProperties.Name="Red">
+                                <Button.Content>
+                                    <Rectangle Fill="Red"/>
+                                </Button.Content>
+                            </Button>
+                            <Button Click="ColorButton_Click" AutomationProperties.Name="Orange">
+                                <Button.Content>
+                                    <Rectangle Fill="Orange"/>
+                                </Button.Content>
+                            </Button>
+                            <Button Click="ColorButton_Click" AutomationProperties.Name="Yellow">
+                                <Button.Content>
+                                    <Rectangle Fill="Yellow"/>
+                                </Button.Content>
+                            </Button>
+                            <Button Click="ColorButton_Click" AutomationProperties.Name="Green">
+                                <Button.Content>
+                                    <Rectangle Fill="Green"/>
+                                </Button.Content>
+                            </Button>
+                            <Button Click="ColorButton_Click" AutomationProperties.Name="Blue">
+                                <Button.Content>
+                                    <Rectangle Fill="Blue"/>
+                                </Button.Content>
+                            </Button>
+                            <Button Click="ColorButton_Click" AutomationProperties.Name="Indigo">
+                                <Button.Content>
+                                    <Rectangle Fill="Indigo"/>
+                                </Button.Content>
+                            </Button>
+                            <Button Click="ColorButton_Click" AutomationProperties.Name="Violet">
+                                <Button.Content>
+                                    <Rectangle Fill="Violet"/>
+                                </Button.Content>
+                            </Button>
+                            <Button Click="ColorButton_Click" AutomationProperties.Name="Gray">
+                                <Button.Content>
+                                    <Rectangle Fill="Gray"/>
+                                </Button.Content>
+                            </Button>
+                            <Button Click="ColorButton_Click" AutomationProperties.Name="Black">
+                                <Button.Content>
+                                    <Rectangle Fill="Black"/>
+                                </Button.Content>
+                            </Button>
+                        </VariableSizedWrapGrid>
+                    </Flyout>
+                </AppBarButton.Flyout>
+            </AppBarButton>
+
+            <AppBarButton x:Name="FontSize" Icon="FontSize"  ToolTipService.ToolTip="FontSize"
+                      RelativePanel.RightOf="fontColorButton" Margin="0,0,8,0">
+                <AppBarButton.Flyout>
+                    <MenuFlyout>
+                        <MenuFlyoutItem Text="16" Tag="16" Click="FontSizeButton_Click" />
+                        <MenuFlyoutItem Text="20" Tag="20" Click="FontSizeButton_Click"/>
+                        <MenuFlyoutItem Text="24" Tag="24" Click="FontSizeButton_Click" />
+                        <MenuFlyoutItem Text="36" Tag="36" Click="FontSizeButton_Click"/>
+                        <MenuFlyoutItem Text="48" Tag="48" Click="FontSizeButton_Click"/>
+                    </MenuFlyout>
+                </AppBarButton.Flyout>
+            </AppBarButton>
+            <AppBarButton x:Name="boldbutton" Icon="Bold" Click="BoldButton_Click" ToolTipService.ToolTip="Bold"
+                  RelativePanel.RightOf="FontSize" Margin="0,0,8,0"/>
+            <AppBarButton x:Name="italicButton" Icon="Italic" Click="ItalicButton_Click"
+                  ToolTipService.ToolTip="Italic" RelativePanel.RightOf="boldbutton" Margin="0,0,8,0"/>
+            <AppBarButton x:Name="underlineButton" Icon="Underline" Click="UnderlineButton_Click"
+                 RelativePanel.RightOf="italicButton" ToolTipService.ToolTip="Underline" RelativePanel.AlignRightWithPanel="True"/>
+
+            <RichEditBox x:Name="editor"  RelativePanel.Below="openFileButton"
+                      ContextMenuOpening ="Editor_ContextMenuOpening"
+                 RelativePanel.AlignLeftWithPanel="True" 
+                     RelativePanel.AlignRightWithPanel="True" 
+                     RelativePanel.AlignBottomWithPanel="True"
+                     ap:RtfText.RichText ="{Binding richEditBoxContent,Mode=TwoWay}"
+                     
+                      >
+                <FlyoutBase.AttachedFlyout>
+                    <MenuFlyout >
+                        <MenuFlyoutItem Text="复制" Click="OnCopy"/>
+                        <MenuFlyoutItem Text="剪切" Click="OnCut"/>
+                        <MenuFlyoutItem Text="粘贴" Click="OnPaste"/>
+                        <MenuFlyoutSeparator/>
+                        <MenuFlyoutSubItem Text="字号">
+                            <MenuFlyoutItem Text="16" Tag="16" Click="FontSizeButton_Click" />
+                            <MenuFlyoutItem Text="20" Tag="20" Click="FontSizeButton_Click"/>
+                            <MenuFlyoutItem Text="24" Tag="24" Click="FontSizeButton_Click" />
+                            <MenuFlyoutItem Text="36" Tag="36" Click="FontSizeButton_Click"/>
+                            <MenuFlyoutItem Text="48" Tag="48" Click="FontSizeButton_Click"/>
+                        </MenuFlyoutSubItem>
+                        <MenuFlyoutSeparator/>
+                        <ToggleMenuFlyoutItem Text="加粗" Click="BoldButton_Click" />
+                        <MenuFlyoutSeparator/>
+                        <MenuFlyoutSubItem Text="下划线">
+                            <MenuFlyoutItem Text="无" Tag="-1" Click="OnUnderline" />
+                            <MenuFlyoutItem Text="单实线" Tag="0" Click="OnUnderline"/>
+                            <MenuFlyoutItem Text="双实线" Tag="1" Click="OnUnderline"/>
+                            <MenuFlyoutItem Text="虚线" Tag="2" Click="OnUnderline"/>
+                        </MenuFlyoutSubItem>
+                    </MenuFlyout>
+                </FlyoutBase.AttachedFlyout>
+
+            </RichEditBox>
+        </RelativePanel>
+
+        <!--
         <RichEditBox  Grid.Row="3" Name="editor" HorizontalAlignment="Center"  VerticalAlignment="Top" Height="600" Width="721" ap:RtfText.RichText ="{Binding richEditBoxContent,Mode=TwoWay}" />
-        <Button Content="Delete"   HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Bottom" Click="DeleteButton_Click" />
-        <Button Content="Save"   HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Bottom" Click="SaveButton_Click"  Margin="-150,0,0,0"/>
+        -->
+
+        <Button Content="Delete"   HorizontalAlignment="Center" Grid.Row="5" Grid.Column="1" VerticalAlignment="Bottom" Click="DeleteButton_Click" />
+        <Button Content="Save"   HorizontalAlignment="Center" Grid.Row="5" Grid.Column="1" VerticalAlignment="Bottom" Click="SaveButton_Click"  Margin="-150,0,0,0"/>
         <!-->
             <Button Content="show" HorizontalAlignment="Left" Margin="1014,281,0,0" VerticalAlignment="Top" Command="{Binding CommandGetDialog}" CommandParameter="{Binding ElementName=editor}" />
         <!-->

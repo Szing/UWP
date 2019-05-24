@@ -24,6 +24,12 @@ namespace NavDemo.ViewModels
         // If you have install the code sniplets, use "propvm + [tab] +[tab]" create a property。
         // 如果您已经安装了 MVVMSidekick 代码片段，请用 propvm +tab +tab 输入属性
 
+
+        /// <summary>
+        /// 数据库操作服务
+        /// </summary>
+        DataService _dataService;
+
         public string Title { get => _TitleLocator(this).Value; set => _TitleLocator(this).SetValueAndTryNotify(value); }
         #region Property string Title Setup        
         protected Property<string> _Title = new Property<string> { LocatorFunc = _TitleLocator };
@@ -185,10 +191,8 @@ namespace NavDemo.ViewModels
                               //Todo: Add DeleteFriend logic here, or
                               if (vm.listFriend.Count != 0)
                               {
-                                  //获取数据库服务
-                                  DataService dataService = ServiceLocator.Instance.Resolve<DataService>();
-                                  dataService.DeleteFriend(vm.currentFriend.idFriend);
-                                  dataService.DeleteDialog(vm.currentFriend.idFriend, "");
+                                  vm._dataService.DeleteFriend(vm.currentFriend.idFriend);
+                                  vm._dataService.DeleteDialog(vm.currentFriend.idFriend, "");
                                   vm.listFriend.Remove(vm.currentFriend);
                                   if (vm.listFriend.Count == 0)
                                   {
@@ -297,7 +301,7 @@ namespace NavDemo.ViewModels
               model =>
               {
                   var state = "CommandTest";
-                  var commandId = "CommandTest";
+                  //var commandId = "CommandTest";
                   var vm = CastToCurrentType(model);
                   var cmd = new ReactiveCommand(canExecute: true) { ViewModel = model };
 
@@ -384,10 +388,10 @@ namespace NavDemo.ViewModels
         ///// <returns>Task awaiter</returns>
         protected override Task OnBindedViewLoad(MVVMSidekick.Views.IView view)
         {
-            //获取数据库服务
-            DataService dataService = ServiceLocator.Instance.Resolve<DataService>();
+            //获取数据库操作服务实例
+            _dataService = ServiceLocator.Instance.Resolve<DataService>();
             //获取好友列表
-            listFriend = dataService.GetAllFriends();
+            listFriend = _dataService.GetAllFriends();
             //初始化好友索引
             indexFriend = 0;
             currentFriend = new Friend();

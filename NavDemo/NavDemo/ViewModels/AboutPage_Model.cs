@@ -27,6 +27,17 @@ namespace NavDemo.ViewModels
         // If you have install the code sniplets, use "propvm + [tab] +[tab]" create a property。
         // 如果您已经安装了 MVVMSidekick 代码片段，请用 propvm +tab +tab 输入属性
 
+        /// <summary>
+        /// 文件读写服务
+        /// </summary>
+        FileService _fileService;
+
+        /// <summary>
+        /// 数据库操作服务
+        /// </summary>
+        DataService _dataService;
+
+
         public String Title
         {
             get { return _TitleLocator(this).Value; }
@@ -37,6 +48,8 @@ namespace NavDemo.ViewModels
         static Func<BindableBase, ValueContainer<String>> _TitleLocator = RegisterContainerLocator<String>("Title", model => model.Initialize("Title", ref model._Title, ref _TitleLocator, _TitleDefaultValueFactory));
         static Func<BindableBase, String> _TitleDefaultValueFactory = m => m.GetType().Name;
         #endregion
+
+        
 
         /// <summary>
         /// 当前的日志
@@ -109,8 +122,8 @@ namespace NavDemo.ViewModels
                                   vm.currentDialog = vm.listDialog[vm.indexDialog];
                                   if (vm.currentDialog.textDialog == null)
                                       vm.currentDialog.textDialog = "default.rtf";
-                                  vm.richEditBoxContent = await ServiceLocator.Instance.Resolve<FileService>()
-                                                                .GetStringFromFile(vm.currentDialog.textDialog);
+                                  vm.richEditBoxContent = await vm._fileService.GetStringFromFile(vm.currentDialog.textDialog);
+
                               }
                               else
                               {
@@ -161,8 +174,8 @@ namespace NavDemo.ViewModels
                                   vm.currentDialog = vm.listDialog[vm.indexDialog];
                                   if (vm.currentDialog.textDialog == null)
                                       vm.currentDialog.textDialog = "default.rtf";
-                                  vm.richEditBoxContent = await ServiceLocator.Instance.Resolve<FileService>()
-                                                                .GetStringFromFile(vm.currentDialog.textDialog);
+                                  vm.richEditBoxContent = await vm._fileService.GetStringFromFile(vm.currentDialog.textDialog);
+
                               }
                               else
                               {
@@ -207,8 +220,8 @@ namespace NavDemo.ViewModels
                           {
                             //Todo: Add GetDialog logic here, or
                             await MVVMSidekick.Utilities.TaskExHelper.Yield();
-                              vm.richEditBoxContent = await ServiceLocator.Instance.Resolve<FileService>()
-                                                                .GetStringFromFile(vm.currentDialog.textDialog);
+                              vm.richEditBoxContent = await vm._fileService.GetStringFromFile(vm.currentDialog.textDialog);
+
                           })
                       .DoNotifyDefaultEventRouter(vm, commandId)
                       .Subscribe()
@@ -246,9 +259,8 @@ namespace NavDemo.ViewModels
                           async e =>
                           {
                             //Todo: Add DeleteDialog logic here, or
-                              //获取数据库服务
-                              DataService dataService = ServiceLocator.Instance.Resolve<DataService>();
-                              dataService.DeleteDialog(vm.currentDialog.idDialog);
+                             
+                              vm._dataService.DeleteDialog(vm.currentDialog.idDialog);
                               vm.listDialog.Remove(vm.currentDialog);
                               if (vm.listDialog.Count == 0)
                               {
@@ -269,8 +281,8 @@ namespace NavDemo.ViewModels
                                   }
                                   
                               }
-                              vm.richEditBoxContent = await ServiceLocator.Instance.Resolve<FileService>()
-                                                                 .GetStringFromFile(vm.currentDialog.textDialog);
+                              vm.richEditBoxContent = await vm._fileService.GetStringFromFile(vm.currentDialog.textDialog);
+
                               await MVVMSidekick.Utilities.TaskExHelper.Yield();
 
                           })
@@ -311,7 +323,7 @@ namespace NavDemo.ViewModels
                           async e =>
                           {
                               //Todo: Add SaveDialog logic here, or
-                            await ServiceLocator.Instance.Resolve<FileService>().SetStringToFile(vm.currentDialog.textDialog, vm.richEditBoxContent,0);
+                            await vm._fileService.SetStringToFile(vm.currentDialog.textDialog, vm.richEditBoxContent,0);
                             await MVVMSidekick.Utilities.TaskExHelper.Yield();
                           })
                       .DoNotifyDefaultEventRouter(vm, commandId)
@@ -327,6 +339,7 @@ namespace NavDemo.ViewModels
               }));
         #endregion
 
+        
 
         #region Life Time Event Handling
 
@@ -359,7 +372,11 @@ namespace NavDemo.ViewModels
         ///// <returns>Task awaiter</returns>
         protected  async override Task OnBindedViewLoad(MVVMSidekick.Views.IView view)
         {
-            
+            //获取文件服务实例
+            _fileService = ServiceLocator.Instance.Resolve<FileService>();
+            //获取数据库操作服务实例
+            _dataService = ServiceLocator.Instance.Resolve<DataService>();
+
             //获取当前dialog的index以便进行上一篇下一篇
             if (currentDialog != null && listDialog != null)
             {
@@ -371,8 +388,8 @@ namespace NavDemo.ViewModels
                         break;
                     }
                 }
-
-                richEditBoxContent = await ServiceLocator.Instance.Resolve<FileService>().GetStringFromFile(currentDialog.textDialog);
+                richEditBoxContent = await _fileService.GetStringFromFile(currentDialog.textDialog);
+                
 
 
             }

@@ -57,6 +57,8 @@
       <RootProperty Name="RowDefinitions" />
       <RootProperty Name="BorderThickness" />
       <RootProperty Name="BorderBrush" />
+      <RootProperty Name="Name" />
+      <RootProperty Name="Opacity" />
       <RootProperty Name="Margin" />
       <RootProperty Name="Resources" />
       <RootEvent Name="DragOver" />
@@ -131,6 +133,7 @@
       <RootProperty Name="Width" />
       <RootProperty Name="FontSize" />
       <RootProperty Name="FontFamily" />
+      <RootProperty Name="Name" />
       <RootProperty Name="IsHitTestVisible" />
       <RootProperty Name="FontWeight" />
       <RootProperty Name="CharacterSpacing" />
@@ -217,24 +220,6 @@
     </RootType>
     <RootType FullName="NavDemo.AddFriendPage" />
     <RootType FullName="NavDemo.ViewModels.AboutPage_Model" />
-    <RootType FullName="Windows.UI.Xaml.Controls.RichEditBox">
-      <RootProperty Name="Name" />
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="VerticalAlignment" />
-      <RootProperty Name="Height" />
-      <RootProperty Name="Width" />
-      <RootEvent Name="ContextMenuOpening" />
-      <RootEvent Name="TextChanged" />
-    </RootType>
-    <RootType FullName="NavDemo.AttachProps.RtfText">
-      <RootMethod Name="GetRichText" />
-      <RootMethod Name="SetRichText" />
-    </RootType>
-    <RootType FullName="NavDemo.AboutPage" />
-    <RootType FullName="NavDemo.ViewModels.BlankPage1_Model" />
-    <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.ThemeResourceExtension" />
-    <RootType FullName="NavDemo.BlankPage1" />
-    <RootType FullName="NavDemo.ViewModels.HomePage_Model" />
     <RootType FullName="Windows.UI.Xaml.Controls.RelativePanel">
       <RootProperty Name="Name" />
       <RootProperty Name="HorizontalAlignment" />
@@ -255,39 +240,6 @@
       <RootMethod Name="GetLeftOf" />
       <RootMethod Name="SetLeftOf" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.AutoSuggestBox">
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="VerticalAlignment" />
-      <RootProperty Name="Height" />
-      <RootProperty Name="Width" />
-      <RootProperty Name="Text" />
-      <RootProperty Name="QueryIcon" />
-      <RootProperty Name="ItemsSource" />
-      <RootProperty Name="ItemTemplate" />
-      <RootProperty Name="TextMemberPath" />
-      <RootProperty Name="Style" />
-      <RootProperty Name="Margin" />
-      <RootProperty Name="Opacity" />
-      <RootProperty Name="Background" />
-      <RootProperty Name="TextBoxStyle" />
-    </RootType>
-    <RootType FullName="Microsoft.Xaml.Interactivity.Interaction">
-      <RootMethod Name="GetBehaviors" />
-      <RootMethod Name="SetBehaviors" />
-    </RootType>
-    <RootType FullName="Microsoft.Xaml.Interactions.Core.EventTriggerBehavior">
-      <RootProperty Name="EventName" />
-      <RootProperty Name="Actions" />
-    </RootType>
-    <RootType FullName="Microsoft.Xaml.Interactions.Core.InvokeCommandAction">
-      <RootProperty Name="Command" />
-    </RootType>
-    <RootType FullName="MVVMSidekick.Behaviors.SendToEventRouterAction">
-      <RootProperty Name="EventData" />
-      <RootProperty Name="IsEventFiringToAllBaseClassesChannels" />
-      <RootProperty Name="EventRoutingName" />
-    </RootType>
-    <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.NullExtension" />
     <RootType FullName="Windows.UI.Xaml.Controls.AppBarButton">
       <RootProperty Name="IsCompact" />
       <RootProperty Name="Icon" />
@@ -307,6 +259,14 @@
       <RootMethod Name="SetName" />
       <RootMethod Name="GetAccessibilityView" />
       <RootMethod Name="SetAccessibilityView" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.RichEditBox">
+      <RootEvent Name="ContextMenuOpening" />
+      <RootEvent Name="TextChanged" />
+    </RootType>
+    <RootType FullName="NavDemo.AttachProps.RtfText">
+      <RootMethod Name="GetRichText" />
+      <RootMethod Name="SetRichText" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Primitives.FlyoutBase">
       <RootMethod Name="GetAttachedFlyout" />
@@ -375,6 +335,44 @@
       <RootProperty Name="VerticalContentAlignment" />
       <RootProperty Name="IsTabStop" />
     </RootType>
+    <RootType FullName="NavDemo.AboutPage" />
+    <RootType FullName="NavDemo.ViewModels.BlankPage1_Model" />
+    <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.ThemeResourceExtension" />
+    <RootType FullName="NavDemo.BlankPage1" />
+    <RootType FullName="NavDemo.ViewModels.HomePage_Model" />
+    <RootType FullName="Windows.UI.Xaml.Controls.AutoSuggestBox">
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="Text" />
+      <RootProperty Name="QueryIcon" />
+      <RootProperty Name="ItemsSource" />
+      <RootProperty Name="ItemTemplate" />
+      <RootProperty Name="TextMemberPath" />
+      <RootProperty Name="Style" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Opacity" />
+      <RootProperty Name="Background" />
+      <RootProperty Name="TextBoxStyle" />
+    </RootType>
+    <RootType FullName="Microsoft.Xaml.Interactivity.Interaction">
+      <RootMethod Name="GetBehaviors" />
+      <RootMethod Name="SetBehaviors" />
+    </RootType>
+    <RootType FullName="Microsoft.Xaml.Interactions.Core.EventTriggerBehavior">
+      <RootProperty Name="EventName" />
+      <RootProperty Name="Actions" />
+    </RootType>
+    <RootType FullName="Microsoft.Xaml.Interactions.Core.InvokeCommandAction">
+      <RootProperty Name="Command" />
+    </RootType>
+    <RootType FullName="MVVMSidekick.Behaviors.SendToEventRouterAction">
+      <RootProperty Name="EventData" />
+      <RootProperty Name="IsEventFiringToAllBaseClassesChannels" />
+      <RootProperty Name="EventRoutingName" />
+    </RootType>
+    <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.NullExtension" />
     <RootType FullName="Windows.UI.Xaml.Controls.CalendarDatePicker">
       <RootProperty Name="PlaceholderText" />
       <RootProperty Name="Visibility" />
@@ -429,10 +427,16 @@
       <RootProperty Name="Padding" />
       <RootProperty Name="ItemContainerTransitions" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.Frame" />
+    <RootType FullName="Windows.UI.Xaml.Controls.Frame">
+      <RootProperty Name="Content" />
+    </RootType>
     <RootType FullName="MVVMSidekick.Views.StageManager">
       <RootMethod Name="GetBeacon" />
       <RootMethod Name="SetBeacon" />
+    </RootType>
+    <RootType FullName="Microsoft.Graphics.Canvas.UI.Xaml.CanvasAnimatedControl">
+      <RootEvent Name="Update" />
+      <RootEvent Name="Draw" />
     </RootType>
     <RootType FullName="NavDemo.MainPage" />
     <RootType FullName="Windows.UI.Xaml.DataTemplate">

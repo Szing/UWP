@@ -1,0 +1,11 @@
+D:\UWP-master\NavDemo\.vs\NavDemo\lut\0\b\UnitTestProject1\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+D:\UWP-master\NavDemo\.vs\NavDemo\lut\0\b\UnitTestProject1\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+D:\UWP-master\NavDemo\.vs\NavDemo\lut\0\b\UnitTestProject1\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+D:\UWP-master\NavDemo\.vs\NavDemo\lut\0\b\UnitTestProject1\bin\Debug\zh-Hans\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll
+D:\UWP-master\NavDemo\.vs\NavDemo\lut\0\b\UnitTestProject1\bin\Debug\zh-Hans\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll
+D:\UWP-master\NavDemo\.vs\NavDemo\lut\0\b\UnitTestProject1\bin\Debug\zh-Hans\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll
+D:\UWP-master\NavDemo\.vs\NavDemo\lut\0\b\UnitTestProject1\bin\Debug\UnitTestProject1.dll
+D:\UWP-master\NavDemo\.vs\NavDemo\lut\0\i\UnitTestProject1\Debug\UnitTestProject1.csprojAssemblyReference.cache
+D:\UWP-master\NavDemo\.vs\NavDemo\lut\0\i\UnitTestProject1\Debug\UnitTestProject1.csproj.CoreCompileInputs.cache
+D:\UWP-master\NavDemo\.vs\NavDemo\lut\0\i\UnitTestProject1\Debug\UnitTestProject1.csproj.CopyComplete
+D:\UWP-master\NavDemo\.vs\NavDemo\lut\0\i\UnitTestProject1\Debug\UnitTestProject1.dll

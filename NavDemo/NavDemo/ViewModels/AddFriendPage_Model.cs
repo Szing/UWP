@@ -23,6 +23,12 @@ namespace NavDemo.ViewModels
         // If you have install the code sniplets, use "propvm + [tab] +[tab]" create a property。
         // 如果您已经安装了 MVVMSidekick 代码片段，请用 propvm +tab +tab 输入属性
 
+
+        /// <summary>
+        /// 数据库操作服务
+        /// </summary>
+        DataService _dataService;
+
         public string Title { get => _TitleLocator(this).Value; set => _TitleLocator(this).SetValueAndTryNotify(value); }
         #region Property string Title Setup        
         protected Property<string> _Title = new Property<string> { LocatorFunc = _TitleLocator };
@@ -62,13 +68,16 @@ namespace NavDemo.ViewModels
                           async e =>
                           {
                               //Todo: Add InsertFriend logic here, or
-                              if(vm.friend.nameFriend != null && vm.friend.nickNameFriend != null)
+                              if (vm.friend.nameFriend != null && vm.friend.nickNameFriend != null)
                               {
-                                  ServiceLocator.Instance.Resolve<DataService>()
-                                .InsertFriend(vm.friend);
+
+                                  vm._dataService.InsertFriend(vm.friend);
                                   await new Windows.UI.Popups.MessageDialog("添加成功").ShowAsync();
                               }
-                             
+                              else
+                              {
+                                  await new Windows.UI.Popups.MessageDialog("请完善好友的Name和NickName信息").ShowAsync();
+                              }
                               await MVVMSidekick.Utilities.TaskExHelper.Yield();
                               
                               //vm.suggest.insert(vm.friend);
@@ -124,6 +133,9 @@ namespace NavDemo.ViewModels
         ///// <returns>Task awaiter</returns>
         protected override Task OnBindedViewLoad(MVVMSidekick.Views.IView view)
         {
+            //获取数据库操作服务实例
+            _dataService = ServiceLocator.Instance.Resolve<DataService>();
+
             friend = new Friend();
             friend.iconFriend = "ms-appx:///Assets/light.jpg";
             return base.OnBindedViewLoad(view);

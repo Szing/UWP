@@ -1,0 +1,6 @@
+﻿[ResourceMetadata]
+"ResourceId"			"split.language-zh-hans"
+"ResourceDimensions"		"language-zh-cn"
+
+[Files]
+"D:\UWP-master\NavDemo\NavDemo\obj\x86\Release\split.language-zh-hans.pri"			"resources.pri"

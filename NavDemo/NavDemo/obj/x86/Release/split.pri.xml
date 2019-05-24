@@ -1,0 +1,763 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PriInfo>
+	<ResourceMap name="98e5c7c7-0baa-443b-91c1-c3947b2ac306" version="1.0" primary="true">
+		<Qualifiers>
+			<AlternateForm>UNPLATED</AlternateForm>
+			<Language>EN,EN-US</Language>
+			<Scale>200</Scale>
+			<TargetSize>24</TargetSize>
+		</Qualifiers>
+		<ResourceMapSubtree name="Files">
+			<NamedResource name="App.xbf" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Files/App.xbf">
+				<Candidate type="EmbeddedData">
+					<Base64Value>[Embedded Binary Data]</Base64Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="NavDemo.xr.xml" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Files/NavDemo.xr.xml">
+				<Candidate type="Path">
+					<Value>NavDemo.xr.xml</Value>
+				</Candidate>
+			</NamedResource>
+			<ResourceMapSubtree name="Assets">
+				<NamedResource name="a.png" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Files/Assets/a.png">
+					<Candidate type="Path">
+						<Value>Assets\a.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="b.png" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Files/Assets/b.png">
+					<Candidate type="Path">
+						<Value>Assets\b.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="background.jpg" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Files/Assets/background.jpg">
+					<Candidate type="Path">
+						<Value>Assets\background.jpg</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="background1.png" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Files/Assets/background1.png">
+					<Candidate type="Path">
+						<Value>Assets\background1.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="background2.png" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Files/Assets/background2.png">
+					<Candidate type="Path">
+						<Value>Assets\background2.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="background3.png" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Files/Assets/background3.png">
+					<Candidate type="Path">
+						<Value>Assets\background3.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="daojian1.jpg" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Files/Assets/daojian1.jpg">
+					<Candidate type="Path">
+						<Value>Assets\daojian1.jpg</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="dushuren.png" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Files/Assets/dushuren.png">
+					<Candidate type="Path">
+						<Value>Assets\dushuren.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="insertFriendButton.jpg" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Files/Assets/insertFriendButton.jpg">
+					<Candidate type="Path">
+						<Value>Assets\insertFriendButton.jpg</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="light.jpg" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Files/Assets/light.jpg">
+					<Candidate type="Path">
+						<Value>Assets\light.jpg</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="list.png" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Files/Assets/list.png">
+					<Candidate type="Path">
+						<Value>Assets\list.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="LockScreenLogo.png" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Files/Assets/LockScreenLogo.png">
+					<Candidate qualifiers="Scale-200" isDefault="true" type="Path">
+						<Value>Assets\LockScreenLogo.scale-200.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="mozi.jpg" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Files/Assets/mozi.jpg">
+					<Candidate type="Path">
+						<Value>Assets\mozi.jpg</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="screen.png" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Files/Assets/screen.png">
+					<Candidate type="Path">
+						<Value>Assets\screen.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="screen2.png" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Files/Assets/screen2.png">
+					<Candidate type="Path">
+						<Value>Assets\screen2.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="se.jpg" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Files/Assets/se.jpg">
+					<Candidate type="Path">
+						<Value>Assets\se.jpg</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="SplashScreen.jpg" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Files/Assets/SplashScreen.jpg">
+					<Candidate qualifiers="Scale-200" isDefault="true" type="Path">
+						<Value>Assets\SplashScreen.scale-200.jpg</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="SplashScreen.png" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Files/Assets/SplashScreen.png">
+					<Candidate qualifiers="Scale-200" isDefault="true" type="Path">
+						<Value>Assets\SplashScreen.scale-200.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Square150x150Logo.png" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Files/Assets/Square150x150Logo.png">
+					<Candidate qualifiers="Scale-200" isDefault="true" type="Path">
+						<Value>Assets\Square150x150Logo.scale-200.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Square44x44Logo.png" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Files/Assets/Square44x44Logo.png">
+					<Candidate qualifiers="TargetSize-24, AlternateForm-UNPLATED" type="Path">
+						<Value>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</Value>
+					</Candidate>
+					<Candidate qualifiers="Scale-200" isDefault="true" type="Path">
+						<Value>Assets\Square44x44Logo.scale-200.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="StoreLogo.png" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Files/Assets/StoreLogo.png">
+					<Candidate type="Path">
+						<Value>Assets\StoreLogo.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="timg.png" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Files/Assets/timg.png">
+					<Candidate type="Path">
+						<Value>Assets\timg.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="timg1.png" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Files/Assets/timg1.png">
+					<Candidate type="Path">
+						<Value>Assets\timg1.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="tongren.jpg" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Files/Assets/tongren.jpg">
+					<Candidate type="Path">
+						<Value>Assets\tongren.jpg</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Wide310x150Logo.png" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Files/Assets/Wide310x150Logo.png">
+					<Candidate qualifiers="Scale-200" isDefault="true" type="Path">
+						<Value>Assets\Wide310x150Logo.scale-200.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="yasina.jpg" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Files/Assets/yasina.jpg">
+					<Candidate type="Path">
+						<Value>Assets\yasina.jpg</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="zijincheng.jpg" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Files/Assets/zijincheng.jpg">
+					<Candidate type="Path">
+						<Value>Assets\zijincheng.jpg</Value>
+					</Candidate>
+				</NamedResource>
+			</ResourceMapSubtree>
+			<ResourceMapSubtree name="CustomTheme">
+				<NamedResource name="CustomStyles.xbf" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Files/CustomTheme/CustomStyles.xbf">
+					<Candidate type="EmbeddedData">
+						<Base64Value>[Embedded Binary Data]</Base64Value>
+					</Candidate>
+				</NamedResource>
+			</ResourceMapSubtree>
+			<ResourceMapSubtree name="Microsoft.Xaml.Interactions">
+				<ResourceMapSubtree name="Properties">
+					<NamedResource name="Microsoft.Xaml.Interactions.rd.xml" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Files/Microsoft.Xaml.Interactions/Properties/Microsoft.Xaml.Interactions.rd.xml">
+						<Candidate type="Path">
+							<Value>Microsoft.Xaml.Interactions\Properties\Microsoft.Xaml.Interactions.rd.xml</Value>
+						</Candidate>
+					</NamedResource>
+				</ResourceMapSubtree>
+			</ResourceMapSubtree>
+			<ResourceMapSubtree name="Microsoft.Xaml.Interactivity">
+				<ResourceMapSubtree name="Properties">
+					<NamedResource name="Microsoft.Xaml.Interactivity.rd.xml" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Files/Microsoft.Xaml.Interactivity/Properties/Microsoft.Xaml.Interactivity.rd.xml">
+						<Candidate type="Path">
+							<Value>Microsoft.Xaml.Interactivity\Properties\Microsoft.Xaml.Interactivity.rd.xml</Value>
+						</Candidate>
+					</NamedResource>
+				</ResourceMapSubtree>
+			</ResourceMapSubtree>
+			<ResourceMapSubtree name="Properties">
+				<NamedResource name="Default.rd.xml" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Files/Properties/Default.rd.xml">
+					<Candidate type="Path">
+						<Value>Properties\Default.rd.xml</Value>
+					</Candidate>
+				</NamedResource>
+			</ResourceMapSubtree>
+			<ResourceMapSubtree name="Resources">
+				<NamedResource name="CustomDataTemplates.xbf" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Files/Resources/CustomDataTemplates.xbf">
+					<Candidate type="EmbeddedData">
+						<Base64Value>[Embedded Binary Data]</Base64Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="FontAwesome.otf" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Files/Resources/FontAwesome.otf">
+					<Candidate type="Path">
+						<Value>Resources\FontAwesome.otf</Value>
+					</Candidate>
+				</NamedResource>
+			</ResourceMapSubtree>
+			<ResourceMapSubtree name="View">
+				<NamedResource name="AboutPage.xbf" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Files/View/AboutPage.xbf">
+					<Candidate type="EmbeddedData">
+						<Base64Value>[Embedded Binary Data]</Base64Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="AddFriendPage.xbf" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Files/View/AddFriendPage.xbf">
+					<Candidate type="EmbeddedData">
+						<Base64Value>[Embedded Binary Data]</Base64Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="BlankPage1.xbf" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Files/View/BlankPage1.xbf">
+					<Candidate type="EmbeddedData">
+						<Base64Value>[Embedded Binary Data]</Base64Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="HomePage.xbf" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Files/View/HomePage.xbf">
+					<Candidate type="EmbeddedData">
+						<Base64Value>[Embedded Binary Data]</Base64Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="MainPage.xbf" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Files/View/MainPage.xbf">
+					<Candidate type="EmbeddedData">
+						<Base64Value>[Embedded Binary Data]</Base64Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="SearchPage.xbf" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Files/View/SearchPage.xbf">
+					<Candidate type="EmbeddedData">
+						<Base64Value>[Embedded Binary Data]</Base64Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="ShowFriendsPage.xbf" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Files/View/ShowFriendsPage.xbf">
+					<Candidate type="EmbeddedData">
+						<Base64Value>[Embedded Binary Data]</Base64Value>
+					</Candidate>
+				</NamedResource>
+			</ResourceMapSubtree>
+			<ResourceMapSubtree name="WinMetadata">
+				<NamedResource name="Windows.winmd" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Files/WinMetadata/Windows.winmd">
+					<Candidate type="Path">
+						<Value>WinMetadata\Windows.winmd</Value>
+					</Candidate>
+				</NamedResource>
+			</ResourceMapSubtree>
+		</ResourceMapSubtree>
+		<ResourceMapSubtree name="Microsoft.Practices.ServiceLocation.Properties.Resources">
+			<NamedResource name="ActivateAllExceptionMessage" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Practices.ServiceLocation.Properties.Resources/ActivateAllExceptionMessage">
+				<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+					<Value>Activation error occurred while trying to get all instances of type {0}</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="ActivationExceptionMessage" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Practices.ServiceLocation.Properties.Resources/ActivationExceptionMessage">
+				<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+					<Value>Activation error occurred while trying to get instance of type {0}, key "{1}"</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="ServiceLocationProviderNotSetMessage" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Practices.ServiceLocation.Properties.Resources/ServiceLocationProviderNotSetMessage">
+				<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+					<Value>ServiceLocationProvider must be set.</Value>
+				</Candidate>
+			</NamedResource>
+		</ResourceMapSubtree>
+		<ResourceMapSubtree name="Microsoft.Practices.Unity.Properties.Resources">
+			<NamedResource name="AmbiguousInjectionConstructor" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Practices.Unity.Properties.Resources/AmbiguousInjectionConstructor">
+				<Candidate qualifiers="Language-EN" isDefault="true" type="String">
+					<Value>The type {0} has multiple constructors of length {1}. Unable to disambiguate.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="ArgumentMustNotBeEmpty" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Practices.Unity.Properties.Resources/ArgumentMustNotBeEmpty">
+				<Candidate qualifiers="Language-EN" isDefault="true" type="String">
+					<Value>The provided string argument must not be empty.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="BuildFailedException" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Practices.Unity.Properties.Resources/BuildFailedException">
+				<Candidate qualifiers="Language-EN" isDefault="true" type="String">
+					<Value>The current build operation (build key {2}) failed: {3} (Strategy type {0}, index {1})</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="CannotConstructAbstractClass" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Practices.Unity.Properties.Resources/CannotConstructAbstractClass">
+				<Candidate qualifiers="Language-EN" isDefault="true" type="String">
+					<Value>The current type, {0}, is an abstract class and cannot be constructed. Are you missing a type mapping?</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="CannotConstructDelegate" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Practices.Unity.Properties.Resources/CannotConstructDelegate">
+				<Candidate qualifiers="Language-EN" isDefault="true" type="String">
+					<Value>The current type, {0}, is delegate and cannot be constructed. Unity only supports resolving Func&lt;T&gt; and Func&lt;IEnumerable&lt;T&gt;&gt; by default.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="CannotConstructInterface" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Practices.Unity.Properties.Resources/CannotConstructInterface">
+				<Candidate qualifiers="Language-EN" isDefault="true" type="String">
+					<Value>The current type, {0}, is an interface and cannot be constructed. Are you missing a type mapping?</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="CannotExtractTypeFromBuildKey" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Practices.Unity.Properties.Resources/CannotExtractTypeFromBuildKey">
+				<Candidate qualifiers="Language-EN" isDefault="true" type="String">
+					<Value>Cannot extract type from build key {0}.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="CannotInjectGenericMethod" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Practices.Unity.Properties.Resources/CannotInjectGenericMethod">
+				<Candidate qualifiers="Language-EN" isDefault="true" type="String">
+					<Value>The method {0}.{1}({2}) is an open generic method. Open generic methods cannot be injected.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="CannotInjectIndexer" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Practices.Unity.Properties.Resources/CannotInjectIndexer">
+				<Candidate qualifiers="Language-EN" isDefault="true" type="String">
+					<Value>The property {0} on type {1} is an indexer. Indexed properties cannot be injected.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="CannotInjectMethodWithOutParam" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Practices.Unity.Properties.Resources/CannotInjectMethodWithOutParam">
+				<Candidate qualifiers="Language-EN" isDefault="true" type="String">
+					<Value>The method {1} on type {0} has an out parameter. Injection cannot be performed.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="CannotInjectMethodWithOutParams" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Practices.Unity.Properties.Resources/CannotInjectMethodWithOutParams">
+				<Candidate qualifiers="Language-EN" isDefault="true" type="String">
+					<Value>The method {0}.{1}({2}) has at least one out parameter. Methods with out parameters cannot be injected.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="CannotInjectMethodWithRefParams" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Practices.Unity.Properties.Resources/CannotInjectMethodWithRefParams">
+				<Candidate qualifiers="Language-EN" isDefault="true" type="String">
+					<Value>The method {0}.{1}({2}) has at least one ref parameter.Methods with ref parameters cannot be injected.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="CannotInjectOpenGenericMethod" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Practices.Unity.Properties.Resources/CannotInjectOpenGenericMethod">
+				<Candidate qualifiers="Language-EN" isDefault="true" type="String">
+					<Value>The method {1} on type {0} is marked for injection, but it is an open generic method. Injection cannot be performed.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="CannotInjectStaticMethod" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Practices.Unity.Properties.Resources/CannotInjectStaticMethod">
+				<Candidate qualifiers="Language-EN" isDefault="true" type="String">
+					<Value>The method {0}.{1}({2}) is static. Static methods cannot be injected.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="CannotResolveOpenGenericType" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Practices.Unity.Properties.Resources/CannotResolveOpenGenericType">
+				<Candidate qualifiers="Language-EN" isDefault="true" type="String">
+					<Value>The type {0} is an open generic type. An open generic type cannot be resolved.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="ConstructorArgumentResolveOperation" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Practices.Unity.Properties.Resources/ConstructorArgumentResolveOperation">
+				<Candidate qualifiers="Language-EN" isDefault="true" type="String">
+					<Value>Resolving parameter "{0}" of constructor {1}</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="ConstructorParameterResolutionFailed" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Practices.Unity.Properties.Resources/ConstructorParameterResolutionFailed">
+				<Candidate qualifiers="Language-EN" isDefault="true" type="String">
+					<Value>The parameter {0} could not be resolved when attempting to call constructor {1}.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="ExceptionNullParameterValue" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Practices.Unity.Properties.Resources/ExceptionNullParameterValue">
+				<Candidate qualifiers="Language-EN" isDefault="true" type="String">
+					<Value>Parameter type inference does not work for null values. Indicate the parameter type explicitly using a properly configured instance of the InjectionParameter or InjectionParameter&lt;T&gt; classes.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="InvokingConstructorOperation" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Practices.Unity.Properties.Resources/InvokingConstructorOperation">
+				<Candidate qualifiers="Language-EN" isDefault="true" type="String">
+					<Value>Calling constructor {0}</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="InvokingMethodOperation" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Practices.Unity.Properties.Resources/InvokingMethodOperation">
+				<Candidate qualifiers="Language-EN" isDefault="true" type="String">
+					<Value>Calling method {0}.{1}</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="KeyAlreadyPresent" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Practices.Unity.Properties.Resources/KeyAlreadyPresent">
+				<Candidate qualifiers="Language-EN" isDefault="true" type="String">
+					<Value>An item with the given key is already present in the dictionary.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="LifetimeManagerInUse" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Practices.Unity.Properties.Resources/LifetimeManagerInUse">
+				<Candidate qualifiers="Language-EN" isDefault="true" type="String">
+					<Value>The lifetime manager is already registered. Lifetime managers cannot be reused, please create a new one.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="MarkerBuildPlanInvoked" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Practices.Unity.Properties.Resources/MarkerBuildPlanInvoked">
+				<Candidate qualifiers="Language-EN" isDefault="true" type="String">
+					<Value>The override marker build plan policy has been invoked. This should never happen, looks like a bug in the container.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="MethodArgumentResolveOperation" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Practices.Unity.Properties.Resources/MethodArgumentResolveOperation">
+				<Candidate qualifiers="Language-EN" isDefault="true" type="String">
+					<Value>Resolving parameter "{0}" of method {1}.{2}</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="MethodParameterResolutionFailed" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Practices.Unity.Properties.Resources/MethodParameterResolutionFailed">
+				<Candidate qualifiers="Language-EN" isDefault="true" type="String">
+					<Value>The value for parameter "{1}" of method {0} could not be resolved. </Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="MissingDependency" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Practices.Unity.Properties.Resources/MissingDependency">
+				<Candidate qualifiers="Language-EN" isDefault="true" type="String">
+					<Value>Could not resolve dependency for build key {0}.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="MultipleInjectionConstructors" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Practices.Unity.Properties.Resources/MultipleInjectionConstructors">
+				<Candidate qualifiers="Language-EN" isDefault="true" type="String">
+					<Value>The type {0} has multiple constructors marked with the InjectionConstructor attribute. Unable to disambiguate.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="MustHaveOpenGenericType" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Practices.Unity.Properties.Resources/MustHaveOpenGenericType">
+				<Candidate qualifiers="Language-EN" isDefault="true" type="String">
+					<Value>The supplied type {0} must be an open generic type.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="MustHaveSameNumberOfGenericArguments" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Practices.Unity.Properties.Resources/MustHaveSameNumberOfGenericArguments">
+				<Candidate qualifiers="Language-EN" isDefault="true" type="String">
+					<Value>The supplied type {0} does not have the same number of generic arguments as the target type {1}.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="NoConstructorFound" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Practices.Unity.Properties.Resources/NoConstructorFound">
+				<Candidate qualifiers="Language-EN" isDefault="true" type="String">
+					<Value>The type {0} does not have an accessible constructor.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="NoMatchingGenericArgument" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Practices.Unity.Properties.Resources/NoMatchingGenericArgument">
+				<Candidate qualifiers="Language-EN" isDefault="true" type="String">
+					<Value>The type {0} does not have a generic argument named "{1}"</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="NoOperationExceptionReason" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Practices.Unity.Properties.Resources/NoOperationExceptionReason">
+				<Candidate qualifiers="Language-EN" isDefault="true" type="String">
+					<Value>while resolving</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="NoSuchConstructor" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Practices.Unity.Properties.Resources/NoSuchConstructor">
+				<Candidate qualifiers="Language-EN" isDefault="true" type="String">
+					<Value>The type {0} does not have a constructor that takes the parameters ({1}).</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="NoSuchMethod" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Practices.Unity.Properties.Resources/NoSuchMethod">
+				<Candidate qualifiers="Language-EN" isDefault="true" type="String">
+					<Value>The type {0} does not have a public method named {1} that takes the parameters ({2}).</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="NoSuchProperty" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Practices.Unity.Properties.Resources/NoSuchProperty">
+				<Candidate qualifiers="Language-EN" isDefault="true" type="String">
+					<Value>The type {0} does not contain an instance property named {1}.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="NotAGenericType" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Practices.Unity.Properties.Resources/NotAGenericType">
+				<Candidate qualifiers="Language-EN" isDefault="true" type="String">
+					<Value>The type {0} is not a generic type, and you are attempting to inject a generic parameter named "{1}".</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="NotAnArrayTypeWithRankOne" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Practices.Unity.Properties.Resources/NotAnArrayTypeWithRankOne">
+				<Candidate qualifiers="Language-EN" isDefault="true" type="String">
+					<Value>The type {0} is not an array type with rank 1, and you are attempting to use a [DependencyArray] attribute on a parameter or property with this type.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="OptionalDependenciesMustBeReferenceTypes" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Practices.Unity.Properties.Resources/OptionalDependenciesMustBeReferenceTypes">
+				<Candidate qualifiers="Language-EN" isDefault="true" type="String">
+					<Value>Optional dependencies must be reference types. The type {0} is a value type.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="PropertyNotSettable" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Practices.Unity.Properties.Resources/PropertyNotSettable">
+				<Candidate qualifiers="Language-EN" isDefault="true" type="String">
+					<Value>The property {0} on type {1} is not settable.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="PropertyTypeMismatch" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Practices.Unity.Properties.Resources/PropertyTypeMismatch">
+				<Candidate qualifiers="Language-EN" isDefault="true" type="String">
+					<Value>The property {0} on type {1} is of type {2}, and cannot be injected with a value of type {3}.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="PropertyValueResolutionFailed" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Practices.Unity.Properties.Resources/PropertyValueResolutionFailed">
+				<Candidate qualifiers="Language-EN" isDefault="true" type="String">
+					<Value>The value for the property "{0}" could not be resolved.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="ProvidedStringArgMustNotBeEmpty" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Practices.Unity.Properties.Resources/ProvidedStringArgMustNotBeEmpty">
+				<Candidate qualifiers="Language-EN" isDefault="true" type="String">
+					<Value>The provided string argument must not be empty.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="ResolutionFailed" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Practices.Unity.Properties.Resources/ResolutionFailed">
+				<Candidate qualifiers="Language-EN" isDefault="true" type="String">
+					<Value>Resolution of the dependency failed, type = "{0}", name = "{1}".
+Exception occurred while: {2}.
+Exception is: {3} - {4}
+-----------------------------------------------
+At the time of the exception, the container was:
+</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="ResolutionTraceDetail" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Practices.Unity.Properties.Resources/ResolutionTraceDetail">
+				<Candidate qualifiers="Language-EN" isDefault="true" type="String">
+					<Value>Resolving {0},{1}</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="ResolutionWithMappingTraceDetail" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Practices.Unity.Properties.Resources/ResolutionWithMappingTraceDetail">
+				<Candidate qualifiers="Language-EN" isDefault="true" type="String">
+					<Value>Resolving {0},{1} (mapped from {2}, {3})</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="ResolvingPropertyValueOperation" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Practices.Unity.Properties.Resources/ResolvingPropertyValueOperation">
+				<Candidate qualifiers="Language-EN" isDefault="true" type="String">
+					<Value>Resolving value for property {0}.{1}</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="SelectedConstructorHasRefParameters" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Practices.Unity.Properties.Resources/SelectedConstructorHasRefParameters">
+				<Candidate qualifiers="Language-EN" isDefault="true" type="String">
+					<Value>The constructor {1} selected for type {0} has ref or out parameters. Such parameters are not supported for constructor injection.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="SettingPropertyOperation" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Practices.Unity.Properties.Resources/SettingPropertyOperation">
+				<Candidate qualifiers="Language-EN" isDefault="true" type="String">
+					<Value>Setting value for property {0}.{1}</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="TypeIsNotConstructable" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Practices.Unity.Properties.Resources/TypeIsNotConstructable">
+				<Candidate qualifiers="Language-EN" isDefault="true" type="String">
+					<Value>The type {0} cannot be constructed. You must configure the container to supply this value.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="TypesAreNotAssignable" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Practices.Unity.Properties.Resources/TypesAreNotAssignable">
+				<Candidate qualifiers="Language-EN" isDefault="true" type="String">
+					<Value>The type {1} cannot be assigned to variables of type {0}.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="UnknownType" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Practices.Unity.Properties.Resources/UnknownType">
+				<Candidate qualifiers="Language-EN" isDefault="true" type="String">
+					<Value>&lt;unknown&gt;</Value>
+				</Candidate>
+			</NamedResource>
+		</ResourceMapSubtree>
+		<ResourceMapSubtree name="Microsoft.Practices.Unity.RegistrationByConvention">
+			<ResourceMapSubtree name="Resources">
+				<NamedResource name="DuplicateTypeMappingException" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Practices.Unity.RegistrationByConvention/Resources/DuplicateTypeMappingException">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>An attempt to override an existing mapping was detected for type {1} with name "{0}", currently mapped to type {2}, to type {3}.</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="ExceptionNullAssembly" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Practices.Unity.RegistrationByConvention/Resources/ExceptionNullAssembly">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>The set of assemblies contains a null element.</Value>
+					</Candidate>
+				</NamedResource>
+			</ResourceMapSubtree>
+		</ResourceMapSubtree>
+		<ResourceMapSubtree name="Microsoft.Xaml.Interactions">
+			<ResourceMapSubtree name="Strings">
+				<NamedResource name="CallMethodActionValidMethodNotFoundExceptionMessage" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Xaml.Interactions/Strings/CallMethodActionValidMethodNotFoundExceptionMessage">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Cannot find method named {0} on object of type {1} that matches the expected signature.</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="CannotAttachBehaviorMultipleTimesExceptionMessage" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Xaml.Interactions/Strings/CannotAttachBehaviorMultipleTimesExceptionMessage">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>An instance of a behavior cannot be attached to more than one object at a time.</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="CannotFindEventNameExceptionMessage" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Xaml.Interactions/Strings/CannotFindEventNameExceptionMessage">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Cannot find an event named {0} on type {1}.</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="ChangePropertyActionCannotFindPropertyNameExceptionMessage" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Xaml.Interactions/Strings/ChangePropertyActionCannotFindPropertyNameExceptionMessage">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Cannot find a property named {0} on type {1}.</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="ChangePropertyActionCannotSetValueExceptionMessage" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Xaml.Interactions/Strings/ChangePropertyActionCannotSetValueExceptionMessage">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Cannot assign value of type {0} to property {1} of type {2}. The {1} property can be assigned only values of type {2}.</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="ChangePropertyActionPropertyIsReadOnlyExceptionMessage" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Xaml.Interactions/Strings/ChangePropertyActionPropertyIsReadOnlyExceptionMessage">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Property {0} defined by type {1} does not expose a set method and therefore cannot be modified.</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="EventNotSupportedExceptionMessage" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Xaml.Interactions/Strings/EventNotSupportedExceptionMessage">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Event {0} is not supported. Consider implementing a custom IBehavior to respond to this event.</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="GoToStateActionTargetHasNoStateGroups" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Xaml.Interactions/Strings/GoToStateActionTargetHasNoStateGroups">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Target {0} does not define any VisualStateGroups.</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="InvalidLeftOperand" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Xaml.Interactions/Strings/InvalidLeftOperand">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Binding property of type {0} cannot be used with operator {1}.</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="InvalidOperands" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Xaml.Interactions/Strings/InvalidOperands">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Binding property of type {0} and Value property of type {1} cannot be used with operator {2}.</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="InvalidRightOperand" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Xaml.Interactions/Strings/InvalidRightOperand">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Value property of type {0} cannot be used with operator {1}.</Value>
+					</Candidate>
+				</NamedResource>
+			</ResourceMapSubtree>
+		</ResourceMapSubtree>
+		<ResourceMapSubtree name="Microsoft.Xaml.Interactivity">
+			<ResourceMapSubtree name="Strings">
+				<NamedResource name="CannotAttachBehaviorMultipleTimesExceptionMessage" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Xaml.Interactivity/Strings/CannotAttachBehaviorMultipleTimesExceptionMessage">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>An instance of a behavior cannot be attached to more than one object at a time.</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="DuplicateBehaviorInCollectionExceptionMessage" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Xaml.Interactivity/Strings/DuplicateBehaviorInCollectionExceptionMessage">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Cannot add an instance of a behavior to a BehaviorCollection more than once.</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="InvalidAssociatedObjectExceptionMessage" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Xaml.Interactivity/Strings/InvalidAssociatedObjectExceptionMessage">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>AssociatedObject is of type {0} but should be of type {1}.</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="NonActionAddedToActionCollectionExceptionMessage" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Xaml.Interactivity/Strings/NonActionAddedToActionCollectionExceptionMessage">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Only IAction types are supported in an ActionCollection.</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="NonBehaviorAddedToBehaviorCollectionExceptionMessage" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/Microsoft.Xaml.Interactivity/Strings/NonBehaviorAddedToBehaviorCollectionExceptionMessage">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Only IBehavior types are supported in a BehaviorCollection.</Value>
+					</Candidate>
+				</NamedResource>
+			</ResourceMapSubtree>
+		</ResourceMapSubtree>
+		<ResourceMapSubtree name="System.Reactive.Strings_Core">
+			<NamedResource name="CANT_OBTAIN_SCHEDULER" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/System.Reactive.Strings_Core/CANT_OBTAIN_SCHEDULER">
+				<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+					<Value>Using the Scheduler.{0} property is no longer supported due to refactoring of the API surface and elimination of platform-specific dependencies. Please include System.Reactive.PlatformServices for your target platform and use the {0}Scheduler type instead. If you're building a Windows Store app, notice some schedulers are no longer supported. Consider using Scheduler.Default instead.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="COMPLETED_NO_VALUE" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/System.Reactive.Strings_Core/COMPLETED_NO_VALUE">
+				<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+					<Value>OnCompleted notification doesn't have a value.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="DISPOSABLE_ALREADY_ASSIGNED" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/System.Reactive.Strings_Core/DISPOSABLE_ALREADY_ASSIGNED">
+				<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+					<Value>Disposable has already been assigned.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="FAILED_CLOCK_MONITORING" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/System.Reactive.Strings_Core/FAILED_CLOCK_MONITORING">
+				<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+					<Value>Failed to start monitoring system clock changes.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="HEAP_EMPTY" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/System.Reactive.Strings_Core/HEAP_EMPTY">
+				<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+					<Value>Heap is empty.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="OBSERVER_TERMINATED" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/System.Reactive.Strings_Core/OBSERVER_TERMINATED">
+				<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+					<Value>Observer has already terminated.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="REENTRANCY_DETECTED" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/System.Reactive.Strings_Core/REENTRANCY_DETECTED">
+				<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+					<Value>Reentrancy has been detected.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="SCHEDULER_OPERATION_ALREADY_AWAITED" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/System.Reactive.Strings_Core/SCHEDULER_OPERATION_ALREADY_AWAITED">
+				<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+					<Value>This scheduler operation has already been awaited.</Value>
+				</Candidate>
+			</NamedResource>
+		</ResourceMapSubtree>
+		<ResourceMapSubtree name="System.Reactive.Strings_Linq">
+			<NamedResource name="CANT_ADVANCE_WHILE_RUNNING" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/System.Reactive.Strings_Linq/CANT_ADVANCE_WHILE_RUNNING">
+				<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+					<Value>{0} cannot be called when the scheduler is already running. Try using Sleep instead.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="COULD_NOT_FIND_INSTANCE_EVENT" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/System.Reactive.Strings_Linq/COULD_NOT_FIND_INSTANCE_EVENT">
+				<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+					<Value>Could not find event '{0}' on object of type '{1}'.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="COULD_NOT_FIND_STATIC_EVENT" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/System.Reactive.Strings_Linq/COULD_NOT_FIND_STATIC_EVENT">
+				<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+					<Value>Could not find event '{0}' on type '{1}'.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="EVENT_ADD_METHOD_SHOULD_TAKE_ONE_PARAMETER" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/System.Reactive.Strings_Linq/EVENT_ADD_METHOD_SHOULD_TAKE_ONE_PARAMETER">
+				<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+					<Value>Add method should take 1 parameter.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="EVENT_ARGS_NOT_ASSIGNABLE" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/System.Reactive.Strings_Linq/EVENT_ARGS_NOT_ASSIGNABLE">
+				<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+					<Value>The second parameter of the event delegate must be assignable to '{0}'.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="EVENT_MISSING_ADD_METHOD" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/System.Reactive.Strings_Linq/EVENT_MISSING_ADD_METHOD">
+				<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+					<Value>Event is missing the add method.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="EVENT_MISSING_REMOVE_METHOD" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/System.Reactive.Strings_Linq/EVENT_MISSING_REMOVE_METHOD">
+				<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+					<Value>Event is missing the remove method.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="EVENT_MUST_RETURN_VOID" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/System.Reactive.Strings_Linq/EVENT_MUST_RETURN_VOID">
+				<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+					<Value>The event delegate must have a void return type.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="EVENT_PATTERN_REQUIRES_TWO_PARAMETERS" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/System.Reactive.Strings_Linq/EVENT_PATTERN_REQUIRES_TWO_PARAMETERS">
+				<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+					<Value>The event delegate must have exactly two parameters.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="EVENT_REMOVE_METHOD_SHOULD_TAKE_ONE_PARAMETER" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/System.Reactive.Strings_Linq/EVENT_REMOVE_METHOD_SHOULD_TAKE_ONE_PARAMETER">
+				<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+					<Value>Remove method should take 1 parameter.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="EVENT_SENDER_NOT_ASSIGNABLE" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/System.Reactive.Strings_Linq/EVENT_SENDER_NOT_ASSIGNABLE">
+				<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+					<Value>The first parameter of the event delegate must be assignable to '{0}'.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="EVENT_WINRT_REMOVE_METHOD_SHOULD_TAKE_ERT" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/System.Reactive.Strings_Linq/EVENT_WINRT_REMOVE_METHOD_SHOULD_TAKE_ERT">
+				<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+					<Value>Remove method of a WinRT event should take an EventRegistrationToken.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="MORE_THAN_ONE_ELEMENT" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/System.Reactive.Strings_Linq/MORE_THAN_ONE_ELEMENT">
+				<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+					<Value>Sequence contains more than one element.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="MORE_THAN_ONE_MATCHING_ELEMENT" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/System.Reactive.Strings_Linq/MORE_THAN_ONE_MATCHING_ELEMENT">
+				<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+					<Value>Sequence contains more than one matching element.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="NO_ELEMENTS" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/System.Reactive.Strings_Linq/NO_ELEMENTS">
+				<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+					<Value>Sequence contains no elements.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="NO_MATCHING_ELEMENTS" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/System.Reactive.Strings_Linq/NO_MATCHING_ELEMENTS">
+				<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+					<Value>Sequence contains no matching element.</Value>
+				</Candidate>
+			</NamedResource>
+		</ResourceMapSubtree>
+		<ResourceMapSubtree name="System.Reactive.Strings_PlatformServices">
+			<NamedResource name="WINRT_NO_SUB1MS_TIMERS" uri="ms-resource://98e5c7c7-0baa-443b-91c1-c3947b2ac306/System.Reactive.Strings_PlatformServices/WINRT_NO_SUB1MS_TIMERS">
+				<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+					<Value>The WinRT thread pool doesn't support creating periodic timers with a period below 1 millisecond.</Value>
+				</Candidate>
+			</NamedResource>
+		</ResourceMapSubtree>
+	</ResourceMap>
+</PriInfo>

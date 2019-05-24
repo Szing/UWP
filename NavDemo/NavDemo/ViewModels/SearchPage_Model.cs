@@ -33,6 +33,23 @@ namespace NavDemo.ViewModels
             }
             
         }
+
+        /// <summary>
+        /// 文件读写服务
+        /// </summary>
+        FileService _fileService;
+
+        /// <summary>
+        /// 数据库操作服务
+        /// </summary>
+        DataService _dataService;
+
+        /// <summary>
+        /// 搜索框建议服务
+        /// </summary>
+        SuggestService _suggestService;
+
+
         public String Title
         {
             get { return _TitleLocator(this).Value; }
@@ -72,15 +89,7 @@ namespace NavDemo.ViewModels
         static Func<BindableBase, ValueContainer<Dialog>> _chosenDialogLocator = RegisterContainerLocator(nameof(chosenDialog), m => m.Initialize(nameof(chosenDialog), ref m._chosenDialog, ref _chosenDialogLocator, () => default(Dialog)));
         #endregion
 
-        /// <summary>
-        /// Suggest服务
-        /// </summary>
-        public SuggestService suggest { get => _suggestLocator(this).Value; set => _suggestLocator(this).SetValueAndTryNotify(value); }
-        #region Property SuggestService suggest Setup        
-        protected Property<SuggestService> _suggest = new Property<SuggestService> { LocatorFunc = _suggestLocator };
-        static Func<BindableBase, ValueContainer<SuggestService>> _suggestLocator = RegisterContainerLocator(nameof(suggest), m => m.Initialize(nameof(suggest), ref m._suggest, ref _suggestLocator, () => default(SuggestService)));
-        #endregion
-
+        
 
         /// <summary>
         /// 在搜索框选中的Friend
@@ -110,140 +119,6 @@ namespace NavDemo.ViewModels
         #endregion
 
 
-        /// <summary>
-        /// 通过默认的添加函数添加默认的好友，用于测试
-        /// </summary>
-        public CommandModel<ReactiveCommand, String> CommandAddFriend
-        {
-            get { return _CommandAddFriendLocator(this).Value; }
-            set { _CommandAddFriendLocator(this).SetValueAndTryNotify(value); }
-        }
-        #region Property CommandModel<ReactiveCommand, String> CommandAddFriend Setup               
-        protected Property<CommandModel<ReactiveCommand, String>> _CommandAddFriend = new Property<CommandModel<ReactiveCommand, String>> { LocatorFunc = _CommandAddFriendLocator };
-
-        static Func<BindableBase, ValueContainer<CommandModel<ReactiveCommand, String>>> _CommandAddFriendLocator = RegisterContainerLocator("CommandAddFriend", m => m.Initialize("CommandAddFriend", ref m._CommandAddFriend, ref _CommandAddFriendLocator,
-              model =>
-              {
-                  var state = "CommandAddFriend";
-                  var commandId = "CommandAddFriend";
-                  var vm = CastToCurrentType(model);
-                  var cmd = new ReactiveCommand(canExecute: true) { ViewModel = model };
-
-                  cmd.DoExecuteUIBusyTask(
-                          vm,
-                          async e =>
-                          {
-                              //Todo: Add AddFriend logic here, or
-                              await MVVMSidekick.Utilities.TaskExHelper.Yield();
-                              ServiceLocator.Instance.Resolve<DataService>()
-                                 .InsertFriend();
-                              
-                          })
-                      .DoNotifyDefaultEventRouter(vm, commandId)
-                      .Subscribe()
-                      .DisposeWith(vm);
-
-                  var cmdmdl = cmd.CreateCommandModel(state);
-
-                  cmdmdl.ListenToIsUIBusy(
-                      model: vm,
-                      canExecuteWhenBusy: false);
-                  return cmdmdl;
-              }));
-        #endregion
-
-
-        /// <summary>
-        /// 获取好友列表，用于测试
-        /// </summary>
-        public CommandModel<ReactiveCommand, String> CommandGetFriends
-        {
-            get { return _CommandGetFriendsLocator(this).Value; }
-            set { _CommandGetFriendsLocator(this).SetValueAndTryNotify(value); }
-        }
-        #region Property CommandModel<ReactiveCommand, String> CommandGetFriends Setup               
-        protected Property<CommandModel<ReactiveCommand, String>> _CommandGetFriends = new Property<CommandModel<ReactiveCommand, String>> { LocatorFunc = _CommandGetFriendsLocator };
-        static Func<BindableBase, ValueContainer<CommandModel<ReactiveCommand, String>>> _CommandGetFriendsLocator = RegisterContainerLocator("CommandGetFriends", m => m.Initialize("CommandGetFriends", ref m._CommandGetFriends, ref _CommandGetFriendsLocator,
-              model =>
-              {
-
-                  var state = "CommandGetFriends";
-                  var commandId = "CommandGetFriends";
-                  var vm = CastToCurrentType(model);
-                  var cmd = new ReactiveCommand(canExecute: true) { ViewModel = model };
-
-                  cmd.DoExecuteUIBusyTask(
-                          vm,
-                          async e =>
-                          {
-                              //Todo: Add GetFriends logic here, or
-                              await MVVMSidekick.Utilities.TaskExHelper.Yield();
-                              StringBuilder sb = new StringBuilder();
-                              DataService dataService = ServiceLocator.Instance.Resolve<DataService>();
-
-                              List<Friend> list = dataService.GetAllFriends();
-                              foreach (Friend item in list)
-                              {
-                                  sb.AppendLine($"{item.idFriend} {item.nameFriend} {item.nickNameFriend} ");
-                              }
-                              await new Windows.UI.Popups.MessageDialog(sb.ToString()).ShowAsync();
-                          })
-                      .DoNotifyDefaultEventRouter(vm, commandId)
-                      .Subscribe()
-                      .DisposeWith(vm);
-
-                  var cmdmdl = cmd.CreateCommandModel(state);
-
-                  cmdmdl.ListenToIsUIBusy(
-                      model: vm,
-                      canExecuteWhenBusy: false);
-                  return cmdmdl;
-              }));
-        #endregion
-
-
-        /// <summary>
-        /// 初始化表单，用于测试，实际功能已经被移到MainPage
-        /// </summary>
-        public CommandModel<ReactiveCommand, String> CommandTableInit
-        {
-            get { return _CommandTableInitLocator(this).Value; }
-            set { _CommandTableInitLocator(this).SetValueAndTryNotify(value); }
-        }
-        #region Property CommandModel<ReactiveCommand, String> CommandTableInit Setup               
-        protected Property<CommandModel<ReactiveCommand, String>> _CommandTableInit = new Property<CommandModel<ReactiveCommand, String>> { LocatorFunc = _CommandTableInitLocator };
-        static Func<BindableBase, ValueContainer<CommandModel<ReactiveCommand, String>>> _CommandTableInitLocator = RegisterContainerLocator("CommandTableInit", m => m.Initialize("CommandTableInit", ref m._CommandTableInit, ref _CommandTableInitLocator,
-              model =>
-              {
-                  var state = "CommandTableInit";
-                  var commandId = "CommandTableInit";
-                  var vm = CastToCurrentType(model);
-                  var cmd = new ReactiveCommand(canExecute: true) { ViewModel = model };
-
-                  cmd.DoExecuteUIBusyTask(
-                         vm,
-                         async e =>
-                         {
-                             //Todo: Add SomeCommand logic here, or
-                             await MVVMSidekick.Utilities.TaskExHelper.Yield();
-                             ServiceLocator.Instance.Resolve<DbContext>().initTableDialog();
-                             ServiceLocator.Instance.Resolve<DbContext>().initTableFriend();
-
-                         })
-                     .DoNotifyDefaultEventRouter(vm, commandId)
-                     .Subscribe()
-                     .DisposeWith(vm);
-                  
-
-                  
-                  var cmdmdl = cmd.CreateCommandModel(state);
-
-                  cmdmdl.ListenToIsUIBusy(
-                      model: vm,
-                      canExecuteWhenBusy: false);
-                  return cmdmdl;
-              }));
-        #endregion
 
         /// <summary>
         /// 选中Friend后查看他的Dialogs
@@ -271,8 +146,8 @@ namespace NavDemo.ViewModels
                             await MVVMSidekick.Utilities.TaskExHelper.Yield();
                               if(vm.chosenFriend.nameFriend != null)
                               {
-                                  DataService dataService = ServiceLocator.Instance.Resolve<DataService>();
-                                  List<Dialog> list = dataService.GetDialogs(vm.chosenFriend.idFriend);
+                                  
+                                  List<Dialog> list = vm._dataService.GetDialogs(vm.chosenFriend.idFriend);
                                   vm.listDialog = list;
                               }
                              
@@ -317,8 +192,8 @@ namespace NavDemo.ViewModels
                               //Todo: Add SubmitDate logic here, or
                               if(vm.dateText != null)
                               {
-                                  DataService dataService = ServiceLocator.Instance.Resolve<DataService>();
-                                  List<Dialog> list = dataService.GetDialogs(vm.dateText);
+                                 
+                                  List<Dialog> list = vm._dataService.GetDialogs(vm.dateText);
                                   vm.listDialog = list;
                               }
                              
@@ -470,17 +345,20 @@ namespace NavDemo.ViewModels
                 DialogChosenCommand();
                 flag = true;
             }
-           
+
+            //获取文件服务实例
+            _fileService = ServiceLocator.Instance.Resolve<FileService>();
+            //获取数据库操作服务实例
+            _dataService = ServiceLocator.Instance.Resolve<DataService>();
+            //获取搜索框建议服务实例
+            _suggestService = ServiceLocator.Instance.Resolve<SuggestService>();
+
             chosenFriend = new Friend();
 
-            //获取数据库服务
-            DataService dataService = ServiceLocator.Instance.Resolve<DataService>();
-            //获取suggest服务
-            suggest = ServiceLocator.Instance.Resolve<SuggestService>();
             //初始化suggst项目总体
-            suggest.init(dataService.GetAllFriends());
+            _suggestService.init(_dataService.GetAllFriends());
             //初始化suggest下拉表单
-            friendItemList = dataService.GetAllFriends();
+            friendItemList = _dataService.GetAllFriends();
 
             return base.OnBindedViewLoad(view);
         }
@@ -527,7 +405,7 @@ namespace NavDemo.ViewModels
                      .Subscribe(
                           e =>
                          {
-                             friendItemList =  ServiceLocator.Instance.Resolve<SuggestService>().Suggest(suggestBoxText); 
+                             friendItemList =  _suggestService.Suggest(suggestBoxText); 
                          }
                      ).DisposeWith(this);
         }
