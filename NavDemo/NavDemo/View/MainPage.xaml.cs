@@ -55,11 +55,11 @@ namespace NavDemo
             });
             StrongTypeViewModel = this.ViewModel as MainPage_Model;
 
-            /*
+            
             var coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
             coreTitleBar.ExtendViewIntoTitleBar = true;
             initializeFrostedGlass(GlassHost);
-            */
+            initializeFrostedGlass(GlassHost1);
             ApplicationView view = ApplicationView.GetForCurrentView();
             //将标题栏的三个键背景设为透明
             view.TitleBar.ButtonBackgroundColor = Colors.Transparent;

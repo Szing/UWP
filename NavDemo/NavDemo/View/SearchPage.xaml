@@ -27,9 +27,14 @@
                 <EntranceThemeTransition/>
             </TransitionCollection>
         </Grid.ChildrenTransitions>
+        
         <Grid.Background>
-            <ImageBrush ImageSource="/Assets/background.jpg" Opacity="0.8" Stretch="UniformToFill" ></ImageBrush>
+            <ImageBrush ImageSource="/Assets/background.jpg"  Stretch="UniformToFill" ></ImageBrush>
         </Grid.Background>
+        
+        
+        
+        
         <!--<Button Content="write"  HorizontalAlignment="Left" Margin="-41,233,0,0" VerticalAlignment="Top" Command="{Binding CommandAddFriend}"/>
         <Button Content="read" HorizontalAlignment="Left" Margin="24,233,0,0" VerticalAlignment="Top" Command="{Binding CommandGetFriends}"/>
         <Button Content="init" HorizontalAlignment="Left" Margin="89,233,0,0" VerticalAlignment="Top" Command="{Binding CommandTableInit}"/>

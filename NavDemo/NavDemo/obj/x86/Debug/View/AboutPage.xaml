@@ -17,10 +17,13 @@
         <vm:AboutPage_Model x:Key="DesignVM"/>
     </Page.Resources>
 
-    <Grid  DataContext="{StaticResource DesignVM}">
+    <Grid  DataContext="{StaticResource DesignVM}" Background="#FFE6F3F2" Opacity="0.8">
+        <!--
         <Grid.Background>
-            <ImageBrush Stretch="UniformToFill" ImageSource="/Assets/dushuren.png" Opacity="1"/>
+            <ImageBrush Stretch="UniformToFill" ImageSource="/Assets/dushuren.png" Opacity="0.8"/>
         </Grid.Background>
+        -->
+        
         <Grid.ChildrenTransitions>
             <TransitionCollection>
                 <EntranceThemeTransition/>
@@ -78,8 +81,8 @@
         -->
 
 
-        <TextBlock x:ConnectionId='2' Name="timeTextBlock" Grid.Row="1" Grid.Column="1"  FontSize="25"  HorizontalAlignment="Left"  Text="{Binding currentDialog.timeDialog}" TextWrapping="Wrap" VerticalAlignment="Center" Height="28" Width="129"/>
-        <TextBlock x:ConnectionId='3' Name="describeTextBlock" Grid.Row="3" Grid.Column="1" FontSize="25"  HorizontalAlignment="Left"  Text="{Binding currentDialog.describeDialog}" TextWrapping="Wrap" VerticalAlignment="Center" Height="61" Width="358"/>
+        <TextBlock x:ConnectionId='2' Foreground="White" Name="timeTextBlock" Grid.Row="1" Grid.Column="1"  FontSize="25"  HorizontalAlignment="Left"  Text="{Binding currentDialog.timeDialog}" TextWrapping="Wrap" VerticalAlignment="Center" Height="28" Width="129"/>
+        <TextBlock x:ConnectionId='3' Foreground="White" Name="describeTextBlock" Grid.Row="3" Grid.Column="1" FontSize="25"  HorizontalAlignment="Left"  Text="{Binding currentDialog.describeDialog}" TextWrapping="Wrap" VerticalAlignment="Center" Height="61" Width="358"/>
         <Button  Style="{StaticResource ImageButtonStyle}" Grid.Row="4" Grid.Column="0" Content="LastPage" HorizontalAlignment="Center"  VerticalAlignment="Center" Command="{Binding CommandToLastPage}" CommandParameter="{Binding ElementName=editor}" Height="97" Width="84" >
             <Button.Background>
                 <ImageBrush ImageSource="/Assets/b.png" Stretch="Fill"/>

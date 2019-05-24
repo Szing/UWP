@@ -112,6 +112,14 @@ namespace NavDemo.ViewModels
         static Func<BindableBase, ValueContainer<string>> _listViewBackGroundLocator = RegisterContainerLocator(nameof(listViewBackGround), m => m.Initialize(nameof(listViewBackGround), ref m._listViewBackGround, ref _listViewBackGroundLocator, () => default(string)));
         #endregion
 
+
+        public double listViewOpacity { get => _listViewOpacityLocator(this).Value; set => _listViewOpacityLocator(this).SetValueAndTryNotify(value); }
+        #region Property double listViewOpacity Setup        
+        protected Property<double> _listViewOpacity = new Property<double> { LocatorFunc = _listViewOpacityLocator };
+        static Func<BindableBase, ValueContainer<double>> _listViewOpacityLocator = RegisterContainerLocator(nameof(listViewOpacity), m => m.Initialize(nameof(listViewOpacity), ref m._listViewOpacity, ref _listViewOpacityLocator, () => default(double)));
+        #endregion
+
+
         /// <summary>
         /// 纵向拉伸跳转
         /// </summary>
@@ -271,12 +279,15 @@ namespace NavDemo.ViewModels
                 this.RegisterCommand();
                 this.isLoaded = true;
             }
+            //初始化导航栏背景
+            listViewBackGround = "#4C1E90FF";
+            //初始化导航栏
+            listViewOpacity = 1.0;
 
             //获取数据库连接建表服务实例
             _dbContextService = ServiceLocator.Instance.Resolve<DbContext>();
 
-            //初始化ListView背景
-            listViewBackGround = "/Assets/background1.png";
+
             //建立Friend的数据表单
             _dbContextService.initTableFriend();
             //建立Dialog的数据表单
@@ -330,24 +341,28 @@ namespace NavDemo.ViewModels
                                      case "首页":
                                          this.IsPaneOpen = false;
                                          indexPage = 1;
-                                         listViewBackGround = "/Assets/background1.png";
+                                         listViewBackGround = "#4C1E90FF";
                                          await StageManager["frameMain"].Show(ViewModelLocator< HomePage_Model>.Instance.Resolve());
                                          break;
                                      case "搜索":
                                          this.IsPaneOpen = false;
                                          indexPage = 2;
-                                         listViewBackGround = "/Assets/dushuren.png";
+                                         listViewBackGround = "White";
+                                         listViewOpacity = 0.9;
                                          await StageManager["frameMain"].Show(ViewModelLocator<SearchPage_Model>.Instance.Resolve());
                                          break;
                                      case "好友中心":
                                          this.IsPaneOpen = false;
                                          indexPage = 3;
-                                         listViewBackGround = "/Assets/mozi.png";
+                                         listViewBackGround = "White";
+                                         listViewOpacity = 0.9;
                                          await StageManager["frameMain"].Show(ViewModelLocator<ShowFriendPage_Model>.Instance.Resolve());
                                          break;
                                      case "添加好友":
                                          this.IsPaneOpen = false;
                                          indexPage = 4;
+                                         listViewBackGround = "White";
+                                         listViewOpacity = 0.9;
                                          await StageManager["frameMain"].Show(ViewModelLocator<AddFriendPage_Model>.Instance.Resolve());
                                          break;
                                      default:

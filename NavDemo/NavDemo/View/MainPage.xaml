@@ -45,26 +45,27 @@
             <ImageBrush Stretch="UniformToFill" ImageSource="/Assets/background.jpg"/>
         </Grid.Background>
         -->
-        
-        
-        
-        <!-- Top-level navigation menu + app content -->
-        <SplitView x:Name="RootSplitView" IsPaneOpen="{Binding IsPaneOpen,Mode=TwoWay}" 
+
+        <Grid>
+
+            <!-- Top-level navigation menu + app content -->
+            <SplitView x:Name="RootSplitView" IsPaneOpen="{Binding IsPaneOpen,Mode=TwoWay}" 
                    DisplayMode="CompactInline"
                    OpenPaneLength="256"
                    IsTabStop="False"
                    CompactPaneLength="48">
 
-            <SplitView.Pane>
-
-                <ListView 
+                <SplitView.Pane>
+                    <Grid>
+                        <Grid Name="GlassHost"></Grid>
+                        <Grid Background="{Binding listViewBackGround}" Opacity="{Binding listViewOpacity}" >
+                            <ListView    
                           Margin="0,32,0,0" ItemsSource="{Binding NavMenuItemList}"
                           ItemTemplate="{StaticResource NavMenuItemTemplate}"
-                          ItemContainerStyle="{StaticResource NavMenuItemContainerStyle}" Opacity="0.7"
+                          ItemContainerStyle="{StaticResource NavMenuItemContainerStyle}" 
                           >
-
-
-                    <ListView.Background >
+                                <!--
+                     <ListView.Background>
                         <ImageBrush ImageSource="{Binding listViewBackGround}" Stretch="UniformToFill" Opacity="0.4">
                             <ImageBrush.Transform>
                                 <CompositeTransform TranslateX="1"/>
@@ -74,41 +75,52 @@
                             </ImageBrush.RelativeTransform>
                         </ImageBrush>
                     </ListView.Background>
+                    -->
+                            </ListView>
+                        </Grid>
+                    </Grid>
+                </SplitView.Pane>
+                <SplitView.Content>
+                    <Grid>
+                        <Grid Name="GlassHost1"></Grid>
+                        <Frame x:Name="mainFrame" mvvm:StageManager.Beacon="frameMain" x:FieldModifier="public" Background="#66178CFD" Opacity="0.9">
+                            <Grid>
+                                <canvas:CanvasAnimatedControl x:Name="canvas"   Update="Canvas_OnUpdate" Draw="Canvas_Draw" >
+                                </canvas:CanvasAnimatedControl>
+                                <TextBlock Text="Do you remember" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="80" Foreground="White"  Height="160"  ></TextBlock>
+                               
+                            </Grid>
 
+                        </Frame>
 
-                </ListView>
+                    </Grid>
 
-            </SplitView.Pane>
+                </SplitView.Content>
+            </SplitView>
 
-            <SplitView.Content>
-                <Frame x:Name="mainFrame" mvvm:StageManager.Beacon="frameMain" x:FieldModifier="public">
-                    <canvas:CanvasAnimatedControl x:Name="canvas"   Update="Canvas_OnUpdate" Draw="Canvas_Draw" >
-                    </canvas:CanvasAnimatedControl>
-
-                </Frame>
-            </SplitView.Content>
-
-        </SplitView>
-
-        <!-- Declared last to have it rendered above everything else, but it needs to be the first item in the tab sequence. -->
-        <ToggleButton x:Name="TogglePaneButton"
+            <!-- Declared last to have it rendered above everything else, but it needs to be the first item in the tab sequence. -->
+            <ToggleButton x:Name="TogglePaneButton"
                       TabIndex="1"
                       Style="{StaticResource SplitViewTogglePaneButtonStyle}"
                       IsChecked="{Binding IsPaneOpen, ElementName=RootSplitView, Mode=TwoWay}"
                       AutomationProperties.Name="Menu"
                       ToolTipService.ToolTip="Menu" >
 
-            <ToggleButton.Background>
-                <ImageBrush ImageSource="/Assets/dushuren.png" Stretch="UniformToFill" Opacity="1">
-                    <ImageBrush.Transform>
-                        <CompositeTransform TranslateX="-0.1"/>
-                    </ImageBrush.Transform>
-                    <ImageBrush.RelativeTransform>
-                        <CompositeTransform CenterY="0.5" CenterX="0.5" TranslateX="1.1" TranslateY="0"/>
-                    </ImageBrush.RelativeTransform>
-                </ImageBrush>
-            </ToggleButton.Background>
-        </ToggleButton>
-        
+                <ToggleButton.Background>
+                    <ImageBrush ImageSource="/Assets/dushuren.png" Stretch="UniformToFill" Opacity="1">
+                        <ImageBrush.Transform>
+                            <CompositeTransform TranslateX="-0.1"/>
+                        </ImageBrush.Transform>
+                        <ImageBrush.RelativeTransform>
+                            <CompositeTransform CenterY="0.5" CenterX="0.5" TranslateX="1.1" TranslateY="0"/>
+                        </ImageBrush.RelativeTransform>
+                    </ImageBrush>
+                </ToggleButton.Background>
+            </ToggleButton>
+        </Grid>
+
+
+
+
     </Grid>
 </mvvm:MVVMPage>

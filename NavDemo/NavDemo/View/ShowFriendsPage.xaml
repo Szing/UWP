@@ -19,7 +19,7 @@
     <Grid  DataContext="{StaticResource DesignVM}" 
           AllowDrop="True" DragOver="Grid_DragOver" Drop="Grid_Drop" >
         <Grid.Background>
-            <ImageBrush ImageSource="/Assets/background1.png" Stretch="UniformToFill" Opacity="0.7"/>
+            <ImageBrush ImageSource="/Assets/zijincheng.jpg" Stretch="UniformToFill" Opacity="1"/>
         </Grid.Background>
         <Grid.ChildrenTransitions>
             <TransitionCollection>
@@ -38,7 +38,7 @@
             <RowDefinition Height="3*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0">
+        <Grid Grid.Row="0" >
 
             <TextBlock FontSize="30" FontFamily="YouYuan" Style="{StaticResource SubtitleTextBlockStyle}" HorizontalAlignment="Left" VerticalAlignment="Center">好友名片</TextBlock>
             <!--
@@ -119,6 +119,6 @@
 
 
         </Grid>
-        <Button Grid.Row="5" Width="70" Height="70" Command="{Binding CommandInsertFriend}" Content="InsertFriend"/>
+       
     </Grid> 
 </mvvm:MVVMPage>

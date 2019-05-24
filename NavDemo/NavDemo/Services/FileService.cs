@@ -184,10 +184,11 @@ namespace NavDemo.Services
             }
             
            
-            await new Windows.UI.Popups.MessageDialog(fileName).ShowAsync();
+            
             if (file != null)
             {
                 System.IO.File.WriteAllText(file.Path, content);
+                await new Windows.UI.Popups.MessageDialog("添加成功").ShowAsync();
             }
 
         }

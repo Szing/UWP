@@ -20,10 +20,11 @@
     </mvvm:MVVMPage.Resources>
 
     <Grid  DataContext="{StaticResource DesignVM}" >
+
         <!--
          <Grid.Background>
-            <ImageBrush Stretch="UniformToFill" ImageSource="/Assets/list.png" Opacity="0.3"/>
-        </Grid.Background>
+                <ImageBrush Stretch="UniformToFill" ImageSource="/Assets/list.png" Opacity="0.9"/>
+            </Grid.Background>
         -->
        
         
@@ -71,7 +72,8 @@
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
         <Grid Name="GlassHost" ></Grid>
-        <Grid Background="AliceBlue" Opacity="0.9">
+        <Grid Background="#661E90FF" Opacity="1">
+           
             <Grid.RowDefinitions>
                 <RowDefinition Height="0.2*"></RowDefinition>
                 <RowDefinition Height="Auto"></RowDefinition>
@@ -106,9 +108,9 @@
                         </Custom1:EventTriggerBehavior>
                     </Custom:Interaction.Behaviors>
                 </CalendarDatePicker>
-                <TextBlock Text="时间：" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="25" Margin="0,0,570,0"/>
+                <TextBlock Text="时间：" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="25" Margin="0,0,570,0" Foreground="White"/>
 
-                <TextBlock Text="简述：" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,10,570,0" FontSize="25"/>
+                <TextBlock Text="简述：" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,10,570,0" FontSize="25" Foreground="White"/>
                 <TextBox Grid.Row="1" HorizontalAlignment="Center" Text="{Binding currentDialog.describeDialog, Mode=TwoWay}"  Margin="0,10,0,0"  TextWrapping="Wrap" VerticalAlignment="Center" Height="120" Width="358" />
             </Grid>
             <Button Grid.Row="2" 
@@ -116,7 +118,7 @@
                 Content="︽" 
                 VerticalAlignment="Top"  
                 HorizontalAlignment="Stretch" 
-                Name="btnHide" 
+                Name="btnHide" Foreground="White"
                 Click="BtnHide_Click" Background="{x:Null}" Opacity="0.5"/>
             <RelativePanel  Name="RelativePanel" Grid.Row="3" Grid.Column="1"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Margin="0,0,0,0">
                 <RelativePanel.Resources>
@@ -237,7 +239,7 @@
                      RelativePanel.AlignRightWithPanel="True" 
                      RelativePanel.AlignBottomWithPanel="True"
                      ap:RtfText.RichText ="{Binding richEditBoxContent,Mode=TwoWay}"
-                     TextChanged="Editor_TextChanged"
+                     
                      
                       >
                     <FlyoutBase.AttachedFlyout>
@@ -273,6 +275,7 @@
                 VerticalAlignment="Top"  
                 HorizontalAlignment="Stretch" 
                 Name="btnHide1" 
+                    Foreground="White"
                 Click="BtnHide1_Click" Background="{x:Null}" Opacity="0.5"/>
             <Grid Grid.Row="5" x:Name="detailGrid1" Margin="0,0,0,0" Grid.Column="1">
                 <Grid.RowDefinitions>
@@ -293,7 +296,7 @@
                 </AutoSuggestBox>
                 <!--<Button x:Name="ImageButton" Content="Button1" HorizontalAlignment="Left" Margin="1331,598,0,0" VerticalAlignment="Top" Height="57" Width="107" Click="Button_Click"/>
         <Image x:Name="Img" HorizontalAlignment="Left" Height="198" Margin="1114,429,0,0" VerticalAlignment="Top" Width="212"/><!-->
-                <Button  Grid.Row="0" Content="InsertDialog" HorizontalAlignment="Center"  VerticalAlignment="Center" Command="{Binding CommandInsertDialog}" Height="60" Width="128" CommandParameter="{Binding ElementName=editor}" Margin="505,0,0,0" Opacity="0.8"/>
+                <Button Foreground="White" Grid.Row="0" Content="InsertDialog" HorizontalAlignment="Center"  VerticalAlignment="Center" Click="InsertButton_Click"  Height="60" Width="128"  Margin="505,0,0,0" Opacity="0.8"/>
             </Grid>
         </Grid>
        

@@ -47,6 +47,7 @@ namespace NavDemo
     /// </summary>
     public sealed partial class HomePage : MVVMPage
     {
+        enum CommandKind { Insert = 0};
 
         public HomePage()
             : this(null)
@@ -64,8 +65,6 @@ namespace NavDemo
             });
             StrongTypeViewModel = this.ViewModel as HomePage_Model;
 
-            var coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
-            coreTitleBar.ExtendViewIntoTitleBar = true;
             initializeFrostedGlass(GlassHost);
         }
 
@@ -361,30 +360,43 @@ namespace NavDemo
        
 
         
-        int i = 0;
+        
         string old = "";
+        
         /// <summary>
-        /// RichEditBox输入改变唤醒附加属性
+        /// 添加日志事件
         /// </summary>
-        /// <param name="sender">RichEditBox</param>
-        /// <param name="e">事件参数</param>
-        private void Editor_TextChanged(object sender, RoutedEventArgs e)
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void InsertButton_Click(object sender, RoutedEventArgs e)
         {
-            if (i == 0)
-            {
-                ++i;
-                return;
-            }
-            
-            RichEditBox edit = sender as RichEditBox;
             string str = "";
-            edit.Document.GetText(TextGetOptions.FormatRtf, out str);
-            if(str != old)
+            editor.Document.GetText(TextGetOptions.FormatRtf, out str);
+            if (str != old)
             {
-                RtfText.SetRichText(edit, str);
+                RtfText.SetRichText(editor, str);
                 old = str;
             }
-                 
+            ShowMessagePopupWindow("您确定要添加该日志吗", CommandKind.Insert);
+        }
+
+        /// <summary>
+        /// 显示确定取消菜单
+        /// </summary>
+        /// <param name="str">提示字段</param>
+        /// <param name="mode">确定后运行的模式</param>
+        private void ShowMessagePopupWindow(string str, CommandKind mode)
+        {
+            var msgPopup = new Resources.MessagePopupWindow(str);
+            switch (mode)
+            {
+                case CommandKind.Insert:
+                    msgPopup.LeftClick += (s, e) => { StrongTypeViewModel.CommandInsertDialog.Execute(null); };
+                    break;
+            }
+
+            msgPopup.RightClick += (s, e) => { };
+            msgPopup.ShowWIndow();
         }
     }
 }
